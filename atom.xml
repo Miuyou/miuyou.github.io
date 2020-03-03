@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://miuyou.github.io/</id>
-    <title>梦墟</title>
-    <updated>2020-03-03T04:46:23.860Z</updated>
+    <title>春待ち</title>
+    <updated>2020-03-03T04:49:27.516Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://miuyou.github.io/"/>
     <link rel="self" href="https://miuyou.github.io/atom.xml"/>
+    <subtitle>开端顺利 自这天起 离乡背井 等候春息  身处何地 等候春息</subtitle>
     <logo>https://miuyou.github.io/images/avatar.png</logo>
     <icon>https://miuyou.github.io/favicon.ico</icon>
-    <rights>All rights reserved 2020, 梦墟</rights>
+    <rights>All rights reserved 2020, 春待ち</rights>
     <entry>
         <title type="html"><![CDATA[欸???]]></title>
         <id>https://miuyou.github.io/post/ai/</id>
