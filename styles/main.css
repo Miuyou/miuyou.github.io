@@ -1989,11 +1989,11 @@ body {
       color: #74c0fc;
       border-bottom-color: #74c0fc;
     }.header {
-        opacity: 0.5;
+        opacity: 0.8;
         background-color: #fff;
       }
       .muse.section-layout {
-        opacity: 0.5;
+        opacity: 0.8;
       }
         .header-box {
           background-image: url(\media\images\custom-headerImg.jpg);
