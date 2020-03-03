@@ -1948,11 +1948,15 @@ body {
     .next-md-body a:hover, .friends-box a:hover {
       color: #222;
       border-bottom-color: #222;
-    }
-      .nav-item a {
-        color:  #555;
+    }.nav-item a {
+        color: #555;
+      }
+      .nav-item-active a {
+        color: #555;
+        border-bottom: 1px solid #555 !important;
       }.nav-item a:hover {
         color: #222;
+        border-bottom: 1px solid #222 !important;
       }.nav-item-active {
       background: #f9f9f9;
     }
