@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://miuyou.github.io/</id>
-    <title>Gridea</title>
-    <updated>2020-03-03T04:16:08.675Z</updated>
+    <title>梦墟</title>
+    <updated>2020-03-03T04:19:15.267Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://miuyou.github.io/"/>
     <link rel="self" href="https://miuyou.github.io/atom.xml"/>
-    <subtitle>温故而知新</subtitle>
     <logo>https://miuyou.github.io/images/avatar.png</logo>
     <icon>https://miuyou.github.io/favicon.ico</icon>
-    <rights>All rights reserved 2020, Gridea</rights>
+    <rights>All rights reserved 2020, 梦墟</rights>
     <entry>
         <title type="html"><![CDATA[欸???]]></title>
         <id>https://miuyou.github.io/post/ai/</id>
