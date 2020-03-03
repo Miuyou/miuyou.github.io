@@ -1971,23 +1971,23 @@ body {
       color: #fff;
       border-bottom-color: #fff;
     }.active-current > a {
-      color: #fc6423 !important;
-      border-bottom-color: #fc6423 !important;
+      color: #74c0fc !important;
+      border-bottom-color: #74c0fc !important;
     }
     .sidebar-title-active {
-      color: #fc6423 !important;
-      border-bottom-color: #fc6423 !important;
+      color: #74c0fc;
+      border-bottom-color: #74c0fc;
     }
     .sidebar-title-item:hover {
-      color: #fc6423 !important;
+      color: #74c0fc !important;
     }
     .active-show > a {
-      color: #fc6423;
-      border-bottom-color: #fc6423;
+      color: #74c0fc;
+      border-bottom-color: #74c0fc;
     }
     .active-hidden > a {
-      color: #fc6423;
-      border-bottom-color: #fc6423;
+      color: #74c0fc;
+      border-bottom-color: #74c0fc;
     }
       .site-meta {
         background: #000 !important;
