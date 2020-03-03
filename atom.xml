@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://miuyou.github.io/</id>
     <title>春待ち</title>
-    <updated>2020-03-03T09:17:15.803Z</updated>
+    <updated>2020-03-03T09:31:24.295Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://miuyou.github.io/"/>
     <link rel="self" href="https://miuyou.github.io/atom.xml"/>
@@ -11,12 +11,97 @@
     <icon>https://miuyou.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 春待ち</rights>
     <entry>
-        <title type="html"><![CDATA[欸???]]></title>
-        <id>https://miuyou.github.io/post/ai/</id>
-        <link href="https://miuyou.github.io/post/ai/">
+        <title type="html"><![CDATA[省选补题计划qwq]]></title>
+        <id>https://miuyou.github.io/post/sheng-xuan-bu-ti-ji-hua-qwq/</id>
+        <link href="https://miuyou.github.io/post/sheng-xuan-bu-ti-ji-hua-qwq/">
         </link>
-        <updated>2020-03-03T03:47:56.000Z</updated>
-        <content type="html"><![CDATA[<p>qwq</p>
+        <updated>2020-03-03T09:27:41.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="因为窝太弱了所以决定把省选题都刷了">因为窝太弱了,所以决定把省选题都刷了!</h2>
+<h2 id="qwq">qwq</h2>
+<h2 id="加油">加油!</h2>
+<h2 id="哪怕稍微不那么弱也好啊qwq">哪怕稍微不那么弱也好啊qwq</h2>
+<h2 id="下面就是写过的题啦qwq">下面就是写过的题啦qwq</h2>
+<ul>
+<li><a href="https://www.luogu.com.cn/problem/P1110">P1110 [ZJOI2007]报表统计</a><br>
+(完成)使用mulbiset过平衡树太棒啦(๑•̀ㅂ•́)و✧</li>
+<li><a href="https://www.luogu.com.cn/problem/P1128">P1128 [HNOI2001]求正整数</a></li>
+</ul>
+<p>因为做过反素数,所以知道一个数字的因子个数该怎么算,而这题要求这个的逆运算,因为之前是搜索然后筛选,这次要逆向的话似乎也可以搜索,但数据范围不允许这种玄学算法通过,可以考虑dp,似乎是n方的,因为数字过大所以要转化转移方程,因为涉及到a的b次方,可以取对数优化</p>
+<ul>
+<li><a href="https://www.luogu.com.cn/problem/P1129">P1129 [ZJOI2007]矩阵游戏</a></li>
+</ul>
+<p>转换一下模型,可以发现是行对列匹配,转换成最大流解决</p>
+<ul>
+<li><a href="https://www.luogu.com.cn/problem/P1131">P1131 [ZJOI2007]时态同步</a><br>
+简单的树形<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mi>p</mi></mrow><annotation encoding="application/x-tex">dp</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">p</span></span></span></span></li>
+<li><a href="https://www.luogu.com.cn/problem/P1169">P1169 [ZJOI2007]棋盘制作</a><br>
+正方形悬线模板秒了,长方形要改一下,考虑从上向下转移,左右同时维护</li>
+<li><a href="https://www.luogu.com.cn/problem/P1197">P1197 [JSOI2008]星球大战</a><br>
+正难则反</li>
+<li><a href="https://www.luogu.com.cn/problem/P1198">P1198 [JSOI2008]最大数</a><br>
+动态开点线段树</li>
+<li><a href="https://www.luogu.com.cn/problem/P1291">P1291 [SHOI2002]百事世界杯之旅</a><br>
+概率期望入门</li>
+</ul>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="https://www.luogu.com.cn/problem/P1295">P1295 [TJOI2011]书架</a><br>
+非常有趣的单调队列+双端队列优化dp,论如何动态维护最大值,O(1)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><a href="https://www.luogu.com.cn/problem/P1337">P1337 [JSOI2004]平衡点 / 吊打XXX</a><br>
+模拟退火,自创多种随机化(单种过不了</li>
+<li><a href="https://www.luogu.com.cn/problem/P1377">P1377 [TJOI2011]树的序</a><br>
+欸,思维题</li>
+<li><a href="https://www.luogu.com.cn/problem/P1418">P1418 [TJOI2011]构造矩阵</a><br>
+网络流有趣的题目</li>
+<li><a href="https://www.luogu.com.cn/problem/P1434">P1434 [SHOI2002]滑雪</a><br>
+入门水题,注意边界</li>
+<li><a href="https://www.luogu.com.cn/problem/P1437">P1437 [HNOI2004]敲砖块</a><br>
+还不错的dp,写写写就对了,考虑合理运用边界来进行跳跃式转移</li>
+<li><a href="https://www.luogu.com.cn/problem/P1446">P1446 [HNOI2008]Cards</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P1450">P1450 [HAOI2008]硬币购物</a><br>
+憨批榕树原理dp</li>
+<li><a href="https://www.luogu.com.cn/problem/P1463">P1463 [POI2002][HAOI2007]反素数</a><br>
+挺不错的搜索</li>
+<li><a href="https://www.luogu.com.cn/problem/P1627">P1627 [CQOI2009]中位数</a><br>
+弱智题,开个桶记录一下就好了</li>
+<li><a href="https://www.luogu.com.cn/problem/P1640">P1640 [SCOI2010]连续攻击游戏</a><br>
+比较有趣的并查集</li>
+<li><a href="https://www.luogu.com.cn/problem/P1641">P1641 [SCOI2010]生成字符串</a><br>
+组合计数基础</li>
+<li><a href="https://www.luogu.com.cn/problem/P1772">P1772 [ZJOI2006]物流运输</a><br>
+dp+最短路</li>
+<li><a href="https://www.luogu.com.cn/problem/P1841">P1841 [JSOI2007]重要的城市</a><br>
+dij做n遍,在最短路中若一条最短边是唯一的则起点为重要城市</li>
+<li><a href="https://www.luogu.com.cn/problem/P1896">P1896 [SCOI2005]互不侵犯</a><br>
+设dp状态为第i行放了第j种方式总共z个,谔谔</li>
+<li><a href="https://www.luogu.com.cn/problem/P1972">P1972 [SDOI2009]HH的项链</a><br>
+树状数组离线搞,主席树在线</li>
+<li><a href="https://www.luogu.com.cn/problem/P2023">P2023 [AHOI2009]维护序列</a><br>
+弱智低能题,就是一个模板(</li>
+<li><a href="https://www.luogu.com.cn/problem/P2039">P2039 [AHOI2009]跳棋</a><br>
+谔谔dp,谁知道讷</li>
+</ul>
+<ul>
+<li>
+<ul>
+<li><a href="https://www.luogu.com.cn/problem/P2051">P2051 [AHOI2009]中国象棋</a><br>
+神仙dp题</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><a href="https://www.luogu.com.cn/problem/P2053">P2053 [SCOI2007]修车</a><br>
+普通的费用流</li>
+</ul>
 ]]></content>
     </entry>
 </feed>
