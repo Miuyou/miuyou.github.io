@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://miuyou.github.io/</id>
     <title>春待ち</title>
-    <updated>2020-03-04T02:24:23.099Z</updated>
+    <updated>2020-03-04T04:11:01.762Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://miuyou.github.io/"/>
     <link rel="self" href="https://miuyou.github.io/atom.xml"/>
@@ -11,16 +11,52 @@
     <icon>https://miuyou.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 春待ち</rights>
     <entry>
+        <title type="html"><![CDATA[Miu_you の 网络流]]></title>
+        <id>https://miuyou.github.io/post/miu_you-no-wang-luo-liu/</id>
+        <link href="https://miuyou.github.io/post/miu_you-no-wang-luo-liu/">
+        </link>
+        <updated>2020-03-04T04:01:12.000Z</updated>
+        <summary type="html"><![CDATA[<p>这里就是放放可爱の网络流的题目和感想啦~~~~~~~</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>这里就是放放可爱の网络流的题目和感想啦~~~~~~~</p>
+<h2 id="-more-算法分析"><!-- more --><br>
+算法分析</h2>
+<p>咕了</p>
+<h2 id="建模技巧">建模技巧</h2>
+<p>1.大汇点大源点<br>
+这个东西大家都会吧,可以简化题目,若有多个入点或者出点可以给他们连在一起</p>
+<p>2.拆点<br>
+如果对于点本身有限制,就应当拆点,例如要求路径不相交,可以在点本身连一条边,限制流量</p>
+<p>3.求最小割<br>
+最小割==最大流</p>
+<h2 id="可爱の网络流们">可爱の网络流们</h2>
+<ul>
+<li><a href="https://www.luogu.com.cn/problem/P1251">P1251 餐巾计划问题</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P2053">P2053 [SCOI2007]修车</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P2055">P2055 [ZJOI2009]假期的宿舍</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P2754">P2754 [CTSC1999]家园 / 星际转移问题</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P2756">P2756 飞行员配对方案问题</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P2762">P2762 太空飞行计划问题</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P2763">P2763 试题库问题</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P2764">P2764 最小路径覆盖问题</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P2765">P2765 魔术球问题</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P2766">P2766 最长不下降子序列问题</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P2770">P2770 航空路线问题</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P2774">P2774 方格取数问题</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P4009">P4009 汽车加油行驶问题</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P4016">P4016 负载平衡问题</a></li>
+</ul>
+]]></content>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[                            省选补题计划]]></title>
         <id>https://miuyou.github.io/post/sheng-xuan-bu-ti-ji-hua-qwq/</id>
         <link href="https://miuyou.github.io/post/sheng-xuan-bu-ti-ji-hua-qwq/">
         </link>
         <updated>2020-03-03T09:27:41.000Z</updated>
-        <summary type="html"><![CDATA[<pre><code>因为窝太弱了,所以决定把省选题都刷了!
-</code></pre>
+        <summary type="html"><![CDATA[<p>因为窝太弱了,所以决定把省选题都刷了!</p>
 ]]></summary>
-        <content type="html"><![CDATA[<pre><code>因为窝太弱了,所以决定把省选题都刷了!
-</code></pre>
+        <content type="html"><![CDATA[<p>因为窝太弱了,所以决定把省选题都刷了!</p>
 <h2 id="-more-"><!-- more --></h2>
 <h2 id="qwq">qwq</h2>
 <h2 id="加油">加油!</h2>
