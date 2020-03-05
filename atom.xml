@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://miuyou.github.io/</id>
     <title>春待ち</title>
-    <updated>2020-03-05T09:01:30.489Z</updated>
+    <updated>2020-03-05T16:56:22.831Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://miuyou.github.io/"/>
     <link rel="self" href="https://miuyou.github.io/atom.xml"/>
@@ -154,6 +154,7 @@ int main(){
 如果对于点本身有限制,就应当拆点,例如要求路径不相交,可以在点本身连一条边,限制流量</p>
 <p>3.求最小割<br>
 最小割==最大流</p>
+<p>技巧过多,下面一叠</p>
 <h2 id="可爱の网络流们">可爱の网络流们</h2>
 <p>有趣の题</p>
 <ul>
@@ -162,31 +163,25 @@ int main(){
 有趣的题,依旧是比较难想.考虑每天要用<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">a_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>块干净餐巾,为了满足要求,那么最大流一定是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>∑</mo><mo>(</mo><msub><mi>a</mi><mi>i</mi></msub><mo>)</mo></mrow><annotation encoding="application/x-tex">\sum(a_i)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.00001em;vertical-align:-0.25001em;"></span><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>,同时这题有着许多限制果断拆点,分为白天和晚上,白天向ed连<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">a_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>做出边,但是为了获得旧餐巾从st连向夜晚一条<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">a_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>,费用都为0,然后st向白天连一条,每个晚上能洗的方式都连一条到结束时的白天久做完啦!</p>
 </li>
 <li>
-<p><a href="https://www.luogu.com.cn/problem/P2055">P2055 [ZJOI2009]假期的宿舍</a></p>
+<p><a href="https://www.luogu.com.cn/problem/P2055">P2055 [ZJOI2009]假期的宿舍</a><br>
+因为要让所有人都有床睡,那么每个要床的连ed,每个有床的连st,如果认识就连一条边.</p>
 </li>
 <li>
-<p><a href="https://www.luogu.com.cn/problem/P2754">P2754 [CTSC1999]家园 / 星际转移问题</a></p>
+<p><a href="https://www.luogu.com.cn/problem/P2754">P2754 [CTSC1999]家园 / 星际转移问题</a><br>
+因为这题实在难做,所以枚举时间加边,模拟每个车的运行,依次加边<br>
+每个时间点像上一个时间点再连一次就可以了</p>
 </li>
 <li>
-<p><a href="https://www.luogu.com.cn/problem/P2756">P2756 飞行员配对方案问题</a></p>
+<p><a href="https://www.luogu.com.cn/problem/P2764">P2764 最小路径覆盖问题</a><br>
+还算不错的题目,考虑到不存在任何边的时候,总路径数为n,那么要求的就是合并掉的路径数量,因为一个点只能被另一个点合并,所以点的流量为1,那么最大流求出合并路径数tot,输出<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>−</mo><mi>t</mi><mi>o</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">n-tot</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.61508em;vertical-align:0em;"></span><span class="mord mathdefault">t</span><span class="mord mathdefault">o</span><span class="mord mathdefault">t</span></span></span></span>即可</p>
 </li>
 <li>
-<p><a href="https://www.luogu.com.cn/problem/P2762">P2762 太空飞行计划问题</a></p>
+<p><a href="https://www.luogu.com.cn/problem/P2765">P2765 魔术球问题</a><br>
+挨个加球,判断能和哪些球放一起,然后就连上去,如果这次加得球没有增加流量,代表放不了,则开一个新の柜子.</p>
 </li>
 <li>
-<p><a href="https://www.luogu.com.cn/problem/P2763">P2763 试题库问题</a></p>
-</li>
-<li>
-<p><a href="https://www.luogu.com.cn/problem/P2764">P2764 最小路径覆盖问题</a></p>
-</li>
-<li>
-<p><a href="https://www.luogu.com.cn/problem/P2765">P2765 魔术球问题</a></p>
-</li>
-<li>
-<p><a href="https://www.luogu.com.cn/problem/P2766">P2766 最长不下降子序列问题</a></p>
-</li>
-<li>
-<p><a href="https://www.luogu.com.cn/problem/P2770">P2770 航空路线问题</a></p>
+<p><a href="https://www.luogu.com.cn/problem/P2766">P2766 最长不下降子序列问题</a><br>
+第一眼不可做,奇奇怪怪得题,第一问直接dp求解,然后凭借第一问的dp数组来建立图,让长度为len的点连向终点就可以保证第二问的条件,第三问直接额外加边就可以了.</p>
 </li>
 <li>
 <p><a href="https://www.luogu.com.cn/problem/P2774">P2774 方格取数问题</a></p>
@@ -211,12 +206,14 @@ int main(){
 </li>
 <li>
 <p><a href="https://www.luogu.com.cn/problem/P3254">P3254 圆桌问题</a></p>
-<ul>
-<li><a href="https://www.luogu.com.cn/problem/P3980">P3980 [NOI2008]志愿者招募</a></li>
-</ul>
 </li>
 <li>
-<p><a href="https://www.luogu.com.cn/problem/P2050">P2050 [NOI2012]美食节</a></p>
+<p><a href="https://www.luogu.com.cn/problem/P3980">P3980 [NOI2008]志愿者招募</a><br>
+关于至少要<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span>流量的限制,可以让起点和终点的流量为inf,则需要限制的边改成<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi><mi>n</mi><mi>f</mi><mo>−</mo><mi>x</mi></mrow><annotation encoding="application/x-tex">inf-x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">i</span><span class="mord mathdefault">n</span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span>即可,为了满足最大流的前提一定会流满</p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P2050">P2050 [NOI2012]美食节</a><br>
+分批动态加边,需要了就加,不需要不加.</p>
 </li>
 <li>
 <p><a href="https://www.luogu.com.cn/problem/P2604">P2604 [ZJOI2010]网络扩容</a></p>
@@ -226,11 +223,27 @@ int main(){
 </li>
 <li>
 <p><a href="https://www.luogu.com.cn/problem/P2153">P2153 [SDOI2009]晨跑</a></p>
-<p>重复/相似的练手题</p>
+<p>重复/相似的练手题/弱题</p>
 <ul>
 <li><a href="https://www.luogu.com.cn/problem/P2053">P2053 [SCOI2007]修车</a><br>
 美食节的弱化题....</li>
 </ul>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P2756">P2756 飞行员配对方案问题</a><br>
+就是一个模板题</p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P2762">P2762 太空飞行计划问题</a><br>
+拆点板题,读入弱智</p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P2763">P2763 试题库问题</a><br>
+普通的模板题</p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P2770">P2770 航空路线问题</a><br>
+水题</p>
 </li>
 </ul>
 ]]></content>
