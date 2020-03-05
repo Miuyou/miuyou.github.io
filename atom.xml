@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://miuyou.github.io/</id>
     <title>春待ち</title>
-    <updated>2020-03-05T07:02:53.205Z</updated>
+    <updated>2020-03-05T07:11:59.965Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://miuyou.github.io/"/>
     <link rel="self" href="https://miuyou.github.io/atom.xml"/>
@@ -29,6 +29,9 @@
 但题目要求固定位置的数字,则选择的数不确定<br>
 发现题目给出序列的为排列,则可二分所选择的数<br>
 求出结果</p>
+<p>logn排序的原理是<br>
+因为序列全01,那么从小到大就是将所有的0放到前面,所有的1放到后面</p>
+<p>时间复杂度为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mi>l</mi><mi>o</mi><mi>g</mi><msup><mi>n</mi><mn>2</mn></msup><mo>)</mo></mrow><annotation encoding="application/x-tex">O(nlogn^{2})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></p>
 <pre><code class="language-cpp">#include&lt;iostream&gt;
 #include&lt;cstdio&gt;
 #include&lt;algorithm&gt;
