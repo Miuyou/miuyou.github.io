@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://miuyou.github.io/</id>
     <title>春待ち</title>
-    <updated>2020-03-04T08:26:30.547Z</updated>
+    <updated>2020-03-05T07:00:22.551Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://miuyou.github.io/"/>
     <link rel="self" href="https://miuyou.github.io/atom.xml"/>
@@ -10,6 +10,126 @@
     <logo>https://miuyou.github.io/images/avatar.png</logo>
     <icon>https://miuyou.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 春待ち</rights>
+    <entry>
+        <title type="html"><![CDATA[[HEOI2016/TJOI2016]排序 题解]]></title>
+        <id>https://miuyou.github.io/post/heoi2016tjoi2016pai-xu-ti-jie/</id>
+        <link href="https://miuyou.github.io/post/heoi2016tjoi2016pai-xu-ti-jie/">
+        </link>
+        <updated>2020-03-05T06:50:33.000Z</updated>
+        <summary type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="https://miuyou.github.io//post-images/1583391593712.jpg" alt="" loading="lazy"></figure>
+]]></summary>
+        <content type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="https://miuyou.github.io//post-images/1583391593712.jpg" alt="" loading="lazy"></figure>
+<!-- more -->
+<p>题目要求我们求出第<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>q</mi></mrow><annotation encoding="application/x-tex">q</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">q</span></span></span></span>位置上的数字.<br>
+暴力想法:暴力局域排序,每次排序的复杂度为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mi>l</mi><mi>o</mi><mi>g</mi><mi>n</mi></mrow><annotation encoding="application/x-tex">nlogn</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">n</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault">n</span></span></span></span><br>
+不合格,舍弃暴力,发现排序不可避免,那么考虑如何优化排序复杂度<br>
+考虑<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>01</mn></mrow><annotation encoding="application/x-tex">01</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span><span class="mord">1</span></span></span></span>串可以做到<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>l</mi><mi>o</mi><mi>g</mi><mi>n</mi></mrow><annotation encoding="application/x-tex">logn</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault">n</span></span></span></span>排序(如何排序自行思考)<br>
+那么考虑如何转换成一个<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>01</mn></mrow><annotation encoding="application/x-tex">01</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span><span class="mord">1</span></span></span></span>串<br>
+约定比选择的数大的为1,小的为0<br>
+但题目要求固定位置的数字,则选择的数不确定<br>
+发现题目给出序列的为排列,则可二分所选择的数<br>
+求出结果</p>
+<pre><code class="language-cpp">#include&lt;iostream&gt;
+#include&lt;cstdio&gt;
+#include&lt;algorithm&gt;
+#include&lt;cstring&gt;
+using namespace std;
+#define mid ((l+r)&gt;&gt;1)
+#define ls (k&lt;&lt;1)
+#define rs (k&lt;&lt;1|1)
+#define lson ls,l,mid
+#define rson rs,mid+1,r
+int n,m,q,a[100050];
+struct edge{
+	int a,b,c;
+}tu[100050];
+struct node{
+	int flag,sum;
+}t[400050];
+inline void pushdown(int k,int l,int r){
+	if(t[k].flag==1){
+		t[ls].flag=t[rs].flag=1;
+		t[ls].sum=t[rs].sum=0;
+	}else if(t[k].flag==2){
+		t[ls].flag=t[rs].flag=2;
+		t[ls].sum=(mid-l+1);t[rs].sum=(r-mid);
+	}t[k].flag=0;
+}
+inline void built(int k,int l,int r,int x) {
+	t[k].flag=0;
+	if(l==r) {
+		t[k].sum=(a[l]&gt;=x);
+	} else {
+		built(lson,x);
+		built(rson,x);
+        t[k].sum=t[ls].sum+t[rs].sum;
+	}
+}
+inline int query(int k,int l,int r,int L,int R) {
+	if(l&gt;r||r&lt;L||l&gt;R)return 0;
+	if(L&lt;=l&amp;&amp;r&lt;=R)return t[k].sum;
+    int tot=0;
+	pushdown(k,l,r);
+	if(L&lt;=mid)tot+=query(lson,L,R);
+	if(mid&lt;R)tot+=query(rson,L,R);
+	t[k].sum=t[ls].sum+t[rs].sum;
+	return tot;
+}
+inline void gai(int k,int l,int r,int L,int R,int val){
+	if(l&gt;r||r&lt;L||l&gt;R)return;
+    if(L&lt;=l&amp;&amp;r&lt;=R){
+        t[k].flag=val+1;
+		t[k].sum=(r-l+1)*val;
+    }else{
+        pushdown(k,l,r);
+		if(mid&gt;=L)gai(lson,L,R,val);
+		if(mid&lt;R)gai(rson,L,R,val);
+		t[k].sum=t[ls].sum+t[rs].sum;
+    }
+}
+inline int cha(int k,int l,int r,int val){
+	if(l&gt;r||r&lt;val||l&gt;val)return 0;
+    if(l==val&amp;&amp;r==val){
+        return t[k].sum;
+    }else{
+        pushdown(k,l,r);
+		if(mid&gt;=val)return cha(lson,val);
+		else return cha(rson,val);
+    }
+}
+int check(int x){
+	built(1,1,n,x);
+	for(int i=1;i&lt;=m;++i){
+        int val=query(1,1,n,tu[i].b,tu[i].c);
+        if(!val)gai(1,1,n,tu[i].b,tu[i].c,0);
+		if(tu[i].a){
+			gai(1,1,n,tu[i].b,tu[i].b+val-1,1);
+			gai(1,1,n,tu[i].b+val,tu[i].c,0);
+		}else{
+			val=(tu[i].c-tu[i].b+1)-val;
+			gai(1,1,n,tu[i].b,tu[i].b+val-1,0);
+			gai(1,1,n,tu[i].b+val,tu[i].c,1);
+		}
+	}
+	return cha(1,1,n,q);
+}
+int main(){
+	cin&gt;&gt;n&gt;&gt;m;
+	for(int i=1;i&lt;=n;++i)scanf(&quot;%d&quot;,&amp;a[i]);
+	for(int i=1;i&lt;=m;++i){
+		scanf(&quot;%d%d%d&quot;,&amp;tu[i].a,&amp;tu[i].b,&amp;tu[i].c);
+	}int l=1,r=n,md,anse=0;cin&gt;&gt;q;
+	while(l&lt;=r){
+		md=(l+r)&gt;&gt;1;
+		if(check(md)){
+			anse=md;
+			l=md+1;
+		}else r=md-1;
+	}cout&lt;&lt;anse&lt;&lt;endl;return 0;
+}
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Miu_you の 网络流]]></title>
         <id>https://miuyou.github.io/post/miu_you-no-wang-luo-liu/</id>
