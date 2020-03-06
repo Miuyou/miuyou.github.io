@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://miuyou.github.io/</id>
     <title>春待ち</title>
-    <updated>2020-03-06T01:22:22.445Z</updated>
+    <updated>2020-03-06T01:27:18.435Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://miuyou.github.io/"/>
     <link rel="self" href="https://miuyou.github.io/atom.xml"/>
@@ -10,6 +10,16 @@
     <logo>https://miuyou.github.io/images/avatar.png</logo>
     <icon>https://miuyou.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 春待ち</rights>
+    <entry>
+        <title type="html"><![CDATA[Miu_you の动态规划]]></title>
+        <id>https://miuyou.github.io/post/miu_you-nodong-tai-gui-hua/</id>
+        <link href="https://miuyou.github.io/post/miu_you-nodong-tai-gui-hua/">
+        </link>
+        <updated>2020-03-06T01:26:12.000Z</updated>
+        <content type="html"><![CDATA[<p>动态规划也炒鸡可爱的说!<br>
+<img src="https://miuyou.github.io//post-images/1583457992014.jpg" alt="" loading="lazy"></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[[HEOI2016/TJOI2016]排序 题解]]></title>
         <id>https://miuyou.github.io/post/heoi2016tjoi2016pai-xu-ti-jie/</id>
