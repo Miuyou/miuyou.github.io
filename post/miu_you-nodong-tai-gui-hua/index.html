@@ -7,7 +7,7 @@
 <meta name="description" content="开端顺利 自这天起 离乡背井 等候春息  身处何地 等候春息">
 <meta name="theme-color" content="#000">
 <title>Miu_you の动态规划 | 春待ち</title>
-<link rel="shortcut icon" href="https://miuyou.github.io//favicon.ico?v=1583458033259">
+<link rel="shortcut icon" href="https://miuyou.github.io//favicon.ico?v=1583476974152">
 <link rel="stylesheet" href="https://miuyou.github.io//styles/main.css">
 
 <link rel="stylesheet" href="/media/css/muse.css">
@@ -26,7 +26,7 @@
     onload="renderMathInElement(document.body);"></script>
 
     <meta name="description" content="Miu_you の动态规划" />
-    <meta name="keywords" content="" />
+    <meta name="keywords" content="算法学习" />
   </head>
   <body>
     <div class="head-top-line"></div>
@@ -134,7 +134,8 @@
       <div class="sidebar-body muse" id="sidebar_body">
         
           
-            
+            <div class="post-side-meta" id="post_side_meta">
+              
 <div class="sidebar-wrapper box-shadow-wrapper ">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="https://miuyou.github.io//images/avatar.png"/>
@@ -167,6 +168,187 @@
 
 
 </div>
+            </div>
+            <div class="post-toc sidebar-body-active" id="post_toc" style="opacity: 1;">
+              <div class="toc-box right-motion">
+  <div class="toc-wrapper auto-number auto" id="toc_wrapper">
+    <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E5%89%8D%E6%96%B9%E9%AB%98%E8%83%BD%E7%9C%81%E9%80%89dp%E9%9B%86%E5%90%88">前方高能,省选DP集合</a></li>
+<li><a href="#%E6%A0%91%E5%BD%A2dp0"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">树</mi><mi mathvariant="normal">形</mi><mi>D</mi><mi>P</mi><mn>0</mn></mrow><annotation encoding="application/x-tex">树形DP0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord cjk_fallback">树</span><span class="mord cjk_fallback">形</span><span class="mord mathdefault" style="margin-right:0.02778em;">D</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mord">0</span></span></span></span></a></li>
+<li><a href="#%E6%9D%82%E7%B1%BBdp"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">杂</mi><mi mathvariant="normal">类</mi><mi>D</mi><mi>P</mi></mrow><annotation encoding="application/x-tex">杂类DP</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord cjk_fallback">杂</span><span class="mord cjk_fallback">类</span><span class="mord mathdefault" style="margin-right:0.02778em;">D</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span></span></span></span></a></li>
+<li><a href="#%E6%95%B0%E5%AD%A6dp"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">数</mi><mi mathvariant="normal">学</mi><mi>D</mi><mi>P</mi></mrow><annotation encoding="application/x-tex">数学DP</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord cjk_fallback">数</span><span class="mord cjk_fallback">学</span><span class="mord mathdefault" style="margin-right:0.02778em;">D</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span></span></span></span></a></li>
+<li><a href="#%E7%8A%B6%E6%80%81%E5%8E%8B%E7%BC%A9dp"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">状</mi><mi mathvariant="normal">态</mi><mi mathvariant="normal">压</mi><mi mathvariant="normal">缩</mi><mi>D</mi><mi>P</mi></mrow><annotation encoding="application/x-tex">状态压缩DP</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord cjk_fallback">状</span><span class="mord cjk_fallback">态</span><span class="mord cjk_fallback">压</span><span class="mord cjk_fallback">缩</span><span class="mord mathdefault" style="margin-right:0.02778em;">D</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span></span></span></span></a></li>
+<li><a href="#%E7%A5%9E%E4%BB%99dp"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">神</mi><mi mathvariant="normal">仙</mi><mi>D</mi><mi>P</mi></mrow><annotation encoding="application/x-tex">神仙DP</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord cjk_fallback">神</span><span class="mord cjk_fallback">仙</span><span class="mord mathdefault" style="margin-right:0.02778em;">D</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span></span></span></span></a></li>
+<li><a href="#%E5%BE%85%E5%AE%8C%E6%88%90"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">待</mi><mi mathvariant="normal">完</mi><mi mathvariant="normal">成</mi></mrow><annotation encoding="application/x-tex">待完成</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0em;vertical-align:0em;"></span><span class="mord cjk_fallback">待</span><span class="mord cjk_fallback">完</span><span class="mord cjk_fallback">成</span></span></span></span></a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+</div>
+
+<script>
+
+let lastTop = 0, lList = [], hList = [], postBody, lastIndex = -1; 
+let active = 'active-show', activeClass = 'active-current';
+let tocWrapper = document.querySelector('#toc_wrapper');
+let tocContent = tocWrapper.children[0];
+let autoNumber = tocWrapper&&tocWrapper.classList.contains('auto-number');
+
+function addTocNumber(elem, deep) {
+  if (!elem) {
+    return;
+  }
+  let prop = elem.__proto__;
+
+  if (prop === HTMLUListElement.prototype) {
+    for (let i = 0; i < elem.children.length; i++) {
+      addTocNumber(elem.children[i], deep + (i + 1) + '.');
+    }
+  } else if (prop === HTMLLIElement.prototype) {
+    // 保存li元素
+    lList.push(elem);
+    for (let i = 0; i < elem.children.length; i++) {
+      let cur = elem.children[i];
+      if (cur.__proto__ === HTMLAnchorElement.prototype) {
+        if (autoNumber) {
+          cur.text =  deep + ' ' + cur.text;
+        }
+      } else if (cur.__proto__ === HTMLUListElement.prototype) {
+        addTocNumber(cur, deep);
+      }
+    }
+  }
+}
+
+
+document.addEventListener('scroll', function(e) {
+  if (lList.length <= 0) {
+    return;
+  }
+  let scrollTop = document.scrollingElement.scrollTop;
+  let dir;
+
+  if (lastTop - scrollTop > 0) {
+    dir = 'up';
+  } else {
+    dir = 'down';
+  }
+
+  lastTop = scrollTop;
+  if (scrollTop <= 0) {
+    if (lastIndex >= 0 && lastIndex < hList.length) {
+      lList[lastIndex].classList.remove(activeClass);
+    }
+    return;
+  }
+
+  let current = 0, hasFind = false;
+  for (let i = 0; i < hList.length; i++) {
+    if (hList[i].offsetTop > scrollTop) {
+      current = i;
+      hasFind = true;
+      break;
+    }
+  }
+  if (!hasFind && scrollTop > lList[lList.length - 1].offsetTop) {
+    current = hList.length - 1;
+  } else {
+    current--;
+  }
+  if (dir === 'down') {
+    if (current > lastIndex) {
+      addActiveClass(current);
+      removeActiveClass(lastIndex) 
+      lastIndex = current;
+      removeParentActiveClass();
+      lList[current] && addActiveLiElemment(lList[current].parentElement,tocContent);
+    }
+  } else {
+    if (current < lastIndex) {
+      addActiveClass(current);
+      removeActiveClass(lastIndex);
+      lastIndex = current;
+      removeParentActiveClass();
+      lList[current] && addActiveLiElemment(lList[current].parentElement,tocContent);
+    }
+  }
+});
+
+function removeParentActiveClass() {
+  let parents = tocContent.querySelectorAll('.'+active)
+  parents.forEach(function(elem) {
+    elem.classList.remove(active);
+  });
+}
+
+function addActiveClass(index) {
+  if (index >= 0 && index < hList.length) {
+    lList[index].classList.add(activeClass);
+  }
+}
+
+function removeActiveClass(index) {
+  if (index >= 0 && index < hList.length) {
+    lList[index].classList.remove(activeClass);
+  }
+}
+
+function addActiveLiElemment(elem, parent) {
+  if (!elem || elem === parent) {
+    return;
+  } else {
+    if (elem.__proto__ === HTMLLIElement.prototype) {
+      elem.classList.add(active);
+    }
+    addActiveLiElemment(elem.parentElement, parent);
+  }
+}
+
+function showToc() {
+  if (tocWrapper) {
+    postBody = document.querySelector('#post_body');
+    for (let i = 0; i < postBody.children.length; i++) {
+      if (postBody.children[i].__proto__ === HTMLHeadingElement.prototype) {
+        hList.push(postBody.children[i]);
+      }
+    }
+    if (tocWrapper.classList.contains('compress')) {
+        tocContent.classList.add('closed');
+    } else if (tocWrapper.classList.contains('no_compress')){
+      tocContent.classList.add('expanded');
+    } else {
+      if (hList.length > 10) {
+        active = 'active-hidden'
+        tocContent.classList.add('closed');
+      } else {
+        tocContent.classList.add('expanded');
+      }
+    }
+  }
+}
+addTocNumber(tocContent, '');
+
+window.addEventListener('load', function() {
+  showToc();
+  document.querySelector('#sidebar').style='display: block;';
+  tocWrapper.classList.add('toc-active');
+  setTimeout(function() {
+    if ("createEvent" in document) {
+      let evt = document.createEvent("HTMLEvents");
+      evt.initEvent("scroll", false, true);
+      document.dispatchEvent(evt);
+    }
+    else {
+      document.fireEvent("scroll");
+    }
+  }, 500)
+})
+
+</script>
+            </div>
           
         
       </div>
@@ -267,14 +449,27 @@
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
+      <span class="meta-item">
+        <i class="fa fa-folder-o"></i>
+        <span class="pc-show">分类于</span>
+        
+          
+            <a href="https://miuyou.github.io/tag/Bi4BBB_5Z/">
+              <span>算法学习</span>
+            </a>
+          
+        
+      </span>
+      <span class="post-meta-divider">|</span>
+    
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>1分钟</span>
+      <span>5分钟</span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>11<span class="pc-show">字数</span></span>
+      <span>1071<span class="pc-show">字数</span></span>
     </span>
     
       <span id="/post/miu_you-nodong-tai-gui-hua/" class="meta-item pc-show leancloud_visitors">
@@ -288,6 +483,385 @@
               <div class="post-body next-md-body" id="post_body">
                 <p>动态规划也炒鸡可爱的说!<br>
 <img src="https://miuyou.github.io//post-images/1583457992014.jpg" alt="" loading="lazy"></p>
+<!-- more -->
+<p>この時代に飛び乗って<br>
+飞身乘上这个时代<br>
+今夜この街を飛び立って<br>
+今夜要飞越这条街道<br>
+大空を飛び回って<br>
+在天空中往复盘旋<br>
+命揺らせ　命揺らせ<br>
+摇曳你的生命，请摇曳你的生命！</p>
+<h2 id="前方高能省选dp集合">前方高能,省选DP集合</h2>
+<h2 id="树形dp0"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">树</mi><mi mathvariant="normal">形</mi><mi>D</mi><mi>P</mi><mn>0</mn></mrow><annotation encoding="application/x-tex">树形DP0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord cjk_fallback">树</span><span class="mord cjk_fallback">形</span><span class="mord mathdefault" style="margin-right:0.02778em;">D</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mord">0</span></span></span></span></h2>
+<ul>
+<li><a href="https://www.luogu.com.cn/problem/P1131">P1131 [ZJOI2007]时态同步</a><br>
+简单树形DP,让所有点都和最慢得一样慢就可以了</li>
+</ul>
+<h2 id="杂类dp"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">杂</mi><mi mathvariant="normal">类</mi><mi>D</mi><mi>P</mi></mrow><annotation encoding="application/x-tex">杂类DP</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord cjk_fallback">杂</span><span class="mord cjk_fallback">类</span><span class="mord mathdefault" style="margin-right:0.02778em;">D</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span></span></span></span></h2>
+<ul>
+<li><a href="https://www.luogu.com.cn/problem/P1169">P1169 [ZJOI2007]棋盘制作</a><br>
+悬线法</li>
+<li><a href="https://www.luogu.com.cn/problem/P1437">P1437 [HNOI2004]敲砖块</a><br>
+一般向DP</li>
+<li><a href="https://www.luogu.com.cn/problem/P1841">P1841 [JSOI2007]重要的城市</a><br>
+无可取代得最短路经过点为重要城市,也不知道和dp有什么关系</li>
+<li><a href="https://www.luogu.com.cn/problem/P1772">P1772 [ZJOI2006]物流运输</a><br>
+奇怪のDP,发现无法简单得跑一个分层图最短路,因为有着更改路径得操作,那么就要dp了,枚举是什么时候更改路径得</li>
+</ul>
+<h2 id="数学dp"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">数</mi><mi mathvariant="normal">学</mi><mi>D</mi><mi>P</mi></mrow><annotation encoding="application/x-tex">数学DP</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord cjk_fallback">数</span><span class="mord cjk_fallback">学</span><span class="mord mathdefault" style="margin-right:0.02778em;">D</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span></span></span></span></h2>
+<ul>
+<li><a href="https://www.luogu.com.cn/problem/P1450">P1450 [HAOI2008]硬币购物</a><br>
+是榕树,我死了,不合法方案为强制选<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>b</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">b_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">b</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>+1个</li>
+<li><a href="https://www.luogu.com.cn/problem/P2059">P2059 [JLOI2013]卡牌游戏</a><br>
+窝又死了,设<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub></mrow><annotation encoding="application/x-tex">f_{i,j}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mpunct mtight">,</span><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span>表示第i个人经过j-1轮会胜出,因为他的位置在不断变化,所以每次把庄家提到1的位置上,<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub><mo>+</mo><mo>=</mo><msub><mi>f</mi><mrow><mi>x</mi><mo separator="true">,</mo><mi>j</mi><mo>−</mo><mn>1</mn></mrow></msub><mi mathvariant="normal">/</mi><mi>m</mi></mrow><annotation encoding="application/x-tex">f_{i,j}+=f_{x,j-1}/m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mpunct mtight">,</span><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mord">+</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.036108em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">x</span><span class="mpunct mtight">,</span><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mord">/</span><span class="mord mathdefault">m</span></span></span></span>,x为当前位置-新的庄家的位置</li>
+</ul>
+<h2 id="状态压缩dp"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">状</mi><mi mathvariant="normal">态</mi><mi mathvariant="normal">压</mi><mi mathvariant="normal">缩</mi><mi>D</mi><mi>P</mi></mrow><annotation encoding="application/x-tex">状态压缩DP</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord cjk_fallback">状</span><span class="mord cjk_fallback">态</span><span class="mord cjk_fallback">压</span><span class="mord cjk_fallback">缩</span><span class="mord mathdefault" style="margin-right:0.02778em;">D</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span></span></span></span></h2>
+<ul>
+<li><a href="https://www.luogu.com.cn/problem/P1896">P1896 [SCOI2005]互不侵犯</a><br>
+简单的状态压缩</li>
+</ul>
+<h2 id="神仙dp"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">神</mi><mi mathvariant="normal">仙</mi><mi>D</mi><mi>P</mi></mrow><annotation encoding="application/x-tex">神仙DP</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord cjk_fallback">神</span><span class="mord cjk_fallback">仙</span><span class="mord mathdefault" style="margin-right:0.02778em;">D</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span></span></span></span></h2>
+<ul>
+<li><a href="https://www.luogu.com.cn/problem/P2051">P2051 [AHOI2009]中国象棋</a><br>
+数据太大了,没法状态压缩,那么就dp喽,要详细的考虑到每种情况</li>
+</ul>
+<h2 id="待完成"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">待</mi><mi mathvariant="normal">完</mi><mi mathvariant="normal">成</mi></mrow><annotation encoding="application/x-tex">待完成</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0em;vertical-align:0em;"></span><span class="mord cjk_fallback">待</span><span class="mord cjk_fallback">完</span><span class="mord cjk_fallback">成</span></span></span></span></h2>
+<ul>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P1446">P1446 [HNOI2008]Cards</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P2144">P2144 [FJOI2007]轮状病毒</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P2145">P2145 [JSOI2007]祖码</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P2157">P2157 [SDOI2009]学校食堂</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P2159">P2159 [SHOI2009]舞会</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P2160">P2160 [SHOI2007]书柜的尺寸</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P2167">P2167 [SDOI2009]Bill的挑战</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P2215">P2215 [HAOI2007]上升序列</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P2224">P2224 [HNOI2001]产品加工</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P2225">P2225 [HNOI2001]棋盘变换</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P2226">P2226 [HNOI2001]遥控赛车比赛</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P2227">P2227 [HNOI2001]洗牌机</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P2231">P2231 [HNOI2002]跳蚤</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P2233">P2233 [HNOI2002]公交车路线</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P2235">P2235 [HNOI2002]Kathy函数</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P2280">P2280 [HNOI2003]激光炸弹</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P2285">P2285 [HNOI2004]打鼹鼠</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P2287">P2287 [HNOI2004]最佳包裹</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P2289">P2289 [HNOI2004]邮递员</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P2292">P2292 [HNOI2004]L语言</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P2317">P2317 [HNOI2005]星际贸易</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P2322">P2322 [HNOI2006]最短母串问题</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P2327">P2327 [SCOI2005]扫雷</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P2331">P2331 [SCOI2005]最大子矩阵</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P2351">P2351 [SDOI2012]吊灯</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P2453">P2453 [SDOI2006]最短距离</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P2466">P2466 [SDOI2008]Sue的小球</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P2467">P2467 [SDOI2010]地精部落</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P2470">P2470 [SCOI2007]压缩</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P2473">P2473 [SCOI2008]奖励关</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P2476">P2476 [SCOI2008]着色方案</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P2477">P2477 [SCOI2008]套圈</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P2487">P2487 [SDOI2011]拦截导弹</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P2489">P2489 [SDOI2011]迷宫探险</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P2501">P2501 [HAOI2006]数字序列</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P2507">P2507 [SCOI2008]配对</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P2509">P2509 [SCOI2008]警告</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P2511">P2511 [HAOI2008]木棍分割</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P2513">P2513 [HAOI2009]逆序对数列</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P2515">P2515 [HAOI2010]软件安装</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P2518">P2518 [HAOI2010]计数</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P2519">P2519 [HAOI2011]problem a</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P2523">P2523 [HAOI2011]Problem c</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P2530">P2530 [SHOI2001]化工厂装箱员</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P2538">P2538 [SCOI2008]城堡</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P2558">P2558 [AHOI2002]网络传输</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P2566">P2566 [SCOI2009]围豆豆</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P2569">P2569 [SCOI2010]股票交易</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P2577">P2577 [ZJOI2005]午餐</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P2585">P2585 [ZJOI2006]三色二叉树</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P2588">P2588 [ZJOI2008]Risk</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P2589">P2589 [ZJOI2006]碗的叠放</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P2592">P2592 [ZJOI2008]生日聚会</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P2595">P2595 [ZJOI2009]多米诺骨牌</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P2602">P2602 [ZJOI2010]数字计数</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P2605">P2605 [ZJOI2010]基站选址</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P2606">P2606 [ZJOI2010]排列计数</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P2607">P2607 [ZJOI2008]骑士</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P2610">P2610 [ZJOI2012]旅游</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P2657">P2657 [SCOI2009]windy数</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P3204">P3204 [HNOI2010]公交线路</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P3240">P3240 [HNOI2015]实验比较</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P3267">P3267 [JLOI2016/SHOI2016]侦察守卫</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P3698">P3698 [CQOI2017]小Q的棋盘</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P3713">P3713 [BJOI2017]机动训练</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P3724">P3724 [AHOI2017/HNOI2017]大佬</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P3748">P3748 [六省联考2017]摧毁“树状图”</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P3750">P3750 [六省联考2017]分手是祝愿</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P3757">P3757 [CQOI2017]老C的键盘</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P3815">P3815 [FJOI2017]回文子序列问题</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P3816">P3816 [FJOI2017]树的平均路长问题</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P3830">P3830 [SHOI2012]随机树</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P3842">P3842 [TJOI2007]线段</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P3847">P3847 [TJOI2007]调整队形</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P3855">P3855 [TJOI2008]Binary Land</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P3881">P3881 [JLOI2008]CODES</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P3886">P3886 [JLOI2009]神秘的生物</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P3888">P3888 [GDOI2014]拯救莫莉斯</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P3891">P3891 [GDOI2014]采集资源</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P3991">P3991 [BJOI2017]喷式水战改</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P4046">P4046 [JSOI2010]快递服务</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P4099">P4099 [HEOI2013]SAO </a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P4124">P4124 [CQOI2016]手机号码</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P4127">P4127 [AHOI2009]同类分布</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P4129">P4129 [SHOI2006]仙人掌</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P4158">P4158 [SCOI2009]粉刷匠</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P4160">P4160 [SCOI2009]生日快乐</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P4244">P4244 [SHOI2008]仙人掌图 II</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P4290">P4290 [HAOI2008]玩具取名</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P4302">P4302 [SCOI2003]字符串折叠</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P4363">P4363 [九省联考2018]一双木棋chess</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P4365">P4365 [九省联考2018]秘密袭击coat</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P4383">P4383 [八省联考2018]林克卡特树</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P4410">P4410 [HNOI2009]无归岛</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P4438">P4438 [HNOI/AHOI2018]道路</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P4460">P4460 [CQOI2018]解锁屏幕</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P4495">P4495 [HAOI2018]奇怪的背包</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P4574">P4574 [CQOI2013]二进制A+B</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P4728">P4728 [HNOI2009]双递增序列</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P5075">P5075 [JSOI2012]分零食</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P5322">P5322 [BJOI2019]排兵布阵</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P5414">P5414 [YNOI2019]排序</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P5484">P5484 [JLOI2011]基因补全</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P5486">P5486 [JLOI2010]世界杯租房</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P5503">P5503 [JSOI2016]灯塔</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P5566">P5566 [SDOI2008]红黑树</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P5569">P5569 [SDOI2008]石子合并</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P5675">P5675 [GZOI2017]取石子游戏</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P5680">P5680 [GZOI2017]共享单车</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P5785">P5785 [SDOI2012]任务安排</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P6082">P6082 [JSOI2015]salesman</a></p>
+</li>
+</ul>
 
               </div>
               <div class="post-footer">
@@ -307,6 +881,8 @@
   </ul>
   <div class="tags">
     
+      <a href="https://miuyou.github.io/tag/Bi4BBB_5Z/"># 算法学习</a>
+    
   </div>
   <div class="nav">
     <div class="nav-prev">
@@ -314,8 +890,8 @@
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" title="[HEOI2016/TJOI2016]排序 题解" href="https://miuyou.github.io/post/heoi2016tjoi2016pai-xu-ti-jie/">[HEOI2016/TJOI2016]排序 题解</a>
-        <a class="nav-mobile-next" title="[HEOI2016/TJOI2016]排序 题解" href="https://miuyou.github.io/post/heoi2016tjoi2016pai-xu-ti-jie/">下一篇</a>
+        <a class="nav-pc-next" title="Miu_you の 网络流" href="https://miuyou.github.io/post/miu_you-no-wang-luo-liu/">Miu_you の 网络流</a>
+        <a class="nav-mobile-next" title="Miu_you の 网络流" href="https://miuyou.github.io/post/miu_you-no-wang-luo-liu/">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>
