@@ -6,7 +6,7 @@
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="开端顺利 自这天起 离乡背井 等候春息  身处何地 等候春息">
 <meta name="theme-color" content="#000">
-<title>Miu_you の 网络流 | 春待ち</title>
+<title>Miu_you の进阶背包DP | 春待ち</title>
 <link rel="shortcut icon" href="https://miuyou.github.io//favicon.ico?v=1583590281376">
 <link rel="stylesheet" href="https://miuyou.github.io//styles/main.css">
 
@@ -25,8 +25,8 @@
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
     onload="renderMathInElement(document.body);"></script>
 
-    <meta name="description" content="Miu_you の 网络流" />
-    <meta name="keywords" content="算法学习" />
+    <meta name="description" content="Miu_you の进阶背包DP" />
+    <meta name="keywords" content="" />
   </head>
   <body>
     <div class="head-top-line"></div>
@@ -175,12 +175,7 @@
     <ul class="markdownIt-TOC">
 <li>
 <ul>
-<li><a href="#-more-%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90"><!-- more --><br>
-算法分析</a></li>
-<li><a href="#%E5%BB%BA%E6%A8%A1%E6%8A%80%E5%B7%A7">建模技巧</a></li>
-<li><a href="#%E5%8F%AF%E7%88%B1%E3%81%AE%E7%BD%91%E7%BB%9C%E6%B5%81%E4%BB%AC">可爱の网络流们</a></li>
-<li><a href="#%E6%9C%89%E8%B6%A3%E3%81%AE%E9%A2%98">有趣の题</a></li>
-<li><a href="#%E9%87%8D%E5%A4%8D%E7%9B%B8%E4%BC%BC%E7%9A%84%E7%BB%83%E6%89%8B%E9%A2%98%E5%BC%B1%E9%A2%98">重复/相似的练手题/弱题</a></li>
+<li><a href="#1%E5%8D%95%E8%B0%83%E9%98%9F%E5%88%97%E4%BC%98%E5%8C%96%E8%83%8C%E5%8C%85">1.单调队列优化背包</a></li>
 </ul>
 </li>
 </ul>
@@ -435,8 +430,8 @@ window.addEventListener('load', function() {
             <div class="section bg-color post post-page">
               <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://miuyou.github.io/post/miu_you-no-wang-luo-liu/">
-      Miu_you の 网络流
+    <a class="post-title-link" href="https://miuyou.github.io/post/miu_you-nobei-bao-dp/">
+      Miu_you の进阶背包DP
     </a>
   </h1>
   <div class="post-meta">
@@ -444,34 +439,21 @@ window.addEventListener('load', function() {
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span>发布于</span>
-      <span>2020-03-04</span>
+      <span>2020-03-07</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
-      <span class="meta-item">
-        <i class="fa fa-folder-o"></i>
-        <span class="pc-show">分类于</span>
-        
-          
-            <a href="https://miuyou.github.io/tag/Bi4BBB_5Z/">
-              <span>算法学习</span>
-            </a>
-          
-        
-      </span>
-      <span class="post-meta-divider">|</span>
-    
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>5分钟</span>
+      <span>2分钟</span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>1273<span class="pc-show">字数</span></span>
+      <span>332<span class="pc-show">字数</span></span>
     </span>
     
-      <span id="/post/miu_you-no-wang-luo-liu/" class="meta-item pc-show leancloud_visitors">
+      <span id="/post/miu_you-nobei-bao-dp/" class="meta-item pc-show leancloud_visitors">
         <span class="post-meta-divider">|</span>
         <i class="fa fa-eye"></i>
         <span>浏览量：<span class="leancloud-visitors-count" ></span></span>
@@ -480,126 +462,17 @@ window.addEventListener('load', function() {
   </div>
 </header>
               <div class="post-body next-md-body" id="post_body">
-                <p>这里就是放放可爱の网络流的题目和感想啦~~~~~~~<br>
-<img src="https://miuyou.github.io//post-images/1583297071335.jpg" alt="" loading="lazy"></p>
-<h2 id="-more-算法分析"><!-- more --><br>
-算法分析</h2>
-<p>开始了<br>
-我这个萌新只会dinic,isap和上下界网络流先咕着<br>
-这算法挺好懂得,<br>
-考虑为什么最小割==最大流<br>
-一个最小,一个最大,为什么会相等呢?<br>
-因为既然割要让这个网络无法联通,也就不存在增广路了,最小得情况正好是最大流<br>
-网络流主要考得是建模技巧,而不是算法本身,这也是为什么网络流得权重比较高得原因吧</p>
-<h2 id="建模技巧">建模技巧</h2>
-<p>1.大汇点大源点<br>
-这个东西大家都会吧,可以简化题目,若有多个入点或者出点可以给他们连在一起</p>
-<p>2.拆点<br>
-如果对于点本身有限制,就应当拆点,例如要求路径不相交,可以在点本身连一条边,限制流量</p>
-<p>3.求最小割<br>
-最小割==最大流</p>
-<p>技巧过多,下面一叠</p>
-<h2 id="可爱の网络流们">可爱の网络流们</h2>
-<h2 id="有趣の题">有趣の题</h2>
+                <figure data-type="image" tabindex="1"><img src="https://miuyou.github.io//post-images/1583577043309.jpg" alt="" loading="lazy"></figure>
+<p>附注:所有公式记得重写</p>
+<!-- more -->
+<h2 id="1单调队列优化背包">1.单调队列优化背包</h2>
+<p>我们知道,一般の背包做法是枚举物品和物品个数/当前容量,复杂度为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mo>∗</mo><mi>W</mi><mo>∗</mo><msubsup><mo>∑</mo><mn>1</mn><mi>n</mi></msubsup><msub><mi>m</mi><mi>i</mi></msub><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n*W*\sum_{1}^{n}m_i)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">W</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.104002em;vertical-align:-0.29971000000000003em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.804292em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">n</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.29971000000000003em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">m</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>,效率非常底下,因为枚举背包容量无法避免,那么考虑如何优化<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><msubsup><mo>∑</mo><mn>1</mn><mi>n</mi></msubsup><msub><mi>m</mi><mi>i</mi></msub><mo>)</mo></mrow><annotation encoding="application/x-tex">(\sum_{1}^{n}m_i)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.104002em;vertical-align:-0.29971000000000003em;"></span><span class="mopen">(</span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.804292em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">n</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.29971000000000003em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">m</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>.</p>
+<p>考虑到<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><msub><mi>p</mi><mi>i</mi></msub><mo>=</mo><mi>m</mi><mi>a</mi><mi>x</mi><mo>(</mo><mi>d</mi><msub><mi>p</mi><mi>i</mi></msub><mo separator="true">,</mo><mi>d</mi><msub><mi>p</mi><mrow><mi>i</mi><mo>−</mo><mi>k</mi><mo>∗</mo><mi>w</mi></mrow></msub><mo>+</mo><mi>k</mi><mo>∗</mo><mi>v</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">dp_i=max(dp_i,dp_{i-k*w}+k*v)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">d</span><span class="mord"><span class="mord mathdefault">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">m</span><span class="mord mathdefault">a</span><span class="mord mathdefault">x</span><span class="mopen">(</span><span class="mord mathdefault">d</span><span class="mord"><span class="mord mathdefault">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">d</span><span class="mord"><span class="mord mathdefault">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361079999999999em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mbin mtight">−</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span><span class="mbin mtight">∗</span><span class="mord mathdefault mtight" style="margin-right:0.02691em;">w</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.208331em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">v</span><span class="mclose">)</span></span></span></span>,发现什么了没有?你看看这个<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i%w</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span>,所有能够改变这个i的状态,已使用背包容量对w取模后都为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i%w</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span>,设这个余数为x,即<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi><mo>=</mo><mi>x</mi><mo>+</mo><mi>k</mi><mo>∗</mo><mi>w</mi></mrow><annotation encoding="application/x-tex">i=x+k*w</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02691em;">w</span></span></span></span>.</p>
+<p>此时将<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><msub><mi>p</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">dp_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">d</span><span class="mord"><span class="mord mathdefault">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>的决策集合大小减小到了<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>W</mi><mo>−</mo><mi>x</mi><mo>)</mo><mi mathvariant="normal">/</mi><mi>w</mi></mrow><annotation encoding="application/x-tex">(W-x)/w</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.13889em;">W</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">x</span><span class="mclose">)</span><span class="mord">/</span><span class="mord mathdefault" style="margin-right:0.02691em;">w</span></span></span></span>,此时暴力的复杂度得到了一个不错的优化,但是非常玄学且依旧低效.考虑到<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>W</mi><mo>−</mo><mi>x</mi><mo>)</mo><mi mathvariant="normal">/</mi><mi>w</mi></mrow><annotation encoding="application/x-tex">(W-x)/w</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.13889em;">W</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">x</span><span class="mclose">)</span><span class="mord">/</span><span class="mord mathdefault" style="margin-right:0.02691em;">w</span></span></span></span>这个集合不仅仅只能更新一个<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><msub><mi>p</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">dp_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">d</span><span class="mord"><span class="mord mathdefault">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>,而是能够更新所有<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i%w==x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span>的dp值,为了高效维护更新集合的最大值及有效值,可以考虑使用单调队列来维护这个集合.接下来就是常规操作啦</p>
+<p>例题:</p>
 <ul>
-<li>
-<p><a href="https://www.luogu.com.cn/problem/P1251">P1251 餐巾计划问题</a><br>
-有趣的题,依旧是比较难想.考虑每天要用<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">a_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>块干净餐巾,为了满足要求,那么最大流一定是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>∑</mo><mo>(</mo><msub><mi>a</mi><mi>i</mi></msub><mo>)</mo></mrow><annotation encoding="application/x-tex">\sum(a_i)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.00001em;vertical-align:-0.25001em;"></span><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>,同时这题有着许多限制果断拆点,分为白天和晚上,白天向ed连<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">a_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>做出边,但是为了获得旧餐巾从st连向夜晚一条<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">a_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>,费用都为0,然后st向白天连一条,每个晚上能洗的方式都连一条到结束时的白天久做完啦!</p>
-</li>
-<li>
-<p><a href="https://www.luogu.com.cn/problem/P2055">P2055 [ZJOI2009]假期的宿舍</a><br>
-因为要让所有人都有床睡,那么每个要床的连ed,每个有床的连st,如果认识就连一条边.</p>
-</li>
-<li>
-<p><a href="https://www.luogu.com.cn/problem/P2754">P2754 [CTSC1999]家园 / 星际转移问题</a><br>
-因为这题实在难做,所以枚举时间加边,模拟每个车的运行,依次加边<br>
-每个时间点像上一个时间点再连一次就可以了</p>
-</li>
-<li>
-<p><a href="https://www.luogu.com.cn/problem/P2764">P2764 最小路径覆盖问题</a><br>
-还算不错的题目,考虑到不存在任何边的时候,总路径数为n,那么要求的就是合并掉的路径数量,因为一个点只能被另一个点合并,所以点的流量为1,那么最大流求出合并路径数tot,输出<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>−</mo><mi>t</mi><mi>o</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">n-tot</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.61508em;vertical-align:0em;"></span><span class="mord mathdefault">t</span><span class="mord mathdefault">o</span><span class="mord mathdefault">t</span></span></span></span>即可</p>
-</li>
-<li>
-<p><a href="https://www.luogu.com.cn/problem/P2765">P2765 魔术球问题</a><br>
-挨个加球,判断能和哪些球放一起,然后就连上去,如果这次加得球没有增加流量,代表放不了,则开一个新の柜子.</p>
-</li>
-<li>
-<p><a href="https://www.luogu.com.cn/problem/P2766">P2766 最长不下降子序列问题</a><br>
-第一眼不可做,奇奇怪怪得题,第一问直接dp求解,然后凭借第一问的dp数组来建立图,让长度为len的点连向终点就可以保证第二问的条件,第三问直接额外加边就可以了.</p>
-</li>
-<li>
-<p><a href="https://www.luogu.com.cn/problem/P2774">P2774 方格取数问题</a><br>
-因为要求最大的总权值,那么减去最小割就可以了</p>
-</li>
-<li>
-<p><a href="https://www.luogu.com.cn/problem/P4009">P4009 汽车加油行驶问题</a><br>
-将汽车以当前油量作为状态分层,然后跑spfa,欸,不是网络流</p>
-</li>
-<li>
-<p><a href="https://www.luogu.com.cn/problem/P4016">P4016 负载平衡问题</a><br>
-大于平均数作一堆,小于平均数作一堆,然后互相连,算出代价,跑一个最小割就可以了</p>
-</li>
-<li>
-<p><a href="https://www.luogu.com.cn/problem/P3358">P3358 最长k可重区间集问题</a><br>
-最长k可重代表着每个点的最大流量为k,那么考虑如何表达一个区间,例如从a到b的一个区间,可以写成从a直接流向b+1,如果选了这个区间,那么a到b的流量减一.</p>
-</li>
-<li>
-<p><a href="https://www.luogu.com.cn/problem/P3357">P3357 最长k可重线段集问题</a><br>
-和上一题差不多,考虑会有竖着的线段把他卡了</p>
-</li>
-<li>
-<p><a href="https://www.luogu.com.cn/problem/P3356">P3356 火星探险问题 </a><br>
-龟龟方案,无非是暴力连连连,但是输出方案比较有亮点</p>
-</li>
-<li>
-<p><a href="https://www.luogu.com.cn/problem/P3980">P3980 [NOI2008]志愿者招募</a><br>
-关于至少要<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span>流量的限制,可以让起点和终点的流量为inf,则需要限制的边改成<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi><mi>n</mi><mi>f</mi><mo>−</mo><mi>x</mi></mrow><annotation encoding="application/x-tex">inf-x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">i</span><span class="mord mathdefault">n</span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span>即可,为了满   足最大流的前提一定会流满</p>
-</li>
-<li>
-<p><a href="https://www.luogu.com.cn/problem/P2050">P2050 [NOI2012]美食节</a><br>
-分批动态加边,需要了就加,不需要不加.</p>
-</li>
-<li>
-<p><a href="https://www.luogu.com.cn/problem/P2604">P2604 [ZJOI2010]网络扩容</a><br>
-第一问正常求,考虑第二问,st和ed增加流量k,同时每对点加流量inf费用给的的边即可</p>
-</li>
-<li>
-<p><a href="https://www.luogu.com.cn/problem/P3159">P3159 [CQOI2012]交换棋子</a><br>
-看起来是一个板题,但是却加入了最多交换次数的限制,那么拆点,流量为k/2即可,如果他是起点不是终点(反之亦可),且k为奇数,那么再额外加入一点流量即可</p>
-<h2 id="重复相似的练手题弱题">重复/相似的练手题/弱题</h2>
-</li>
-<li>
-<p><a href="https://www.luogu.com.cn/problem/P3254">P3254 圆桌问题</a><br>
-普通的最大流</p>
-</li>
-<li>
-<p><a href="https://www.luogu.com.cn/problem/P2153">P2153 [SDOI2009]晨跑</a><br>
-普通的费用流</p>
-</li>
-<li>
-<p><a href="https://www.luogu.com.cn/problem/P2053">P2053 [SCOI2007]修车</a><br>
-美食节的弱化题....</p>
-</li>
-<li>
-<p><a href="https://www.luogu.com.cn/problem/P2756">P2756 飞行员配对方案问题</a><br>
-就是一个模板题</p>
-</li>
-<li>
-<p><a href="https://www.luogu.com.cn/problem/P2762">P2762 太空飞行计划问题</a><br>
-拆点板题,读入弱智</p>
-</li>
-<li>
-<p><a href="https://www.luogu.com.cn/problem/P2763">P2763 试题库问题</a><br>
-普通的模板题</p>
-</li>
-<li>
-<p><a href="https://www.luogu.com.cn/problem/P2770">P2770 航空路线问题</a><br>
-水题</p>
-</li>
-<li>
-<p><a href="https://www.luogu.com.cn/problem/P3355">P3355 骑士共存问题</a><br>
-求出最小割,解决了</p>
-</li>
+<li><a href="https://www.luogu.com.cn/problem/P1776">P1776 宝物筛选</a><br>
+上面讲过啦!</li>
 </ul>
 
               </div>
@@ -611,7 +484,7 @@ window.addEventListener('load', function() {
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://miuyou.github.io/post/miu_you-no-wang-luo-liu/" title="Miu_you の 网络流">Miu_you の 网络流</a>
+      <a href="https://miuyou.github.io/post/miu_you-nobei-bao-dp/" title="Miu_you の进阶背包DP">Miu_you の进阶背包DP</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -620,21 +493,15 @@ window.addEventListener('load', function() {
   </ul>
   <div class="tags">
     
-      <a href="https://miuyou.github.io/tag/Bi4BBB_5Z/"># 算法学习</a>
-    
   </div>
   <div class="nav">
     <div class="nav-prev">
       
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="Miu_you の动态规划" href="https://miuyou.github.io/post/miu_you-nodong-tai-gui-hua/">Miu_you の动态规划</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="Miu_you の动态规划" href="https://miuyou.github.io/post/miu_you-nodong-tai-gui-hua/">上一篇</a>
-      
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" title="                            省选补题计划" href="https://miuyou.github.io/post/sheng-xuan-bu-ti-ji-hua-qwq/">                            省选补题计划</a>
-        <a class="nav-mobile-next" title="                            省选补题计划" href="https://miuyou.github.io/post/sheng-xuan-bu-ti-ji-hua-qwq/">下一篇</a>
+        <a class="nav-pc-next" title="Miu_you の 动态规划" href="https://miuyou.github.io/post/miu_you-no-dong-tai-gui-hua/">Miu_you の 动态规划</a>
+        <a class="nav-mobile-next" title="Miu_you の 动态规划" href="https://miuyou.github.io/post/miu_you-no-dong-tai-gui-hua/">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>
