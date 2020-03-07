@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://miuyou.github.io/</id>
     <title>春待ち</title>
-    <updated>2020-03-07T14:31:31.631Z</updated>
+    <updated>2020-03-07T14:32:29.595Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://miuyou.github.io/"/>
     <link rel="self" href="https://miuyou.github.io/atom.xml"/>
@@ -31,15 +31,21 @@
 <li><a href="https://www.luogu.com.cn/problem/P1776">P1776 宝物筛选</a><br>
 上面讲过啦!</li>
 </ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Miu_you の 动态规划]]></title>
-        <id>https://miuyou.github.io/post/miu_you-no-dong-tai-gui-hua/</id>
-        <link href="https://miuyou.github.io/post/miu_you-no-dong-tai-gui-hua/">
-        </link>
-        <updated>2020-03-07T10:18:13.000Z</updated>
-        <content type="html"><![CDATA[<p>背包DP</p>
+<h2 id="背包难题">背包难题</h2>
+<ul>
+<li><a href="https://www.luogu.com.cn/problem/P3188">P3188 [HNOI2007]梦幻岛宝珠</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P3623">P3623 [APIO2008]免费道路</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P3943">P3943 星空</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P4026">P4026 [SHOI2008]循环的债务</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P4037">P4037 [JSOI2008]魔兽地图</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P4158">P4158 [SCOI2009]粉刷匠</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P4241">P4241 采摘毒瘤</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P4303">P4303 [AHOI2006]基因匹配</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P4322">P4322 [JSOI2016]最佳团体</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P4799">P4799 [CEOI2015 Day2]世界冰球锦标赛</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P4823">P4823 [TJOI2013]拯救小矮人</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P4866">P4866 Zrz_orz Loves Secondary Element</a></li>
+</ul>
 ]]></content>
     </entry>
     <entry>
