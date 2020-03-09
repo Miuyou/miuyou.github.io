@@ -6,7 +6,7 @@
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="开端顺利 自这天起 离乡背井 等候春息  身处何地 等候春息">
 <meta name="theme-color" content="#000">
-<title>[HEOI2016/TJOI2016]排序 题解 | 春待ち</title>
+<title>[HNOI2007]梦幻岛宝珠 题解 | 春待ち</title>
 <link rel="shortcut icon" href="https://miuyou.github.io//favicon.ico?v=1583748696023">
 <link rel="stylesheet" href="https://miuyou.github.io//styles/main.css">
 
@@ -25,7 +25,7 @@
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
     onload="renderMathInElement(document.body);"></script>
 
-    <meta name="description" content="[HEOI2016/TJOI2016]排序 题解" />
+    <meta name="description" content="[HNOI2007]梦幻岛宝珠 题解" />
     <meta name="keywords" content="解题报告" />
   </head>
   <body>
@@ -254,8 +254,8 @@
             <div class="section bg-color post post-page">
               <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://miuyou.github.io/post/heoi2016tjoi2016pai-xu-ti-jie/">
-      [HEOI2016/TJOI2016]排序 题解
+    <a class="post-title-link" href="https://miuyou.github.io/post/hnoi2007meng-huan-dao-bao-zhu-ti-jie/">
+      [HNOI2007]梦幻岛宝珠 题解
     </a>
   </h1>
   <div class="post-meta">
@@ -263,7 +263,7 @@
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span>发布于</span>
-      <span>2020-02-27</span>
+      <span>2020-03-09</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
@@ -287,10 +287,10 @@
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>784<span class="pc-show">字数</span></span>
+      <span>1072<span class="pc-show">字数</span></span>
     </span>
     
-      <span id="/post/heoi2016tjoi2016pai-xu-ti-jie/" class="meta-item pc-show leancloud_visitors">
+      <span id="/post/hnoi2007meng-huan-dao-bao-zhu-ti-jie/" class="meta-item pc-show leancloud_visitors">
         <span class="post-meta-divider">|</span>
         <i class="fa fa-eye"></i>
         <span>浏览量：<span class="leancloud-visitors-count" ></span></span>
@@ -299,116 +299,94 @@
   </div>
 </header>
               <div class="post-body next-md-body" id="post_body">
-                <!-- more -->
-<p>题目要求我们求出第<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>q</mi></mrow><annotation encoding="application/x-tex">q</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">q</span></span></span></span>位置上的数字.<br>
-暴力想法:暴力局域排序,每次排序的复杂度为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mi>l</mi><mi>o</mi><mi>g</mi><mi>n</mi></mrow><annotation encoding="application/x-tex">nlogn</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">n</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault">n</span></span></span></span><br>
-不合格,舍弃暴力,发现排序不可避免,那么考虑如何优化排序复杂度<br>
-考虑<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>01</mn></mrow><annotation encoding="application/x-tex">01</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span><span class="mord">1</span></span></span></span>串可以做到<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>l</mi><mi>o</mi><mi>g</mi><mi>n</mi></mrow><annotation encoding="application/x-tex">logn</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault">n</span></span></span></span>排序(如何排序自行思考)<br>
-那么考虑如何转换成一个<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>01</mn></mrow><annotation encoding="application/x-tex">01</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span><span class="mord">1</span></span></span></span>串<br>
-约定比选择的数大的为1,小的为0<br>
-但题目要求固定位置的数字,则选择的数不确定<br>
-发现题目给出序列的为排列,则可二分所选择的数<br>
-求出结果</p>
-<p>logn排序的原理是<br>
-因为序列全01,那么从小到大就是将所有的0放到前面,所有的1放到后面</p>
-<p>时间复杂度为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mi>l</mi><mi>o</mi><mi>g</mi><msup><mi>n</mi><mn>2</mn></msup><mo>)</mo></mrow><annotation encoding="application/x-tex">O(nlogn^{2})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></p>
-<pre><code class="language-cpp">#include&lt;iostream&gt;
+                <figure data-type="image" tabindex="1"><img src="https://cdn.luogu.com.cn/upload/image_hosting/iskee2vp.png" alt="" loading="lazy"></figure>
+<!-- more -->
+<p>这题看起来只是一个01背包,但是庞大的数据范围告诉我们常规手段无法解决.</p>
+<p>容量非常大,<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mn>30</mn></msup></mrow><annotation encoding="application/x-tex">2^{30}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">3</span><span class="mord mtight">0</span></span></span></span></span></span></span></span></span></span></span></span>,没有任何的通用优化手段可以解决,但是发现每个物品的容量都为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>a</mi><mo>∗</mo><msup><mn>2</mn><mi>b</mi></msup><mo>)</mo></mrow><annotation encoding="application/x-tex">(a*2^{b})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault">a</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.099108em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.849108em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">b</span></span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>,同时<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi><mo>∗</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">a*b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.46528em;vertical-align:0em;"></span><span class="mord mathdefault">a</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">b</span></span></span></span>很小,考虑先分层,将<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mi>i</mi></msup></mrow><annotation encoding="application/x-tex">2^i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.824664em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.824664em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span></span></span></span></span></span></span></span>作为分层的依据,且最多分成<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>b</mi></mrow><annotation encoding="application/x-tex">b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">b</span></span></span></span>层,考虑对于每一层进行01DP,然后再合并每一层的dp值.</p>
+<p>这里用到了泛化的思想,合并dp值在正整数域的情况下是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><msup><mi>n</mi><mn>2</mn></msup><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n^2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>的.考虑合并时,总容量为之前所有层的容量之和.</p>
+<p>这题的基本思路其他题解已经写的很好了,感谢他们的工作.但是稍微有一些遗憾.</p>
+<p>1.合并的原理是什么?</p>
+<p>关于泛化的概念可以去看背包九讲,因为这里的容量是基于正整数域的,那么我们需要将两组dp数值两两合并.</p>
+<p>参照背包九讲的说法:&quot;如果面对两个泛化物品h和l，要用给定的费用从这两个泛化物品中得到最大的价值.怎么求呢？事实上，对于一个给定的费用v，只需枚举将这个费用如何分配给两个泛化物品就可以了。同样的，对于<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0..</mn><mi>V</mi></mrow><annotation encoding="application/x-tex">0..V</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord">0</span><span class="mord">.</span><span class="mord">.</span><span class="mord mathdefault" style="margin-right:0.22222em;">V</span></span></span></span>的每一个整数v，可以求得费用v分配到h和l中的最大价值<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>(</mo><mi>v</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">f(v)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.03588em;">v</span><span class="mclose">)</span></span></span></span>。也即<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>(</mo><mi>v</mi><mo>)</mo><mo>=</mo><mi>m</mi><mi>a</mi><mi>x</mi><mo>(</mo><msub><mi>h</mi><mi>k</mi></msub><mo>+</mo><msub><mi>l</mi><mrow><mi>v</mi><mo>−</mo><mi>k</mi></mrow></msub><mo>)</mo></mrow><annotation encoding="application/x-tex">f(v)=max(h_k+l_{v-k})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.03588em;">v</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">m</span><span class="mord mathdefault">a</span><span class="mord mathdefault">x</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">h</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361079999999999em;"><span style="top:-2.5500000000000003em;margin-left:-0.01968em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.03588em;">v</span><span class="mbin mtight">−</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.208331em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>且<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn><mo>&lt;</mo><mo>=</mo><mi>k</mi><mo>&lt;</mo><mo>=</mo><mi>v</mi></mrow><annotation encoding="application/x-tex">0&lt;=k&lt;=v</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68354em;vertical-align:-0.0391em;"></span><span class="mord">0</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.73354em;vertical-align:-0.0391em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">v</span></span></span></span>。可以看到，f也是一个由泛化物品h和l决定的定义域为0..V的函数，也就是说，f是一个由泛化物品h和l决定的泛化物品。&quot;</p>
+<p>按照这个思想,我们就能进行如下合并</p>
+<pre><code class="language-cpp">for (int j = sum[i]; j &gt; -1; --j) {
+				for (int k = 0; k &lt;= j; ++k) {
+					dp[i][j] = max(dp[i][j], dp[i][j - k] + dp[i - 1][min(sum[i - 1], (k &lt;&lt; 1) | ((m &gt;&gt; (i - 1)) &amp; 1))]);
+				}
+			}
+</code></pre>
+<p>直接套模板就行了,但是<span class='katex-error' title='ParseError: KaTeX parse error: Expected &#039;EOF&#039;, got &#039;&amp;&#039; at position 18: …(m &gt;&gt; (i - 1)) &amp;̲ 1)'>(((m &gt;&gt; (i - 1)) &amp; 1)</span>这是个啥???<br>
+<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi><mo>&lt;</mo><mo>&lt;</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">k&lt;&lt;1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.73354em;vertical-align:-0.0391em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span></span><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>是分配给h的容量的,分配了k个单位,然后因为退位了所以乘以二,但是还有一部分容量没有被计算,那就是背包容量在当前位的单位,所以判断一下m的当前位是否为1.</p>
+<p>2.每一层的单位总量是什么?<br>
+代码中有这么一句</p>
+<pre><code class="language-cpp">sum[i] += (sum[i - 1] + 1) / 2;
+</code></pre>
+<p>为什么要加一?<br>
+如果现在<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi><mi>u</mi><mi>m</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>=</mo><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">sum[i]==0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">s</span><span class="mord mathdefault">u</span><span class="mord mathdefault">m</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>,且<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi><mi>u</mi><mi>m</mi><mo>[</mo><mi>i</mi><mo>−</mo><mn>1</mn><mo>]</mo><mo>=</mo><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">sum[i-1]==1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">s</span><span class="mord mathdefault">u</span><span class="mord mathdefault">m</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>,如果向下取整,那么在i这一层无法合并第i-1层,所以应当向上取整,不怕多只怕少(雾</p>
+<p>下面就是完整代码了</p>
+<pre><code class="language-cpp">#define _CRT_SECURE_NO_DEPRECATE
+#include&lt;iostream&gt;
 #include&lt;cstdio&gt;
 #include&lt;algorithm&gt;
+#include&lt;vector&gt;
+#include&lt;cmath&gt;
+#include&lt;queue&gt;
+#include&lt;map&gt;
 #include&lt;cstring&gt;
+#include&lt;set&gt;
 using namespace std;
-#define mid ((l+r)&gt;&gt;1)
-#define ls (k&lt;&lt;1)
-#define rs (k&lt;&lt;1|1)
-#define lson ls,l,mid
-#define rson rs,mid+1,r
-int n,m,q,a[100050];
-struct edge{
-	int a,b,c;
-}tu[100050];
-struct node{
-	int flag,sum;
-}t[400050];
-inline void pushdown(int k,int l,int r){
-	if(t[k].flag==1){
-		t[ls].flag=t[rs].flag=1;
-		t[ls].sum=t[rs].sum=0;
-	}else if(t[k].flag==2){
-		t[ls].flag=t[rs].flag=2;
-		t[ls].sum=(mid-l+1);t[rs].sum=(r-mid);
-	}t[k].flag=0;
+int n, m, maxx;
+int sum[35];
+long long dp[35][1050];
+vector&lt;int&gt;w[35], v[35];
+inline int lowbit(int x) {
+	return x &amp; (-x);
 }
-inline void built(int k,int l,int r,int x) {
-	t[k].flag=0;
-	if(l==r) {
-		t[k].sum=(a[l]&gt;=x);
-	} else {
-		built(lson,x);
-		built(rson,x);
-        t[k].sum=t[ls].sum+t[rs].sum;
-	}
-}
-inline int query(int k,int l,int r,int L,int R) {
-	if(l&gt;r||r&lt;L||l&gt;R)return 0;
-	if(L&lt;=l&amp;&amp;r&lt;=R)return t[k].sum;
-    int tot=0;
-	pushdown(k,l,r);
-	if(L&lt;=mid)tot+=query(lson,L,R);
-	if(mid&lt;R)tot+=query(rson,L,R);
-	t[k].sum=t[ls].sum+t[rs].sum;
-	return tot;
-}
-inline void gai(int k,int l,int r,int L,int R,int val){
-	if(l&gt;r||r&lt;L||l&gt;R)return;
-    if(L&lt;=l&amp;&amp;r&lt;=R){
-        t[k].flag=val+1;
-		t[k].sum=(r-l+1)*val;
-    }else{
-        pushdown(k,l,r);
-		if(mid&gt;=L)gai(lson,L,R,val);
-		if(mid&lt;R)gai(rson,L,R,val);
-		t[k].sum=t[ls].sum+t[rs].sum;
-    }
-}
-inline int cha(int k,int l,int r,int val){
-	if(l&gt;r||r&lt;val||l&gt;val)return 0;
-    if(l==val&amp;&amp;r==val){
-        return t[k].sum;
-    }else{
-        pushdown(k,l,r);
-		if(mid&gt;=val)return cha(lson,val);
-		else return cha(rson,val);
-    }
-}
-int check(int x){
-	built(1,1,n,x);
-	for(int i=1;i&lt;=m;++i){
-        int val=query(1,1,n,tu[i].b,tu[i].c);
-        if(!val)gai(1,1,n,tu[i].b,tu[i].c,0);
-		if(tu[i].a){
-			gai(1,1,n,tu[i].b,tu[i].b+val-1,1);
-			gai(1,1,n,tu[i].b+val,tu[i].c,0);
-		}else{
-			val=(tu[i].c-tu[i].b+1)-val;
-			gai(1,1,n,tu[i].b,tu[i].b+val-1,0);
-			gai(1,1,n,tu[i].b+val,tu[i].c,1);
+int main() {
+	while (1) {
+		memset(sum, 0, sizeof(sum));
+		scanf(&quot;%d%d&quot;, &amp;n, &amp;m);
+		if (n == -1 &amp;&amp; m == -1)return 0;
+		maxx = 0;
+		memset(dp, 0, sizeof(dp));
+		for (int i = 1; i &lt;= n; ++i) {
+			int x, y;
+			scanf(&quot;%d%d&quot;, &amp;x, &amp;y);
+			int k = 0;
+			while (!(x &amp; 1)) {
+				x &gt;&gt;= 1;
+				++k;
+				if (!x)break;
+			}w[k].push_back(x);
+			sum[k] += x;
+			maxx = max(maxx, k);
+			v[k].push_back(y);
+		}
+
+		for (int i = 0; i &lt;= maxx; ++i) {
+			for (int j = 0; j &lt; w[i].size(); ++j) {
+				for (int k = sum[i]; k &gt;= w[i][j]; --k) {
+					dp[i][k] = max(dp[i][k], dp[i][k - w[i][j]] + v[i][j]);
+				}
+			}
+		}
+		while (m &gt;&gt; maxx)++maxx; --maxx;
+		for (int i = 1; i &lt;= maxx; ++i) {
+			sum[i] += (sum[i - 1] + 1) / 2;
+			for (int j = sum[i]; j &gt; -1; --j) {
+				for (int k = 0; k &lt;= j; ++k) {
+					dp[i][j] = max(dp[i][j], dp[i][j - k] + dp[i - 1][min(sum[i - 1], (k &lt;&lt; 1) | ((m &gt;&gt; (i - 1)) &amp; 1))]);
+				}
+			}
+			//考虑一个事情,我们当前停留的位置到底在哪里,例如一个110101   如果现在在第5位   j={1,2,3},发现后面还有一串没有分配
+		}
+
+		cout &lt;&lt; dp[maxx][1] &lt;&lt; endl;
+		for (int i = 0; i &lt;= 30; ++i) {
+			v[i].clear();
+			w[i].clear();
 		}
 	}
-	return cha(1,1,n,q);
-}
-int main(){
-	cin&gt;&gt;n&gt;&gt;m;
-	for(int i=1;i&lt;=n;++i)scanf(&quot;%d&quot;,&amp;a[i]);
-	for(int i=1;i&lt;=m;++i){
-		scanf(&quot;%d%d%d&quot;,&amp;tu[i].a,&amp;tu[i].b,&amp;tu[i].c);
-	}int l=1,r=n,md,anse=0;cin&gt;&gt;q;
-	while(l&lt;=r){
-		md=(l+r)&gt;&gt;1;
-		if(check(md)){
-			anse=md;
-			l=md+1;
-		}else r=md-1;
-	}cout&lt;&lt;anse&lt;&lt;endl;return 0;
 }
 </code></pre>
 
@@ -421,7 +399,7 @@ int main(){
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://miuyou.github.io/post/heoi2016tjoi2016pai-xu-ti-jie/" title="[HEOI2016/TJOI2016]排序 题解">[HEOI2016/TJOI2016]排序 题解</a>
+      <a href="https://miuyou.github.io/post/hnoi2007meng-huan-dao-bao-zhu-ti-jie/" title="[HNOI2007]梦幻岛宝珠 题解">[HNOI2007]梦幻岛宝珠 题解</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -437,11 +415,15 @@ int main(){
     <div class="nav-prev">
       
         <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="                            省选补题计划" href="https://miuyou.github.io/post/sheng-xuan-bu-ti-ji-hua-qwq/">                            省选补题计划</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="                            省选补题计划" href="https://miuyou.github.io/post/sheng-xuan-bu-ti-ji-hua-qwq/">上一篇</a>
+        <a class="nav-pc-next" title="Miu_youの思维题" href="https://miuyou.github.io/post/miu_younosi-wei-ti/">Miu_youの思维题</a class="nav-pc-next">
+        <a class="nav-mobile-prev" title="Miu_youの思维题" href="https://miuyou.github.io/post/miu_younosi-wei-ti/">上一篇</a>
       
     </div>
     <div class="nav-next">
+      
+        <a class="nav-pc-next" title=" Miu_you の 最小生成树" href="https://miuyou.github.io/post/miu_you-no-zui-xiao-sheng-cheng-shu/"> Miu_you の 最小生成树</a>
+        <a class="nav-mobile-next" title=" Miu_you の 最小生成树" href="https://miuyou.github.io/post/miu_you-no-zui-xiao-sheng-cheng-shu/">下一篇</a>
+        <i class="fa fa-chevron-right"></i>
       
     </div>
   </div>
