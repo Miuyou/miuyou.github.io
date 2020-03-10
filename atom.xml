@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://miuyou.github.io/</id>
     <title>春待ち</title>
-    <updated>2020-03-09T10:11:42.572Z</updated>
+    <updated>2020-03-10T14:39:32.593Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://miuyou.github.io/"/>
     <link rel="self" href="https://miuyou.github.io/atom.xml"/>
@@ -179,13 +179,25 @@ int main() {
 <li><a href="https://www.luogu.com.cn/problem/P3188">P3188 [HNOI2007]梦幻岛宝珠</a><br>
 具体我写了题解....</li>
 </ul>
+<h2 id="背包变形">背包变形</h2>
+<ul>
+<li><a href="https://www.luogu.com.cn/problem/P4026">P4026 [SHOI2008]循环的债务</a><br>
+隐性背包,并没有直接背包の做法,而是采用了背包的思想,但是变成了枚举可行的初始容量,枚举物品个数然后转移.</li>
+<li><a href="https://www.luogu.com.cn/problem/P4303">P4303 [AHOI2006]基因匹配</a><br>
+降维+数据结构维护前缀最大值即可,考虑背包思想,从后向前dp这样子就不会互相影响</li>
+</ul>
+<h2 id="背包计数方案数统计">背包计数/方案数统计</h2>
+<ul>
+<li><a href="https://www.luogu.com.cn/problem/P4241">P4241 采摘毒瘤</a><br>
+因为是计数,所以必须保证我们的统计不会<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">重</mi><mi mathvariant="normal">复</mi></mrow><annotation encoding="application/x-tex">重复</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0em;vertical-align:0em;"></span><span class="mord cjk_fallback">重</span><span class="mord cjk_fallback">复</span></span></span></span>,那么考虑到在比当前物品大的物品dp的基础上,不断加入当前物品,为了不重复,当前dp数组能够直接统计的情况只有比自己小的物品全选,因为我们知道正常情况下不会出现所有物品一起选择的方案,所以这种情况可以独立统计,但是在统计方案数的时候,不能将当前物品全部放入,因为更小的全部选上了,那么不能放入且能被确定的最小物品就是当前物品,如果最后一个物品也放进去的话,就会出现不知道谁被选作无法放入的最小物品,那么就无法确定统计的下届.那么是否这个物品没有被统计呢?这并不是,我们这里统计的仅仅是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">可</mi><mi mathvariant="normal">以</mi><mi mathvariant="normal">确</mi><mi mathvariant="normal">定</mi><mi mathvariant="normal">的</mi><mi mathvariant="normal">方</mi><mi mathvariant="normal">案</mi></mrow><annotation encoding="application/x-tex">可以确定的方案</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0em;vertical-align:0em;"></span><span class="mord cjk_fallback">可</span><span class="mord cjk_fallback">以</span><span class="mord cjk_fallback">确</span><span class="mord cjk_fallback">定</span><span class="mord cjk_fallback">的</span><span class="mord cjk_fallback">方</span><span class="mord cjk_fallback">案</span></span></span></span>,确定的是无法放入的是哪个物品,理所当然的应该从大到小统计,如果从小到大的话,会出现重复统计.完毕.</li>
+</ul>
+<h2 id="树形背包">树形背包</h2>
+<ul>
+<li><a href="https://www.luogu.com.cn/problem/P4037">P4037 [JSOI2008]魔兽地图</a><br>
+比较令人烦躁的背包,子节点会对父节点产生影响,这就意味着我们在状态设计上需要考虑父节点,那么我们开一维用来储存供给给父节点合成的装备就可以了.</li>
+</ul>
 <h2 id="背包难题">背包难题</h2>
 <ul>
-<li><a href="https://www.luogu.com.cn/problem/P4026">P4026 [SHOI2008]循环的债务</a></li>
-<li><a href="https://www.luogu.com.cn/problem/P4037">P4037 [JSOI2008]魔兽地图</a></li>
-<li><a href="https://www.luogu.com.cn/problem/P4158">P4158 [SCOI2009]粉刷匠</a></li>
-<li><a href="https://www.luogu.com.cn/problem/P4241">P4241 采摘毒瘤</a></li>
-<li><a href="https://www.luogu.com.cn/problem/P4303">P4303 [AHOI2006]基因匹配</a></li>
 <li><a href="https://www.luogu.com.cn/problem/P4322">P4322 [JSOI2016]最佳团体</a></li>
 <li><a href="https://www.luogu.com.cn/problem/P4799">P4799 [CEOI2015 Day2]世界冰球锦标赛</a></li>
 <li><a href="https://www.luogu.com.cn/problem/P4823">P4823 [TJOI2013]拯救小矮人</a></li>
@@ -214,7 +226,7 @@ int main() {
 命揺らせ　命揺らせ<br>
 摇曳你的生命，请摇曳你的生命！</p>
 <h2 id="前方高能省选dp集合">前方高能,省选DP集合</h2>
-<h2 id="树形dp0"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">树</mi><mi mathvariant="normal">形</mi><mi>D</mi><mi>P</mi><mn>0</mn></mrow><annotation encoding="application/x-tex">树形DP0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord cjk_fallback">树</span><span class="mord cjk_fallback">形</span><span class="mord mathdefault" style="margin-right:0.02778em;">D</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mord">0</span></span></span></span></h2>
+<h2 id="树形dp"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">树</mi><mi mathvariant="normal">形</mi><mi>D</mi><mi>P</mi></mrow><annotation encoding="application/x-tex">树形DP</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord cjk_fallback">树</span><span class="mord cjk_fallback">形</span><span class="mord mathdefault" style="margin-right:0.02778em;">D</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span></span></span></span></h2>
 <ul>
 <li><a href="https://www.luogu.com.cn/problem/P1131">P1131 [ZJOI2007]时态同步</a><br>
 简单树形DP,让所有点都和最慢得一样慢就可以了</li>
@@ -248,14 +260,13 @@ int main() {
 <ul>
 <li><a href="https://www.luogu.com.cn/problem/P2051">P2051 [AHOI2009]中国象棋</a><br>
 数据太大了,没法状态压缩,那么就dp喽,要详细的考虑到每种情况</li>
+<li><a href="https://www.luogu.com.cn/problem/P4158">P4158 [SCOI2009]粉刷匠</a><br>
+比较难想又比较难写的DP,其实熟练以后会觉得挺好写的.</li>
 </ul>
 <h2 id="待完成"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">待</mi><mi mathvariant="normal">完</mi><mi mathvariant="normal">成</mi></mrow><annotation encoding="application/x-tex">待完成</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0em;vertical-align:0em;"></span><span class="mord cjk_fallback">待</span><span class="mord cjk_fallback">完</span><span class="mord cjk_fallback">成</span></span></span></span></h2>
 <ul>
 <li>
 <p><a href="https://www.luogu.com.cn/problem/P1446">P1446 [HNOI2008]Cards</a></p>
-</li>
-<li>
-<p><a href="https://www.luogu.com.cn/problem/P2144">P2144 [FJOI2007]轮状病毒</a></p>
 </li>
 <li>
 <p><a href="https://www.luogu.com.cn/problem/P2145">P2145 [JSOI2007]祖码</a></p>
