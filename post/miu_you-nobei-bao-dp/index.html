@@ -7,7 +7,7 @@
 <meta name="description" content="开端顺利 自这天起 离乡背井 等候春息  身处何地 等候春息">
 <meta name="theme-color" content="#000">
 <title>Miu_you の进阶背包DP | 春待ち</title>
-<link rel="shortcut icon" href="https://miuyou.github.io//favicon.ico?v=1583846493396">
+<link rel="shortcut icon" href="https://miuyou.github.io//favicon.ico?v=1583909767461">
 <link rel="stylesheet" href="https://miuyou.github.io//styles/main.css">
 
 <link rel="stylesheet" href="/media/css/muse.css">
@@ -181,7 +181,6 @@
 <li><a href="#%E8%83%8C%E5%8C%85%E5%8F%98%E5%BD%A2">背包变形</a></li>
 <li><a href="#%E8%83%8C%E5%8C%85%E8%AE%A1%E6%95%B0%E6%96%B9%E6%A1%88%E6%95%B0%E7%BB%9F%E8%AE%A1">背包计数/方案数统计</a></li>
 <li><a href="#%E6%A0%91%E5%BD%A2%E8%83%8C%E5%8C%85">树形背包</a></li>
-<li><a href="#%E8%83%8C%E5%8C%85%E9%9A%BE%E9%A2%98">背包难题</a></li>
 </ul>
 </li>
 </ul>
@@ -464,12 +463,12 @@ window.addEventListener('load', function() {
     
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>5分钟</span>
+      <span>6分钟</span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>1112<span class="pc-show">字数</span></span>
+      <span>1377<span class="pc-show">字数</span></span>
     </span>
     
       <span id="/post/miu_you-nobei-bao-dp/" class="meta-item pc-show leancloud_visitors">
@@ -512,6 +511,9 @@ window.addEventListener('load', function() {
 隐性背包,并没有直接背包の做法,而是采用了背包的思想,但是变成了枚举可行的初始容量,枚举物品个数然后转移.</li>
 <li><a href="https://www.luogu.com.cn/problem/P4303">P4303 [AHOI2006]基因匹配</a><br>
 降维+数据结构维护前缀最大值即可,考虑背包思想,从后向前dp这样子就不会互相影响</li>
+<li><a href="https://www.luogu.com.cn/problem/P4823">P4823 [TJOI2013]拯救小矮人</a><br>
+谔谔,要先贪心排序后模拟背包.考虑这题的数据范围可知应该是一个DP,然后有着固定的最大容量且每个人都是单独的所以可以联想到背包DP,但是数据范围不允许直接背包,所以考虑转化问题.发现越难出去的越应该早出去,同时因为个子高手短的可能作为垫脚石更好一些,这里就是dp的切入口,设<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><msub><mi>p</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">dp_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">d</span><span class="mord"><span class="mord mathdefault">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>代表走i个人以后的最高高度.那么不排序是否可行呢?答案是否定的.如果先考虑了容易出去的人,那么难以出去的人就很难离开了<br>
+举个例子,按照样例一输入,排序后为&quot;5 5 20 10&quot;,先考虑最小的出去,然后再把最大的放出去,如果不排序的话,&quot;20 10 5 5&quot;,这种情况就会导致本来可以当暂时的垫脚石的1号提前离开,2号就无法转移了.</li>
 </ul>
 <h2 id="背包计数方案数统计">背包计数/方案数统计</h2>
 <ul>
@@ -520,15 +522,17 @@ window.addEventListener('load', function() {
 </ul>
 <h2 id="树形背包">树形背包</h2>
 <ul>
-<li><a href="https://www.luogu.com.cn/problem/P4037">P4037 [JSOI2008]魔兽地图</a><br>
-比较令人烦躁的背包,子节点会对父节点产生影响,这就意味着我们在状态设计上需要考虑父节点,那么我们开一维用来储存供给给父节点合成的装备就可以了.</li>
-</ul>
-<h2 id="背包难题">背包难题</h2>
-<ul>
-<li><a href="https://www.luogu.com.cn/problem/P4322">P4322 [JSOI2016]最佳团体</a></li>
-<li><a href="https://www.luogu.com.cn/problem/P4799">P4799 [CEOI2015 Day2]世界冰球锦标赛</a></li>
-<li><a href="https://www.luogu.com.cn/problem/P4823">P4823 [TJOI2013]拯救小矮人</a></li>
-<li><a href="https://www.luogu.com.cn/problem/P4866">P4866 Zrz_orz Loves Secondary Element</a></li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P4037">P4037 [JSOI2008]魔兽地图</a><br>
+比较令人烦躁的背包,子节点会对父节点产生影响,这就意味着我们在状态设计上需要考虑父节点,那么我们开一维用来储存供给给父节点合成的装备就可以了.</p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P4322">P4322 [JSOI2016]最佳团体</a><br>
+0/1分数规划+一般树形背包</p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P4866">P4866 Zrz_orz Loves Secondary Element</a></p>
+</li>
 </ul>
 
               </div>
