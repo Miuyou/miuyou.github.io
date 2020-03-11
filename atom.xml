@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://miuyou.github.io/</id>
     <title>春待ち</title>
-    <updated>2020-03-11T06:56:29.297Z</updated>
+    <updated>2020-03-11T09:16:27.370Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://miuyou.github.io/"/>
     <link rel="self" href="https://miuyou.github.io/atom.xml"/>
@@ -152,10 +152,8 @@ int main() {
         </link>
         <updated>2020-03-07T10:29:54.000Z</updated>
         <summary type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="https://miuyou.github.io//post-images/1583577043309.jpg" alt="" loading="lazy"></figure>
-<p>附注:所有公式记得重写</p>
 ]]></summary>
         <content type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="https://miuyou.github.io//post-images/1583577043309.jpg" alt="" loading="lazy"></figure>
-<p>附注:所有公式记得重写</p>
 <!-- more -->
 <h2 id="1单调队列优化背包">1.单调队列优化背包</h2>
 <p>我们知道,一般の背包做法是枚举物品和物品个数/当前容量,复杂度为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mo>∗</mo><mi>W</mi><mo>∗</mo><msubsup><mo>∑</mo><mn>1</mn><mi>n</mi></msubsup><msub><mi>m</mi><mi>i</mi></msub><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n*W*\sum_{1}^{n}m_i)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">W</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.104002em;vertical-align:-0.29971000000000003em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.804292em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">n</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.29971000000000003em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">m</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>,效率非常底下,因为枚举背包容量无法避免,那么考虑如何优化<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><msubsup><mo>∑</mo><mn>1</mn><mi>n</mi></msubsup><msub><mi>m</mi><mi>i</mi></msub><mo>)</mo></mrow><annotation encoding="application/x-tex">(\sum_{1}^{n}m_i)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.104002em;vertical-align:-0.29971000000000003em;"></span><span class="mopen">(</span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.804292em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">n</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.29971000000000003em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">m</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>.</p>
@@ -196,17 +194,10 @@ int main() {
 </ul>
 <h2 id="树形背包">树形背包</h2>
 <ul>
-<li>
-<p><a href="https://www.luogu.com.cn/problem/P4037">P4037 [JSOI2008]魔兽地图</a><br>
-比较令人烦躁的背包,子节点会对父节点产生影响,这就意味着我们在状态设计上需要考虑父节点,那么我们开一维用来储存供给给父节点合成的装备就可以了.</p>
-</li>
-<li>
-<p><a href="https://www.luogu.com.cn/problem/P4322">P4322 [JSOI2016]最佳团体</a><br>
-0/1分数规划+一般树形背包</p>
-</li>
-<li>
-<p><a href="https://www.luogu.com.cn/problem/P4866">P4866 Zrz_orz Loves Secondary Element</a></p>
-</li>
+<li><a href="https://www.luogu.com.cn/problem/P4037">P4037 [JSOI2008]魔兽地图</a><br>
+比较令人烦躁的背包,子节点会对父节点产生影响,这就意味着我们在状态设计上需要考虑父节点,那么我们开一维用来储存供给给父节点合成的装备就可以了.</li>
+<li><a href="https://www.luogu.com.cn/problem/P4322">P4322 [JSOI2016]最佳团体</a><br>
+0/1分数规划+一般树形背包</li>
 </ul>
 ]]></content>
     </entry>
