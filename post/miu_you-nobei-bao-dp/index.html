@@ -7,7 +7,7 @@
 <meta name="description" content="开端顺利 自这天起 离乡背井 等候春息  身处何地 等候春息">
 <meta name="theme-color" content="#000">
 <title>Miu_you の进阶背包DP | 春待ち</title>
-<link rel="shortcut icon" href="https://miuyou.github.io//favicon.ico?v=1583918182612">
+<link rel="shortcut icon" href="https://miuyou.github.io//favicon.ico?v=1583995743657">
 <link rel="stylesheet" href="https://miuyou.github.io//styles/main.css">
 
 <link rel="stylesheet" href="/media/css/muse.css">
@@ -146,7 +146,7 @@
     <div class="sidebar-item-box">
       <a href="/archives/">
         
-        <span class="site-item-stat-count">8</span>
+        <span class="site-item-stat-count">9</span>
         <span class="site-item-stat-name">文章</span>
       </a>
     </div>
@@ -177,7 +177,7 @@
 <ul>
 <li><a href="#1%E5%8D%95%E8%B0%83%E9%98%9F%E5%88%97%E4%BC%98%E5%8C%96%E8%83%8C%E5%8C%85">1.单调队列优化背包</a></li>
 <li><a href="#%E7%AC%ACk%E4%BC%98%E8%A7%A3%E8%83%8C%E5%8C%85">第k优解背包</a></li>
-<li><a href="#%E5%BD%93%E8%83%8C%E5%8C%85%E5%AE%B9%E9%87%8F%E7%89%A9%E5%93%81%E4%BD%93%E7%A7%AF%E8%BF%87%E5%A4%A7%E6%97%B6">当背包容量/物品体积过大时</a></li>
+<li><a href="#%E5%BD%93%E8%83%8C%E5%8C%85%E5%AE%B9%E9%87%8F%E7%89%A9%E5%93%81%E4%BD%93%E7%A7%AF%E8%BF%87%E5%A4%A7%E6%97%B6%E6%B3%9B%E5%8C%96%E7%89%A9%E5%93%81">当背包容量/物品体积过大时/泛化物品</a></li>
 <li><a href="#%E8%83%8C%E5%8C%85%E5%8F%98%E5%BD%A2">背包变形</a></li>
 <li><a href="#%E8%83%8C%E5%8C%85%E8%AE%A1%E6%95%B0%E6%96%B9%E6%A1%88%E6%95%B0%E7%BB%9F%E8%AE%A1">背包计数/方案数统计</a></li>
 <li><a href="#%E6%A0%91%E5%BD%A2%E8%83%8C%E5%8C%85">树形背包</a></li>
@@ -463,12 +463,12 @@ window.addEventListener('load', function() {
     
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>5分钟</span>
+      <span>8分钟</span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>1362<span class="pc-show">字数</span></span>
+      <span>2002<span class="pc-show">字数</span></span>
     </span>
     
       <span id="/post/miu_you-nobei-bao-dp/" class="meta-item pc-show leancloud_visitors">
@@ -492,19 +492,23 @@ window.addEventListener('load', function() {
 上面讲过啦!</li>
 </ul>
 <h2 id="第k优解背包">第k优解背包</h2>
-<p>其实很好理解的东西.考虑到每次刷新背包的dp值,都是用一个较优的替代较劣的,那么考虑将一维dp数组扩展一维,用来存放第k优解,因为第k优解很明显和第k-1优解有关,每个物品加入的时候产生的总情况为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>V</mi><mo>−</mo><mi>v</mi><mo>)</mo><mo>∗</mo><mi>k</mi></mrow><annotation encoding="application/x-tex">(V-v)*k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.22222em;">V</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">v</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span>,但是考虑到两个集合都是单调的,可以用双指针解决,同时需要开一个数组存储计算结果,因为第k项和第k-1有关,但是k-1会比k先更新,导致无法计算出次优解.</p>
+<p>考虑到每次刷新背包的dp值,都是用一个较优的替代较劣的,那么考虑将一维dp数组扩展一维,用来存放第k优解,因为第k优解很明显和第k-1优解有关,每个物品加入的时候产生的总情况为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>V</mi><mo>−</mo><mi>v</mi><mo>)</mo><mo>∗</mo><mi>k</mi></mrow><annotation encoding="application/x-tex">(V-v)*k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.22222em;">V</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">v</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span>,但是考虑到两个集合都是单调的,可以用双指针解决,同时需要开一个数组存储计算结果,因为第k项和第k-1有关,但是k-1会比k先更新,导致无法计算出次优解.</p>
 <p>例题:</p>
 <ul>
 <li><a href="https://www.luogu.com.cn/problem/P1858">P1858 多人背包</a></li>
 </ul>
-<h2 id="当背包容量物品体积过大时">当背包容量/物品体积过大时</h2>
-<p>这种题目往往会给数据一个特定的规律,踩着规律捏着魔法的神仙题<br>
-以例题为主吧</p>
+<h2 id="当背包容量物品体积过大时泛化物品">当背包容量/物品体积过大时/泛化物品</h2>
+<p>这种题目往往会给数据一个特定的规律,那么突破点就在于数据的特殊性质上.<br>
+如P3188这种,因为体积过大,直接转移肯定是行不通的,类似于单调队列优化背包的思想,将他分层进行计算,但层于层之间有联系,那么要合并两层的数据....<br>
+1.合并的原理是什么?<br>
+关于泛化的概念可以去看背包九讲,因为这里的容量是基于正整数域的,所以可以直接用dp数组合并.<br>
+参考背包九讲的说法:&quot;如果面对两个泛化物品h和l，要用给定的费用从这两个泛化物品中得到最大的价值.怎么求呢？事实上，对于一个给定的费用v，只需枚举将这个费用如何分配给两个泛化物品就可以了。同样的，对于<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0..</mn><mi>V</mi></mrow><annotation encoding="application/x-tex">0..V</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord">0</span><span class="mord">.</span><span class="mord">.</span><span class="mord mathdefault" style="margin-right:0.22222em;">V</span></span></span></span>的每一个整数v，可以求得费用v分配到h和l中的最大价值<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>(</mo><mi>v</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">f(v)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.03588em;">v</span><span class="mclose">)</span></span></span></span>。也即<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>(</mo><mi>v</mi><mo>)</mo><mo>=</mo><mi>m</mi><mi>a</mi><mi>x</mi><mo>(</mo><msub><mi>h</mi><mi>k</mi></msub><mo>+</mo><msub><mi>l</mi><mrow><mi>v</mi><mo>−</mo><mi>k</mi></mrow></msub><mo>)</mo></mrow><annotation encoding="application/x-tex">f(v)=max(h_k+l_{v-k})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.03588em;">v</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">m</span><span class="mord mathdefault">a</span><span class="mord mathdefault">x</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">h</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361079999999999em;"><span style="top:-2.5500000000000003em;margin-left:-0.01968em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.03588em;">v</span><span class="mbin mtight">−</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.208331em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>且<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn><mo>&lt;</mo><mo>=</mo><mi>k</mi><mo>&lt;</mo><mo>=</mo><mi>v</mi></mrow><annotation encoding="application/x-tex">0&lt;=k&lt;=v</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68354em;vertical-align:-0.0391em;"></span><span class="mord">0</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.73354em;vertical-align:-0.0391em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">v</span></span></span></span>。可以看到，f也是一个由泛化物品h和l决定的定义域为0..V的函数，也就是说，f是一个由泛化物品h和l决定的泛化物品。&quot;</p>
 <ul>
 <li><a href="https://www.luogu.com.cn/problem/P3188">P3188 [HNOI2007]梦幻岛宝珠</a><br>
-具体我写了题解....</li>
+比较经典的题</li>
 </ul>
 <h2 id="背包变形">背包变形</h2>
+<p>背包并不是说一定用的上模板,我们可以利用背包的思想解决一些题目</p>
 <ul>
 <li><a href="https://www.luogu.com.cn/problem/P4026">P4026 [SHOI2008]循环的债务</a><br>
 隐性背包,并没有直接背包の做法,而是采用了背包的思想,但是变成了枚举可行的初始容量,枚举物品个数然后转移.</li>
@@ -515,16 +519,22 @@ window.addEventListener('load', function() {
 举个例子,按照样例一输入,排序后为&quot;5 5 20 10&quot;,先考虑最小的出去,然后再把最大的放出去,如果不排序的话,&quot;20 10 5 5&quot;,这种情况就会导致本来可以当暂时的垫脚石的1号提前离开,2号就无法转移了.</li>
 </ul>
 <h2 id="背包计数方案数统计">背包计数/方案数统计</h2>
+<p>既然是计数,那么必须做到不重不漏,高效全面</p>
 <ul>
 <li><a href="https://www.luogu.com.cn/problem/P4241">P4241 采摘毒瘤</a><br>
 因为是计数,所以必须保证我们的统计不会<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">重</mi><mi mathvariant="normal">复</mi></mrow><annotation encoding="application/x-tex">重复</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0em;vertical-align:0em;"></span><span class="mord cjk_fallback">重</span><span class="mord cjk_fallback">复</span></span></span></span>,那么考虑到在比当前物品大的物品dp的基础上,不断加入当前物品,为了不重复,当前dp数组能够直接统计的情况只有比自己小的物品全选,因为我们知道正常情况下不会出现所有物品一起选择的方案,所以这种情况可以独立统计,但是在统计方案数的时候,不能将当前物品全部放入,因为更小的全部选上了,那么不能放入且能被确定的最小物品就是当前物品,如果最后一个物品也放进去的话,就会出现不知道谁被选作无法放入的最小物品,那么就无法确定统计的下届.那么是否这个物品没有被统计呢?这并不是,我们这里统计的仅仅是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">可</mi><mi mathvariant="normal">以</mi><mi mathvariant="normal">确</mi><mi mathvariant="normal">定</mi><mi mathvariant="normal">的</mi><mi mathvariant="normal">方</mi><mi mathvariant="normal">案</mi></mrow><annotation encoding="application/x-tex">可以确定的方案</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0em;vertical-align:0em;"></span><span class="mord cjk_fallback">可</span><span class="mord cjk_fallback">以</span><span class="mord cjk_fallback">确</span><span class="mord cjk_fallback">定</span><span class="mord cjk_fallback">的</span><span class="mord cjk_fallback">方</span><span class="mord cjk_fallback">案</span></span></span></span>,确定的是无法放入的是哪个物品,理所当然的应该从大到小统计,如果从小到大的话,会出现重复统计.完毕.</li>
+<li><a href="https://www.luogu.com.cn/problem/P4516">P4516 [JSOI2018]潜入行动</a><br>
+比较套路的计数背包了,看到这种题肯定是大力设状态,大力转移就可以了,大力分类讨论.考虑到我们的转移式会提前更新一些dp值,所以另开一个数组用于暂存上一次dp的结果.</li>
 </ul>
 <h2 id="树形背包">树形背包</h2>
+<p>树形背包是在树形结构上按照一定的规则做的背包,往往需要和树的性质结合来解决问题.</p>
 <ul>
 <li><a href="https://www.luogu.com.cn/problem/P4037">P4037 [JSOI2008]魔兽地图</a><br>
 比较令人烦躁的背包,子节点会对父节点产生影响,这就意味着我们在状态设计上需要考虑父节点,那么我们开一维用来储存供给给父节点合成的装备就可以了.</li>
 <li><a href="https://www.luogu.com.cn/problem/P4322">P4322 [JSOI2016]最佳团体</a><br>
 0/1分数规划+一般树形背包</li>
+<li><a href="https://www.luogu.com.cn/problem/P3780">P3780 [SDOI2017]苹果树</a><br>
+非常有趣的背包难题,考虑到题目给的特殊条件<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>t</mi><mo>−</mo><mi>h</mi><mo>≤</mo><mi>k</mi></mrow><annotation encoding="application/x-tex">t-h \leq k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69841em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">t</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.83041em;vertical-align:-0.13597em;"></span><span class="mord mathdefault">h</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span>,要取一条最长链免费拿,剩下的再树形DP,可是这两步是互相影响的,转化问题.将每个点拆成两个点,原来的节点<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">a_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>改成1,新增一个子节点<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mi>j</mi></msub><mo>=</mo><msub><mi>a</mi><mi>i</mi></msub><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">a_j=a_i-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.716668em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.73333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>,那么这个免费链就一定在原来的树上,且不会影响正常的DP,但这条链将树分成了两部分,分别进行树形背包,单调队列优化即可做到O(nk)解决问题,大力卡常.</li>
 </ul>
 
               </div>

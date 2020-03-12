@@ -6,7 +6,7 @@
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="开端顺利 自这天起 离乡背井 等候春息  身处何地 等候春息">
 <meta name="theme-color" content="#000">
-<title>[HEOI2016/TJOI2016]排序 题解 | 春待ち</title>
+<title>Miu_you の 区间DP | 春待ち</title>
 <link rel="shortcut icon" href="https://miuyou.github.io//favicon.ico?v=1583995743657">
 <link rel="stylesheet" href="https://miuyou.github.io//styles/main.css">
 
@@ -25,8 +25,8 @@
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
     onload="renderMathInElement(document.body);"></script>
 
-    <meta name="description" content="[HEOI2016/TJOI2016]排序 题解" />
-    <meta name="keywords" content="解题报告" />
+    <meta name="description" content="Miu_you の 区间DP" />
+    <meta name="keywords" content="算法学习" />
   </head>
   <body>
     <div class="head-top-line"></div>
@@ -254,8 +254,8 @@
             <div class="section bg-color post post-page">
               <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://miuyou.github.io/post/heoi2016tjoi2016pai-xu-ti-jie/">
-      [HEOI2016/TJOI2016]排序 题解
+    <a class="post-title-link" href="https://miuyou.github.io/post/miu_you-no-qu-jian-dp/">
+      Miu_you の 区间DP
     </a>
   </h1>
   <div class="post-meta">
@@ -263,7 +263,7 @@
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span>发布于</span>
-      <span>2020-02-27</span>
+      <span>2020-03-11</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
@@ -272,8 +272,8 @@
         <span class="pc-show">分类于</span>
         
           
-            <a href="https://miuyou.github.io/tag/YwKQwG2g8/">
-              <span>解题报告</span>
+            <a href="https://miuyou.github.io/tag/Bi4BBB_5Z/">
+              <span>算法学习</span>
             </a>
           
         
@@ -282,15 +282,15 @@
     
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>5分钟</span>
+      <span>1分钟</span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>784<span class="pc-show">字数</span></span>
+      <span>70<span class="pc-show">字数</span></span>
     </span>
     
-      <span id="/post/heoi2016tjoi2016pai-xu-ti-jie/" class="meta-item pc-show leancloud_visitors">
+      <span id="/post/miu_you-no-qu-jian-dp/" class="meta-item pc-show leancloud_visitors">
         <span class="post-meta-divider">|</span>
         <i class="fa fa-eye"></i>
         <span>浏览量：<span class="leancloud-visitors-count" ></span></span>
@@ -299,118 +299,20 @@
   </div>
 </header>
               <div class="post-body next-md-body" id="post_body">
-                <!-- more -->
-<p>题目要求我们求出第<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>q</mi></mrow><annotation encoding="application/x-tex">q</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">q</span></span></span></span>位置上的数字.<br>
-暴力想法:暴力局域排序,每次排序的复杂度为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mi>l</mi><mi>o</mi><mi>g</mi><mi>n</mi></mrow><annotation encoding="application/x-tex">nlogn</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">n</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault">n</span></span></span></span><br>
-不合格,舍弃暴力,发现排序不可避免,那么考虑如何优化排序复杂度<br>
-考虑<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>01</mn></mrow><annotation encoding="application/x-tex">01</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span><span class="mord">1</span></span></span></span>串可以做到<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>l</mi><mi>o</mi><mi>g</mi><mi>n</mi></mrow><annotation encoding="application/x-tex">logn</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault">n</span></span></span></span>排序(如何排序自行思考)<br>
-那么考虑如何转换成一个<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>01</mn></mrow><annotation encoding="application/x-tex">01</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span><span class="mord">1</span></span></span></span>串<br>
-约定比选择的数大的为1,小的为0<br>
-但题目要求固定位置的数字,则选择的数不确定<br>
-发现题目给出序列的为排列,则可二分所选择的数<br>
-求出结果</p>
-<p>logn排序的原理是<br>
-因为序列全01,那么从小到大就是将所有的0放到前面,所有的1放到后面</p>
-<p>时间复杂度为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mi>l</mi><mi>o</mi><mi>g</mi><msup><mi>n</mi><mn>2</mn></msup><mo>)</mo></mrow><annotation encoding="application/x-tex">O(nlogn^{2})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></p>
-<pre><code class="language-cpp">#include&lt;iostream&gt;
-#include&lt;cstdio&gt;
-#include&lt;algorithm&gt;
-#include&lt;cstring&gt;
-using namespace std;
-#define mid ((l+r)&gt;&gt;1)
-#define ls (k&lt;&lt;1)
-#define rs (k&lt;&lt;1|1)
-#define lson ls,l,mid
-#define rson rs,mid+1,r
-int n,m,q,a[100050];
-struct edge{
-	int a,b,c;
-}tu[100050];
-struct node{
-	int flag,sum;
-}t[400050];
-inline void pushdown(int k,int l,int r){
-	if(t[k].flag==1){
-		t[ls].flag=t[rs].flag=1;
-		t[ls].sum=t[rs].sum=0;
-	}else if(t[k].flag==2){
-		t[ls].flag=t[rs].flag=2;
-		t[ls].sum=(mid-l+1);t[rs].sum=(r-mid);
-	}t[k].flag=0;
-}
-inline void built(int k,int l,int r,int x) {
-	t[k].flag=0;
-	if(l==r) {
-		t[k].sum=(a[l]&gt;=x);
-	} else {
-		built(lson,x);
-		built(rson,x);
-        t[k].sum=t[ls].sum+t[rs].sum;
-	}
-}
-inline int query(int k,int l,int r,int L,int R) {
-	if(l&gt;r||r&lt;L||l&gt;R)return 0;
-	if(L&lt;=l&amp;&amp;r&lt;=R)return t[k].sum;
-    int tot=0;
-	pushdown(k,l,r);
-	if(L&lt;=mid)tot+=query(lson,L,R);
-	if(mid&lt;R)tot+=query(rson,L,R);
-	t[k].sum=t[ls].sum+t[rs].sum;
-	return tot;
-}
-inline void gai(int k,int l,int r,int L,int R,int val){
-	if(l&gt;r||r&lt;L||l&gt;R)return;
-    if(L&lt;=l&amp;&amp;r&lt;=R){
-        t[k].flag=val+1;
-		t[k].sum=(r-l+1)*val;
-    }else{
-        pushdown(k,l,r);
-		if(mid&gt;=L)gai(lson,L,R,val);
-		if(mid&lt;R)gai(rson,L,R,val);
-		t[k].sum=t[ls].sum+t[rs].sum;
-    }
-}
-inline int cha(int k,int l,int r,int val){
-	if(l&gt;r||r&lt;val||l&gt;val)return 0;
-    if(l==val&amp;&amp;r==val){
-        return t[k].sum;
-    }else{
-        pushdown(k,l,r);
-		if(mid&gt;=val)return cha(lson,val);
-		else return cha(rson,val);
-    }
-}
-int check(int x){
-	built(1,1,n,x);
-	for(int i=1;i&lt;=m;++i){
-        int val=query(1,1,n,tu[i].b,tu[i].c);
-        if(!val)gai(1,1,n,tu[i].b,tu[i].c,0);
-		if(tu[i].a){
-			gai(1,1,n,tu[i].b,tu[i].b+val-1,1);
-			gai(1,1,n,tu[i].b+val,tu[i].c,0);
-		}else{
-			val=(tu[i].c-tu[i].b+1)-val;
-			gai(1,1,n,tu[i].b,tu[i].b+val-1,0);
-			gai(1,1,n,tu[i].b+val,tu[i].c,1);
-		}
-	}
-	return cha(1,1,n,q);
-}
-int main(){
-	cin&gt;&gt;n&gt;&gt;m;
-	for(int i=1;i&lt;=n;++i)scanf(&quot;%d&quot;,&amp;a[i]);
-	for(int i=1;i&lt;=m;++i){
-		scanf(&quot;%d%d%d&quot;,&amp;tu[i].a,&amp;tu[i].b,&amp;tu[i].c);
-	}int l=1,r=n,md,anse=0;cin&gt;&gt;q;
-	while(l&lt;=r){
-		md=(l+r)&gt;&gt;1;
-		if(check(md)){
-			anse=md;
-			l=md+1;
-		}else r=md-1;
-	}cout&lt;&lt;anse&lt;&lt;endl;return 0;
-}
-</code></pre>
+                <figure data-type="image" tabindex="1"><img src="https://miuyou.github.io//post-images/1583918620293.jpg" alt="" loading="lazy"></figure>
+<!-- more -->
+<p>区间DP就显得没那么有趣了,下面放一些做过的题就好啦</p>
+<ul>
+<li><a href="https://www.luogu.com.cn/problem/P1864">P1864 [NOI2009]二叉查找树</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P2145">P2145 [JSOI2007]祖码</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P2466">P2466 [SDOI2008]Sue的小球</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P2470">P2470 [SCOI2007]压缩</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P4290">P4290 [HAOI2008]玩具取名</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P4302">P4302 [SCOI2003]字符串折叠</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P4342">P4342 [IOI1998]Polygon</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P4766">P4766 [CERC2014]Outer space invaders</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P4767">P4767 [IOI2000]邮局</a></li>
+</ul>
 
               </div>
               <div class="post-footer">
@@ -421,7 +323,7 @@ int main(){
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://miuyou.github.io/post/heoi2016tjoi2016pai-xu-ti-jie/" title="[HEOI2016/TJOI2016]排序 题解">[HEOI2016/TJOI2016]排序 题解</a>
+      <a href="https://miuyou.github.io/post/miu_you-no-qu-jian-dp/" title="Miu_you の 区间DP">Miu_you の 区间DP</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -430,18 +332,18 @@ int main(){
   </ul>
   <div class="tags">
     
-      <a href="https://miuyou.github.io/tag/YwKQwG2g8/"># 解题报告</a>
+      <a href="https://miuyou.github.io/tag/Bi4BBB_5Z/"># 算法学习</a>
     
   </div>
   <div class="nav">
     <div class="nav-prev">
       
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="                            省选补题计划" href="https://miuyou.github.io/post/sheng-xuan-bu-ti-ji-hua-qwq/">                            省选补题计划</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="                            省选补题计划" href="https://miuyou.github.io/post/sheng-xuan-bu-ti-ji-hua-qwq/">上一篇</a>
-      
     </div>
     <div class="nav-next">
+      
+        <a class="nav-pc-next" title="Miu_youの思维题" href="https://miuyou.github.io/post/miu_younosi-wei-ti/">Miu_youの思维题</a>
+        <a class="nav-mobile-next" title="Miu_youの思维题" href="https://miuyou.github.io/post/miu_younosi-wei-ti/">下一篇</a>
+        <i class="fa fa-chevron-right"></i>
       
     </div>
   </div>
