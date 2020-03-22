@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://miuyou.github.io/</id>
     <title>春待ち</title>
-    <updated>2020-03-12T08:56:16.590Z</updated>
+    <updated>2020-03-22T10:03:38.640Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://miuyou.github.io/"/>
     <link rel="self" href="https://miuyou.github.io/atom.xml"/>
@@ -10,6 +10,16 @@
     <logo>https://miuyou.github.io/images/avatar.png</logo>
     <icon>https://miuyou.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 春待ち</rights>
+    <entry>
+        <title type="html"><![CDATA[[SCOI2015]小凸玩密室 解题报告]]></title>
+        <id>https://miuyou.github.io/post/scoi2015xiao-tu-wan-mi-shi-jie-ti-bao-gao/</id>
+        <link href="https://miuyou.github.io/post/scoi2015xiao-tu-wan-mi-shi-jie-ti-bao-gao/">
+        </link>
+        <updated>2020-03-20T00:08:17.000Z</updated>
+        <content type="html"><![CDATA[<p>神仙dp  orzorz<br>
+目前题解区并没有讲解详细清晰的题解,希望窝能写一点人能看懂的东西</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Miu_you の 区间DP]]></title>
         <id>https://miuyou.github.io/post/miu_you-no-qu-jian-dp/</id>
