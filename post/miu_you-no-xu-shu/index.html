@@ -7,7 +7,7 @@
 <meta name="description" content="开端顺利 自这天起 离乡背井 等候春息  身处何地 等候春息">
 <meta name="theme-color" content="#000">
 <title>Miu_you の 虚树 | 春待ち</title>
-<link rel="shortcut icon" href="https://miuyou.github.io//favicon.ico?v=1584945150955">
+<link rel="shortcut icon" href="https://miuyou.github.io//favicon.ico?v=1584945843352">
 <link rel="stylesheet" href="https://miuyou.github.io//styles/main.css">
 
 <link rel="stylesheet" href="/media/css/muse.css">
@@ -277,12 +277,12 @@
     
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>1分钟</span>
+      <span>2分钟</span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>273<span class="pc-show">字数</span></span>
+      <span>446<span class="pc-show">字数</span></span>
     </span>
     
       <span id="/post/miu_you-no-xu-shu/" class="meta-item pc-show leancloud_visitors">
@@ -295,6 +295,27 @@
 </header>
               <div class="post-body next-md-body" id="post_body">
                 <p>关于虚树,若一个树中,窝们真正用得到且会变改变的点少,可以提出来重新建树,然后在这棵树上做树形DP,可以保证一个较低的复杂度</p>
+<p>这里贴代码</p>
+<pre><code class="language-cpp">sort(a + 1, a + 1 + m, cmp);//按dfn排序
+	sta[tp = 1] = 1;//入一个根节点
+	for (int i = 1; i &lt;= m; ++i) {
+		if (a[i] == 1)continue;//已经操作
+		if (!tp) {
+			dep[tp = 1] = a[i]; continue;//以防空栈
+		}
+		int lca = LCA(sta[tp], a[i]);
+		while (tp&gt;1&amp;&amp;dep[lca] &lt; dep[sta[tp - 1]]) {//如果不是合适的位置
+			add(sta[tp - 1], sta[tp]);
+			--tp;
+		}if (dep[lca] &lt; dep[sta[tp]]||(!tp)) {
+			add(lca, sta[tp]);
+			--tp;
+		}
+		if (sta[tp] != lca)sta[++tp] = lca;//不是lca就把lca加进去
+		sta[++tp] = a[i];
+	}for (int i = 1; i &lt; tp; ++i)add(sta[i], sta[i + 1]);
+</code></pre>
+<p>因为我们的栈里面存储的是一条链</p>
 <ul>
 <li><a href="https://www.luogu.com.cn/problem/CF613D">CF613D Kingdom and its Cities</a><br>
 如果两个点相连则无解,然后建立虚树再DP,如果该点不是关键点可以一代价全断,否则就得花费同等与子树的代价断点,子树为一且不是关键点可以留着以后断</li>
@@ -306,6 +327,7 @@
 debug了N个小时.....................................................<br>
 选择区域计算,写了五个DFS,一个用来预处理,两个拿来求当前点的统治点,第三个拿来计算一些在虚树外面的点的归属,第四个拿来做最后的计算,倍增求中间点.</li>
 </ul>
+<p>不要把一个无法确定正确性の含树写的很长很长!</p>
 
               </div>
               <div class="post-footer">
