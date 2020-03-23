@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://miuyou.github.io/</id>
     <title>春待ち</title>
-    <updated>2020-03-22T10:10:30.294Z</updated>
+    <updated>2020-03-23T06:22:15.728Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://miuyou.github.io/"/>
     <link rel="self" href="https://miuyou.github.io/atom.xml"/>
@@ -10,6 +10,76 @@
     <logo>https://miuyou.github.io/images/avatar.png</logo>
     <icon>https://miuyou.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 春待ち</rights>
+    <entry>
+        <title type="html"><![CDATA[Miu_you の 虚树]]></title>
+        <id>https://miuyou.github.io/post/miu_you-no-xu-shu/</id>
+        <link href="https://miuyou.github.io/post/miu_you-no-xu-shu/">
+        </link>
+        <updated>2020-03-23T06:09:02.000Z</updated>
+        <content type="html"><![CDATA[<p>关于虚树,若一个树中,窝们真正用得到且会变改变的点少,可以提出来重新建树,然后在这棵树上做树形DP,可以保证一个较低的复杂度</p>
+<ul>
+<li><a href="https://www.luogu.com.cn/problem/CF613D">CF613D Kingdom and its Cities</a><br>
+如果两个点相连则无解,然后建立虚树再DP,如果该点不是关键点可以一代价全断,否则就得花费同等与子树的代价断点,子树为一且不是关键点可以留着以后断</li>
+<li><a href="https://www.luogu.com.cn/problem/P4103">P4103 [HEOI2014]大工程 </a><br>
+第一问直接统计,第二问和第三问常规树形DP,可以通过一些奇技淫巧来躲掉次长链</li>
+<li><a href="https://www.luogu.com.cn/problem/P2495">P2495 [SDOI2011]消耗战</a><br>
+提前统计出每个节点到根节点的最小边,然后做就可以了</li>
+<li><a href="https://www.luogu.com.cn/problem/P3233">P3233 [HNOI2014]世界树</a><br>
+debug了N个小时.....................................................<br>
+选择区域计算,写了五个DFS,一个用来预处理,两个拿来求当前点的统治点,第三个拿来计算一些在虚树外面的点的归属,第四个拿来做最后的计算,倍增求中间点.</li>
+</ul>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Miu_you の 树形DP]]></title>
+        <id>https://miuyou.github.io/post/miu_you-no-shu-xing-bei-bao/</id>
+        <link href="https://miuyou.github.io/post/miu_you-no-shu-xing-bei-bao/">
+        </link>
+        <updated>2020-03-23T05:24:00.000Z</updated>
+        <summary type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="https://miuyou.github.io//post-images/1584943612772.jpg" alt="" loading="lazy"></figure>
+]]></summary>
+        <content type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="https://miuyou.github.io//post-images/1584943612772.jpg" alt="" loading="lazy"></figure>
+<!-- more -->
+<ul>
+<li><a href="https://www.luogu.com.cn/problem/P5898">P5898 [COCI 2015]Kamp</a><br>
+无法避免的以1为根进行DP,求出每个点的最长链,然后考虑转移答案到子节点,分类讨论,如果子节点的siz为0那么就叠加答案,如果在非最长链上答案不变,在最长链上移动的话最长链可能被改变,需要同时记录一个次长链来更新最长链</li>
+<li><a href="https://www.luogu.com.cn/problem/P4253">P4253 [SCOI2015]小凸玩密室</a><br>
+设<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub></mrow><annotation encoding="application/x-tex">f_{i,j}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mpunct mtight">,</span><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span>表示为点亮以<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span>为根节点的子树且到达<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span>的第<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>j</mi></mrow><annotation encoding="application/x-tex">j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span></span></span></span>个祖先的花费,如果当前点是叶子节点,<br>
+<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mi>p</mi><mo>[</mo><mn>0</mn><mo>]</mo><mo>[</mo><mi>i</mi><mo>]</mo><mo>[</mo><mi>j</mi><mo>]</mo><mo>=</mo><mi>d</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>[</mo><mi>j</mi><mo>]</mo><mo>∗</mo><mi>a</mi><mo>[</mo><mi>f</mi><mi>a</mi><mo>(</mo><mi>i</mi><mo separator="true">,</mo><mi>j</mi><mo>)</mo><mo>]</mo><mo separator="true">;</mo></mrow><annotation encoding="application/x-tex">dp[0][i][j] = d[i][j] * a[fa(i, j)];</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">p</span><span class="mopen">[</span><span class="mord">0</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">d</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">a</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mord mathdefault">a</span><span class="mopen">(</span><span class="mord mathdefault">i</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mclose">)</span><span class="mclose">]</span><span class="mpunct">;</span></span></span></span><br>
+<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mi>p</mi><mo>[</mo><mn>1</mn><mo>]</mo><mo>[</mo><mi>i</mi><mo>]</mo><mo>[</mo><mi>j</mi><mo>]</mo><mo>=</mo><mo>(</mo><mi>d</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>[</mo><mi>j</mi><mo>]</mo><mo>+</mo><mi>d</mi><mo>[</mo><mi>b</mi><mi>o</mi><mo>(</mo><mi>i</mi><mo separator="true">,</mo><mi>j</mi><mo>)</mo><mo>]</mo><mo>[</mo><mn>1</mn><mo>]</mo><mo>)</mo><mo>∗</mo><mi>a</mi><mo>[</mo><mi>b</mi><mi>o</mi><mo>(</mo><mi>i</mi><mo separator="true">,</mo><mi>j</mi><mo>)</mo><mo>]</mo><mo separator="true">;</mo></mrow><annotation encoding="application/x-tex">dp[1][i][j] = (d[i][j] + d[bo(i, j)][1]) * a[bo(i, j)];</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">p</span><span class="mopen">[</span><span class="mord">1</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault">d</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">d</span><span class="mopen">[</span><span class="mord mathdefault">b</span><span class="mord mathdefault">o</span><span class="mopen">(</span><span class="mord mathdefault">i</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mclose">)</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord">1</span><span class="mclose">]</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">a</span><span class="mopen">[</span><span class="mord mathdefault">b</span><span class="mord mathdefault">o</span><span class="mopen">(</span><span class="mord mathdefault">i</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mclose">)</span><span class="mclose">]</span><span class="mpunct">;</span></span></span></span><br>
+1为走到她的第<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>j</mi></mrow><annotation encoding="application/x-tex">j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span></span></span></span>祖先的右节点的花费.<br>
+如果有一个儿子节点<br>
+<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mi>p</mi><mo>[</mo><mn>0</mn><mo>]</mo><mo>[</mo><mi>i</mi><mo>]</mo><mo>[</mo><mi>j</mi><mo>]</mo><mo>=</mo><mi>d</mi><mi>p</mi><mo>[</mo><mn>0</mn><mo>]</mo><mo>[</mo><mi>l</mi><mi>s</mi><mo>]</mo><mo>[</mo><mi>j</mi><mo>+</mo><mn>1</mn><mo>]</mo><mo>+</mo><mi>d</mi><mo>[</mo><mi>l</mi><mi>s</mi><mo>]</mo><mo>[</mo><mn>1</mn><mo>]</mo><mo>∗</mo><mi>a</mi><mo>[</mo><mi>l</mi><mi>s</mi><mo>]</mo><mo separator="true">;</mo></mrow><annotation encoding="application/x-tex">dp[0][i][j] = dp[0][ls][j + 1] + d[ls][1] * a[ls];</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">p</span><span class="mopen">[</span><span class="mord">0</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">p</span><span class="mopen">[</span><span class="mord">0</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">s</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">d</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">s</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord">1</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">a</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">s</span><span class="mclose">]</span><span class="mpunct">;</span></span></span></span><br>
+<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mi>p</mi><mo>[</mo><mn>1</mn><mo>]</mo><mo>[</mo><mi>i</mi><mo>]</mo><mo>[</mo><mi>j</mi><mo>]</mo><mo>=</mo><mi>d</mi><mi>p</mi><mo>[</mo><mn>1</mn><mo>]</mo><mo>[</mo><mi>l</mi><mi>s</mi><mo>]</mo><mo>[</mo><mi>j</mi><mo>+</mo><mn>1</mn><mo>]</mo><mo>+</mo><mi>d</mi><mo>[</mo><mi>l</mi><mi>s</mi><mo>]</mo><mo>[</mo><mn>1</mn><mo>]</mo><mo>∗</mo><mi>a</mi><mo>[</mo><mi>l</mi><mi>s</mi><mo>]</mo><mo separator="true">;</mo></mrow><annotation encoding="application/x-tex">dp[1][i][j] = dp[1][ls][j + 1] + d[ls][1] * a[ls];</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">p</span><span class="mopen">[</span><span class="mord">1</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">p</span><span class="mopen">[</span><span class="mord">1</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">s</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">d</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">s</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord">1</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">a</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">s</span><span class="mclose">]</span><span class="mpunct">;</span></span></span></span><br>
+如果有两个,同理转移<br>
+<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mi>p</mi><mo>[</mo><mn>0</mn><mo>]</mo><mo>[</mo><mi>i</mi><mo>]</mo><mo>[</mo><mi>j</mi><mo>]</mo><mo>=</mo><mi>m</mi><mi>i</mi><mi>n</mi><mo>(</mo><mi>d</mi><mi>p</mi><mo>[</mo><mn>0</mn><mo>]</mo><mo>[</mo><mi>i</mi><mo>]</mo><mo>[</mo><mi>j</mi><mo>]</mo><mo separator="true">,</mo><mi>d</mi><mi>p</mi><mo>[</mo><mn>1</mn><mo>]</mo><mo>[</mo><mi>l</mi><mi>s</mi><mo>]</mo><mo>[</mo><mn>1</mn><mo>]</mo><mo>+</mo><mi>d</mi><mi>p</mi><mo>[</mo><mn>0</mn><mo>]</mo><mo>[</mo><mi>r</mi><mi>s</mi><mo>]</mo><mo>[</mo><mi>j</mi><mo>+</mo><mn>1</mn><mo>]</mo><mo>+</mo><mi>d</mi><mo>[</mo><mi>l</mi><mi>s</mi><mo>]</mo><mo>[</mo><mn>1</mn><mo>]</mo><mo>∗</mo><mi>a</mi><mo>[</mo><mi>l</mi><mi>s</mi><mo>]</mo><mo>)</mo><mo separator="true">;</mo></mrow><annotation encoding="application/x-tex">dp[0][i][j] = min(dp[0][i][j], dp[1][ls][1] + dp[0][rs][j + 1] + d[ls][1] * a[ls]);</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">p</span><span class="mopen">[</span><span class="mord">0</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">m</span><span class="mord mathdefault">i</span><span class="mord mathdefault">n</span><span class="mopen">(</span><span class="mord mathdefault">d</span><span class="mord mathdefault">p</span><span class="mopen">[</span><span class="mord">0</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mclose">]</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">p</span><span class="mopen">[</span><span class="mord">1</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">s</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord">1</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">p</span><span class="mopen">[</span><span class="mord">0</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault">s</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">d</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">s</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord">1</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">a</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">s</span><span class="mclose">]</span><span class="mclose">)</span><span class="mpunct">;</span></span></span></span><br>
+<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mi>p</mi><mo>[</mo><mn>0</mn><mo>]</mo><mo>[</mo><mi>i</mi><mo>]</mo><mo>[</mo><mi>j</mi><mo>]</mo><mo>=</mo><mi>m</mi><mi>i</mi><mi>n</mi><mo>(</mo><mi>d</mi><mi>p</mi><mo>[</mo><mn>0</mn><mo>]</mo><mo>[</mo><mi>i</mi><mo>]</mo><mo>[</mo><mi>j</mi><mo>]</mo><mo separator="true">,</mo><mi>d</mi><mi>p</mi><mo>[</mo><mn>1</mn><mo>]</mo><mo>[</mo><mi>r</mi><mi>s</mi><mo>]</mo><mo>[</mo><mn>1</mn><mo>]</mo><mo>+</mo><mi>d</mi><mi>p</mi><mo>[</mo><mn>0</mn><mo>]</mo><mo>[</mo><mi>l</mi><mi>s</mi><mo>]</mo><mo>[</mo><mi>j</mi><mo>+</mo><mn>1</mn><mo>]</mo><mo>+</mo><mi>d</mi><mo>[</mo><mi>r</mi><mi>s</mi><mo>]</mo><mo>[</mo><mn>1</mn><mo>]</mo><mo>∗</mo><mi>a</mi><mo>[</mo><mi>r</mi><mi>s</mi><mo>]</mo><mo>)</mo><mo separator="true">;</mo></mrow><annotation encoding="application/x-tex">dp[0][i][j] = min(dp[0][i][j], dp[1][rs][1] + dp[0][ls][j + 1] + d[rs][1] * a[rs]);</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">p</span><span class="mopen">[</span><span class="mord">0</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">m</span><span class="mord mathdefault">i</span><span class="mord mathdefault">n</span><span class="mopen">(</span><span class="mord mathdefault">d</span><span class="mord mathdefault">p</span><span class="mopen">[</span><span class="mord">0</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mclose">]</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">p</span><span class="mopen">[</span><span class="mord">1</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault">s</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord">1</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">p</span><span class="mopen">[</span><span class="mord">0</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">s</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">d</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault">s</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord">1</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">a</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault">s</span><span class="mclose">]</span><span class="mclose">)</span><span class="mpunct">;</span></span></span></span><br>
+<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mi>p</mi><mo>[</mo><mn>1</mn><mo>]</mo><mo>[</mo><mi>i</mi><mo>]</mo><mo>[</mo><mi>j</mi><mo>]</mo><mo>=</mo><mi>m</mi><mi>i</mi><mi>n</mi><mo>(</mo><mi>d</mi><mi>p</mi><mo>[</mo><mn>1</mn><mo>]</mo><mo>[</mo><mi>i</mi><mo>]</mo><mo>[</mo><mi>j</mi><mo>]</mo><mo separator="true">,</mo><mi>d</mi><mi>p</mi><mo>[</mo><mn>1</mn><mo>]</mo><mo>[</mo><mi>l</mi><mi>s</mi><mo>]</mo><mo>[</mo><mn>1</mn><mo>]</mo><mo>+</mo><mi>d</mi><mi>p</mi><mo>[</mo><mn>1</mn><mo>]</mo><mo>[</mo><mi>r</mi><mi>s</mi><mo>]</mo><mo>[</mo><mi>j</mi><mo>+</mo><mn>1</mn><mo>]</mo><mo>+</mo><mi>d</mi><mo>[</mo><mi>l</mi><mi>s</mi><mo>]</mo><mo>[</mo><mn>1</mn><mo>]</mo><mo>∗</mo><mi>a</mi><mo>[</mo><mi>l</mi><mi>s</mi><mo>]</mo><mo>)</mo><mo separator="true">;</mo></mrow><annotation encoding="application/x-tex">dp[1][i][j] = min(dp[1][i][j], dp[1][ls][1] + dp[1][rs][j + 1] + d[ls][1] * a[ls]);</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">p</span><span class="mopen">[</span><span class="mord">1</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">m</span><span class="mord mathdefault">i</span><span class="mord mathdefault">n</span><span class="mopen">(</span><span class="mord mathdefault">d</span><span class="mord mathdefault">p</span><span class="mopen">[</span><span class="mord">1</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mclose">]</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">p</span><span class="mopen">[</span><span class="mord">1</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">s</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord">1</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">p</span><span class="mopen">[</span><span class="mord">1</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault">s</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">d</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">s</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord">1</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">a</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">s</span><span class="mclose">]</span><span class="mclose">)</span><span class="mpunct">;</span></span></span></span><br>
+<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mi>p</mi><mo>[</mo><mn>1</mn><mo>]</mo><mo>[</mo><mi>i</mi><mo>]</mo><mo>[</mo><mi>j</mi><mo>]</mo><mo>=</mo><mi>m</mi><mi>i</mi><mi>n</mi><mo>(</mo><mi>d</mi><mi>p</mi><mo>[</mo><mn>1</mn><mo>]</mo><mo>[</mo><mi>i</mi><mo>]</mo><mo>[</mo><mi>j</mi><mo>]</mo><mo separator="true">,</mo><mi>d</mi><mi>p</mi><mo>[</mo><mn>1</mn><mo>]</mo><mo>[</mo><mi>r</mi><mi>s</mi><mo>]</mo><mo>[</mo><mn>1</mn><mo>]</mo><mo>+</mo><mi>d</mi><mi>p</mi><mo>[</mo><mn>1</mn><mo>]</mo><mo>[</mo><mi>l</mi><mi>s</mi><mo>]</mo><mo>[</mo><mi>j</mi><mo>+</mo><mn>1</mn><mo>]</mo><mo>+</mo><mi>d</mi><mo>[</mo><mi>r</mi><mi>s</mi><mo>]</mo><mo>[</mo><mn>1</mn><mo>]</mo><mo>∗</mo><mi>a</mi><mo>[</mo><mi>r</mi><mi>s</mi><mo>]</mo><mo>)</mo><mo separator="true">;</mo></mrow><annotation encoding="application/x-tex">dp[1][i][j] = min(dp[1][i][j], dp[1][rs][1] + dp[1][ls][j + 1] + d[rs][1] * a[rs]);</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">p</span><span class="mopen">[</span><span class="mord">1</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">m</span><span class="mord mathdefault">i</span><span class="mord mathdefault">n</span><span class="mopen">(</span><span class="mord mathdefault">d</span><span class="mord mathdefault">p</span><span class="mopen">[</span><span class="mord">1</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mclose">]</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">p</span><span class="mopen">[</span><span class="mord">1</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault">s</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord">1</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">p</span><span class="mopen">[</span><span class="mord">1</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">s</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">d</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault">s</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord">1</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">a</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault">s</span><span class="mclose">]</span><span class="mclose">)</span><span class="mpunct">;</span></span></span></span></li>
+<li><a href="https://www.luogu.com.cn/problem/P3757">P3757 [CQOI2017]老C的键盘</a><br>
+拓扑图计数,按照树的亚子合并起来就可以了</li>
+<li><a href="https://www.luogu.com.cn/problem/P3576">P3576 [POI2014]MRO-Ant colony</a><br>
+恰蚂蚁(bushi),统计蚂蚁,反向考虑,因为向下取整所以要记录的是区间不是一个确定的值!,然后DP一下就好啦,题目一定要看清楚;</li>
+<li><a href="https://www.luogu.com.cn/problem/P3574">P3574 [POI2014]FAR-FarmCraft</a><br>
+最小时间emm,不太聪明的样子不如吃了吧(雾<br>
+可以考虑贪心,通过推导柿子证明可得<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi><mi>i</mi><mi>z</mi><mo>[</mo><mi>x</mi><mo>]</mo><mo>−</mo><mi>f</mi><mo>[</mo><mi>x</mi><mo>]</mo><mo>&lt;</mo><mi>s</mi><mi>i</mi><mi>z</mi><mo>[</mo><mi>y</mi><mo>]</mo><mo>−</mo><mi>f</mi><mo>[</mo><mi>y</mi><mo>]</mo></mrow><annotation encoding="application/x-tex">siz[x] - f[x] &lt; siz[y] - f[y]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">s</span><span class="mord mathdefault">i</span><span class="mord mathdefault" style="margin-right:0.04398em;">z</span><span class="mopen">[</span><span class="mord mathdefault">x</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">[</span><span class="mord mathdefault">x</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">s</span><span class="mord mathdefault">i</span><span class="mord mathdefault" style="margin-right:0.04398em;">z</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mclose">]</span></span></span></span>用这个去排个序然后统计一下就好了,一开始忘记了可以推柿子只拿了80pts(悲</li>
+<li><a href="https://www.luogu.com.cn/problem/P3554">P3554 [POI2013]LUK-Triumphal arch</a><br>
+求最小k,二分答案,然后扔进去判断即可</li>
+<li><a href="https://www.luogu.com.cn/problem/P3523">P3523 [POI2011]DYN-Dynamite</a><br>
+难以为继,继续二分算了,然后树形DP求一下每个点是否被覆盖就可以了,设一个离当前点最近的撤离点,一个最远的未被覆盖点,操作一下</li>
+<li><a href="https://www.luogu.com.cn/problem/P3565">P3565 [POI2014]HOT-Hotels</a></li>
+<li><a href="https://miuyouqwq.blog.luogu.org/solution-p3565">自贴自链</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P2607">P2607 [ZJOI2008]骑士</a><br>
+环套树,找到那个环,暴力断开两头DP即可</li>
+<li><a href="https://www.luogu.com.cn/problem/P3174">P3174 [HAOI2009]毛毛虫</a><br>
+找一条特殊最长链即可.</li>
+<li><a href="https://www.luogu.com.cn/problem/P3177">P3177 [HAOI2015]树上染色</a></li>
+<li>暴力统计贡献</li>
+<li><a href="https://www.luogu.com.cn/problem/P3237">P3237 [HNOI2014]米特运输</a><br>
+没想到吧这是个hash题!但可以用指数+桶做,计算一下每个节点被固定以后的情况,统计起来就可以了</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Miu_you 菜鸡认识的神仙们]]></title>
         <id>https://miuyou.github.io/post/miu_you-cai-ji-ren-shi-de-shen-xian-men/</id>
@@ -41,15 +111,23 @@
 <!-- more -->
 <p>区间DP就显得没那么有趣了,下面放一些做过的题就好啦</p>
 <ul>
-<li><a href="https://www.luogu.com.cn/problem/P1864">P1864 [NOI2009]二叉查找树</a></li>
-<li><a href="https://www.luogu.com.cn/problem/P2145">P2145 [JSOI2007]祖码</a></li>
-<li><a href="https://www.luogu.com.cn/problem/P2466">P2466 [SDOI2008]Sue的小球</a></li>
-<li><a href="https://www.luogu.com.cn/problem/P2470">P2470 [SCOI2007]压缩</a></li>
-<li><a href="https://www.luogu.com.cn/problem/P4290">P4290 [HAOI2008]玩具取名</a></li>
-<li><a href="https://www.luogu.com.cn/problem/P4302">P4302 [SCOI2003]字符串折叠</a></li>
-<li><a href="https://www.luogu.com.cn/problem/P4342">P4342 [IOI1998]Polygon</a></li>
-<li><a href="https://www.luogu.com.cn/problem/P4766">P4766 [CERC2014]Outer space invaders</a></li>
-<li><a href="https://www.luogu.com.cn/problem/P4767">P4767 [IOI2000]邮局</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P1864">P1864 [NOI2009]二叉查找树</a><br>
+因为按照<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>v</mi><mi>a</mi><mi>l</mi></mrow><annotation encoding="application/x-tex">val</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">v</span><span class="mord mathdefault">a</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span></span></span></span>从小到大插入,所以将数据值排序就可以得到中序遍历,转化成区间问题,将权值离散化,<br>
+设<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi><mo separator="true">,</mo><mi>k</mi></mrow></msub></mrow><annotation encoding="application/x-tex">f_{i,j,k}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361079999999999em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mpunct mtight">,</span><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span><span class="mpunct mtight">,</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span>表示从<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span>到<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>j</mi></mrow><annotation encoding="application/x-tex">j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span></span></span></span>的权值都大于<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span>,转移的时候枚举一个中转点<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>z</mi></mrow><annotation encoding="application/x-tex">z</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.04398em;">z</span></span></span></span>,然后转移就可以了</li>
+<li><a href="https://www.luogu.com.cn/problem/P2466">P2466 [SDOI2008]Sue的小球</a><br>
+对于一断已经取完的序列,可以向左还是向右取,取到的点造成的浪费直接计算出来即可</li>
+<li><a href="https://www.luogu.com.cn/problem/P2470">P2470 [SCOI2007]压缩</a><br>
+暴力判断字符串是否相等,然后枚举中间点来合并DP数组即可,默认每个<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">i-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.74285em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>前都有一个<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>M</mi></mrow><annotation encoding="application/x-tex">M</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">M</span></span></span></span>来简化问题,所以在枚举中间点的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>M</mi></mrow><annotation encoding="application/x-tex">M</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">M</span></span></span></span>合并两个区间的时候要<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">+</span><span class="mord">1</span></span></span></span></li>
+<li><a href="https://www.luogu.com.cn/problem/P4290">P4290 [HAOI2008]玩具取名</a><br>
+多设状态,不要偷懒.是个裸题</li>
+<li><a href="https://www.luogu.com.cn/problem/P4302">P4302 [SCOI2003]字符串折叠</a><br>
+和P2470类似,直接做即可,注意特殊情况</li>
+<li><a href="https://www.luogu.com.cn/problem/P4342">P4342 [IOI1998]Polygon</a><br>
+经典老题,注意细节,</li>
+<li><a href="https://www.luogu.com.cn/problem/P4766">P4766 [CERC2014]Outer space invaders</a><br>
+如果要消灭某个时间点出现的所有敌人,那么花费必然是那个点的最大值,为了DP不重不漏,我们只把被完全覆盖的敌人计入当前答案,那么消灭<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi><mo>−</mo><mo>&gt;</mo><mi>j</mi></mrow><annotation encoding="application/x-tex">i-&gt;j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.74285em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">i</span><span class="mord">−</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span></span></span></span>的敌人花费就是完全在这个区间内的最大敌人加上除了消灭这个敌人外的小区间的答案.</li>
+<li><a href="https://www.luogu.com.cn/problem/P4767">P4767 [IOI2000]邮局</a><br>
+枚举邮局数,那么就要去求解每个邮局的最优位置,可以证明出单调性</li>
 </ul>
 ]]></content>
     </entry>
@@ -321,237 +399,6 @@ int main() {
 数据太大了,没法状态压缩,那么就dp喽,要详细的考虑到每种情况</li>
 <li><a href="https://www.luogu.com.cn/problem/P4158">P4158 [SCOI2009]粉刷匠</a><br>
 比较难想又比较难写的DP,其实熟练以后会觉得挺好写的.</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Miu_you の 网络流]]></title>
-        <id>https://miuyou.github.io/post/miu_you-no-wang-luo-liu/</id>
-        <link href="https://miuyou.github.io/post/miu_you-no-wang-luo-liu/">
-        </link>
-        <updated>2020-03-04T04:01:12.000Z</updated>
-        <summary type="html"><![CDATA[<p>这里就是放放可爱の网络流的题目和感想啦~~~~~~~<br>
-<img src="https://miuyou.github.io//post-images/1583297071335.jpg" alt="" loading="lazy"></p>
-]]></summary>
-        <content type="html"><![CDATA[<p>这里就是放放可爱の网络流的题目和感想啦~~~~~~~<br>
-<img src="https://miuyou.github.io//post-images/1583297071335.jpg" alt="" loading="lazy"></p>
-<h2 id="-more-算法分析"><!-- more --><br>
-算法分析</h2>
-<p>开始了<br>
-我这个萌新只会dinic,isap和上下界网络流先咕着<br>
-这算法挺好懂得,<br>
-考虑为什么最小割==最大流<br>
-一个最小,一个最大,为什么会相等呢?<br>
-因为既然割要让这个网络无法联通,也就不存在增广路了,最小得情况正好是最大流<br>
-网络流主要考得是建模技巧,而不是算法本身,这也是为什么网络流得权重比较高得原因吧</p>
-<h2 id="建模技巧">建模技巧</h2>
-<p>1.大汇点大源点<br>
-这个东西大家都会吧,可以简化题目,若有多个入点或者出点可以给他们连在一起</p>
-<p>2.拆点<br>
-如果对于点本身有限制,就应当拆点,例如要求路径不相交,可以在点本身连一条边,限制流量</p>
-<p>3.求最小割<br>
-最小割==最大流</p>
-<p>技巧过多,下面一叠</p>
-<h2 id="可爱の网络流们">可爱の网络流们</h2>
-<h2 id="有趣の题">有趣の题</h2>
-<ul>
-<li>
-<p><a href="https://www.luogu.com.cn/problem/P1251">P1251 餐巾计划问题</a><br>
-有趣的题,依旧是比较难想.考虑每天要用<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">a_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>块干净餐巾,为了满足要求,那么最大流一定是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>∑</mo><mo>(</mo><msub><mi>a</mi><mi>i</mi></msub><mo>)</mo></mrow><annotation encoding="application/x-tex">\sum(a_i)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.00001em;vertical-align:-0.25001em;"></span><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>,同时这题有着许多限制果断拆点,分为白天和晚上,白天向ed连<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">a_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>做出边,但是为了获得旧餐巾从st连向夜晚一条<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">a_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>,费用都为0,然后st向白天连一条,每个晚上能洗的方式都连一条到结束时的白天久做完啦!</p>
-</li>
-<li>
-<p><a href="https://www.luogu.com.cn/problem/P2055">P2055 [ZJOI2009]假期的宿舍</a><br>
-因为要让所有人都有床睡,那么每个要床的连ed,每个有床的连st,如果认识就连一条边.</p>
-</li>
-<li>
-<p><a href="https://www.luogu.com.cn/problem/P2754">P2754 [CTSC1999]家园 / 星际转移问题</a><br>
-因为这题实在难做,所以枚举时间加边,模拟每个车的运行,依次加边<br>
-每个时间点像上一个时间点再连一次就可以了</p>
-</li>
-<li>
-<p><a href="https://www.luogu.com.cn/problem/P2764">P2764 最小路径覆盖问题</a><br>
-还算不错的题目,考虑到不存在任何边的时候,总路径数为n,那么要求的就是合并掉的路径数量,因为一个点只能被另一个点合并,所以点的流量为1,那么最大流求出合并路径数tot,输出<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>−</mo><mi>t</mi><mi>o</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">n-tot</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.61508em;vertical-align:0em;"></span><span class="mord mathdefault">t</span><span class="mord mathdefault">o</span><span class="mord mathdefault">t</span></span></span></span>即可</p>
-</li>
-<li>
-<p><a href="https://www.luogu.com.cn/problem/P2765">P2765 魔术球问题</a><br>
-挨个加球,判断能和哪些球放一起,然后就连上去,如果这次加得球没有增加流量,代表放不了,则开一个新の柜子.</p>
-</li>
-<li>
-<p><a href="https://www.luogu.com.cn/problem/P2766">P2766 最长不下降子序列问题</a><br>
-第一眼不可做,奇奇怪怪得题,第一问直接dp求解,然后凭借第一问的dp数组来建立图,让长度为len的点连向终点就可以保证第二问的条件,第三问直接额外加边就可以了.</p>
-</li>
-<li>
-<p><a href="https://www.luogu.com.cn/problem/P2774">P2774 方格取数问题</a><br>
-因为要求最大的总权值,那么减去最小割就可以了</p>
-</li>
-<li>
-<p><a href="https://www.luogu.com.cn/problem/P4009">P4009 汽车加油行驶问题</a><br>
-将汽车以当前油量作为状态分层,然后跑spfa,欸,不是网络流</p>
-</li>
-<li>
-<p><a href="https://www.luogu.com.cn/problem/P4016">P4016 负载平衡问题</a><br>
-大于平均数作一堆,小于平均数作一堆,然后互相连,算出代价,跑一个最小割就可以了</p>
-</li>
-<li>
-<p><a href="https://www.luogu.com.cn/problem/P3358">P3358 最长k可重区间集问题</a><br>
-最长k可重代表着每个点的最大流量为k,那么考虑如何表达一个区间,例如从a到b的一个区间,可以写成从a直接流向b+1,如果选了这个区间,那么a到b的流量减一.</p>
-</li>
-<li>
-<p><a href="https://www.luogu.com.cn/problem/P3357">P3357 最长k可重线段集问题</a><br>
-和上一题差不多,考虑会有竖着的线段把他卡了</p>
-</li>
-<li>
-<p><a href="https://www.luogu.com.cn/problem/P3356">P3356 火星探险问题 </a><br>
-龟龟方案,无非是暴力连连连,但是输出方案比较有亮点</p>
-</li>
-<li>
-<p><a href="https://www.luogu.com.cn/problem/P3980">P3980 [NOI2008]志愿者招募</a><br>
-关于至少要<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span>流量的限制,可以让起点和终点的流量为inf,则需要限制的边改成<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi><mi>n</mi><mi>f</mi><mo>−</mo><mi>x</mi></mrow><annotation encoding="application/x-tex">inf-x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">i</span><span class="mord mathdefault">n</span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span>即可,为了满   足最大流的前提一定会流满</p>
-</li>
-<li>
-<p><a href="https://www.luogu.com.cn/problem/P2050">P2050 [NOI2012]美食节</a><br>
-分批动态加边,需要了就加,不需要不加.</p>
-</li>
-<li>
-<p><a href="https://www.luogu.com.cn/problem/P2604">P2604 [ZJOI2010]网络扩容</a><br>
-第一问正常求,考虑第二问,st和ed增加流量k,同时每对点加流量inf费用给的的边即可</p>
-</li>
-<li>
-<p><a href="https://www.luogu.com.cn/problem/P3159">P3159 [CQOI2012]交换棋子</a><br>
-看起来是一个板题,但是却加入了最多交换次数的限制,那么拆点,流量为k/2即可,如果他是起点不是终点(反之亦可),且k为奇数,那么再额外加入一点流量即可</p>
-<h2 id="重复相似的练手题弱题">重复/相似的练手题/弱题</h2>
-</li>
-<li>
-<p><a href="https://www.luogu.com.cn/problem/P3254">P3254 圆桌问题</a><br>
-普通的最大流</p>
-</li>
-<li>
-<p><a href="https://www.luogu.com.cn/problem/P2153">P2153 [SDOI2009]晨跑</a><br>
-普通的费用流</p>
-</li>
-<li>
-<p><a href="https://www.luogu.com.cn/problem/P2053">P2053 [SCOI2007]修车</a><br>
-美食节的弱化题....</p>
-</li>
-<li>
-<p><a href="https://www.luogu.com.cn/problem/P2756">P2756 飞行员配对方案问题</a><br>
-就是一个模板题</p>
-</li>
-<li>
-<p><a href="https://www.luogu.com.cn/problem/P2762">P2762 太空飞行计划问题</a><br>
-拆点板题,读入弱智</p>
-</li>
-<li>
-<p><a href="https://www.luogu.com.cn/problem/P2763">P2763 试题库问题</a><br>
-普通的模板题</p>
-</li>
-<li>
-<p><a href="https://www.luogu.com.cn/problem/P2770">P2770 航空路线问题</a><br>
-水题</p>
-</li>
-<li>
-<p><a href="https://www.luogu.com.cn/problem/P3355">P3355 骑士共存问题</a><br>
-求出最小割,解决了</p>
-</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[                            省选补题计划]]></title>
-        <id>https://miuyou.github.io/post/sheng-xuan-bu-ti-ji-hua-qwq/</id>
-        <link href="https://miuyou.github.io/post/sheng-xuan-bu-ti-ji-hua-qwq/">
-        </link>
-        <updated>2020-03-01T09:27:41.000Z</updated>
-        <summary type="html"><![CDATA[<p>因为窝太弱了,所以决定把省选题都刷了!<br>
-<img src="https://miuyou.github.io//post-images/1583297086560.jpg" alt="" loading="lazy"></p>
-]]></summary>
-        <content type="html"><![CDATA[<p>因为窝太弱了,所以决定把省选题都刷了!<br>
-<img src="https://miuyou.github.io//post-images/1583297086560.jpg" alt="" loading="lazy"></p>
-<h2 id="-more-"><!-- more --></h2>
-<h2 id="qwq">qwq</h2>
-<h2 id="加油">加油!</h2>
-<h2 id="哪怕稍微不那么弱也好啊qwq">哪怕稍微不那么弱也好啊qwq</h2>
-<h2 id="下面就是写过的题啦qwq">下面就是写过的题啦qwq</h2>
-<ul>
-<li><a href="https://www.luogu.com.cn/problem/P1110">P1110 [ZJOI2007]报表统计</a><br>
-(完成)使用mulbiset过平衡树太棒啦(๑•̀ㅂ•́)و✧</li>
-<li><a href="https://www.luogu.com.cn/problem/P1128">P1128 [HNOI2001]求正整数</a></li>
-</ul>
-<p>因为做过反素数,所以知道一个数字的因子个数该怎么算,而这题要求这个的逆运算,因为之前是搜索然后筛选,这次要逆向的话似乎也可以搜索,但数据范围不允许这种玄学算法通过,可以考虑dp,似乎是n方的,因为数字过大所以要转化转移方程,因为涉及到a的b次方,可以取对数优化</p>
-<ul>
-<li><a href="https://www.luogu.com.cn/problem/P1129">P1129 [ZJOI2007]矩阵游戏</a></li>
-</ul>
-<p>转换一下模型,可以发现是行对列匹配,转换成最大流解决</p>
-<ul>
-<li><a href="https://www.luogu.com.cn/problem/P1131">P1131 [ZJOI2007]时态同步</a><br>
-简单的树形<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mi>p</mi></mrow><annotation encoding="application/x-tex">dp</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">p</span></span></span></span></li>
-<li><a href="https://www.luogu.com.cn/problem/P1169">P1169 [ZJOI2007]棋盘制作</a><br>
-正方形悬线模板秒了,长方形要改一下,考虑从上向下转移,左右同时维护</li>
-<li><a href="https://www.luogu.com.cn/problem/P1197">P1197 [JSOI2008]星球大战</a><br>
-正难则反</li>
-<li><a href="https://www.luogu.com.cn/problem/P1198">P1198 [JSOI2008]最大数</a><br>
-动态开点线段树</li>
-<li><a href="https://www.luogu.com.cn/problem/P1291">P1291 [SHOI2002]百事世界杯之旅</a><br>
-概率期望入门</li>
-</ul>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="https://www.luogu.com.cn/problem/P1295">P1295 [TJOI2011]书架</a><br>
-非常有趣的单调队列+双端队列优化dp,论如何动态维护最大值,O(1)</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><a href="https://www.luogu.com.cn/problem/P1337">P1337 [JSOI2004]平衡点 / 吊打XXX</a><br>
-模拟退火,自创多种随机化(单种过不了</li>
-<li><a href="https://www.luogu.com.cn/problem/P1377">P1377 [TJOI2011]树的序</a><br>
-欸,思维题</li>
-<li><a href="https://www.luogu.com.cn/problem/P1418">P1418 [TJOI2011]构造矩阵</a><br>
-网络流有趣的题目</li>
-<li><a href="https://www.luogu.com.cn/problem/P1434">P1434 [SHOI2002]滑雪</a><br>
-入门水题,注意边界</li>
-<li><a href="https://www.luogu.com.cn/problem/P1437">P1437 [HNOI2004]敲砖块</a><br>
-还不错的dp,写写写就对了,考虑合理运用边界来进行跳跃式转移</li>
-<li><a href="https://www.luogu.com.cn/problem/P1446">P1446 [HNOI2008]Cards</a></li>
-<li><a href="https://www.luogu.com.cn/problem/P1450">P1450 [HAOI2008]硬币购物</a><br>
-憨批榕树原理dp</li>
-<li><a href="https://www.luogu.com.cn/problem/P1463">P1463 [POI2002][HAOI2007]反素数</a><br>
-挺不错的搜索</li>
-<li><a href="https://www.luogu.com.cn/problem/P1627">P1627 [CQOI2009]中位数</a><br>
-弱智题,开个桶记录一下就好了</li>
-<li><a href="https://www.luogu.com.cn/problem/P1640">P1640 [SCOI2010]连续攻击游戏</a><br>
-比较有趣的并查集</li>
-<li><a href="https://www.luogu.com.cn/problem/P1641">P1641 [SCOI2010]生成字符串</a><br>
-组合计数基础</li>
-<li><a href="https://www.luogu.com.cn/problem/P1772">P1772 [ZJOI2006]物流运输</a><br>
-dp+最短路</li>
-<li><a href="https://www.luogu.com.cn/problem/P1841">P1841 [JSOI2007]重要的城市</a><br>
-dij做n遍,在最短路中若一条最短边是唯一的则起点为重要城市</li>
-<li><a href="https://www.luogu.com.cn/problem/P1896">P1896 [SCOI2005]互不侵犯</a><br>
-设dp状态为第i行放了第j种方式总共z个,谔谔</li>
-<li><a href="https://www.luogu.com.cn/problem/P1972">P1972 [SDOI2009]HH的项链</a><br>
-树状数组离线搞,主席树在线</li>
-<li><a href="https://www.luogu.com.cn/problem/P2023">P2023 [AHOI2009]维护序列</a><br>
-弱智低能题,就是一个模板(</li>
-<li><a href="https://www.luogu.com.cn/problem/P2039">P2039 [AHOI2009]跳棋</a><br>
-谔谔dp,谁知道讷</li>
-</ul>
-<ul>
-<li>
-<ul>
-<li><a href="https://www.luogu.com.cn/problem/P2051">P2051 [AHOI2009]中国象棋</a><br>
-神仙dp题</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><a href="https://www.luogu.com.cn/problem/P2053">P2053 [SCOI2007]修车</a><br>
-普通的费用流</li>
 </ul>
 ]]></content>
     </entry>

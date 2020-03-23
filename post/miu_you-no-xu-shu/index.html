@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-      <meta charset="UTF-8"/>
+    <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="开端顺利 自这天起 离乡背井 等候春息  身处何地 等候春息">
 <meta name="theme-color" content="#000">
-<title>春待ち</title>
+<title>Miu_you の 虚树 | 春待ち</title>
 <link rel="shortcut icon" href="https://miuyou.github.io//favicon.ico?v=1584944532613">
 <link rel="stylesheet" href="https://miuyou.github.io//styles/main.css">
 
@@ -25,6 +25,8 @@
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
     onload="renderMathInElement(document.body);"></script>
 
+    <meta name="description" content="Miu_you の 虚树" />
+    <meta name="keywords" content="" />
   </head>
   <body>
     <div class="head-top-line"></div>
@@ -122,10 +124,25 @@
     </div>
     <div class="main-continer">
       
-      <div class="section-layout bg-color muse">
+      <div class="section-layout muse bg-color">
         <div class="section-layout-wrapper">
-          <div class="sidebar">
-    
+          
+
+<div class="sidebar">
+  
+    <div class="sidebar-box box-shadow-wrapper  right-motion" id="sidebar">
+      
+        <div class="post-list-sidebar">
+          <div class="sidebar-title">
+            <span id="tocSideBar" class="sidebar-title-item sidebar-title-active">文章目录</span>
+            <span id="metaSideBar" class="sidebar-title-item">站点概览</span>
+          </div>
+        </div>
+      
+      <div class="sidebar-body muse" id="sidebar_body">
+        
+          
+            
 <div class="sidebar-wrapper box-shadow-wrapper ">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="https://miuyou.github.io//images/avatar.png"/>
@@ -158,91 +175,191 @@
 
 
 </div>
-</div>
-            <div class="section-box tag-line">
-              <div class="box-shadow-wrapper">
-                <div class="bg-color">
-                  <section class="section posts-expand">
-                    <div class="padding-wrapper">
-  <div class="tag-timeline-box">
-    <div class="tag-timeline-wrapper">
-      <div class="tag-timeline-title">
-        <h2>
-          解题报告
-          <small>标签</small>
-        </h2>
+          
+        
       </div>
-      
-        
-      
-        
-          
-        
-      
-        
-      
-        
-      
-        
-          
-        
-      
-        
-      
-        
-          
-            <a href="https://miuyou.github.io/post/hnoi2007meng-huan-dao-bao-zhu-ti-jie/">
-              <div class="motion-warpper">
-                <div class="tag-post-node">
-                  <h1>
-                    03-09
-                    <small>[HNOI2007]梦幻岛宝珠 题解</small>
-                  </h1>
-                </div>  
+    </div>
+  
+</div>
+<script>
+  const SIDEBAR_TITLE_ACTIVE = 'sidebar-title-active';
+  const SIDEBAR_BODY_ACTIVE = 'sidebar-body-active';
+  const SLIDE_UP_IN = 'slide-up-in';
+
+  let sidebar = document.querySelector('#sidebar'),
+  tocSideBar = document.querySelector('#tocSideBar'),
+  metaSideBar = document.querySelector('#metaSideBar'),
+  postToc = document.querySelector('#post_toc'),
+  postSiteMeta = document.querySelector('#post_side_meta'),
+  sidebarTitle = document.querySelector('.sidebar-title'),
+  sidebarBody = document.querySelector('#sidebar_body');
+
+  tocSideBar && tocSideBar.addEventListener('click', (e) => {
+    toggleSidebar(e);
+  });
+
+  metaSideBar && metaSideBar.addEventListener('click', (e) => {
+    toggleSidebar(e);
+  });
+
+  function toggleSidebar(e) {
+    let currentTitle = document.querySelector("."+SIDEBAR_TITLE_ACTIVE);
+    if (currentTitle == e.srcElement) {
+      return ;
+    }
+    let current, showElement, hideElement;
+    if (e.srcElement == metaSideBar) {
+      showElement = postSiteMeta;
+      hideElement = postToc;
+    } else if (e.srcElement == tocSideBar){
+      showElement = postToc;
+      hideElement = postSiteMeta;
+    }
+    currentTitle.classList.remove(SIDEBAR_TITLE_ACTIVE);
+    e.srcElement.classList.add(SIDEBAR_TITLE_ACTIVE);
+
+    window.Velocity(hideElement, 'stop');
+    window.Velocity(hideElement, 'transition.slideUpOut', {
+      display: 'none',
+      duration: 200,
+      complete: function () {
+        window.Velocity(showElement, 'transition.slideDownIn', {
+          duration: 200
+        });
+      }
+    })
+    hideElement.classList.remove(SIDEBAR_BODY_ACTIVE);
+    showElement.classList.add(SIDEBAR_BODY_ACTIVE);
+  }
+
+  postToc && postToc.addEventListener('transitionend', function() {
+    this.classList.remove(SLIDE_UP_IN);
+  });
+
+  if (sidebarBody) {
+    if (sidebarBody.classList.contains('pisces') || sidebarBody.classList.contains('gemini')) {
+      let hasFix = false;
+      let scrollEl = document.querySelector('.main-continer');
+      let limitTop = document.querySelector('#nav_ul').children.length * 42 + 162;
+      window.addEventListener('scroll', function(e) {
+        if (document.scrollingElement.scrollTop >= limitTop) {
+          if (!hasFix) {
+            sidebar.classList.add('sidebar-fixed');
+            hasFix = true;
+          }
+        } else {
+          if (hasFix) {
+            sidebar.classList.remove('sidebar-fixed');
+            hasFix = false;
+          }
+        }
+      });
+    }
+  }
+  
+</script>
+          <div class="section-box box-shadow-wrapper">
+            <div class="section bg-color post post-page">
+              <header class="post-header">
+  <h1 class="post-title">
+    <a class="post-title-link" href="https://miuyou.github.io/post/miu_you-no-xu-shu/">
+      Miu_you の 虚树
+    </a>
+  </h1>
+  <div class="post-meta">
+    
+    <span class="meta-item pc-show">
+      <i class="fa fa-calendar-o"></i>
+      <span>发布于</span>
+      <span>2020-03-23</span>
+      <span class="post-meta-divider pc-show">|</span>
+    </span>
+    
+    <span class="meta-item">
+      <i class="fa fa-clock-o"></i>
+      <span>1分钟</span>
+    </span>
+    <span class="meta-item">
+      <span class="post-meta-divider">|</span>
+      <i class="fa fa-file-word-o"></i>
+      <span>273<span class="pc-show">字数</span></span>
+    </span>
+    
+      <span id="/post/miu_you-no-xu-shu/" class="meta-item pc-show leancloud_visitors">
+        <span class="post-meta-divider">|</span>
+        <i class="fa fa-eye"></i>
+        <span>浏览量：<span class="leancloud-visitors-count" ></span></span>
+      </span>
+    
+  </div>
+</header>
+              <div class="post-body next-md-body" id="post_body">
+                <p>关于虚树,若一个树中,窝们真正用得到且会变改变的点少,可以提出来重新建树,然后在这棵树上做树形DP,可以保证一个较低的复杂度</p>
+<ul>
+<li><a href="https://www.luogu.com.cn/problem/CF613D">CF613D Kingdom and its Cities</a><br>
+如果两个点相连则无解,然后建立虚树再DP,如果该点不是关键点可以一代价全断,否则就得花费同等与子树的代价断点,子树为一且不是关键点可以留着以后断</li>
+<li><a href="https://www.luogu.com.cn/problem/P4103">P4103 [HEOI2014]大工程 </a><br>
+第一问直接统计,第二问和第三问常规树形DP,可以通过一些奇技淫巧来躲掉次长链</li>
+<li><a href="https://www.luogu.com.cn/problem/P2495">P2495 [SDOI2011]消耗战</a><br>
+提前统计出每个节点到根节点的最小边,然后做就可以了</li>
+<li><a href="https://www.luogu.com.cn/problem/P3233">P3233 [HNOI2014]世界树</a><br>
+debug了N个小时.....................................................<br>
+选择区域计算,写了五个DFS,一个用来预处理,两个拿来求当前点的统治点,第三个拿来计算一些在虚树外面的点的归属,第四个拿来做最后的计算,倍增求中间点.</li>
+</ul>
+
               </div>
-            </a>
-          
-        
+              <div class="post-footer">
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      春待ち
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://miuyou.github.io/post/miu_you-no-xu-shu/" title="Miu_you の 虚树">Miu_you の 虚树</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，转载请注明出处！
+    </li>
+  </ul>
+  <div class="tags">
+    
+  </div>
+  <div class="nav">
+    <div class="nav-prev">
       
-        
+    </div>
+    <div class="nav-next">
       
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-            <a href="https://miuyou.github.io/post/heoi2016tjoi2016pai-xu-ti-jie/">
-              <div class="motion-warpper">
-                <div class="tag-post-node">
-                  <h1>
-                    02-27
-                    <small>[HEOI2016/TJOI2016]排序 题解</small>
-                  </h1>
-                </div>  
-              </div>
-            </a>
-          
-        
+        <a class="nav-pc-next" title="Miu_you の 树形DP" href="https://miuyou.github.io/post/miu_you-no-shu-xing-bei-bao/">Miu_you の 树形DP</a>
+        <a class="nav-mobile-next" title="Miu_you の 树形DP" href="https://miuyou.github.io/post/miu_you-no-shu-xing-bei-bao/">下一篇</a>
+        <i class="fa fa-chevron-right"></i>
       
     </div>
   </div>
 </div>
-                  </section>
-                </div>
-              </div>
+              
+                
+<script src="https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js"></script>
+<div id="vcomments" style="padding: 10px 0px 0px 0px"></div>
+<script>
+new Valine({
+    el: '#vcomments' ,
+    appId: 'UVcI62G7dqmkWxTmwgxAN1xh-gzGzoHsz',
+    appKey: 's0C5SjN0pyVIsikc0RQegRmN',
+    notify: 'true' === 'false', 
+    avatar:'', 
+    placeholder: '',
+    pageSize: '',
+    lang: 'zh-cn',
+    visitor: 'true' === 'true',
+    highlight: 'true' === 'true',
+    avatarForce: 'true' === 'false',
+});
+</script>
+              
+            </div>
           </div>
         </div>
       </div>

@@ -7,7 +7,7 @@
 <meta name="description" content="开端顺利 自这天起 离乡背井 等候春息  身处何地 等候春息">
 <meta name="theme-color" content="#000">
 <title>Miu_you の 区间DP | 春待ち</title>
-<link rel="shortcut icon" href="https://miuyou.github.io//favicon.ico?v=1584871827172">
+<link rel="shortcut icon" href="https://miuyou.github.io//favicon.ico?v=1584944532613">
 <link rel="stylesheet" href="https://miuyou.github.io//styles/main.css">
 
 <link rel="stylesheet" href="/media/css/muse.css">
@@ -81,6 +81,14 @@
               
             </li>
           
+            <li class="nav-item ">
+              
+                <a href="https://miuyou.github.io/post/miu_you-cai-ji-ren-shi-de-shen-xian-men">
+                  <i class="fa fa-globe"></i> 友链
+                </a>
+              
+            </li>
+          
           <li class="nav-item">
             <a>
               <i class="fa fa-search"></i> 搜索
@@ -145,7 +153,7 @@
     <div class="sidebar-item-box">
       <a href="/archives/">
         
-        <span class="site-item-stat-count">11</span>
+        <span class="site-item-stat-count">13</span>
         <span class="site-item-stat-name">文章</span>
       </a>
     </div>
@@ -282,12 +290,12 @@
     
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>1分钟</span>
+      <span>2分钟</span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>70<span class="pc-show">字数</span></span>
+      <span>422<span class="pc-show">字数</span></span>
     </span>
     
       <span id="/post/miu_you-no-qu-jian-dp/" class="meta-item pc-show leancloud_visitors">
@@ -303,15 +311,23 @@
 <!-- more -->
 <p>区间DP就显得没那么有趣了,下面放一些做过的题就好啦</p>
 <ul>
-<li><a href="https://www.luogu.com.cn/problem/P1864">P1864 [NOI2009]二叉查找树</a></li>
-<li><a href="https://www.luogu.com.cn/problem/P2145">P2145 [JSOI2007]祖码</a></li>
-<li><a href="https://www.luogu.com.cn/problem/P2466">P2466 [SDOI2008]Sue的小球</a></li>
-<li><a href="https://www.luogu.com.cn/problem/P2470">P2470 [SCOI2007]压缩</a></li>
-<li><a href="https://www.luogu.com.cn/problem/P4290">P4290 [HAOI2008]玩具取名</a></li>
-<li><a href="https://www.luogu.com.cn/problem/P4302">P4302 [SCOI2003]字符串折叠</a></li>
-<li><a href="https://www.luogu.com.cn/problem/P4342">P4342 [IOI1998]Polygon</a></li>
-<li><a href="https://www.luogu.com.cn/problem/P4766">P4766 [CERC2014]Outer space invaders</a></li>
-<li><a href="https://www.luogu.com.cn/problem/P4767">P4767 [IOI2000]邮局</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P1864">P1864 [NOI2009]二叉查找树</a><br>
+因为按照<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>v</mi><mi>a</mi><mi>l</mi></mrow><annotation encoding="application/x-tex">val</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">v</span><span class="mord mathdefault">a</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span></span></span></span>从小到大插入,所以将数据值排序就可以得到中序遍历,转化成区间问题,将权值离散化,<br>
+设<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi><mo separator="true">,</mo><mi>k</mi></mrow></msub></mrow><annotation encoding="application/x-tex">f_{i,j,k}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361079999999999em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mpunct mtight">,</span><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span><span class="mpunct mtight">,</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span>表示从<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span>到<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>j</mi></mrow><annotation encoding="application/x-tex">j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span></span></span></span>的权值都大于<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span>,转移的时候枚举一个中转点<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>z</mi></mrow><annotation encoding="application/x-tex">z</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.04398em;">z</span></span></span></span>,然后转移就可以了</li>
+<li><a href="https://www.luogu.com.cn/problem/P2466">P2466 [SDOI2008]Sue的小球</a><br>
+对于一断已经取完的序列,可以向左还是向右取,取到的点造成的浪费直接计算出来即可</li>
+<li><a href="https://www.luogu.com.cn/problem/P2470">P2470 [SCOI2007]压缩</a><br>
+暴力判断字符串是否相等,然后枚举中间点来合并DP数组即可,默认每个<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">i-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.74285em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>前都有一个<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>M</mi></mrow><annotation encoding="application/x-tex">M</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">M</span></span></span></span>来简化问题,所以在枚举中间点的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>M</mi></mrow><annotation encoding="application/x-tex">M</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">M</span></span></span></span>合并两个区间的时候要<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">+</span><span class="mord">1</span></span></span></span></li>
+<li><a href="https://www.luogu.com.cn/problem/P4290">P4290 [HAOI2008]玩具取名</a><br>
+多设状态,不要偷懒.是个裸题</li>
+<li><a href="https://www.luogu.com.cn/problem/P4302">P4302 [SCOI2003]字符串折叠</a><br>
+和P2470类似,直接做即可,注意特殊情况</li>
+<li><a href="https://www.luogu.com.cn/problem/P4342">P4342 [IOI1998]Polygon</a><br>
+经典老题,注意细节,</li>
+<li><a href="https://www.luogu.com.cn/problem/P4766">P4766 [CERC2014]Outer space invaders</a><br>
+如果要消灭某个时间点出现的所有敌人,那么花费必然是那个点的最大值,为了DP不重不漏,我们只把被完全覆盖的敌人计入当前答案,那么消灭<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi><mo>−</mo><mo>&gt;</mo><mi>j</mi></mrow><annotation encoding="application/x-tex">i-&gt;j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.74285em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">i</span><span class="mord">−</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span></span></span></span>的敌人花费就是完全在这个区间内的最大敌人加上除了消灭这个敌人外的小区间的答案.</li>
+<li><a href="https://www.luogu.com.cn/problem/P4767">P4767 [IOI2000]邮局</a><br>
+枚举邮局数,那么就要去求解每个邮局的最优位置,可以证明出单调性</li>
 </ul>
 
               </div>
