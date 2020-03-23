@@ -6,7 +6,7 @@
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="开端顺利 自这天起 离乡背井 等候春息  身处何地 等候春息">
 <meta name="theme-color" content="#000">
-<title> Miu_you の 最小生成树 | 春待ち</title>
+<title>Miu_you の 状压DP | 春待ち</title>
 <link rel="shortcut icon" href="https://miuyou.github.io//favicon.ico?v=1584980803117">
 <link rel="stylesheet" href="https://miuyou.github.io//styles/main.css">
 
@@ -25,8 +25,8 @@
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
     onload="renderMathInElement(document.body);"></script>
 
-    <meta name="description" content=" Miu_you の 最小生成树" />
-    <meta name="keywords" content="" />
+    <meta name="description" content="Miu_you の 状压DP" />
+    <meta name="keywords" content="算法学习" />
   </head>
   <body>
     <div class="head-top-line"></div>
@@ -142,8 +142,7 @@
       <div class="sidebar-body muse" id="sidebar_body">
         
           
-            <div class="post-side-meta" id="post_side_meta">
-              
+            
 <div class="sidebar-wrapper box-shadow-wrapper ">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="https://miuyou.github.io//images/avatar.png"/>
@@ -176,182 +175,6 @@
 
 
 </div>
-            </div>
-            <div class="post-toc sidebar-body-active" id="post_toc" style="opacity: 1;">
-              <div class="toc-box right-motion">
-  <div class="toc-wrapper auto-number auto" id="toc_wrapper">
-    <ul class="markdownIt-TOC">
-<li>
-<ul>
-<li><a href="#%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91-%E6%9C%89%E8%B6%A3%E3%81%AE%E9%A2%98%E7%9B%AE">最小生成树 有趣の题目</a></li>
-<li><a href="#%E6%B1%82%E7%89%B9%E5%AE%9A%E8%BE%B9%E6%9D%83%E5%92%8C%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91">求特定边权和最小生成树</a></li>
-</ul>
-</li>
-</ul>
-
-  </div>
-</div>
-
-<script>
-
-let lastTop = 0, lList = [], hList = [], postBody, lastIndex = -1; 
-let active = 'active-show', activeClass = 'active-current';
-let tocWrapper = document.querySelector('#toc_wrapper');
-let tocContent = tocWrapper.children[0];
-let autoNumber = tocWrapper&&tocWrapper.classList.contains('auto-number');
-
-function addTocNumber(elem, deep) {
-  if (!elem) {
-    return;
-  }
-  let prop = elem.__proto__;
-
-  if (prop === HTMLUListElement.prototype) {
-    for (let i = 0; i < elem.children.length; i++) {
-      addTocNumber(elem.children[i], deep + (i + 1) + '.');
-    }
-  } else if (prop === HTMLLIElement.prototype) {
-    // 保存li元素
-    lList.push(elem);
-    for (let i = 0; i < elem.children.length; i++) {
-      let cur = elem.children[i];
-      if (cur.__proto__ === HTMLAnchorElement.prototype) {
-        if (autoNumber) {
-          cur.text =  deep + ' ' + cur.text;
-        }
-      } else if (cur.__proto__ === HTMLUListElement.prototype) {
-        addTocNumber(cur, deep);
-      }
-    }
-  }
-}
-
-
-document.addEventListener('scroll', function(e) {
-  if (lList.length <= 0) {
-    return;
-  }
-  let scrollTop = document.scrollingElement.scrollTop;
-  let dir;
-
-  if (lastTop - scrollTop > 0) {
-    dir = 'up';
-  } else {
-    dir = 'down';
-  }
-
-  lastTop = scrollTop;
-  if (scrollTop <= 0) {
-    if (lastIndex >= 0 && lastIndex < hList.length) {
-      lList[lastIndex].classList.remove(activeClass);
-    }
-    return;
-  }
-
-  let current = 0, hasFind = false;
-  for (let i = 0; i < hList.length; i++) {
-    if (hList[i].offsetTop > scrollTop) {
-      current = i;
-      hasFind = true;
-      break;
-    }
-  }
-  if (!hasFind && scrollTop > lList[lList.length - 1].offsetTop) {
-    current = hList.length - 1;
-  } else {
-    current--;
-  }
-  if (dir === 'down') {
-    if (current > lastIndex) {
-      addActiveClass(current);
-      removeActiveClass(lastIndex) 
-      lastIndex = current;
-      removeParentActiveClass();
-      lList[current] && addActiveLiElemment(lList[current].parentElement,tocContent);
-    }
-  } else {
-    if (current < lastIndex) {
-      addActiveClass(current);
-      removeActiveClass(lastIndex);
-      lastIndex = current;
-      removeParentActiveClass();
-      lList[current] && addActiveLiElemment(lList[current].parentElement,tocContent);
-    }
-  }
-});
-
-function removeParentActiveClass() {
-  let parents = tocContent.querySelectorAll('.'+active)
-  parents.forEach(function(elem) {
-    elem.classList.remove(active);
-  });
-}
-
-function addActiveClass(index) {
-  if (index >= 0 && index < hList.length) {
-    lList[index].classList.add(activeClass);
-  }
-}
-
-function removeActiveClass(index) {
-  if (index >= 0 && index < hList.length) {
-    lList[index].classList.remove(activeClass);
-  }
-}
-
-function addActiveLiElemment(elem, parent) {
-  if (!elem || elem === parent) {
-    return;
-  } else {
-    if (elem.__proto__ === HTMLLIElement.prototype) {
-      elem.classList.add(active);
-    }
-    addActiveLiElemment(elem.parentElement, parent);
-  }
-}
-
-function showToc() {
-  if (tocWrapper) {
-    postBody = document.querySelector('#post_body');
-    for (let i = 0; i < postBody.children.length; i++) {
-      if (postBody.children[i].__proto__ === HTMLHeadingElement.prototype) {
-        hList.push(postBody.children[i]);
-      }
-    }
-    if (tocWrapper.classList.contains('compress')) {
-        tocContent.classList.add('closed');
-    } else if (tocWrapper.classList.contains('no_compress')){
-      tocContent.classList.add('expanded');
-    } else {
-      if (hList.length > 10) {
-        active = 'active-hidden'
-        tocContent.classList.add('closed');
-      } else {
-        tocContent.classList.add('expanded');
-      }
-    }
-  }
-}
-addTocNumber(tocContent, '');
-
-window.addEventListener('load', function() {
-  showToc();
-  document.querySelector('#sidebar').style='display: block;';
-  tocWrapper.classList.add('toc-active');
-  setTimeout(function() {
-    if ("createEvent" in document) {
-      let evt = document.createEvent("HTMLEvents");
-      evt.initEvent("scroll", false, true);
-      document.dispatchEvent(evt);
-    }
-    else {
-      document.fireEvent("scroll");
-    }
-  }, 500)
-})
-
-</script>
-            </div>
           
         
       </div>
@@ -439,8 +262,8 @@ window.addEventListener('load', function() {
             <div class="section bg-color post post-page">
               <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://miuyou.github.io/post/miu_you-no-zui-xiao-sheng-cheng-shu/">
-       Miu_you の 最小生成树
+    <a class="post-title-link" href="https://miuyou.github.io/post/miu_you-no-zhuang-ya-dp/">
+      Miu_you の 状压DP
     </a>
   </h1>
   <div class="post-meta">
@@ -448,9 +271,22 @@ window.addEventListener('load', function() {
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span>发布于</span>
-      <span>2020-03-08</span>
+      <span>2020-03-23</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
+    
+      <span class="meta-item">
+        <i class="fa fa-folder-o"></i>
+        <span class="pc-show">分类于</span>
+        
+          
+            <a href="https://miuyou.github.io/tag/Bi4BBB_5Z/">
+              <span>算法学习</span>
+            </a>
+          
+        
+      </span>
+      <span class="post-meta-divider">|</span>
     
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
@@ -459,10 +295,10 @@ window.addEventListener('load', function() {
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>113<span class="pc-show">字数</span></span>
+      <span>130<span class="pc-show">字数</span></span>
     </span>
     
-      <span id="/post/miu_you-no-zui-xiao-sheng-cheng-shu/" class="meta-item pc-show leancloud_visitors">
+      <span id="/post/miu_you-no-zhuang-ya-dp/" class="meta-item pc-show leancloud_visitors">
         <span class="post-meta-divider">|</span>
         <i class="fa fa-eye"></i>
         <span>浏览量：<span class="leancloud-visitors-count" ></span></span>
@@ -471,13 +307,15 @@ window.addEventListener('load', function() {
   </div>
 </header>
               <div class="post-body next-md-body" id="post_body">
-                <figure data-type="image" tabindex="1"><img src="https://miuyou.github.io//post-images/1583677126629.jpg" alt="" loading="lazy"></figure>
+                <figure data-type="image" tabindex="1"><img src="https://miuyou.github.io//post-images/1584947480820.jpg" alt="" loading="lazy"></figure>
 <!-- more -->
-<h2 id="最小生成树-有趣の题目">最小生成树 有趣の题目</h2>
-<h2 id="求特定边权和最小生成树">求特定边权和最小生成树</h2>
 <ul>
-<li><a href="https://www.luogu.com.cn/problem/P3623">P3623 [APIO2008]免费道路</a><br>
-考虑到免费道路一定是n-1条,那么将边权取反,即为求一个边权和为k的最小生成树.先做一个最小生成树,如果边权超过k无解,若边权小于k,那么先填满k条有权边,如果不够的话无解,再生成最小生成树.</li>
+<li><a href="https://loj.ac/problem/2063"> [HAOI2016]字符合并</a><br>
+其实主要是区间DP,想法比较简单,暴力区间合并即可,枚举一个断点,设状态为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi><mo separator="true">,</mo><mi>k</mi></mrow></msub></mrow><annotation encoding="application/x-tex">f_{i,j,k}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361079999999999em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mpunct mtight">,</span><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span><span class="mpunct mtight">,</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span>表示为从i到j这一段的结果为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span>,因为满了<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span>就会被消除所以可以得到一个上限长度来保证复杂度.如果刚好是(k-1)的倍数,那么计算求解即可.</li>
+<li><a href="https://www.luogu.com.cn/problem/P3977">P3977 [TJOI2015]棋盘</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P4337">P4337 [ZJOI2018]线图</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P4363">P4363 [九省联考2018]一双木棋chess</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P4460">P4460 [CQOI2018]解锁屏幕</a></li>
 </ul>
 
               </div>
@@ -489,7 +327,7 @@ window.addEventListener('load', function() {
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://miuyou.github.io/post/miu_you-no-zui-xiao-sheng-cheng-shu/" title=" Miu_you の 最小生成树"> Miu_you の 最小生成树</a>
+      <a href="https://miuyou.github.io/post/miu_you-no-zhuang-ya-dp/" title="Miu_you の 状压DP">Miu_you の 状压DP</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -498,19 +336,21 @@ window.addEventListener('load', function() {
   </ul>
   <div class="tags">
     
+      <a href="https://miuyou.github.io/tag/Bi4BBB_5Z/"># 算法学习</a>
+    
   </div>
   <div class="nav">
     <div class="nav-prev">
       
         <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="[HNOI2007]梦幻岛宝珠 题解" href="https://miuyou.github.io/post/hnoi2007meng-huan-dao-bao-zhu-ti-jie/">[HNOI2007]梦幻岛宝珠 题解</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="[HNOI2007]梦幻岛宝珠 题解" href="https://miuyou.github.io/post/hnoi2007meng-huan-dao-bao-zhu-ti-jie/">上一篇</a>
+        <a class="nav-pc-next" title="一月份的刷题记录" href="https://miuyou.github.io/post/yi-yue-fen-de-shua-ti-ji-lu/">一月份的刷题记录</a class="nav-pc-next">
+        <a class="nav-mobile-prev" title="一月份的刷题记录" href="https://miuyou.github.io/post/yi-yue-fen-de-shua-ti-ji-lu/">上一篇</a>
       
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" title="Miu_you の进阶背包DP" href="https://miuyou.github.io/post/miu_you-nobei-bao-dp/">Miu_you の进阶背包DP</a>
-        <a class="nav-mobile-next" title="Miu_you の进阶背包DP" href="https://miuyou.github.io/post/miu_you-nobei-bao-dp/">下一篇</a>
+        <a class="nav-pc-next" title="Miu_you の 虚树" href="https://miuyou.github.io/post/miu_you-no-xu-shu/">Miu_you の 虚树</a>
+        <a class="nav-mobile-next" title="Miu_you の 虚树" href="https://miuyou.github.io/post/miu_you-no-xu-shu/">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>
