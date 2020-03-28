@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-      <meta charset="UTF-8"/>
+    <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="开端顺利 自这天起 离乡背井 等候春息  身处何地 等候春息">
 <meta name="theme-color" content="#000">
-<title>春待ち</title>
+<title>Miu_you の 单调队列 | 春待ち</title>
 <link rel="shortcut icon" href="https://miuyou.github.io//favicon.ico?v=1585366978441">
 <link rel="stylesheet" href="https://miuyou.github.io//styles/main.css">
 
@@ -25,6 +25,8 @@
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
     onload="renderMathInElement(document.body);"></script>
 
+    <meta name="description" content="Miu_you の 单调队列" />
+    <meta name="keywords" content="" />
   </head>
   <body>
     <div class="head-top-line"></div>
@@ -55,7 +57,7 @@
       <nav class="site-nav" id="site_nav">
         <ul id="nav_ul">
           
-            <li class="nav-item nav-item-active">
+            <li class="nav-item ">
               
                 <a href="/">
                   <i class="fa fa-home"></i> 首页
@@ -124,8 +126,23 @@
       
       <div class="section-layout muse bg-color">
         <div class="section-layout-wrapper">
-          <div class="sidebar">
-    
+          
+
+<div class="sidebar">
+  
+    <div class="sidebar-box box-shadow-wrapper  right-motion" id="sidebar">
+      
+        <div class="post-list-sidebar">
+          <div class="sidebar-title">
+            <span id="tocSideBar" class="sidebar-title-item sidebar-title-active">文章目录</span>
+            <span id="metaSideBar" class="sidebar-title-item">站点概览</span>
+          </div>
+        </div>
+      
+      <div class="sidebar-body muse" id="sidebar_body">
+        
+          
+            
 <div class="sidebar-wrapper box-shadow-wrapper ">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="https://miuyou.github.io//images/avatar.png"/>
@@ -158,79 +175,95 @@
 
 
 </div>
-</div>
-          <div class="section-box muse">
-            <section class="section bg-color posts-expand slide-down-in">
-              
-  <article class="post-list-box bg-color post box-shadow-wrapper">
-    <div class="article-wrapper bg-color">
-      <header class="post-header">
-  <h1 class="post-title">
-    <a class="post-title-link" href="https://miuyou.github.io/post/hnoi2007meng-huan-dao-bao-zhu-ti-jie/">
-      [HNOI2007]梦幻岛宝珠 题解
-    </a>
-  </h1>
-  <div class="post-meta">
-    
-    <span class="meta-item pc-show">
-      <i class="fa fa-calendar-o"></i>
-      <span>发布于</span>
-      <span>2020-03-09</span>
-      <span class="post-meta-divider pc-show">|</span>
-    </span>
-    
-      <span class="meta-item">
-        <i class="fa fa-folder-o"></i>
-        <span class="pc-show">分类于</span>
-        
           
-            <a href="https://miuyou.github.io/tag/YwKQwG2g8/">
-              <span>解题报告</span>
-            </a>
-          
-        
-      </span>
-      <span class="post-meta-divider">|</span>
-    
-    <span class="meta-item">
-      <i class="fa fa-clock-o"></i>
-      <span>5分钟</span>
-    </span>
-    <span class="meta-item">
-      <span class="post-meta-divider">|</span>
-      <i class="fa fa-file-word-o"></i>
-      <span>1072<span class="pc-show">字数</span></span>
-    </span>
-    
-  </div>
-</header>
-      <div class="post-body">
-        
-          <figure data-type="image" tabindex="1"><img src="https://cdn.luogu.com.cn/upload/image_hosting/iskee2vp.png" alt="" loading="lazy"></figure>
-
-        
-        
-        <div class="post-button text-center">
-          <a class="btn" href="https://miuyou.github.io/post/hnoi2007meng-huan-dao-bao-zhu-ti-jie/" rel="contents">
-            阅读全文 »
-          </a>
-        </div>
         
       </div>
-      
-        <footer class="post-footer">
-          <div class="post-eof"></div>
-        </footer>
-      
     </div>
-  </article>
+  
+</div>
+<script>
+  const SIDEBAR_TITLE_ACTIVE = 'sidebar-title-active';
+  const SIDEBAR_BODY_ACTIVE = 'sidebar-body-active';
+  const SLIDE_UP_IN = 'slide-up-in';
 
-  <article class="post-list-box bg-color post box-shadow-wrapper">
-    <div class="article-wrapper bg-color">
-      <header class="post-header">
+  let sidebar = document.querySelector('#sidebar'),
+  tocSideBar = document.querySelector('#tocSideBar'),
+  metaSideBar = document.querySelector('#metaSideBar'),
+  postToc = document.querySelector('#post_toc'),
+  postSiteMeta = document.querySelector('#post_side_meta'),
+  sidebarTitle = document.querySelector('.sidebar-title'),
+  sidebarBody = document.querySelector('#sidebar_body');
+
+  tocSideBar && tocSideBar.addEventListener('click', (e) => {
+    toggleSidebar(e);
+  });
+
+  metaSideBar && metaSideBar.addEventListener('click', (e) => {
+    toggleSidebar(e);
+  });
+
+  function toggleSidebar(e) {
+    let currentTitle = document.querySelector("."+SIDEBAR_TITLE_ACTIVE);
+    if (currentTitle == e.srcElement) {
+      return ;
+    }
+    let current, showElement, hideElement;
+    if (e.srcElement == metaSideBar) {
+      showElement = postSiteMeta;
+      hideElement = postToc;
+    } else if (e.srcElement == tocSideBar){
+      showElement = postToc;
+      hideElement = postSiteMeta;
+    }
+    currentTitle.classList.remove(SIDEBAR_TITLE_ACTIVE);
+    e.srcElement.classList.add(SIDEBAR_TITLE_ACTIVE);
+
+    window.Velocity(hideElement, 'stop');
+    window.Velocity(hideElement, 'transition.slideUpOut', {
+      display: 'none',
+      duration: 200,
+      complete: function () {
+        window.Velocity(showElement, 'transition.slideDownIn', {
+          duration: 200
+        });
+      }
+    })
+    hideElement.classList.remove(SIDEBAR_BODY_ACTIVE);
+    showElement.classList.add(SIDEBAR_BODY_ACTIVE);
+  }
+
+  postToc && postToc.addEventListener('transitionend', function() {
+    this.classList.remove(SLIDE_UP_IN);
+  });
+
+  if (sidebarBody) {
+    if (sidebarBody.classList.contains('pisces') || sidebarBody.classList.contains('gemini')) {
+      let hasFix = false;
+      let scrollEl = document.querySelector('.main-continer');
+      let limitTop = document.querySelector('#nav_ul').children.length * 42 + 162;
+      window.addEventListener('scroll', function(e) {
+        if (document.scrollingElement.scrollTop >= limitTop) {
+          if (!hasFix) {
+            sidebar.classList.add('sidebar-fixed');
+            hasFix = true;
+          }
+        } else {
+          if (hasFix) {
+            sidebar.classList.remove('sidebar-fixed');
+            hasFix = false;
+          }
+        }
+      });
+    }
+  }
+  
+</script>
+          <div class="section-box box-shadow-wrapper">
+            <div class="section bg-color post post-page">
+              <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://miuyou.github.io/post/miu_you-no-zui-xiao-sheng-cheng-shu/">
-       Miu_you の 最小生成树
+    <a class="post-title-link" href="https://miuyou.github.io/post/miu_you-no-dan-diao-dui-lie/">
+      Miu_you の 单调队列
     </a>
   </h1>
   <div class="post-meta">
@@ -238,7 +271,7 @@
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span>发布于</span>
-      <span>2020-03-08</span>
+      <span>2020-03-25</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
@@ -249,382 +282,102 @@
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>113<span class="pc-show">字数</span></span>
+      <span>126<span class="pc-show">字数</span></span>
     </span>
     
-  </div>
-</header>
-      <div class="post-body">
-        
-          <figure data-type="image" tabindex="1"><img src="https://miuyou.github.io//post-images/1583677126629.jpg" alt="" loading="lazy"></figure>
-
-        
-        
-        <div class="post-button text-center">
-          <a class="btn" href="https://miuyou.github.io/post/miu_you-no-zui-xiao-sheng-cheng-shu/" rel="contents">
-            阅读全文 »
-          </a>
-        </div>
-        
-      </div>
-      
-        <footer class="post-footer">
-          <div class="post-eof"></div>
-        </footer>
-      
-    </div>
-  </article>
-
-  <article class="post-list-box bg-color post box-shadow-wrapper">
-    <div class="article-wrapper bg-color">
-      <header class="post-header">
-  <h1 class="post-title">
-    <a class="post-title-link" href="https://miuyou.github.io/post/miu_you-nobei-bao-dp/">
-      Miu_you の进阶背包DP
-    </a>
-  </h1>
-  <div class="post-meta">
-    
-    <span class="meta-item pc-show">
-      <i class="fa fa-calendar-o"></i>
-      <span>发布于</span>
-      <span>2020-03-07</span>
-      <span class="post-meta-divider pc-show">|</span>
-    </span>
-    
-      <span class="meta-item">
-        <i class="fa fa-folder-o"></i>
-        <span class="pc-show">分类于</span>
-        
-          
-            <a href="https://miuyou.github.io/tag/Bi4BBB_5Z/">
-              <span>算法学习</span>
-            </a>
-          
-        
+      <span id="/post/miu_you-no-dan-diao-dui-lie/" class="meta-item pc-show leancloud_visitors">
+        <span class="post-meta-divider">|</span>
+        <i class="fa fa-eye"></i>
+        <span>浏览量：<span class="leancloud-visitors-count" ></span></span>
       </span>
-      <span class="post-meta-divider">|</span>
-    
-    <span class="meta-item">
-      <i class="fa fa-clock-o"></i>
-      <span>8分钟</span>
-    </span>
-    <span class="meta-item">
-      <span class="post-meta-divider">|</span>
-      <i class="fa fa-file-word-o"></i>
-      <span>1972<span class="pc-show">字数</span></span>
-    </span>
     
   </div>
 </header>
-      <div class="post-body">
-        
-          <figure data-type="image" tabindex="1"><img src="https://miuyou.github.io//post-images/1583577043309.jpg" alt="" loading="lazy"></figure>
-<blockquote>
-<p>即使是最普通的背包,也是非常值得深思的.</p>
-</blockquote>
+              <div class="post-body next-md-body" id="post_body">
+                <ul>
+<li><a href="https://www.luogu.com.cn/problem/P2219">P2219 [HAOI2007]修筑绿化带</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P2254">P2254 [NOI2005]瑰丽华尔兹</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P2569">P2569 [SCOI2010]股票交易</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P3071">P3071 [USACO13JAN]Seating G</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P3084">P3084 [USACO13OPEN]Photo G</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P3117">P3117 [USACO15JAN]Cow Rectangles G</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P3118">P3118 [USACO15JAN]Moovie Mooving G</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P3195">P3195 [HNOI2008]玩具装箱</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P3438">P3438 [POI2006]ZAB-Frogs</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P3470">P3470 [POI2008]BBB-BBB</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P3474">P3474 [POI2008]KUP-Plot purchase</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P3515">P3515 [POI2011]Lightning Conductor</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P3564">P3564 [POI2014]BAR-Salad Bar</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P3587">P3587 [POI2015]POD</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P3628">P3628 [APIO2010]特别行动队 </a></li>
+<li><a href="https://www.luogu.com.cn/problem/P3714">P3714 [BJOI2017]树的难题</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P4072">P4072 [SDOI2016]征途</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P4259">P4259 [Code+#3]寻找车位</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P4360">P4360 [CEOI2004]锯木厂选址</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P4744">P4744 [Wind Festival]Iron Man</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P4852">P4852 yyf hates choukapai</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P5574">P5574 [CmdOI2019]任务分配问题</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P5665">P5665 划分</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P5785">P5785 [SDOI2012]任务安排</a></li>
+</ul>
 
-        
-        
-        <div class="post-button text-center">
-          <a class="btn" href="https://miuyou.github.io/post/miu_you-nobei-bao-dp/" rel="contents">
-            阅读全文 »
-          </a>
-        </div>
-        
-      </div>
-      
-        <footer class="post-footer">
-          <div class="post-eof"></div>
-        </footer>
-      
-    </div>
-  </article>
-
-  <article class="post-list-box bg-color post box-shadow-wrapper">
-    <div class="article-wrapper bg-color">
-      <header class="post-header">
-  <h1 class="post-title">
-    <a class="post-title-link" href="https://miuyou.github.io/post/miu_you-nodong-tai-gui-hua/">
-      Miu_you の动态规划
-    </a>
-  </h1>
-  <div class="post-meta">
-    
-    <span class="meta-item pc-show">
-      <i class="fa fa-calendar-o"></i>
-      <span>发布于</span>
-      <span>2020-03-06</span>
-      <span class="post-meta-divider pc-show">|</span>
-    </span>
-    
-      <span class="meta-item">
-        <i class="fa fa-folder-o"></i>
-        <span class="pc-show">分类于</span>
-        
-          
-            <a href="https://miuyou.github.io/tag/Bi4BBB_5Z/">
-              <span>算法学习</span>
-            </a>
-          
-        
-      </span>
-      <span class="post-meta-divider">|</span>
-    
-    <span class="meta-item">
-      <i class="fa fa-clock-o"></i>
-      <span>3分钟</span>
-    </span>
-    <span class="meta-item">
-      <span class="post-meta-divider">|</span>
-      <i class="fa fa-file-word-o"></i>
-      <span>528<span class="pc-show">字数</span></span>
-    </span>
-    
-  </div>
-</header>
-      <div class="post-body">
-        
-          <p>动态规划也炒鸡可爱的说!<br>
-<img src="https://miuyou.github.io//post-images/1583457992014.jpg" alt="" loading="lazy"></p>
-
-        
-        
-        <div class="post-button text-center">
-          <a class="btn" href="https://miuyou.github.io/post/miu_you-nodong-tai-gui-hua/" rel="contents">
-            阅读全文 »
-          </a>
-        </div>
-        
-      </div>
-      
-        <footer class="post-footer">
-          <div class="post-eof"></div>
-        </footer>
-      
-    </div>
-  </article>
-
-  <article class="post-list-box bg-color post box-shadow-wrapper">
-    <div class="article-wrapper bg-color">
-      <header class="post-header">
-  <h1 class="post-title">
-    <a class="post-title-link" href="https://miuyou.github.io/post/miu_you-no-wang-luo-liu/">
-      Miu_you の 网络流
-    </a>
-  </h1>
-  <div class="post-meta">
-    
-    <span class="meta-item pc-show">
-      <i class="fa fa-calendar-o"></i>
-      <span>发布于</span>
-      <span>2020-03-04</span>
-      <span class="post-meta-divider pc-show">|</span>
-    </span>
-    
-      <span class="meta-item">
-        <i class="fa fa-folder-o"></i>
-        <span class="pc-show">分类于</span>
-        
-          
-            <a href="https://miuyou.github.io/tag/Bi4BBB_5Z/">
-              <span>算法学习</span>
-            </a>
-          
-        
-      </span>
-      <span class="post-meta-divider">|</span>
-    
-    <span class="meta-item">
-      <i class="fa fa-clock-o"></i>
-      <span>5分钟</span>
-    </span>
-    <span class="meta-item">
-      <span class="post-meta-divider">|</span>
-      <i class="fa fa-file-word-o"></i>
-      <span>1273<span class="pc-show">字数</span></span>
-    </span>
-    
-  </div>
-</header>
-      <div class="post-body">
-        
-          <p>这里就是放放可爱の网络流的题目和感想啦~~~~~~~<br>
-<img src="https://miuyou.github.io//post-images/1583297071335.jpg" alt="" loading="lazy"></p>
-
-        
-        
-        <div class="post-button text-center">
-          <a class="btn" href="https://miuyou.github.io/post/miu_you-no-wang-luo-liu/" rel="contents">
-            阅读全文 »
-          </a>
-        </div>
-        
-      </div>
-      
-        <footer class="post-footer">
-          <div class="post-eof"></div>
-        </footer>
-      
-    </div>
-  </article>
-
-  <article class="post-list-box bg-color post box-shadow-wrapper">
-    <div class="article-wrapper bg-color">
-      <header class="post-header">
-  <h1 class="post-title">
-    <a class="post-title-link" href="https://miuyou.github.io/post/sheng-xuan-bu-ti-ji-hua-qwq/">
-                                  省选补题计划
-    </a>
-  </h1>
-  <div class="post-meta">
-    
-    <span class="meta-item pc-show">
-      <i class="fa fa-calendar-o"></i>
-      <span>发布于</span>
-      <span>2020-03-01</span>
-      <span class="post-meta-divider pc-show">|</span>
-    </span>
-    
-      <span class="meta-item">
-        <i class="fa fa-folder-o"></i>
-        <span class="pc-show">分类于</span>
-        
-          
-            <a href="https://miuyou.github.io/tag/xSHNQSBwo/">
-              <span>做题计划</span>
-            </a>
-          
-        
-      </span>
-      <span class="post-meta-divider">|</span>
-    
-    <span class="meta-item">
-      <i class="fa fa-clock-o"></i>
-      <span>3分钟</span>
-    </span>
-    <span class="meta-item">
-      <span class="post-meta-divider">|</span>
-      <i class="fa fa-file-word-o"></i>
-      <span>630<span class="pc-show">字数</span></span>
-    </span>
-    
-  </div>
-</header>
-      <div class="post-body">
-        
-          <p>因为窝太弱了,所以决定把省选题都刷了!<br>
-<img src="https://miuyou.github.io//post-images/1583297086560.jpg" alt="" loading="lazy"></p>
-
-        
-        
-        <div class="post-button text-center">
-          <a class="btn" href="https://miuyou.github.io/post/sheng-xuan-bu-ti-ji-hua-qwq/" rel="contents">
-            阅读全文 »
-          </a>
-        </div>
-        
-      </div>
-      
-        <footer class="post-footer">
-          <div class="post-eof"></div>
-        </footer>
-      
-    </div>
-  </article>
-
-  <article class="post-list-box bg-color post box-shadow-wrapper">
-    <div class="article-wrapper bg-color">
-      <header class="post-header">
-  <h1 class="post-title">
-    <a class="post-title-link" href="https://miuyou.github.io/post/heoi2016tjoi2016pai-xu-ti-jie/">
-      [HEOI2016/TJOI2016]排序 题解
-    </a>
-  </h1>
-  <div class="post-meta">
-    
-    <span class="meta-item pc-show">
-      <i class="fa fa-calendar-o"></i>
-      <span>发布于</span>
-      <span>2020-02-27</span>
-      <span class="post-meta-divider pc-show">|</span>
-    </span>
-    
-      <span class="meta-item">
-        <i class="fa fa-folder-o"></i>
-        <span class="pc-show">分类于</span>
-        
-          
-            <a href="https://miuyou.github.io/tag/YwKQwG2g8/">
-              <span>解题报告</span>
-            </a>
-          
-        
-      </span>
-      <span class="post-meta-divider">|</span>
-    
-    <span class="meta-item">
-      <i class="fa fa-clock-o"></i>
-      <span>5分钟</span>
-    </span>
-    <span class="meta-item">
-      <span class="post-meta-divider">|</span>
-      <i class="fa fa-file-word-o"></i>
-      <span>784<span class="pc-show">字数</span></span>
-    </span>
-    
-  </div>
-</header>
-      <div class="post-body">
-        
-          
-        
-        
-        <div class="post-button text-center">
-          <a class="btn" href="https://miuyou.github.io/post/heoi2016tjoi2016pai-xu-ti-jie/" rel="contents">
-            阅读全文 »
-          </a>
-        </div>
-        
-      </div>
-      
-        <footer class="post-footer">
-          <div class="post-eof"></div>
-        </footer>
-      
-    </div>
-  </article>
-  
-              
-              
-<div class="page bg-color">
-  <ul class="pagination-ul">
-    
-      <li class="pagination-dir">
-        <a href="https://miuyou.github.io/">
-          <i class="fa fa-angle-left"></i>
-        </a>
-      </li>
-    
-    
-      
-        <li class="pagination-li ">
-            <a href="/page/../">
-              1
-            </a>
-        </li>
-      
-        <li class="pagination-li pagination-active">
-            <a href="/page/2">
-              2
-            </a>
-        </li>
-      
-    
-    
+              </div>
+              <div class="post-footer">
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      春待ち
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://miuyou.github.io/post/miu_you-no-dan-diao-dui-lie/" title="Miu_you の 单调队列">Miu_you の 单调队列</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，转载请注明出处！
+    </li>
   </ul>
+  <div class="tags">
+    
+  </div>
+  <div class="nav">
+    <div class="nav-prev">
+      
+        <i class="fa fa-chevron-left"></i>
+        <a class="nav-pc-next" title="Miu_you の最小斯坦纳树" href="https://miuyou.github.io/post/miu_you-nozui-xiao-si-tan-na-shu/">Miu_you の最小斯坦纳树</a class="nav-pc-next">
+        <a class="nav-mobile-prev" title="Miu_you の最小斯坦纳树" href="https://miuyou.github.io/post/miu_you-nozui-xiao-si-tan-na-shu/">上一篇</a>
+      
+    </div>
+    <div class="nav-next">
+      
+        <a class="nav-pc-next" title="一月份的刷题记录" href="https://miuyou.github.io/post/yi-yue-fen-de-shua-ti-ji-lu/">一月份的刷题记录</a>
+        <a class="nav-mobile-next" title="一月份的刷题记录" href="https://miuyou.github.io/post/yi-yue-fen-de-shua-ti-ji-lu/">下一篇</a>
+        <i class="fa fa-chevron-right"></i>
+      
+    </div>
+  </div>
 </div>
-            </section>
+              
+                
+<script src="https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js"></script>
+<div id="vcomments" style="padding: 10px 0px 0px 0px"></div>
+<script>
+new Valine({
+    el: '#vcomments' ,
+    appId: 'UVcI62G7dqmkWxTmwgxAN1xh-gzGzoHsz',
+    appKey: 's0C5SjN0pyVIsikc0RQegRmN',
+    notify: 'true' === 'false', 
+    avatar:'', 
+    placeholder: '',
+    pageSize: '',
+    lang: 'zh-cn',
+    visitor: 'true' === 'true',
+    highlight: 'true' === 'true',
+    avatarForce: 'true' === 'false',
+});
+</script>
+              
+            </div>
           </div>
         </div>
       </div>

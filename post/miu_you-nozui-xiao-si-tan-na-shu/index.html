@@ -6,7 +6,7 @@
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="开端顺利 自这天起 离乡背井 等候春息  身处何地 等候春息">
 <meta name="theme-color" content="#000">
-<title>                            省选补题计划 | 春待ち</title>
+<title>Miu_you の最小斯坦纳树 | 春待ち</title>
 <link rel="shortcut icon" href="https://miuyou.github.io//favicon.ico?v=1585366978441">
 <link rel="stylesheet" href="https://miuyou.github.io//styles/main.css">
 
@@ -25,8 +25,8 @@
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
     onload="renderMathInElement(document.body);"></script>
 
-    <meta name="description" content="                            省选补题计划" />
-    <meta name="keywords" content="做题计划" />
+    <meta name="description" content="Miu_you の最小斯坦纳树" />
+    <meta name="keywords" content="" />
   </head>
   <body>
     <div class="head-top-line"></div>
@@ -142,8 +142,7 @@
       <div class="sidebar-body muse" id="sidebar_body">
         
           
-            <div class="post-side-meta" id="post_side_meta">
-              
+            
 <div class="sidebar-wrapper box-shadow-wrapper ">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="https://miuyou.github.io//images/avatar.png"/>
@@ -176,185 +175,6 @@
 
 
 </div>
-            </div>
-            <div class="post-toc sidebar-body-active" id="post_toc" style="opacity: 1;">
-              <div class="toc-box right-motion">
-  <div class="toc-wrapper auto-number auto" id="toc_wrapper">
-    <ul class="markdownIt-TOC">
-<li>
-<ul>
-<li><a href="#-more-"><!-- more --></a></li>
-<li><a href="#qwq">qwq</a></li>
-<li><a href="#%E5%8A%A0%E6%B2%B9">加油!</a></li>
-<li><a href="#%E5%93%AA%E6%80%95%E7%A8%8D%E5%BE%AE%E4%B8%8D%E9%82%A3%E4%B9%88%E5%BC%B1%E4%B9%9F%E5%A5%BD%E5%95%8Aqwq">哪怕稍微不那么弱也好啊qwq</a></li>
-<li><a href="#%E4%B8%8B%E9%9D%A2%E5%B0%B1%E6%98%AF%E5%86%99%E8%BF%87%E7%9A%84%E9%A2%98%E5%95%A6qwq">下面就是写过的题啦qwq</a></li>
-</ul>
-</li>
-</ul>
-
-  </div>
-</div>
-
-<script>
-
-let lastTop = 0, lList = [], hList = [], postBody, lastIndex = -1; 
-let active = 'active-show', activeClass = 'active-current';
-let tocWrapper = document.querySelector('#toc_wrapper');
-let tocContent = tocWrapper.children[0];
-let autoNumber = tocWrapper&&tocWrapper.classList.contains('auto-number');
-
-function addTocNumber(elem, deep) {
-  if (!elem) {
-    return;
-  }
-  let prop = elem.__proto__;
-
-  if (prop === HTMLUListElement.prototype) {
-    for (let i = 0; i < elem.children.length; i++) {
-      addTocNumber(elem.children[i], deep + (i + 1) + '.');
-    }
-  } else if (prop === HTMLLIElement.prototype) {
-    // 保存li元素
-    lList.push(elem);
-    for (let i = 0; i < elem.children.length; i++) {
-      let cur = elem.children[i];
-      if (cur.__proto__ === HTMLAnchorElement.prototype) {
-        if (autoNumber) {
-          cur.text =  deep + ' ' + cur.text;
-        }
-      } else if (cur.__proto__ === HTMLUListElement.prototype) {
-        addTocNumber(cur, deep);
-      }
-    }
-  }
-}
-
-
-document.addEventListener('scroll', function(e) {
-  if (lList.length <= 0) {
-    return;
-  }
-  let scrollTop = document.scrollingElement.scrollTop;
-  let dir;
-
-  if (lastTop - scrollTop > 0) {
-    dir = 'up';
-  } else {
-    dir = 'down';
-  }
-
-  lastTop = scrollTop;
-  if (scrollTop <= 0) {
-    if (lastIndex >= 0 && lastIndex < hList.length) {
-      lList[lastIndex].classList.remove(activeClass);
-    }
-    return;
-  }
-
-  let current = 0, hasFind = false;
-  for (let i = 0; i < hList.length; i++) {
-    if (hList[i].offsetTop > scrollTop) {
-      current = i;
-      hasFind = true;
-      break;
-    }
-  }
-  if (!hasFind && scrollTop > lList[lList.length - 1].offsetTop) {
-    current = hList.length - 1;
-  } else {
-    current--;
-  }
-  if (dir === 'down') {
-    if (current > lastIndex) {
-      addActiveClass(current);
-      removeActiveClass(lastIndex) 
-      lastIndex = current;
-      removeParentActiveClass();
-      lList[current] && addActiveLiElemment(lList[current].parentElement,tocContent);
-    }
-  } else {
-    if (current < lastIndex) {
-      addActiveClass(current);
-      removeActiveClass(lastIndex);
-      lastIndex = current;
-      removeParentActiveClass();
-      lList[current] && addActiveLiElemment(lList[current].parentElement,tocContent);
-    }
-  }
-});
-
-function removeParentActiveClass() {
-  let parents = tocContent.querySelectorAll('.'+active)
-  parents.forEach(function(elem) {
-    elem.classList.remove(active);
-  });
-}
-
-function addActiveClass(index) {
-  if (index >= 0 && index < hList.length) {
-    lList[index].classList.add(activeClass);
-  }
-}
-
-function removeActiveClass(index) {
-  if (index >= 0 && index < hList.length) {
-    lList[index].classList.remove(activeClass);
-  }
-}
-
-function addActiveLiElemment(elem, parent) {
-  if (!elem || elem === parent) {
-    return;
-  } else {
-    if (elem.__proto__ === HTMLLIElement.prototype) {
-      elem.classList.add(active);
-    }
-    addActiveLiElemment(elem.parentElement, parent);
-  }
-}
-
-function showToc() {
-  if (tocWrapper) {
-    postBody = document.querySelector('#post_body');
-    for (let i = 0; i < postBody.children.length; i++) {
-      if (postBody.children[i].__proto__ === HTMLHeadingElement.prototype) {
-        hList.push(postBody.children[i]);
-      }
-    }
-    if (tocWrapper.classList.contains('compress')) {
-        tocContent.classList.add('closed');
-    } else if (tocWrapper.classList.contains('no_compress')){
-      tocContent.classList.add('expanded');
-    } else {
-      if (hList.length > 10) {
-        active = 'active-hidden'
-        tocContent.classList.add('closed');
-      } else {
-        tocContent.classList.add('expanded');
-      }
-    }
-  }
-}
-addTocNumber(tocContent, '');
-
-window.addEventListener('load', function() {
-  showToc();
-  document.querySelector('#sidebar').style='display: block;';
-  tocWrapper.classList.add('toc-active');
-  setTimeout(function() {
-    if ("createEvent" in document) {
-      let evt = document.createEvent("HTMLEvents");
-      evt.initEvent("scroll", false, true);
-      document.dispatchEvent(evt);
-    }
-    else {
-      document.fireEvent("scroll");
-    }
-  }, 500)
-})
-
-</script>
-            </div>
           
         
       </div>
@@ -442,8 +262,8 @@ window.addEventListener('load', function() {
             <div class="section bg-color post post-page">
               <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://miuyou.github.io/post/sheng-xuan-bu-ti-ji-hua-qwq/">
-                                  省选补题计划
+    <a class="post-title-link" href="https://miuyou.github.io/post/miu_you-nozui-xiao-si-tan-na-shu/">
+      Miu_you の最小斯坦纳树
     </a>
   </h1>
   <div class="post-meta">
@@ -451,22 +271,9 @@ window.addEventListener('load', function() {
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span>发布于</span>
-      <span>2020-03-01</span>
+      <span>2020-03-26</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
-    
-      <span class="meta-item">
-        <i class="fa fa-folder-o"></i>
-        <span class="pc-show">分类于</span>
-        
-          
-            <a href="https://miuyou.github.io/tag/xSHNQSBwo/">
-              <span>做题计划</span>
-            </a>
-          
-        
-      </span>
-      <span class="post-meta-divider">|</span>
     
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
@@ -475,10 +282,10 @@ window.addEventListener('load', function() {
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>630<span class="pc-show">字数</span></span>
+      <span>549<span class="pc-show">字数</span></span>
     </span>
     
-      <span id="/post/sheng-xuan-bu-ti-ji-hua-qwq/" class="meta-item pc-show leancloud_visitors">
+      <span id="/post/miu_you-nozui-xiao-si-tan-na-shu/" class="meta-item pc-show leancloud_visitors">
         <span class="post-meta-divider">|</span>
         <i class="fa fa-eye"></i>
         <span>浏览量：<span class="leancloud-visitors-count" ></span></span>
@@ -487,94 +294,69 @@ window.addEventListener('load', function() {
   </div>
 </header>
               <div class="post-body next-md-body" id="post_body">
-                <p>因为窝太弱了,所以决定把省选题都刷了!<br>
-<img src="https://miuyou.github.io//post-images/1583297086560.jpg" alt="" loading="lazy"></p>
-<h2 id="-more-"><!-- more --></h2>
-<h2 id="qwq">qwq</h2>
-<h2 id="加油">加油!</h2>
-<h2 id="哪怕稍微不那么弱也好啊qwq">哪怕稍微不那么弱也好啊qwq</h2>
-<h2 id="下面就是写过的题啦qwq">下面就是写过的题啦qwq</h2>
-<ul>
-<li><a href="https://www.luogu.com.cn/problem/P1110">P1110 [ZJOI2007]报表统计</a><br>
-(完成)使用mulbiset过平衡树太棒啦(๑•̀ㅂ•́)و✧</li>
-<li><a href="https://www.luogu.com.cn/problem/P1128">P1128 [HNOI2001]求正整数</a></li>
-</ul>
-<p>因为做过反素数,所以知道一个数字的因子个数该怎么算,而这题要求这个的逆运算,因为之前是搜索然后筛选,这次要逆向的话似乎也可以搜索,但数据范围不允许这种玄学算法通过,可以考虑dp,似乎是n方的,因为数字过大所以要转化转移方程,因为涉及到a的b次方,可以取对数优化</p>
-<ul>
-<li><a href="https://www.luogu.com.cn/problem/P1129">P1129 [ZJOI2007]矩阵游戏</a></li>
-</ul>
-<p>转换一下模型,可以发现是行对列匹配,转换成最大流解决</p>
-<ul>
-<li><a href="https://www.luogu.com.cn/problem/P1131">P1131 [ZJOI2007]时态同步</a><br>
-简单的树形<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mi>p</mi></mrow><annotation encoding="application/x-tex">dp</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">p</span></span></span></span></li>
-<li><a href="https://www.luogu.com.cn/problem/P1169">P1169 [ZJOI2007]棋盘制作</a><br>
-正方形悬线模板秒了,长方形要改一下,考虑从上向下转移,左右同时维护</li>
-<li><a href="https://www.luogu.com.cn/problem/P1197">P1197 [JSOI2008]星球大战</a><br>
-正难则反</li>
-<li><a href="https://www.luogu.com.cn/problem/P1198">P1198 [JSOI2008]最大数</a><br>
-动态开点线段树</li>
-<li><a href="https://www.luogu.com.cn/problem/P1291">P1291 [SHOI2002]百事世界杯之旅</a><br>
-概率期望入门</li>
-</ul>
-<ul>
+                <p>给定一个包含 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span> 个结点和 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi></mrow><annotation encoding="application/x-tex">m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">m</span></span></span></span> 条带权边的无向连通图 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>G</mi><mo>=</mo><mo>(</mo><mi>V</mi><mo separator="true">,</mo><mi>E</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">G=(V,E)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault">G</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.22222em;">V</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">E</span><span class="mclose">)</span></span></span></span>。</p>
+<p>再给定包含 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span> 个结点的点集 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>S</mi></mrow><annotation encoding="application/x-tex">S</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span></span></span></span>，选出 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>G</mi></mrow><annotation encoding="application/x-tex">G</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault">G</span></span></span></span> 的子图 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>G</mi><mo mathvariant="normal">′</mo></msup><mo>=</mo><mo>(</mo><msup><mi>V</mi><mo mathvariant="normal">′</mo></msup><mo separator="true">,</mo><msup><mi>E</mi><mo mathvariant="normal">′</mo></msup><mo>)</mo></mrow><annotation encoding="application/x-tex">G&#x27;=(V&#x27;,E&#x27;)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.751892em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault">G</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.001892em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.22222em;">V</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.05764em;">E</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>，使得：</p>
+<ol>
 <li>
-<ul>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>S</mi><mo>⊆</mo><msup><mi>V</mi><mo mathvariant="normal">′</mo></msup></mrow><annotation encoding="application/x-tex">S\subseteq V&#x27;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8193em;vertical-align:-0.13597em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">⊆</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.751892em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.22222em;">V</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span></span></span></span>；</p>
+</li>
 <li>
-<ul>
-<li><a href="https://www.luogu.com.cn/problem/P1295">P1295 [TJOI2011]书架</a><br>
-非常有趣的单调队列+双端队列优化dp,论如何动态维护最大值,O(1)</li>
-</ul>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>G</mi><mo mathvariant="normal">′</mo></msup></mrow><annotation encoding="application/x-tex">G&#x27;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.751892em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault">G</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span></span></span></span> 为连通图；</p>
 </li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><a href="https://www.luogu.com.cn/problem/P1337">P1337 [JSOI2004]平衡点 / 吊打XXX</a><br>
-模拟退火,自创多种随机化(单种过不了</li>
-<li><a href="https://www.luogu.com.cn/problem/P1377">P1377 [TJOI2011]树的序</a><br>
-欸,思维题</li>
-<li><a href="https://www.luogu.com.cn/problem/P1418">P1418 [TJOI2011]构造矩阵</a><br>
-网络流有趣的题目</li>
-<li><a href="https://www.luogu.com.cn/problem/P1434">P1434 [SHOI2002]滑雪</a><br>
-入门水题,注意边界</li>
-<li><a href="https://www.luogu.com.cn/problem/P1437">P1437 [HNOI2004]敲砖块</a><br>
-还不错的dp,写写写就对了,考虑合理运用边界来进行跳跃式转移</li>
-<li><a href="https://www.luogu.com.cn/problem/P1446">P1446 [HNOI2008]Cards</a></li>
-<li><a href="https://www.luogu.com.cn/problem/P1450">P1450 [HAOI2008]硬币购物</a><br>
-憨批榕树原理dp</li>
-<li><a href="https://www.luogu.com.cn/problem/P1463">P1463 [POI2002][HAOI2007]反素数</a><br>
-挺不错的搜索</li>
-<li><a href="https://www.luogu.com.cn/problem/P1627">P1627 [CQOI2009]中位数</a><br>
-弱智题,开个桶记录一下就好了</li>
-<li><a href="https://www.luogu.com.cn/problem/P1640">P1640 [SCOI2010]连续攻击游戏</a><br>
-比较有趣的并查集</li>
-<li><a href="https://www.luogu.com.cn/problem/P1641">P1641 [SCOI2010]生成字符串</a><br>
-组合计数基础</li>
-<li><a href="https://www.luogu.com.cn/problem/P1772">P1772 [ZJOI2006]物流运输</a><br>
-dp+最短路</li>
-<li><a href="https://www.luogu.com.cn/problem/P1841">P1841 [JSOI2007]重要的城市</a><br>
-dij做n遍,在最短路中若一条最短边是唯一的则起点为重要城市</li>
-<li><a href="https://www.luogu.com.cn/problem/P1896">P1896 [SCOI2005]互不侵犯</a><br>
-设dp状态为第i行放了第j种方式总共z个,谔谔</li>
-<li><a href="https://www.luogu.com.cn/problem/P1972">P1972 [SDOI2009]HH的项链</a><br>
-树状数组离线搞,主席树在线</li>
-<li><a href="https://www.luogu.com.cn/problem/P2023">P2023 [AHOI2009]维护序列</a><br>
-弱智低能题,就是一个模板(</li>
-<li><a href="https://www.luogu.com.cn/problem/P2039">P2039 [AHOI2009]跳棋</a><br>
-谔谔dp,谁知道讷</li>
-</ul>
-<ul>
 <li>
-<ul>
-<li><a href="https://www.luogu.com.cn/problem/P2051">P2051 [AHOI2009]中国象棋</a><br>
-神仙dp题</li>
-</ul>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>E</mi><mo mathvariant="normal">′</mo></msup></mrow><annotation encoding="application/x-tex">E&#x27;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.751892em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.05764em;">E</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span></span></span></span> 中所有边的权值和最小。</p>
 </li>
-</ul>
+</ol>
+<p>你只需要求出 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>E</mi><mo mathvariant="normal">′</mo></msup></mrow><annotation encoding="application/x-tex">E&#x27;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.751892em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.05764em;">E</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span></span></span></span> 中所有边的权值和。</p>
+<p>对于这么一个问题,可以视作类似于局部最小生成树?考虑到如果选取的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>S</mi><mo>=</mo><mi>V</mi></mrow><annotation encoding="application/x-tex">S=V</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.22222em;">V</span></span></span></span>,那么就是最小生成树.</p>
+<p>也就是说最小生成树其实是这种问题的一个特殊形式,而这个问题就是最小斯坦纳树.</p>
+<p>这个问题属于组合优化.考虑用DP的方式去解决问题,设<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><msub><mi>p</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub></mrow><annotation encoding="application/x-tex">dp_{i,j}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="mord mathdefault">d</span><span class="mord"><span class="mord mathdefault">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mpunct mtight">,</span><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span>表示为以<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span>为根且包含<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>j</mi></mrow><annotation encoding="application/x-tex">j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span></span></span></span>这个集合的生成树最小边权和为多少,然后合并一些已经算出来的结果,如果可以从这个点出发就做一次<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi><mi>p</mi><mi>f</mi><mi>a</mi></mrow><annotation encoding="application/x-tex">spfa</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">s</span><span class="mord mathdefault">p</span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mord mathdefault">a</span></span></span></span>来更新一下其他节点.</p>
 <ul>
-<li><a href="https://www.luogu.com.cn/problem/P2053">P2053 [SCOI2007]修车</a><br>
-普通的费用流</li>
+<li><a href="https://loj.ac/problem/2110">P3264 [JLOI2015]管道连接</a><br>
+还有一题但是因为太煞笔了所以不放出来了,去tm的输出方案<br>
+关于这题,有一个比较巧妙的思路,如何合并两棵树的结果呢?建一个虚拟根然后模拟合并子树就可以了</li>
 </ul>
+<pre><code class="language-cpp">inline void dij(int s) {
+	memset(vis, 0, sizeof(vis));
+	while (!q.empty()) {
+		node x = q.top();
+		q.pop();
+		if (vis[x.poi])continue;
+		vis[x.poi] = 1;
+		for (int i = firs[x.poi]; i; i = nex[i]) {
+			int y = to[i];
+			if (dp[y][s] &gt; dp[x.poi][s] + dis[i]) {
+				dp[y][s] = dp[x.poi][s] + dis[i];
+					q.push( node{ dp[y][s],y });
+			}
+		}
+	}
+}
+int main() {
+	n = read(); k = read(); m = read();
+	memset(dp, 127/3, sizeof(dp));
+	for (int i = 1; i &lt;= k; ++i) {
+		X[i] = read();
+		dp[X[i]][(1 &lt;&lt; (i-1))] = 0;
+	}
+	for (int i = 1, x, y, z; i &lt;= m; ++i) {
+		x = read(); y = read();
+		z = read();
+		add(x, y, z);
+		add(y, x, z);
+	}
+	for (int s = 1; s &lt; (1 &lt;&lt; k); ++s) {
+		for (int i = 1; i &lt;= n; ++i) {
+			for (int j = s &amp; (s - 1); j; j = s &amp; (j - 1)) {
+				dp[i][s] = min(dp[i][s], dp[i][j] + dp[i][s ^ j]);
+			}
+			if (dp[i][s] != dp[0][0]) {
+				q.push(node{ dp[i][s],i });
+			}
+		}
+		dij(s);
+	}
+    ~~~</code></pre>
 
               </div>
               <div class="post-footer">
@@ -585,7 +367,7 @@ dij做n遍,在最短路中若一条最短边是唯一的则起点为重要城市
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://miuyou.github.io/post/sheng-xuan-bu-ti-ji-hua-qwq/" title="                            省选补题计划">                            省选补题计划</a>
+      <a href="https://miuyou.github.io/post/miu_you-nozui-xiao-si-tan-na-shu/" title="Miu_you の最小斯坦纳树">Miu_you の最小斯坦纳树</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -594,21 +376,15 @@ dij做n遍,在最短路中若一条最短边是唯一的则起点为重要城市
   </ul>
   <div class="tags">
     
-      <a href="https://miuyou.github.io/tag/xSHNQSBwo/"># 做题计划</a>
-    
   </div>
   <div class="nav">
     <div class="nav-prev">
       
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="Miu_you の 网络流" href="https://miuyou.github.io/post/miu_you-no-wang-luo-liu/">Miu_you の 网络流</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="Miu_you の 网络流" href="https://miuyou.github.io/post/miu_you-no-wang-luo-liu/">上一篇</a>
-      
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" title="[HEOI2016/TJOI2016]排序 题解" href="https://miuyou.github.io/post/heoi2016tjoi2016pai-xu-ti-jie/">[HEOI2016/TJOI2016]排序 题解</a>
-        <a class="nav-mobile-next" title="[HEOI2016/TJOI2016]排序 题解" href="https://miuyou.github.io/post/heoi2016tjoi2016pai-xu-ti-jie/">下一篇</a>
+        <a class="nav-pc-next" title="Miu_you の 单调队列" href="https://miuyou.github.io/post/miu_you-no-dan-diao-dui-lie/">Miu_you の 单调队列</a>
+        <a class="nav-mobile-next" title="Miu_you の 单调队列" href="https://miuyou.github.io/post/miu_you-no-dan-diao-dui-lie/">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>
