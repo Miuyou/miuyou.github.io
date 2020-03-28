@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://miuyou.github.io/</id>
     <title>春待ち</title>
-    <updated>2020-03-28T03:43:14.712Z</updated>
+    <updated>2020-03-28T11:45:05.734Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://miuyou.github.io/"/>
     <link rel="self" href="https://miuyou.github.io/atom.xml"/>
@@ -88,11 +88,16 @@ int main() {
         </link>
         <updated>2020-03-25T03:18:36.000Z</updated>
         <content type="html"><![CDATA[<ul>
-<li><a href="https://www.luogu.com.cn/problem/P2219">P2219 [HAOI2007]修筑绿化带</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P2219">P2219 [HAOI2007]修筑绿化带</a><br>
+先搞一个二维前缀和,然后求出大块块和小块块的数值,然后根据这个跑二维单调队列</li>
 <li><a href="https://www.luogu.com.cn/problem/P2254">P2254 [NOI2005]瑰丽华尔兹</a></li>
-<li><a href="https://www.luogu.com.cn/problem/P2569">P2569 [SCOI2010]股票交易</a></li>
-<li><a href="https://www.luogu.com.cn/problem/P3071">P3071 [USACO13JAN]Seating G</a></li>
-<li><a href="https://www.luogu.com.cn/problem/P3084">P3084 [USACO13OPEN]Photo G</a></li>
+<li>将每个点压进去,对于每行每列都采用单调队列优化解决</li>
+<li><a href="https://www.luogu.com.cn/problem/P2569">P2569 [SCOI2010]股票交易</a><br>
+将以前的dp值直接转移过来,这样这可以点对转移,然后单调队列维护</li>
+<li><a href="https://www.luogu.com.cn/problem/P3071">P3071 [USACO13JAN]Seating G</a><br>
+憨批标签,挨打,其实是一个线段树,仿照最大字段和做即可</li>
+<li><a href="https://www.luogu.com.cn/problem/P3084">P3084 [USACO13OPEN]Photo G</a><br>
+难做就DP,考虑对于每个点求出一个转移集合,然后单调队列维护即可</li>
 <li><a href="https://www.luogu.com.cn/problem/P3117">P3117 [USACO15JAN]Cow Rectangles G</a></li>
 <li><a href="https://www.luogu.com.cn/problem/P3118">P3118 [USACO15JAN]Moovie Mooving G</a></li>
 <li><a href="https://www.luogu.com.cn/problem/P3195">P3195 [HNOI2008]玩具装箱</a></li>

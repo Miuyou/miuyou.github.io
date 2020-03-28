@@ -7,7 +7,7 @@
 <meta name="description" content="开端顺利 自这天起 离乡背井 等候春息  身处何地 等候春息">
 <meta name="theme-color" content="#000">
 <title>Miu_you の 单调队列 | 春待ち</title>
-<link rel="shortcut icon" href="https://miuyou.github.io//favicon.ico?v=1585366978441">
+<link rel="shortcut icon" href="https://miuyou.github.io//favicon.ico?v=1585395902388">
 <link rel="stylesheet" href="https://miuyou.github.io//styles/main.css">
 
 <link rel="stylesheet" href="/media/css/muse.css">
@@ -277,12 +277,12 @@
     
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>1分钟</span>
+      <span>2分钟</span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>126<span class="pc-show">字数</span></span>
+      <span>268<span class="pc-show">字数</span></span>
     </span>
     
       <span id="/post/miu_you-no-dan-diao-dui-lie/" class="meta-item pc-show leancloud_visitors">
@@ -295,11 +295,16 @@
 </header>
               <div class="post-body next-md-body" id="post_body">
                 <ul>
-<li><a href="https://www.luogu.com.cn/problem/P2219">P2219 [HAOI2007]修筑绿化带</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P2219">P2219 [HAOI2007]修筑绿化带</a><br>
+先搞一个二维前缀和,然后求出大块块和小块块的数值,然后根据这个跑二维单调队列</li>
 <li><a href="https://www.luogu.com.cn/problem/P2254">P2254 [NOI2005]瑰丽华尔兹</a></li>
-<li><a href="https://www.luogu.com.cn/problem/P2569">P2569 [SCOI2010]股票交易</a></li>
-<li><a href="https://www.luogu.com.cn/problem/P3071">P3071 [USACO13JAN]Seating G</a></li>
-<li><a href="https://www.luogu.com.cn/problem/P3084">P3084 [USACO13OPEN]Photo G</a></li>
+<li>将每个点压进去,对于每行每列都采用单调队列优化解决</li>
+<li><a href="https://www.luogu.com.cn/problem/P2569">P2569 [SCOI2010]股票交易</a><br>
+将以前的dp值直接转移过来,这样这可以点对转移,然后单调队列维护</li>
+<li><a href="https://www.luogu.com.cn/problem/P3071">P3071 [USACO13JAN]Seating G</a><br>
+憨批标签,挨打,其实是一个线段树,仿照最大字段和做即可</li>
+<li><a href="https://www.luogu.com.cn/problem/P3084">P3084 [USACO13OPEN]Photo G</a><br>
+难做就DP,考虑对于每个点求出一个转移集合,然后单调队列维护即可</li>
 <li><a href="https://www.luogu.com.cn/problem/P3117">P3117 [USACO15JAN]Cow Rectangles G</a></li>
 <li><a href="https://www.luogu.com.cn/problem/P3118">P3118 [USACO15JAN]Moovie Mooving G</a></li>
 <li><a href="https://www.luogu.com.cn/problem/P3195">P3195 [HNOI2008]玩具装箱</a></li>
