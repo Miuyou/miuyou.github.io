@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://miuyou.github.io/</id>
     <title>春待ち</title>
-    <updated>2020-03-28T11:45:05.734Z</updated>
+    <updated>2020-03-30T04:46:16.681Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://miuyou.github.io/"/>
     <link rel="self" href="https://miuyou.github.io/atom.xml"/>
@@ -10,6 +10,25 @@
     <logo>https://miuyou.github.io/images/avatar.png</logo>
     <icon>https://miuyou.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 春待ち</rights>
+    <entry>
+        <title type="html"><![CDATA[Miu_you の 数据结构]]></title>
+        <id>https://miuyou.github.io/post/miu_you-no-shu-ju-jie-gou/</id>
+        <link href="https://miuyou.github.io/post/miu_you-no-shu-ju-jie-gou/">
+        </link>
+        <updated>2020-03-30T04:39:27.000Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li><a href="https://www.luogu.com.cn/problem/P4364">P4364 [九省联考2018]IIIDX</a><br>
+考虑在不重复的前提下可以怎么做,因为数值不重复,所以小点优先即可.<br>
+若有重复元素,要考虑如何分配给兄弟节点相同的节点.<br>
+考虑如何维护这个分配,用线段树来维护某段区间有多少个可选节点.<br>
+<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi><mo>+</mo><mo>=</mo><mi>c</mi><mi>n</mi><mi>t</mi><mo>[</mo><mi>x</mi><mo>]</mo><mo separator="true">;</mo></mrow><annotation encoding="application/x-tex">x += cnt[x];</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">x</span><span class="mord">+</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">c</span><span class="mord mathdefault">n</span><span class="mord mathdefault">t</span><span class="mopen">[</span><span class="mord mathdefault">x</span><span class="mclose">]</span><span class="mpunct">;</span></span></span></span><br>
+<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>+</mo><mo>+</mo><mi>c</mi><mi>n</mi><mi>t</mi><mo>[</mo><mi>x</mi><mo>]</mo><mo separator="true">;</mo></mrow><annotation encoding="application/x-tex">++cnt[x];</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">c</span><span class="mord mathdefault">n</span><span class="mord mathdefault">t</span><span class="mopen">[</span><span class="mord mathdefault">x</span><span class="mclose">]</span><span class="mpunct">;</span></span></span></span><br>
+<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi><mo>−</mo><mo>=</mo><mo>(</mo><mi>c</mi><mi>n</mi><mi>t</mi><mo>[</mo><mi>x</mi><mo>]</mo><mo>−</mo><mn>1</mn><mo>)</mo><mo separator="true">;</mo></mrow><annotation encoding="application/x-tex">x -= (cnt[x] - 1);</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">x</span><span class="mord">−</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault">c</span><span class="mord mathdefault">n</span><span class="mord mathdefault">t</span><span class="mopen">[</span><span class="mord mathdefault">x</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mpunct">;</span></span></span></span><br>
+<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>p</mi><mi>o</mi><mi>s</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>=</mo><mi>x</mi><mo separator="true">;</mo></mrow><annotation encoding="application/x-tex">pos[i] = x;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">p</span><span class="mord mathdefault">o</span><span class="mord mathdefault">s</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">x</span><span class="mpunct">;</span></span></span></span><br>
+让序列从大到小排序只是为了方便操作,这样可以直接从<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mtext> </mtext><mi>n</mi></mrow><annotation encoding="application/x-tex">1~n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mspace nobreak"> </span><span class="mord mathdefault">n</span></span></span></span>维护,直接查询哪一段区间可以丢给他的子树,然后跳到相同元素的最后一位,再将其标记掉即可.</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Miu_you の最小斯坦纳树]]></title>
         <id>https://miuyou.github.io/post/miu_you-nozui-xiao-si-tan-na-shu/</id>
@@ -98,7 +117,8 @@ int main() {
 憨批标签,挨打,其实是一个线段树,仿照最大字段和做即可</li>
 <li><a href="https://www.luogu.com.cn/problem/P3084">P3084 [USACO13OPEN]Photo G</a><br>
 难做就DP,考虑对于每个点求出一个转移集合,然后单调队列维护即可</li>
-<li><a href="https://www.luogu.com.cn/problem/P3117">P3117 [USACO15JAN]Cow Rectangles G</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P3117">P3117 [USACO15JAN]Cow Rectangles G</a><br>
+因为要在一个合法矩阵里面求最小矩阵,所以悬线法似乎不能很好的解决这个问题,所以去枚举合法矩形然后求解</li>
 <li><a href="https://www.luogu.com.cn/problem/P3118">P3118 [USACO15JAN]Moovie Mooving G</a></li>
 <li><a href="https://www.luogu.com.cn/problem/P3195">P3195 [HNOI2008]玩具装箱</a></li>
 <li><a href="https://www.luogu.com.cn/problem/P3438">P3438 [POI2006]ZAB-Frogs</a></li>
@@ -352,23 +372,6 @@ debug了N个小时.....................................................<br>
 如果要消灭某个时间点出现的所有敌人,那么花费必然是那个点的最大值,为了DP不重不漏,我们只把被完全覆盖的敌人计入当前答案,那么消灭<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi><mo>−</mo><mo>&gt;</mo><mi>j</mi></mrow><annotation encoding="application/x-tex">i-&gt;j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.74285em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">i</span><span class="mord">−</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span></span></span></span>的敌人花费就是完全在这个区间内的最大敌人加上除了消灭这个敌人外的小区间的答案.</li>
 <li><a href="https://www.luogu.com.cn/problem/P4767">P4767 [IOI2000]邮局</a><br>
 枚举邮局数,那么就要去求解每个邮局的最优位置,可以证明出单调性</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Miu_youの思维题]]></title>
-        <id>https://miuyou.github.io/post/miu_younosi-wei-ti/</id>
-        <link href="https://miuyou.github.io/post/miu_younosi-wei-ti/">
-        </link>
-        <updated>2020-03-09T10:03:59.000Z</updated>
-        <summary type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="https://miuyou.github.io//post-images/1583748331912.png" alt="" loading="lazy"></figure>
-]]></summary>
-        <content type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="https://miuyou.github.io//post-images/1583748331912.png" alt="" loading="lazy"></figure>
-<!-- more -->
-<p>恶心人不偿命的思维题,这里用来收录不知道放到哪里去的好题</p>
-<ul>
-<li><a href="https://www.luogu.com.cn/problem/P3943">P3943 星空</a><br>
-考虑到为了快速反转区间,可以对他做一个差分.....具体过段时间来写.00000</li>
 </ul>
 ]]></content>
     </entry>
