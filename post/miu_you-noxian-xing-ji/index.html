@@ -6,7 +6,7 @@
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="开端顺利 自这天起 离乡背井 等候春息  身处何地 等候春息">
 <meta name="theme-color" content="#000">
-<title>JXOI 2020游记 | 春待ち</title>
+<title>Miu_you の线性基 | 春待ち</title>
 <link rel="shortcut icon" href="https://miuyou.github.io//favicon.ico?v=1591519631052">
 <link rel="stylesheet" href="https://miuyou.github.io//styles/main.css">
 
@@ -25,7 +25,7 @@
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
     onload="renderMathInElement(document.body);"></script>
 
-    <meta name="description" content="JXOI 2020游记" />
+    <meta name="description" content="Miu_you の线性基" />
     <meta name="keywords" content="" />
   </head>
   <body>
@@ -262,8 +262,8 @@
             <div class="section bg-color post post-page">
               <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://miuyou.github.io/post/jxoi-2020-you-ji/">
-      JXOI 2020游记
+    <a class="post-title-link" href="https://miuyou.github.io/post/miu_you-noxian-xing-ji/">
+      Miu_you の线性基
     </a>
   </h1>
   <div class="post-meta">
@@ -282,10 +282,10 @@
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>23<span class="pc-show">字数</span></span>
+      <span>148<span class="pc-show">字数</span></span>
     </span>
     
-      <span id="/post/jxoi-2020-you-ji/" class="meta-item pc-show leancloud_visitors">
+      <span id="/post/miu_you-noxian-xing-ji/" class="meta-item pc-show leancloud_visitors">
         <span class="post-meta-divider">|</span>
         <i class="fa fa-eye"></i>
         <span>浏览量：<span class="leancloud-visitors-count" ></span></span>
@@ -294,9 +294,30 @@
   </div>
 </header>
               <div class="post-body next-md-body" id="post_body">
-                <figure data-type="image" tabindex="1"><img src="https://miuyou.github.io//post-images/1591513011155.jpg" alt="" loading="lazy"></figure>
+                <figure data-type="image" tabindex="1"><img src="https://miuyou.github.io//post-images/1591519415942.jpg" alt="" loading="lazy"></figure>
 <!-- more -->
-<p>6.7 停课看来不太可能了呢,希望会有一个好的结果吧</p>
+<p>给定n个整数（数字可能重复），求在这些数中选取任意个，使得他们的异或和最大。<br>
+这就是线性基要做的事情啦!<br>
+下面是板子</p>
+<pre><code class="language-cpp">int N=60;
+inline void insert(ll x)
+	for(int i=N;i+1;--i)
+		if(!(x&gt;&gt;i))continue;
+		if(!p[i])p[i]=x;return;
+		x^=p[i];
+int main(){
+	for(int i=N;i+1;--i)
+		if((p[i]^ans)&gt;ans)
+			ans^=p[i];
+</code></pre>
+<p>至于怎么理解么,就是要保证每一位都是最大值啦</p>
+<ul>
+<li><a href="https://www.luogu.com.cn/problem/P4570">P4570 [BJWC2011]元素</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P4301">P4301 [CQOI2013] 新Nim游戏</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P4151">P4151 [WC2011]最大XOR和路径</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P3857">P3857 [TJOI2008]彩灯</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P3292">P3292 [SCOI2016]幸运数字</a></li>
+</ul>
 
               </div>
               <div class="post-footer">
@@ -307,7 +328,7 @@
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://miuyou.github.io/post/jxoi-2020-you-ji/" title="JXOI 2020游记">JXOI 2020游记</a>
+      <a href="https://miuyou.github.io/post/miu_you-noxian-xing-ji/" title="Miu_you の线性基">Miu_you の线性基</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -320,15 +341,11 @@
   <div class="nav">
     <div class="nav-prev">
       
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="Miu_you的字符串!" href="https://miuyou.github.io/post/miu_you-de-zi-fu-chuan/">Miu_you的字符串!</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="Miu_you的字符串!" href="https://miuyou.github.io/post/miu_you-de-zi-fu-chuan/">上一篇</a>
-      
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" title="Miu_you の 莫比乌斯反演" href="https://miuyou.github.io/post/miu_you-no-mo-bi-wu-si-fan-yan/">Miu_you の 莫比乌斯反演</a>
-        <a class="nav-mobile-next" title="Miu_you の 莫比乌斯反演" href="https://miuyou.github.io/post/miu_you-no-mo-bi-wu-si-fan-yan/">下一篇</a>
+        <a class="nav-pc-next" title="Miu_you的字符串!" href="https://miuyou.github.io/post/miu_you-de-zi-fu-chuan/">Miu_you的字符串!</a>
+        <a class="nav-mobile-next" title="Miu_you的字符串!" href="https://miuyou.github.io/post/miu_you-de-zi-fu-chuan/">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>
