@@ -7,7 +7,7 @@
 <meta name="description" content="开端顺利 自这天起 离乡背井 等候春息  身处何地 等候春息">
 <meta name="theme-color" content="#000">
 <title>Miu_you の 数据结构 | 春待ち</title>
-<link rel="shortcut icon" href="https://miuyou.github.io//favicon.ico?v=1591519631052">
+<link rel="shortcut icon" href="https://miuyou.github.io//favicon.ico?v=1591605636729">
 <link rel="stylesheet" href="https://miuyou.github.io//styles/main.css">
 
 <link rel="stylesheet" href="/media/css/muse.css">
@@ -282,7 +282,7 @@
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>193<span class="pc-show">字数</span></span>
+      <span>238<span class="pc-show">字数</span></span>
     </span>
     
       <span id="/post/miu_you-no-shu-ju-jie-gou/" class="meta-item pc-show leancloud_visitors">
@@ -294,7 +294,9 @@
   </div>
 </header>
               <div class="post-body next-md-body" id="post_body">
-                <ul>
+                <figure data-type="image" tabindex="1"><img src="https://miuyou.github.io//post-images/1591605623747.jpg" alt="" loading="lazy"></figure>
+<!-- more -->
+<ul>
 <li><a href="https://www.luogu.com.cn/problem/P4364">P4364 [九省联考2018]IIIDX</a><br>
 考虑在不重复的前提下可以怎么做,因为数值不重复,所以小点优先即可.<br>
 若有重复元素,要考虑如何分配给兄弟节点相同的节点.<br>
@@ -303,7 +305,9 @@
 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>+</mo><mo>+</mo><mi>c</mi><mi>n</mi><mi>t</mi><mo>[</mo><mi>x</mi><mo>]</mo><mo separator="true">;</mo></mrow><annotation encoding="application/x-tex">++cnt[x];</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">c</span><span class="mord mathdefault">n</span><span class="mord mathdefault">t</span><span class="mopen">[</span><span class="mord mathdefault">x</span><span class="mclose">]</span><span class="mpunct">;</span></span></span></span><br>
 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi><mo>−</mo><mo>=</mo><mo>(</mo><mi>c</mi><mi>n</mi><mi>t</mi><mo>[</mo><mi>x</mi><mo>]</mo><mo>−</mo><mn>1</mn><mo>)</mo><mo separator="true">;</mo></mrow><annotation encoding="application/x-tex">x -= (cnt[x] - 1);</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">x</span><span class="mord">−</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault">c</span><span class="mord mathdefault">n</span><span class="mord mathdefault">t</span><span class="mopen">[</span><span class="mord mathdefault">x</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mpunct">;</span></span></span></span><br>
 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>p</mi><mi>o</mi><mi>s</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>=</mo><mi>x</mi><mo separator="true">;</mo></mrow><annotation encoding="application/x-tex">pos[i] = x;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">p</span><span class="mord mathdefault">o</span><span class="mord mathdefault">s</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">x</span><span class="mpunct">;</span></span></span></span><br>
-让序列从大到小排序只是为了方便操作,这样可以直接从<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mtext> </mtext><mi>n</mi></mrow><annotation encoding="application/x-tex">1~n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mspace nobreak"> </span><span class="mord mathdefault">n</span></span></span></span>维护,直接查询哪一段区间可以丢给他的子树,然后跳到相同元素的最后一位,再将其标记掉即可.</li>
+让序列从大到小排序只是为了方便操作,这样可以直接从<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mtext> </mtext><mi>n</mi></mrow><annotation encoding="application/x-tex">1~n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mspace nobreak"> </span><span class="mord mathdefault">n</span></span></span></span>维护,直接查询哪一段区间可以丢给他的子树,然后跳到相同元素的最后一位,再将其标记掉即可.<br>
+-<a href="https://loj.ac/problem/2312">「HAOI2017」八纵八横</a><br>
+看到带环和异或就应该想到线性基!那么这个撤销和修改如何解决呢?就是我们的线段树分治啦!</li>
 </ul>
 
               </div>
