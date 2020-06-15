@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://miuyou.github.io/</id>
     <title>春待ち</title>
-    <updated>2020-06-14T08:23:54.986Z</updated>
+    <updated>2020-06-15T07:42:15.244Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://miuyou.github.io/"/>
     <link rel="self" href="https://miuyou.github.io/atom.xml"/>
@@ -28,11 +28,18 @@
 <a href="https://www.luogu.com.cn/problem/P3592">考前放松</a></p>
 <p>数学:<br>
 生成函数:<br>
+<a href="https://www.luogu.com.cn/problem/P3978">概率论</a><br>
+<a href="https://www.luogu.com.cn/problem/P4389">背包</a><br>
+<a href="https://www.luogu.com.cn/problem/P5339">蔡徐坤</a><br>
+<a href="https://www.luogu.com.cn/problem/P6597">化学人</a><br>
+<a href="https://www.luogu.com.cn/problem/P5448">破图计数</a><br>
+<a href="https://www.luogu.com.cn/problem/CF891E">lust</a><br>
+<a href="https://www.luogu.com.cn/problem/P5326">开关</a><br>
 <a href="https://www.luogu.com.cn/problem/P4463">calc</a><br>
 <a href="https://www.luogu.com.cn/problem/P4935">呼呼呼</a><br>
 <a href="https://www.luogu.com.cn/problem/P4548">唱你吗</a><br>
-<a href="https://www.luogu.com.cn/problem/P6078">入门</a><br>
-<a href="https://www.luogu.com.cn/problem/P6271">莫比乌斯反演</a><br>
+<a href="https://www.luogu.com.cn/problem/P6078">入门</a>(已完成)</p>
+<p><a href="https://www.luogu.com.cn/problem/P6271">莫比乌斯反演</a><br>
 <a href="https://www.luogu.com.cn/problem/P4457">期望DP</a><br>
 <a href="https://www.luogu.com.cn/problem/CF300E">奇怪数学</a><br>
 <a href="https://www.luogu.com.cn/problem/P4619">就是提</a></p>
