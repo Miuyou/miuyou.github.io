@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://miuyou.github.io/</id>
     <title>春待ち</title>
-    <updated>2020-06-15T07:58:06.191Z</updated>
+    <updated>2020-06-16T06:39:37.707Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://miuyou.github.io/"/>
     <link rel="self" href="https://miuyou.github.io/atom.xml"/>
@@ -28,18 +28,7 @@
 <a href="https://www.luogu.com.cn/problem/P3592">考前放松</a></p>
 <p>数学:<br>
 生成函数:<br>
-<a href="https://www.luogu.com.cn/problem/P3978">概率论</a><br>
-<a href="https://www.luogu.com.cn/problem/P4389">背包</a><br>
-<a href="https://www.luogu.com.cn/problem/P5339">蔡徐坤</a><br>
-<a href="https://www.luogu.com.cn/problem/P6597">化学人</a><br>
-<a href="https://www.luogu.com.cn/problem/P5448">破图计数</a><br>
-<a href="https://www.luogu.com.cn/problem/CF891E">lust</a><br>
-<a href="https://www.luogu.com.cn/problem/P5326">开关</a><br>
-<a href="https://www.luogu.com.cn/problem/P4463">calc</a><br>
-<a href="https://www.luogu.com.cn/problem/P4935">呼呼呼</a><br>
-<a href="https://www.luogu.com.cn/problem/P4548">唱你吗</a><br>
-<a href="https://www.luogu.com.cn/problem/P6078">入门</a>(已完成)</p>
-<p><a href="https://www.luogu.com.cn/problem/P6271">莫比乌斯反演</a><br>
+<a href="https://www.luogu.com.cn/problem/P6156">莫比乌斯反演</a><br>
 <a href="https://www.luogu.com.cn/problem/P4457">期望DP</a><br>
 <a href="https://www.luogu.com.cn/problem/CF300E">奇怪数学</a><br>
 <a href="https://www.luogu.com.cn/problem/P4619">就是提</a></p>
@@ -49,6 +38,17 @@
 <a href="https://www.luogu.com.cn/problem/P4149">淀粉质</a><br>
 <a href="https://www.luogu.com.cn/problem/P3380">树套树板子</a><br>
 <a href="https://www.luogu.com.cn/problem/P3934">lxl</a></p>
+<p>完成列表:<br>
+<a href="https://www.luogu.com.cn/problem/P6078">入门</a><br>
+<a href="https://www.luogu.com.cn/problem/P5043">树同构</a><br>
+<a href="https://loj.ac/problem/6185">无标有根树计数</a><br>
+<a href="https://www.luogu.com.cn/problem/P4781">快速插值</a><br>
+<a href="https://www.luogu.com.cn/problem/P3978">概率论</a>打表找规律</p>
+<p>时间规划!!!!!!!!!!!!!!!!!!!!<br>
+16数学<br>
+17数据结构<br>
+18DP<br>
+19图论</p>
 ]]></content>
     </entry>
     <entry>
