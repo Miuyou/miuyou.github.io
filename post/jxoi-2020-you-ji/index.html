@@ -7,7 +7,7 @@
 <meta name="description" content="开端顺利 自这天起 离乡背井 等候春息  身处何地 等候春息">
 <meta name="theme-color" content="#000">
 <title>JXOI 2020游记 | 春待ち</title>
-<link rel="shortcut icon" href="https://miuyou.github.io//favicon.ico?v=1592568951522">
+<link rel="shortcut icon" href="https://miuyou.github.io//favicon.ico?v=1598535855926">
 <link rel="stylesheet" href="https://miuyou.github.io//styles/main.css">
 
 <link rel="stylesheet" href="/media/css/muse.css">
@@ -153,7 +153,7 @@
     <div class="sidebar-item-box">
       <a href="/archives/">
         
-        <span class="site-item-stat-count">26</span>
+        <span class="site-item-stat-count">29</span>
         <span class="site-item-stat-name">文章</span>
       </a>
     </div>
@@ -277,12 +277,12 @@
     
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>1分钟</span>
+      <span>5分钟</span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>194<span class="pc-show">字数</span></span>
+      <span>1160<span class="pc-show">字数</span></span>
     </span>
     
       <span id="/post/jxoi-2020-you-ji/" class="meta-item pc-show leancloud_visitors">
@@ -309,7 +309,68 @@
 酒店很古怪,大厅有一个红涩的古怪雕像,感觉有点压抑欸<br>
 前台招待开口就问:&quot;有马么?你的马呢?&quot;<br>
 窝:&quot;???&quot;<br>
-欸,其实是健康马2333;</p>
+欸,其实是健康马2333;<br>
+但窝没有手机欸,</p>
+<p>JX<br>
+少有的几个考B卷的省</p>
+<p>DAY1<br>
+开场看看三个题,T1是一维转移可能是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">单</mi><mi mathvariant="normal">调</mi><mi mathvariant="normal">队</mi><mi mathvariant="normal">列</mi><mi mathvariant="normal">优</mi><mi mathvariant="normal">化</mi><mi>D</mi><mi>P</mi></mrow><annotation encoding="application/x-tex">单调队列优化DP</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord cjk_fallback">单</span><span class="mord cjk_fallback">调</span><span class="mord cjk_fallback">队</span><span class="mord cjk_fallback">列</span><span class="mord cjk_fallback">优</span><span class="mord cjk_fallback">化</span><span class="mord mathdefault" style="margin-right:0.02778em;">D</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span></span></span></span>,<br>
+T2第一眼可爱的树形DP,直接大力DP就好了<br>
+T3真鬼不知道咋写,于是去考虑暴力<br>
+算了算应该有100+60+30,嗯,看起来海星(雾)<br>
+T1仔细一看发现直接做就好了,就是个普及DP<br>
+T2一开始打算冲一冲100,写了半个淀粉质,把树的形态大力维护一波以后误以为是错的就删掉了......<br>
+慢慢的码完三个题测完样例以后开始考虑T3<br>
+此时已经过去3h,屏幕上给出了倒计时....<br>
+嗯,先用树状数组维护一下两边操作,然后瞎转移一波<br>
+发现全都偏小,,然后觉得应该是假的就去淦T2<br>
+往倍增上想(脑瘫行为),于是浪费许多时间<br>
+再看T3时,发现二分一下就好了,写好了以后还是错,<br>
+但是时间不多了<br>
+GG</p>
+<p>附:T1没开ll-50,T2漏掉了一部分-30,裂开</p>
+<p>DAY2<br>
+上午起来看到&quot;B组自测&quot;,然后搞了一发,直接爆蛋,裂开来<br>
+先看半小时题<br>
+T1煞笔题直接一个线段树秒了,希望没错<br>
+T2T3看起来都挺鬼,想了好久,<br>
+T2看到排列数非常多,然后发现本质相同的排列答案是一样的,以为找到突破口了,结果发现没有啥用,只能写了一个全排列暴力<br>
+T3题意过于鬼了<br>
+写了一个<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>m</mi><mn>3</mn></msup><mo>∗</mo><msup><mn>2</mn><mn>15</mn></msup></mrow><annotation encoding="application/x-tex">m^3*2^{15}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault">m</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span><span class="mord mtight">5</span></span></span></span></span></span></span></span></span></span></span></span>,现在想想应该挂了<br>
+此时只有1h了,怪我了...应该想到了就把暴力打了,一直想导致浪费许多时间...<br>
+最后30min突然联想到置换,然后发现T2似乎可以用最小费用流去求出结果最大的置换!而且复杂度也是对的,刚好不松不满,然后就疯狂的敲....此时全考场只有我一个人在敲了<br>
+想起考前看的那个清华的招生片子,&quot;还没结束,就还有希望&quot;啥的,<br>
+不过还是没有写完.....虽然写了很多但是板子依旧容易错,开心地100-&gt;30;;;;;;;<br>
+貌似T3跑很慢,似乎过不去,凉了凉了</p>
+<p>教训:<br>
+遇到一些没有啥头绪的题,一定要先把暴力写了,然后再去尝试优化这个暴力,有些时候,没有切实写出来.就比较难以联想到正解</p>
+<p>还是技不如人吧....</p>
+<p>如果不犯那些鬼错误,至少A还是有的吧</p>
+<p>现在只能爬了</p>
+<p>明明考的这么差,却没有感到悲伤呢......<br>
+是因为这颗心染上了尘埃了么.........<br>
+疲倦<br>
+乱七八糟的算法到底有什么意义<br>
+修正那些奇奇怪怪的bug有什么意义<br>
+拼命寻找,却找不到理由<br>
+それでも　まだ　微かに　灯る　この心の灯火を<br>
+就算如此，内心的火焰依旧微弱的亮着，<br>
+ぼくらは　どうやって　燃やし続ければいいのだろうか<br>
+接下来我们应该怎么继续燃烧下去呢。<br>
+是不是热爱这个东西我也不知道啊<br>
+是不是真的单纯为了升学呢<br>
+为什么在写下&quot;DP&quot;,&quot;网络流&quot;的时候会感到快乐呢.....<br>
+为什么啊<br>
+我到底算什么东西啊<br>
+算什么啊<br>
+为了飘渺的未来<br>
+说到底还是在逃避吧<br>
+能做到的啊<br>
+那是能做到的啊<br>
+我也能成为那种一看就会一写就对的大佬么</p>
+<p>说到底还是废物<br>
+别人都会的我不会<br>
+只有一点可怜的分然后说我本来是会的只是没来得及写的废物</p>
 
               </div>
               <div class="post-footer">
