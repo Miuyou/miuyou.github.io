@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://miuyou.github.io/</id>
     <title>春待ち</title>
-    <updated>2020-10-06T11:41:13.448Z</updated>
+    <updated>2020-10-13T07:05:34.809Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://miuyou.github.io/"/>
     <link rel="self" href="https://miuyou.github.io/atom.xml"/>
@@ -10,6 +10,106 @@
     <logo>https://miuyou.github.io/images/avatar.png</logo>
     <icon>https://miuyou.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 春待ち</rights>
+    <entry>
+        <title type="html"><![CDATA[魔法世界]]></title>
+        <id>https://miuyou.github.io/post/mo-fa-shi-jie/</id>
+        <link href="https://miuyou.github.io/post/mo-fa-shi-jie/">
+        </link>
+        <updated>2020-10-08T11:00:33.000Z</updated>
+        <summary type="html"><![CDATA[<p><img src="https://miuyou.github.io//post-images/1602154862437.jpg" alt="" loading="lazy"><br>
+OI世界的魔法真奇妙啊!</p>
+]]></summary>
+        <content type="html"><![CDATA[<p><img src="https://miuyou.github.io//post-images/1602154862437.jpg" alt="" loading="lazy"><br>
+OI世界的魔法真奇妙啊!</p>
+<!-- more -->
+<p><ul class="markdownIt-TOC">
+<li><a href="#%E6%8A%80%E8%83%BD%E6%A0%91">技能树</a>
+<ul>
+<li><a href="#%E4%B8%80%E6%95%B0%E5%AD%A6">一.数学</a>
+<ul>
+<li><a href="#1%E6%9D%82%E9%A1%B9">1.杂项</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BA%8C%E5%AD%97%E7%AC%A6%E4%B8%B2">二.字符串</a></li>
+<li><a href="#%E4%B8%89%E6%9D%82%E9%A1%B9">三.杂项</a></li>
+<li><a href="#%E5%9B%9B%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">四.数据结构</a></li>
+<li><a href="#%E5%9B%BE%E8%AE%BA">图论</a></li>
+<li><a href="#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92">动态规划</a></li>
+<li><a href="#%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95">计算几何</a></li>
+<li><a href="#%E6%90%9C%E7%B4%A2">搜索</a></li>
+<li><a href="#%E8%86%9C%E6%B3%95">膜法</a></li>
+</ul>
+</li>
+</ul>
+</p>
+<h1 id="技能树">技能树</h1>
+<h2 id="一数学">一.数学</h2>
+<h3 id="1杂项">1.杂项</h3>
+<h2 id="二字符串">二.字符串</h2>
+<h2 id="三杂项">三.杂项</h2>
+<h2 id="四数据结构">四.数据结构</h2>
+<h2 id="图论">图论</h2>
+<h2 id="动态规划">动态规划</h2>
+<h2 id="计算几何">计算几何</h2>
+<h2 id="搜索">搜索</h2>
+<h2 id="膜法">膜法</h2>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[摸鱼之路]]></title>
+        <id>https://miuyou.github.io/post/mo-huan-zhi-lu/</id>
+        <link href="https://miuyou.github.io/post/mo-huan-zhi-lu/">
+        </link>
+        <updated>2020-10-08T07:54:28.000Z</updated>
+        <summary type="html"><![CDATA[<p><img src="https://miuyou.github.io//post-images/1602143691333.png" alt="" loading="lazy"><br>
+Ist das unser Schicksal oder unser Wille?</p>
+]]></summary>
+        <content type="html"><![CDATA[<p><img src="https://miuyou.github.io//post-images/1602143691333.png" alt="" loading="lazy"><br>
+Ist das unser Schicksal oder unser Wille?</p>
+<!-- more -->
+<p>日期2020/10/9-2020/10/9<br>
+<ul class="markdownIt-TOC">
+<li><a href="#%E5%AE%8C%E6%88%90%E9%A2%98%E7%9B%AE1">完成题目[1]</a>
+<ul>
+<li><a href="#%E4%B8%80%E6%95%B0%E5%AD%A6">一.数学</a>
+<ul>
+<li><a href="#%E7%9F%A9%E9%98%B5">矩阵</a>
+<ul>
+<li><a href="#-p3746-%E5%85%AD%E7%9C%81%E8%81%94%E8%80%832017%E7%BB%84%E5%90%88%E6%95%B0%E9%97%AE%E9%A2%98">- [P3746 [六省联考2017]组合数问题]</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%E4%BA%8C%E5%AD%97%E7%AC%A6%E4%B8%B2">二.字符串</a></li>
+<li><a href="#%E4%B8%89%E6%9D%82%E9%A1%B9">三.杂项</a></li>
+<li><a href="#%E5%9B%9B%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">四.数据结构</a></li>
+<li><a href="#%E5%9B%BE%E8%AE%BA">图论</a></li>
+<li><a href="#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92">动态规划</a></li>
+<li><a href="#%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95">计算几何</a></li>
+<li><a href="#%E6%90%9C%E7%B4%A2">搜索</a></li>
+<li><a href="#%E8%86%9C%E6%B3%95">膜法</a></li>
+</ul>
+</li>
+</ul>
+</p>
+<h1 id="完成题目1">完成题目[1]</h1>
+<h2 id="一数学">一.数学</h2>
+<h3 id="矩阵">矩阵</h3>
+<h4 id="-p3746-六省联考2017组合数问题">- [P3746 [六省联考2017]组合数问题]</h4>
+<p>求这个东西</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mrow><mo fence="true">(</mo><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>0</mn></mrow><mi mathvariant="normal">∞</mi></munderover><msubsup><mi>C</mi><mrow><mi>n</mi><mi>k</mi></mrow><mrow><mi>i</mi><mi>k</mi><mo>+</mo><mi>r</mi></mrow></msubsup><mo fence="true">)</mo></mrow><mtext> </mtext><mrow><mi mathvariant="normal">m</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">d</mi></mrow><mtext> </mtext><mi>p</mi></mrow><annotation encoding="application/x-tex">\left( \sum_{i = 0}^\infty C_{nk}^{ik + r} \right) \bmod p
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:3.027669em;vertical-align:-1.277669em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size4">(</span></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.6513970000000002em;"><span style="top:-1.872331em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">0</span></span></span></span><span style="top:-3.050005em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span><span style="top:-4.3000050000000005em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">∞</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.277669em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8991079999999998em;"><span style="top:-2.408561em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">n</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span></span></span></span><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span><span class="mbin mtight">+</span><span class="mord mathdefault mtight" style="margin-right:0.02778em;">r</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2914389999999999em;"><span></span></span></span></span></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size4">)</span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mspace" style="margin-right:0.05555555555555555em;"></span><span class="mbin"><span class="mord"><span class="mord mathrm">m</span><span class="mord mathrm">o</span><span class="mord mathrm">d</span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mspace" style="margin-right:0.05555555555555555em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">p</span></span></span></span></span></p>
+<p>题目不难,动脑想想,DP结合矩阵转移即可,主要是观察数据范围,然后考虑组合意义</p>
+<h2 id="二字符串">二.字符串</h2>
+<h2 id="三杂项">三.杂项</h2>
+<h2 id="四数据结构">四.数据结构</h2>
+<h2 id="图论">图论</h2>
+<h2 id="动态规划">动态规划</h2>
+<h2 id="计算几何">计算几何</h2>
+<h2 id="搜索">搜索</h2>
+<h2 id="膜法">膜法</h2>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[CSP-S2考前综合强化刷题（第一场）]]></title>
         <id>https://miuyou.github.io/post/csp-s2-kao-qian-zong-he-qiang-hua-shua-ti-di-yi-chang/</id>
@@ -191,7 +291,20 @@ int main(){
         <link href="https://miuyou.github.io/post/hatutositemu-gajue-meruno/">
         </link>
         <updated>2020-08-27T13:43:38.000Z</updated>
+        <summary type="html"><![CDATA[<p>2020.8.27  21:44 开启了这一篇</p>
+]]></summary>
         <content type="html"><![CDATA[<p>2020.8.27  21:44 开启了这一篇</p>
+<!-- more -->
+<p><ul class="markdownIt-TOC">
+<li><a href="#qwq">qwq</a>
+<ul>
+<li><a href="#qwqwq">qwqwq</a></li>
+</ul>
+</li>
+</ul>
+</p>
+<h1 id="qwq">qwq</h1>
+<h2 id="qwqwq">qwqwq</h2>
 ]]></content>
     </entry>
     <entry>
@@ -399,105 +512,6 @@ int main(){
 考虑题目的意思就是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>L</mi><mi>C</mi><mi>P</mi><mo>(</mo><mi>A</mi><mo separator="true">,</mo><mi>B</mi><mo>)</mo><mo>+</mo><mi>L</mi><mi>C</mi><mi>S</mi><mo>(</mo><mi>A</mi><mo separator="true">,</mo><mi>B</mi><mo>)</mo><mo>+</mo><mi>k</mi><mo>&lt;</mo><mo>=</mo><mi mathvariant="normal">∣</mi><mi>A</mi><mi mathvariant="normal">∣</mi></mrow><annotation encoding="application/x-tex">LCP(A,B)+LCS(A,B)+k&lt;=|A|</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">L</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathdefault">A</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">L</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="mopen">(</span><span class="mord mathdefault">A</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.73354em;vertical-align:-0.0391em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∣</span><span class="mord mathdefault">A</span><span class="mord">∣</span></span></span></span>,考虑起点相同时,如果有<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>L</mi><mi>C</mi><mi>P</mi><mo>(</mo><mi>A</mi><mo separator="true">,</mo><mi>B</mi><mo>)</mo><mo>+</mo><mi>L</mi><mi>C</mi><mi>S</mi><mo>(</mo><mi>A</mi><mo separator="true">,</mo><mi>B</mi><mo>)</mo><mo>+</mo><mi>k</mi><mo>−</mo><mn>1</mn><mo>&lt;</mo><mo>=</mo><mi mathvariant="normal">∣</mi><mi>A</mi><mi mathvariant="normal">∣</mi></mrow><annotation encoding="application/x-tex">LCP(A,B)+LCS(A,B)+k-1&lt;=|A|</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">L</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathdefault">A</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">L</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="mopen">(</span><span class="mord mathdefault">A</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68354em;vertical-align:-0.0391em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∣</span><span class="mord mathdefault">A</span><span class="mord">∣</span></span></span></span>则必有<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>L</mi><mi>C</mi><mi>P</mi><mo>(</mo><mi>A</mi><mo separator="true">,</mo><mi>B</mi><mo>)</mo><mo>+</mo><mi>L</mi><mi>C</mi><mi>S</mi><mo>(</mo><mi>A</mi><mo separator="true">,</mo><mi>B</mi><mo>)</mo><mo>+</mo><mi>k</mi><mo>&lt;</mo><mo>=</mo><mi mathvariant="normal">∣</mi><mi>A</mi><mi mathvariant="normal">∣</mi></mrow><annotation encoding="application/x-tex">LCP(A,B)+LCS(A,B)+k&lt;=|A|</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">L</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathdefault">A</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">L</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="mopen">(</span><span class="mord mathdefault">A</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.73354em;vertical-align:-0.0391em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∣</span><span class="mord mathdefault">A</span><span class="mord">∣</span></span></span></span>,题目要求的匹配可以视为若干个二元组,即某个前缀要被匹配的最短后缀,考虑到这样计算会有重复<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi mathvariant="normal">不</mi><mi mathvariant="normal">相</mi><mi mathvariant="normal">同</mi><mi mathvariant="normal">长</mi><mi mathvariant="normal">度</mi><mo>&lt;</mo><mi>k</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">(不相同长度&lt;k)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord cjk_fallback">不</span><span class="mord cjk_fallback">相</span><span class="mord cjk_fallback">同</span><span class="mord cjk_fallback">长</span><span class="mord cjk_fallback">度</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mclose">)</span></span></span></span>,那么就要减去<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>L</mi><mi>C</mi><mi>P</mi><mo>(</mo><mi>A</mi><mo separator="true">,</mo><mi>B</mi><mo>)</mo><mo>+</mo><mi>L</mi><mi>C</mi><mi>S</mi><mo>(</mo><mi>A</mi><mo separator="true">,</mo><mi>B</mi><mo>)</mo><mo>+</mo><mi>k</mi><mo>−</mo><mn>1</mn><mo>&lt;</mo><mo>=</mo><mi mathvariant="normal">∣</mi><mi>A</mi><mi mathvariant="normal">∣</mi></mrow><annotation encoding="application/x-tex">LCP(A,B)+LCS(A,B)+k-1&lt;=|A|</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">L</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathdefault">A</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">L</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="mopen">(</span><span class="mord mathdefault">A</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68354em;vertical-align:-0.0391em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∣</span><span class="mord mathdefault">A</span><span class="mord">∣</span></span></span></span>的匹配数,<br>
 模板穿建立自动机,建立fail树,同时匹配串计算出每个前缀能到达的后缀,将这些二元组丢到树状数组上去维护即可.</li>
 </ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[JXOI 2020游记]]></title>
-        <id>https://miuyou.github.io/post/jxoi-2020-you-ji/</id>
-        <link href="https://miuyou.github.io/post/jxoi-2020-you-ji/">
-        </link>
-        <updated>2020-06-07T06:50:18.000Z</updated>
-        <summary type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="https://miuyou.github.io//post-images/1591513011155.jpg" alt="" loading="lazy"></figure>
-]]></summary>
-        <content type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="https://miuyou.github.io//post-images/1591513011155.jpg" alt="" loading="lazy"></figure>
-<!-- more -->
-<p>6.7 停课看来不太可能了呢,希望会有一个好的结果吧</p>
-<p>6.15<br>
-转眼八天过去了,今天通过一些特殊手段停课啦~不能在这里落败啊!<br>
-要证明自己真的不是普普通通的废物<br>
-要证明自己真的可以做到一些事情<br>
-要证明自己真的可以做到一些未曾想过的事情<br>
-要证明像自己这样的废物也有未来的希望<br>
-今日の歌<a href="http://music.163.com/dj?id=2067402846&amp;userid=568131781">黄铁行动</a></p>
-<p>6.19<br>
-考试前一天,去考试地了.<br>
-酒店很古怪,大厅有一个红涩的古怪雕像,感觉有点压抑欸<br>
-前台招待开口就问:&quot;有马么?你的马呢?&quot;<br>
-窝:&quot;???&quot;<br>
-欸,其实是健康马2333;<br>
-但窝没有手机欸,</p>
-<p>JX<br>
-少有的几个考B卷的省</p>
-<p>DAY1<br>
-开场看看三个题,T1是一维转移可能是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">单</mi><mi mathvariant="normal">调</mi><mi mathvariant="normal">队</mi><mi mathvariant="normal">列</mi><mi mathvariant="normal">优</mi><mi mathvariant="normal">化</mi><mi>D</mi><mi>P</mi></mrow><annotation encoding="application/x-tex">单调队列优化DP</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord cjk_fallback">单</span><span class="mord cjk_fallback">调</span><span class="mord cjk_fallback">队</span><span class="mord cjk_fallback">列</span><span class="mord cjk_fallback">优</span><span class="mord cjk_fallback">化</span><span class="mord mathdefault" style="margin-right:0.02778em;">D</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span></span></span></span>,<br>
-T2第一眼可爱的树形DP,直接大力DP就好了<br>
-T3真鬼不知道咋写,于是去考虑暴力<br>
-算了算应该有100+60+30,嗯,看起来海星(雾)<br>
-T1仔细一看发现直接做就好了,就是个普及DP<br>
-T2一开始打算冲一冲100,写了半个淀粉质,把树的形态大力维护一波以后误以为是错的就删掉了......<br>
-慢慢的码完三个题测完样例以后开始考虑T3<br>
-此时已经过去3h,屏幕上给出了倒计时....<br>
-嗯,先用树状数组维护一下两边操作,然后瞎转移一波<br>
-发现全都偏小,,然后觉得应该是假的就去淦T2<br>
-往倍增上想(脑瘫行为),于是浪费许多时间<br>
-再看T3时,发现二分一下就好了,写好了以后还是错,<br>
-但是时间不多了<br>
-GG</p>
-<p>附:T1没开ll-50,T2漏掉了一部分-30,裂开</p>
-<p>DAY2<br>
-上午起来看到&quot;B组自测&quot;,然后搞了一发,直接爆蛋,裂开来<br>
-先看半小时题<br>
-T1煞笔题直接一个线段树秒了,希望没错<br>
-T2T3看起来都挺鬼,想了好久,<br>
-T2看到排列数非常多,然后发现本质相同的排列答案是一样的,以为找到突破口了,结果发现没有啥用,只能写了一个全排列暴力<br>
-T3题意过于鬼了<br>
-写了一个<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>m</mi><mn>3</mn></msup><mo>∗</mo><msup><mn>2</mn><mn>15</mn></msup></mrow><annotation encoding="application/x-tex">m^3*2^{15}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault">m</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span><span class="mord mtight">5</span></span></span></span></span></span></span></span></span></span></span></span>,现在想想应该挂了<br>
-此时只有1h了,怪我了...应该想到了就把暴力打了,一直想导致浪费许多时间...<br>
-最后30min突然联想到置换,然后发现T2似乎可以用最小费用流去求出结果最大的置换!而且复杂度也是对的,刚好不松不满,然后就疯狂的敲....此时全考场只有我一个人在敲了<br>
-想起考前看的那个清华的招生片子,&quot;还没结束,就还有希望&quot;啥的,<br>
-不过还是没有写完.....虽然写了很多但是板子依旧容易错,开心地100-&gt;30;;;;;;;<br>
-貌似T3跑很慢,似乎过不去,凉了凉了</p>
-<p>教训:<br>
-遇到一些没有啥头绪的题,一定要先把暴力写了,然后再去尝试优化这个暴力,有些时候,没有切实写出来.就比较难以联想到正解</p>
-<p>还是技不如人吧....</p>
-<p>如果不犯那些鬼错误,至少A还是有的吧</p>
-<p>现在只能爬了</p>
-<p>明明考的这么差,却没有感到悲伤呢......<br>
-是因为这颗心染上了尘埃了么.........<br>
-疲倦<br>
-乱七八糟的算法到底有什么意义<br>
-修正那些奇奇怪怪的bug有什么意义<br>
-拼命寻找,却找不到理由<br>
-それでも　まだ　微かに　灯る　この心の灯火を<br>
-就算如此，内心的火焰依旧微弱的亮着，<br>
-ぼくらは　どうやって　燃やし続ければいいのだろうか<br>
-接下来我们应该怎么继续燃烧下去呢。<br>
-是不是热爱这个东西我也不知道啊<br>
-是不是真的单纯为了升学呢<br>
-为什么在写下&quot;DP&quot;,&quot;网络流&quot;的时候会感到快乐呢.....<br>
-为什么啊<br>
-我到底算什么东西啊<br>
-算什么啊<br>
-为了飘渺的未来<br>
-说到底还是在逃避吧<br>
-能做到的啊<br>
-那是能做到的啊<br>
-我也能成为那种一看就会一写就对的大佬么</p>
-<p>说到底还是废物<br>
-别人都会的我不会<br>
-只有一点可怜的分然后说我本来是会的只是没来得及写的废物</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Miu_you の 莫比乌斯反演]]></title>
-        <id>https://miuyou.github.io/post/miu_you-no-mo-bi-wu-si-fan-yan/</id>
-        <link href="https://miuyou.github.io/post/miu_you-no-mo-bi-wu-si-fan-yan/">
-        </link>
-        <updated>2020-04-18T15:28:03.000Z</updated>
-        <content type="html"><![CDATA[<p>数学分块<br>
-定理<br>
-<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi><mi mathvariant="normal">/</mi><mo>(</mo><mi>b</mi><mo>∗</mo><mi>c</mi><mo>)</mo><mo>=</mo><mo>(</mo><mi>a</mi><mi mathvariant="normal">/</mi><mi>b</mi><mo>)</mo><mi mathvariant="normal">/</mi><mi>c</mi></mrow><annotation encoding="application/x-tex">a/(b*c)=(a/b)/c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">a</span><span class="mord">/</span><span class="mopen">(</span><span class="mord mathdefault">b</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">c</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault">a</span><span class="mord">/</span><span class="mord mathdefault">b</span><span class="mclose">)</span><span class="mord">/</span><span class="mord mathdefault">c</span></span></span></span><br>
-证明</p>
 ]]></content>
     </entry>
 </feed>
