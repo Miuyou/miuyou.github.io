@@ -6,7 +6,7 @@
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="开端顺利 自这天起 离乡背井 等候春息  身处何地 等候春息">
 <meta name="theme-color" content="#000">
-<title>Miu_you の 区间DP | 春待ち</title>
+<title>[队员分组][动态规划][二分图][01背包] | 春待ち</title>
 <link rel="shortcut icon" href="https://miuyou.github.io//favicon.ico?v=1608479185083">
 <link rel="stylesheet" href="https://miuyou.github.io//styles/main.css">
 
@@ -25,8 +25,8 @@
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
     onload="renderMathInElement(document.body);"></script>
 
-    <meta name="description" content="Miu_you の 区间DP" />
-    <meta name="keywords" content="算法学习" />
+    <meta name="description" content="[队员分组][动态规划][二分图][01背包]" />
+    <meta name="keywords" content="动态规划,背包,解题报告" />
   </head>
   <body>
     <div class="head-top-line"></div>
@@ -262,8 +262,8 @@
             <div class="section bg-color post post-page">
               <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://miuyou.github.io/post/miu_you-no-qu-jian-dp/">
-      Miu_you の 区间DP
+    <a class="post-title-link" href="https://miuyou.github.io/post/dui-yuan-fen-zu-dong-tai-gui-hua-er-fen-tu-01-bei-bao/">
+      [队员分组][动态规划][二分图][01背包]
     </a>
   </h1>
   <div class="post-meta">
@@ -271,7 +271,7 @@
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span>发布于</span>
-      <span>2020-03-11</span>
+      <span>2020-12-20</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
@@ -280,8 +280,20 @@
         <span class="pc-show">分类于</span>
         
           
-            <a href="https://miuyou.github.io/tag/Bi4BBB_5Z/">
-              <span>算法学习</span>
+            <a href="https://miuyou.github.io/tag/H8_sOUGQ-/">
+              <span>动态规划</span>
+            </a>、
+          
+        
+          
+            <a href="https://miuyou.github.io/tag/kUaDm9EwVd/">
+              <span>背包</span>
+            </a>、
+          
+        
+          
+            <a href="https://miuyou.github.io/tag/YwKQwG2g8/">
+              <span>解题报告</span>
             </a>
           
         
@@ -290,15 +302,15 @@
     
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>2分钟</span>
+      <span>3分钟</span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>422<span class="pc-show">字数</span></span>
+      <span>387<span class="pc-show">字数</span></span>
     </span>
     
-      <span id="/post/miu_you-no-qu-jian-dp/" class="meta-item pc-show leancloud_visitors">
+      <span id="/post/dui-yuan-fen-zu-dong-tai-gui-hua-er-fen-tu-01-bei-bao/" class="meta-item pc-show leancloud_visitors">
         <span class="post-meta-divider">|</span>
         <i class="fa fa-eye"></i>
         <span>浏览量：<span class="leancloud-visitors-count" ></span></span>
@@ -307,28 +319,76 @@
   </div>
 </header>
               <div class="post-body next-md-body" id="post_body">
-                <figure data-type="image" tabindex="1"><img src="https://miuyou.github.io//post-images/1583918620293.jpg" alt="" loading="lazy"></figure>
-<!-- more -->
-<p>区间DP就显得没那么有趣了,下面放一些做过的题就好啦</p>
-<ul>
-<li><a href="https://www.luogu.com.cn/problem/P1864">P1864 [NOI2009]二叉查找树</a><br>
-因为按照<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>v</mi><mi>a</mi><mi>l</mi></mrow><annotation encoding="application/x-tex">val</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">v</span><span class="mord mathdefault">a</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span></span></span></span>从小到大插入,所以将数据值排序就可以得到中序遍历,转化成区间问题,将权值离散化,<br>
-设<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi><mo separator="true">,</mo><mi>k</mi></mrow></msub></mrow><annotation encoding="application/x-tex">f_{i,j,k}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361079999999999em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mpunct mtight">,</span><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span><span class="mpunct mtight">,</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span>表示从<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span>到<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>j</mi></mrow><annotation encoding="application/x-tex">j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span></span></span></span>的权值都大于<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span>,转移的时候枚举一个中转点<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>z</mi></mrow><annotation encoding="application/x-tex">z</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.04398em;">z</span></span></span></span>,然后转移就可以了</li>
-<li><a href="https://www.luogu.com.cn/problem/P2466">P2466 [SDOI2008]Sue的小球</a><br>
-对于一断已经取完的序列,可以向左还是向右取,取到的点造成的浪费直接计算出来即可</li>
-<li><a href="https://www.luogu.com.cn/problem/P2470">P2470 [SCOI2007]压缩</a><br>
-暴力判断字符串是否相等,然后枚举中间点来合并DP数组即可,默认每个<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">i-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.74285em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>前都有一个<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>M</mi></mrow><annotation encoding="application/x-tex">M</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">M</span></span></span></span>来简化问题,所以在枚举中间点的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>M</mi></mrow><annotation encoding="application/x-tex">M</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">M</span></span></span></span>合并两个区间的时候要<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">+</span><span class="mord">1</span></span></span></span></li>
-<li><a href="https://www.luogu.com.cn/problem/P4290">P4290 [HAOI2008]玩具取名</a><br>
-多设状态,不要偷懒.是个裸题</li>
-<li><a href="https://www.luogu.com.cn/problem/P4302">P4302 [SCOI2003]字符串折叠</a><br>
-和P2470类似,直接做即可,注意特殊情况</li>
-<li><a href="https://www.luogu.com.cn/problem/P4342">P4342 [IOI1998]Polygon</a><br>
-经典老题,注意细节,</li>
-<li><a href="https://www.luogu.com.cn/problem/P4766">P4766 [CERC2014]Outer space invaders</a><br>
-如果要消灭某个时间点出现的所有敌人,那么花费必然是那个点的最大值,为了DP不重不漏,我们只把被完全覆盖的敌人计入当前答案,那么消灭<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi><mo>−</mo><mo>&gt;</mo><mi>j</mi></mrow><annotation encoding="application/x-tex">i-&gt;j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.74285em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">i</span><span class="mord">−</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span></span></span></span>的敌人花费就是完全在这个区间内的最大敌人加上除了消灭这个敌人外的小区间的答案.</li>
-<li><a href="https://www.luogu.com.cn/problem/P4767">P4767 [IOI2000]邮局</a><br>
-枚举邮局数,那么就要去求解每个邮局的最优位置,可以证明出单调性</li>
+                <ul>
+<li><a href="https://www.luogu.com.cn/problem/P1285">P1285 队员分组</a></li>
 </ul>
+<p>仔细思考发现有向图可以转化成无向图,发现彼此冲突的点对对答案有影响,冲突点对连边,二分图性质显然,但是这个可以由多个连通图组成,彼此之间无影响,考虑分组进行01背包就做完了</p>
+<pre><code class="language-cpp">
+inline void dfs(int x,int fa,int se){
+	col[x]=se;
+	V[tsum][se].push_back(x);
+	++num[tsum][se];
+	for(int i=1;i&lt;=n;++i){
+		if(i==fa||i==x)continue;
+		if(!tu[x][i]){
+			if(!col[i]){
+				dfs(i,x,3-se);
+			}else if(col[i]==se){
+				puts(&quot;No solution&quot;);
+				exit(0);
+			}
+		}
+	}
+}
+int f[N][N],pre[N][N];
+bool vis[N];
+int main(){
+	rd(n);
+	for(int i=1,x;i&lt;=n;++i){
+		rd(x);
+		while(x){
+			tu[i][x]=1;
+			rd(x);
+		}
+	}
+	for(int i=1;i&lt;=n;++i){
+		for(int j=1;j&lt;=n;++j){
+			if(i!=j){
+				if(tu[i][j]&amp;&amp;tu[j][i])continue;
+				tu[i][j]=tu[i][j]=0;
+			}
+		}
+	}
+	for(int i=1;i&lt;=n;++i){
+		if(!col[i]){
+			++tsum;
+			dfs(i,0,1);
+		}
+	}
+	pre[0][0]=1;
+	for(int i=1;i&lt;=tsum;++i){
+		for(int j=1;j&lt;=n/2;++j){
+			int k=j-num[i][1];
+			if(k&gt;=0){if(pre[i-1][k])pre[i][j]=1;}
+			k=j-num[i][2];
+			if(k&gt;=0){if(pre[i-1][k])pre[i][j]=2;}
+		}
+	}
+	int ans=n/2;
+	for(int i=n/2;i;--i)if(pre[tsum][i]){ans=i;break;}
+	printf(&quot;%d &quot;,ans);
+	for(int i=tsum;i;--i){
+		for(int j=0;j&lt;V[i][pre[i][ans]].size();++j)vis[V[i][pre[i][ans]][j]]=1;
+		ans-=num[i][pre[i][ans]];
+	}
+	for(int i=1;i&lt;=n;++i)if(vis[i])printf(&quot;%d &quot;,i),++ans;
+	printf(&quot;\n%d &quot;,n-ans);
+	for(int i=1;i&lt;=n;++i)if(!vis[i])printf(&quot;%d &quot;,i);
+	system(&quot;Pause&quot;);
+	return 0;
+}
+
+</code></pre>
 
               </div>
               <div class="post-footer">
@@ -339,7 +399,7 @@
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://miuyou.github.io/post/miu_you-no-qu-jian-dp/" title="Miu_you の 区间DP">Miu_you の 区间DP</a>
+      <a href="https://miuyou.github.io/post/dui-yuan-fen-zu-dong-tai-gui-hua-er-fen-tu-01-bei-bao/" title="[队员分组][动态规划][二分图][01背包]">[队员分组][动态规划][二分图][01背包]</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -348,21 +408,21 @@
   </ul>
   <div class="tags">
     
-      <a href="https://miuyou.github.io/tag/Bi4BBB_5Z/"># 算法学习</a>
+      <a href="https://miuyou.github.io/tag/H8_sOUGQ-/"># 动态规划</a>
+    
+      <a href="https://miuyou.github.io/tag/kUaDm9EwVd/"># 背包</a>
+    
+      <a href="https://miuyou.github.io/tag/YwKQwG2g8/"># 解题报告</a>
     
   </div>
   <div class="nav">
     <div class="nav-prev">
       
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="[SCOI2015]小凸玩密室 解题报告" href="https://miuyou.github.io/post/scoi2015xiao-tu-wan-mi-shi-jie-ti-bao-gao/">[SCOI2015]小凸玩密室 解题报告</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="[SCOI2015]小凸玩密室 解题报告" href="https://miuyou.github.io/post/scoi2015xiao-tu-wan-mi-shi-jie-ti-bao-gao/">上一篇</a>
-      
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" title="Miu_youの思维题" href="https://miuyou.github.io/post/miu_younosi-wei-ti/">Miu_youの思维题</a>
-        <a class="nav-mobile-next" title="Miu_youの思维题" href="https://miuyou.github.io/post/miu_younosi-wei-ti/">下一篇</a>
+        <a class="nav-pc-next" title="春卷の博弈论" href="https://miuyou.github.io/post/chun-juan-nobo-yi-lun/">春卷の博弈论</a>
+        <a class="nav-mobile-next" title="春卷の博弈论" href="https://miuyou.github.io/post/chun-juan-nobo-yi-lun/">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>
