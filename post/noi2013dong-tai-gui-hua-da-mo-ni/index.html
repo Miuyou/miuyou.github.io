@@ -6,7 +6,7 @@
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="开端顺利 自这天起 离乡背井 等候春息  身处何地 等候春息">
 <meta name="theme-color" content="#000">
-<title>[队员分组][动态规划][二分图][01背包] | 春待ち</title>
+<title>[NOI2013][动态规划][大模拟] | 春待ち</title>
 <link rel="shortcut icon" href="https://miuyou.github.io//favicon.ico?v=1608548944195">
 <link rel="stylesheet" href="https://miuyou.github.io//styles/main.css">
 
@@ -25,8 +25,8 @@
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
     onload="renderMathInElement(document.body);"></script>
 
-    <meta name="description" content="[队员分组][动态规划][二分图][01背包]" />
-    <meta name="keywords" content="动态规划,背包,解题报告" />
+    <meta name="description" content="[NOI2013][动态规划][大模拟]" />
+    <meta name="keywords" content="模拟,动态规划,解题报告" />
   </head>
   <body>
     <div class="head-top-line"></div>
@@ -254,8 +254,8 @@
             <div class="section bg-color post post-page">
               <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://miuyou.github.io/post/dui-yuan-fen-zu-dong-tai-gui-hua-er-fen-tu-01-bei-bao/">
-      [队员分组][动态规划][二分图][01背包]
+    <a class="post-title-link" href="https://miuyou.github.io/post/noi2013dong-tai-gui-hua-da-mo-ni/">
+      [NOI2013][动态规划][大模拟]
     </a>
   </h1>
   <div class="post-meta">
@@ -263,7 +263,7 @@
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span>发布于</span>
-      <span>2020-12-20</span>
+      <span>2020-12-21</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
@@ -272,14 +272,14 @@
         <span class="pc-show">分类于</span>
         
           
-            <a href="https://miuyou.github.io/tag/H8_sOUGQ-/">
-              <span>动态规划</span>
+            <a href="https://miuyou.github.io/tag/_yYkzZJnf/">
+              <span>模拟</span>
             </a>、
           
         
           
-            <a href="https://miuyou.github.io/tag/kUaDm9EwVd/">
-              <span>背包</span>
+            <a href="https://miuyou.github.io/tag/H8_sOUGQ-/">
+              <span>动态规划</span>
             </a>、
           
         
@@ -294,15 +294,15 @@
     
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>3分钟</span>
+      <span>5分钟</span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>387<span class="pc-show">字数</span></span>
+      <span>681<span class="pc-show">字数</span></span>
     </span>
     
-      <span id="/post/dui-yuan-fen-zu-dong-tai-gui-hua-er-fen-tu-01-bei-bao/" class="meta-item pc-show leancloud_visitors">
+      <span id="/post/noi2013dong-tai-gui-hua-da-mo-ni/" class="meta-item pc-show leancloud_visitors">
         <span class="post-meta-divider">|</span>
         <i class="fa fa-eye"></i>
         <span>浏览量：<span class="leancloud-visitors-count" ></span></span>
@@ -312,73 +312,110 @@
 </header>
               <div class="post-body next-md-body" id="post_body">
                 <ul>
-<li><a href="https://www.luogu.com.cn/problem/P1285">P1285 队员分组</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P1398">P1398 [NOI2013]书法家</a></li>
 </ul>
-<p>仔细思考发现有向图可以转化成无向图,发现彼此冲突的点对对答案有影响,冲突点对连边,二分图性质显然,但是这个可以由多个连通图组成,彼此之间无影响,考虑分组进行01背包就做完了</p>
+<p>属实脑瘫,不知道为啥挂掉了,最后提交了题解代码<br>
+暴力DP,细节无数,以后闲着没事可以看看,还是有可取之处的</p>
 <pre><code class="language-cpp">
-inline void dfs(int x,int fa,int se){
-	col[x]=se;
-	V[tsum][se].push_back(x);
-	++num[tsum][se];
-	for(int i=1;i&lt;=n;++i){
-		if(i==fa||i==x)continue;
-		if(!tu[x][i]){
-			if(!col[i]){
-				dfs(i,x,3-se);
-			}else if(col[i]==se){
-				puts(&quot;No solution&quot;);
-				exit(0);
+for(int i=1;i&lt;=n;++i){
+		for(int j=1;j&lt;=m;++j){
+			rd(b[i][j]);
+			sum[i][j]=sum[i-1][j]+b[i][j];
+		}
+	}
+	for(int i=0;i&lt;=8;++i)for(int j=0;j&lt;=150;++j)for(int k=0;k&lt;=150;++k)f[0][i][j][k]=INF;
+	for(int i=0;i&lt;=150;++i)for(int j=0;j&lt;=150;++j)a[i][j]=INF;
+	int now,pre,nex;
+	now=1;
+	pre=0;
+	nex=2;
+	int ans=INF;
+	for(int k=1;k&lt;=m;++k){
+		for(int i=1;i&lt;=n;++i){
+			for(int j=i+1;j&lt;=n;++j){
+				f[now][0][i][j]=max(f[pre][0][i][j],0)+sum[j][k]-sum[i-1][k];
 			}
 		}
-	}
-}
-int f[N][N],pre[N][N];
-bool vis[N];
-int main(){
-	rd(n);
-	for(int i=1,x;i&lt;=n;++i){
-		rd(x);
-		while(x){
-			tu[i][x]=1;
-			rd(x);
-		}
-	}
-	for(int i=1;i&lt;=n;++i){
-		for(int j=1;j&lt;=n;++j){
-			if(i!=j){
-				if(tu[i][j]&amp;&amp;tu[j][i])continue;
-				tu[i][j]=tu[i][j]=0;
+		for(int i=1;i&lt;=n;++i){
+			a[1][i]=f[pre][1][1][i];
+			for(int j=2;j&lt;=i;++j){
+				a[j][i]=max(a[j-1][i],f[pre][1][j][i]);
 			}
 		}
-	}
-	for(int i=1;i&lt;=n;++i){
-		if(!col[i]){
-			++tsum;
-			dfs(i,0,1);
+		
+		for(int i=1;i&lt;=n;++i){
+			f[now][1][i][i]=max(a[i][i],a[i-1][i-1])+b[i][k];
+			for(int j=i+1;j&lt;=n;++j){
+				f[now][1][i][j]=max(f[now][1][i][j-1]+sum[j][k]-sum[j-1][k],a[i][j]+sum[j][k]-sum[i-1][k]);
+			}
 		}
-	}
-	pre[0][0]=1;
-	for(int i=1;i&lt;=tsum;++i){
-		for(int j=1;j&lt;=n/2;++j){
-			int k=j-num[i][1];
-			if(k&gt;=0){if(pre[i-1][k])pre[i][j]=1;}
-			k=j-num[i][2];
-			if(k&gt;=0){if(pre[i-1][k])pre[i][j]=2;}
+
+		for(int i=1;i&lt;n;++i){
+			int mx=INF;
+			for(int j=n-1;j&gt;=i;--j){
+				mx=max(mx,f[pre][0][i][j+1]);
+				f[now][1][i][j]=max(f[now][1][i][j],mx+sum[j][k]-sum[i-1][k]);
+			}
 		}
+		for(int i=2;i&lt;=n;++i){
+			int mx=INF;
+			for(int j=i-1;j;--j){
+				mx=max(mx,f[pre][1][j+1][i]);
+				f[now][2][j][i]=max(f[pre][2][j][i],mx)+sum[i][k]-sum[j-1][k];
+			}
+		}
+
+
+		int mx=INF;
+		if(k!=1){
+			for(int i=2;i&lt;=n;++i){
+				for(int j=i-1;j;--j){
+					mx=max(mx,f[nex][2][j][i]);
+				}
+			}
+		}
+		for(int i=1;i+1&lt;n;++i){
+			for(int j=i+2;j&lt;=n;++j){
+				f[now][3][i][j]=mx+sum[j][k]-sum[i-1][k];
+				f[now][4][i][j]=max(f[pre][3][i][j],f[pre][4][i][j])+b[i][k]+b[j][k];
+				f[now][5][i][j]=f[pre][4][i][j]+sum[j][k]-sum[i-1][k];
+			}
+		}
+
+
+		mx=INF;
+		if(k!=1){
+			for(int i=1;i+1&lt;n;++i){
+				for(int j=i+2;j&lt;=n;++j){
+					mx=max(mx,f[nex][5][i][j]);
+				}
+			}
+		}
+		for(int i=1;i+1&lt;n;++i){
+			for(int j=i+2;j&lt;=n;++j){
+				f[now][6][i][j]=max(mx,f[pre][6][i][j])+b[i][k]+b[j][k];
+				f[now][7][i][j]=max(f[pre][6][i][j],f[pre][7][i][j])+sum[j][k]-sum[i-1][k];
+				f[now][8][i][j]=max(f[pre][7][i][j],f[pre][8][i][j])+b[i][k]+b[j][k];
+				
+				ans=max(ans,f[now][8][i][j]);
+			}
+		}
+		/*for(int z=0;z&lt;9;z++){
+        	for(int i=0;i&lt;=n;i++){
+         	   for(int j=0;j&lt;=n;j++){
+                cout&lt;&lt;f[now][z][i][j]&lt;&lt;&quot; &quot;;
+        	    }cout&lt;&lt;endl;
+       	 	}cout&lt;&lt;endl;
+   		 } 
+		cout&lt;&lt;&quot;  !!!!  &quot;&lt;&lt;endl;*/
+		++now;
+		++pre;
+		++nex;
+		if(now&gt;=3)now=0;
+		if(pre&gt;=3)pre=0;
+		if(nex&gt;=3)nex=0;
 	}
-	int ans=n/2;
-	for(int i=n/2;i;--i)if(pre[tsum][i]){ans=i;break;}
-	printf(&quot;%d &quot;,ans);
-	for(int i=tsum;i;--i){
-		for(int j=0;j&lt;V[i][pre[i][ans]].size();++j)vis[V[i][pre[i][ans]][j]]=1;
-		ans-=num[i][pre[i][ans]];
-	}
-	for(int i=1;i&lt;=n;++i)if(vis[i])printf(&quot;%d &quot;,i),++ans;
-	printf(&quot;\n%d &quot;,n-ans);
-	for(int i=1;i&lt;=n;++i)if(!vis[i])printf(&quot;%d &quot;,i);
-	system(&quot;Pause&quot;);
-	return 0;
-}
+	cout&lt;&lt;ans&lt;&lt;endl;
 
 </code></pre>
 
@@ -391,7 +428,7 @@ int main(){
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://miuyou.github.io/post/dui-yuan-fen-zu-dong-tai-gui-hua-er-fen-tu-01-bei-bao/" title="[队员分组][动态规划][二分图][01背包]">[队员分组][动态规划][二分图][01背包]</a>
+      <a href="https://miuyou.github.io/post/noi2013dong-tai-gui-hua-da-mo-ni/" title="[NOI2013][动态规划][大模拟]">[NOI2013][动态规划][大模拟]</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -400,9 +437,9 @@ int main(){
   </ul>
   <div class="tags">
     
-      <a href="https://miuyou.github.io/tag/H8_sOUGQ-/"># 动态规划</a>
+      <a href="https://miuyou.github.io/tag/_yYkzZJnf/"># 模拟</a>
     
-      <a href="https://miuyou.github.io/tag/kUaDm9EwVd/"># 背包</a>
+      <a href="https://miuyou.github.io/tag/H8_sOUGQ-/"># 动态规划</a>
     
       <a href="https://miuyou.github.io/tag/YwKQwG2g8/"># 解题报告</a>
     
@@ -410,15 +447,11 @@ int main(){
   <div class="nav">
     <div class="nav-prev">
       
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="倒逆之战" href="https://miuyou.github.io/post/dao-ni-zhi-zhan/">倒逆之战</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="倒逆之战" href="https://miuyou.github.io/post/dao-ni-zhi-zhan/">上一篇</a>
-      
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" title="春卷の博弈论" href="https://miuyou.github.io/post/chun-juan-nobo-yi-lun/">春卷の博弈论</a>
-        <a class="nav-mobile-next" title="春卷の博弈论" href="https://miuyou.github.io/post/chun-juan-nobo-yi-lun/">下一篇</a>
+        <a class="nav-pc-next" title="[花园][动态规划][状态压缩][矩阵转移]" href="https://miuyou.github.io/post/hua-yuan-dong-tai-gui-hua-zhuang-tai-ya-suo-ju-zhen-zhuan-yi/">[花园][动态规划][状态压缩][矩阵转移]</a>
+        <a class="nav-mobile-next" title="[花园][动态规划][状态压缩][矩阵转移]" href="https://miuyou.github.io/post/hua-yuan-dong-tai-gui-hua-zhuang-tai-ya-suo-ju-zhen-zhuan-yi/">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>
