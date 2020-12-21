@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://miuyou.github.io/</id>
     <title>春待ち</title>
-    <updated>2020-12-20T15:46:29.812Z</updated>
+    <updated>2020-12-21T06:53:43.385Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://miuyou.github.io/"/>
     <link rel="self" href="https://miuyou.github.io/atom.xml"/>
@@ -10,6 +10,85 @@
     <logo>https://miuyou.github.io/images/avatar.png</logo>
     <icon>https://miuyou.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 春待ち</rights>
+    <entry>
+        <title type="html"><![CDATA[[花园][动态规划][状态压缩][矩阵转移]]]></title>
+        <id>https://miuyou.github.io/post/hua-yuan-dong-tai-gui-hua-zhuang-tai-ya-suo-ju-zhen-zhuan-yi/</id>
+        <link href="https://miuyou.github.io/post/hua-yuan-dong-tai-gui-hua-zhuang-tai-ya-suo-ju-zhen-zhuan-yi/">
+        </link>
+        <updated>2020-12-21T06:50:53.000Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li><a href="https://www.luogu.com.cn/problem/P1357">P1357 花园</a></li>
+</ul>
+<p>数据范围一看就是要矩阵快速幂<br>
+考虑直接在序列上转移,发现行不通....<br>
+换个角度把每一段的状态给他状压一下,求出可行性矩阵,然后加速一下</p>
+<pre><code class="language-cpp">
+ll n,m,k;
+int list[N],num;
+inline int bit(int x){
+	int nm=0;
+	while(x){
+		if(x&amp;1)++nm;
+		x&gt;&gt;=1;
+	}return nm;
+}
+
+struct SpringWait{
+	ll f[N][N];
+	SpringWait(){memset(f,0,sizeof(f));}
+}a;
+inline SpringWait operator *(SpringWait x,SpringWait y){
+	SpringWait z;
+	for(int k=1;k&lt;=num;++k)
+	for(int i=1;i&lt;=num;++i){
+		for(int j=1;j&lt;=num;++j){
+			z.f[i][j]=(z.f[i][j]+1ll*x.f[i][k]*y.f[k][j]%mod)%mod;
+		}
+	}return z;
+}
+inline SpringWait ksm(SpringWait x,ll y){
+	SpringWait ans;
+	for(int i=1;i&lt;=num;++i){
+		ans.f[i][i]=1ll;
+	}
+	while(y){
+		if(y&amp;1)ans=ans*x;
+		x=x*x;
+		y&gt;&gt;=1;
+	}return ans;
+}
+int tp[N];
+int main(){
+	rd(n);rd(m);rd(k);
+	for(int i=0;i&lt;(1&lt;&lt;m);++i)if(bit(i)&lt;=k)list[++num]=i,tp[i]=num;
+	for(int i=1;i&lt;=num;++i){
+		a.f[i][tp[(list[i]&gt;&gt;1)]]=1;
+		a.f[i][tp[(list[i]&gt;&gt;1)|(1&lt;&lt;(m-1))]]=1;
+
+	}
+
+	SpringWait b=ksm(a,n);
+	ll ans=0;
+	for(int i=1;i&lt;=num;++i){
+		ans=(ans+b.f[i][i])%mod;
+	}
+	printf(&quot;%lld\n&quot;,ans);
+	system(&quot;Pause&quot;);
+	return 0;
+}
+
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[倒逆之战]]></title>
+        <id>https://miuyou.github.io/post/dao-ni-zhi-zhan/</id>
+        <link href="https://miuyou.github.io/post/dao-ni-zhi-zhan/">
+        </link>
+        <updated>2020-12-21T05:46:38.000Z</updated>
+        <content type="html"><![CDATA[<p>2020.12.21决定命运的选择</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[[队员分组][动态规划][二分图][01背包]]]></title>
         <id>https://miuyou.github.io/post/dui-yuan-fen-zu-dong-tai-gui-hua-er-fen-tu-01-bei-bao/</id>
@@ -1113,95 +1192,6 @@ int main(){
 </p>
 <h1 id="qwq">qwq</h1>
 <h2 id="qwqwq">qwqwq</h2>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[瞎吉尔组合]]></title>
-        <id>https://miuyou.github.io/post/xia-ji-er-zu-he/</id>
-        <link href="https://miuyou.github.io/post/xia-ji-er-zu-he/">
-        </link>
-        <updated>2020-08-24T13:56:15.000Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>
-<p><a href="https://www.luogu.com.cn/problem/P3330">P3330 [ZJOI2011]看电影</a></p>
-</li>
-<li>
-<p><a href="https://www.luogu.com.cn/problem/P3301">P3301 [SDOI2013]方程</a></p>
-</li>
-<li></li>
-<li>
-<p><a href="https://www.luogu.com.cn/problem/P3255">P3255 [JLOI2013]地形生成</a><br>
-分成俩部分</p>
-</li>
-<li>
-<p><a href="https://www.luogu.com.cn/problem/P4562">P4562 [JXOI2018]游戏</a></p>
-</li>
-<li>
-<p><a href="https://www.luogu.com.cn/problem/P5339">P5339 [TJOI2019]唱、跳、rap和篮球</a></p>
-</li>
-<li>
-<p><a href="https://www.luogu.com.cn/problem/P5376">P5376 [THUPC2019]过河卒二</a></p>
-</li>
-<li>
-<p><a href="https://www.luogu.com.cn/problem/P5377">P5377 [THUPC2019]鸽鸽的分割</a></p>
-</li>
-<li>
-<p><a href="https://www.luogu.com.cn/problem/P5481">P5481 [BJOI2015] 糖果</a></p>
-</li>
-<li>
-<p><a href="https://www.luogu.com.cn/problem/P5748">P5748 集合划分计数</a></p>
-</li>
-<li>
-<p><a href="https://www.luogu.com.cn/problem/P5825">P5825 排列计数</a></p>
-</li>
-<li>
-<p><a href="https://www.luogu.com.cn/problem/P6132">P6132 [集训队互测2019] 简单计数</a></p>
-</li>
-<li>
-<p><a href="https://www.luogu.com.cn/problem/P3214">P3214 [HNOI2011]卡农</a></p>
-</li>
-<li>
-<p><a href="https://www.luogu.com.cn/problem/P2481">P2481 [SDOI2010]代码拍卖会</a></p>
-</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[APIO 系列]]></title>
-        <id>https://miuyou.github.io/post/apio-xi-lie/</id>
-        <link href="https://miuyou.github.io/post/apio-xi-lie/">
-        </link>
-        <updated>2020-08-21T15:23:51.000Z</updated>
-        <summary type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="https://miuyou.github.io//post-images/1598023464067.jpg" alt="" loading="lazy"></figure>
-]]></summary>
-        <content type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="https://miuyou.github.io//post-images/1598023464067.jpg" alt="" loading="lazy"></figure>
-<!-- more -->
-<p>2020年</p>
-<ul>
-<li>
-<p><a href="https://loj.ac/problem/3145">P5443 [APIO2019]桥梁</a><br>
-首先给定的是一张图,重量带修改且在图上询问<br>
-给的数据范围一看就非常恶臭<br>
-遇事不决,大力分块<br>
-之前块的修改可以直接改在图上面<br>
-考虑到对于每一块我们能给他分配<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>N</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(N)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mclose">)</span></span></span></span>的时间,那么对于每一条询问我们都可以遍历所有可能影响到当前询问的边,在做完这种修改后要撤回</p>
-</li>
-<li>
-<p><a href="https://loj.ac/problem/3144">P5444 [APIO2019]奇怪装置</a><br>
-通过观察可以发现<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>x</mi><mo separator="true">,</mo><mi>y</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">(x,y)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mclose">)</span></span></span></span>存在循环节<br>
-进一步分析循环节长度<br>
-大力分析一波即可</p>
-</li>
-<li>
-<p><a href="https://loj.ac/problem/3146">P5445 [APIO2019]路灯</a></p>
-</li>
-<li>
-<p>首先告诉我们的是边的状态，但是这道题要解决的是点与点的关系<br>
-对于每条边的修改，维护每个点的可到达的左右端点<br>
-然后维护俩连通序列的连通信息，转化为平面问题，用树套树解决<br>
-做矩阵差分，线段树套BIT</p>
-</li>
-</ul>
 ]]></content>
     </entry>
 </feed>
