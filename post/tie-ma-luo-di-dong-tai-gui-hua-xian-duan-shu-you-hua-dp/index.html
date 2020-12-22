@@ -6,7 +6,7 @@
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="开端顺利 自这天起 离乡背井 等候春息  身处何地 等候春息">
 <meta name="theme-color" content="#000">
-<title>はっとして目が覚めるの | 春待ち</title>
+<title>[铁马落地][动态规划][线段树优化DP] | 春待ち</title>
 <link rel="shortcut icon" href="https://miuyou.github.io//favicon.ico?v=1608656110202">
 <link rel="stylesheet" href="https://miuyou.github.io//styles/main.css">
 
@@ -25,8 +25,8 @@
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
     onload="renderMathInElement(document.body);"></script>
 
-    <meta name="description" content="はっとして目が覚めるの" />
-    <meta name="keywords" content="" />
+    <meta name="description" content="[铁马落地][动态规划][线段树优化DP]" />
+    <meta name="keywords" content="数据结构优化DP,动态规划,解题报告" />
   </head>
   <body>
     <div class="head-top-line"></div>
@@ -134,8 +134,7 @@
       <div class="sidebar-body muse" id="sidebar_body">
         
           
-            <div class="post-side-meta" id="post_side_meta">
-              
+            
 <div class="sidebar-wrapper box-shadow-wrapper ">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="https://miuyou.github.io//images/avatar.png"/>
@@ -168,181 +167,6 @@
 
 
 </div>
-            </div>
-            <div class="post-toc sidebar-body-active" id="post_toc" style="opacity: 1;">
-              <div class="toc-box right-motion">
-  <div class="toc-wrapper auto-number auto" id="toc_wrapper">
-    <ul class="markdownIt-TOC">
-<li><a href="#qwq">qwq</a>
-<ul>
-<li><a href="#qwqwq">qwqwq</a></li>
-</ul>
-</li>
-</ul>
-
-  </div>
-</div>
-
-<script>
-
-let lastTop = 0, lList = [], hList = [], postBody, lastIndex = -1; 
-let active = 'active-show', activeClass = 'active-current';
-let tocWrapper = document.querySelector('#toc_wrapper');
-let tocContent = tocWrapper.children[0];
-let autoNumber = tocWrapper&&tocWrapper.classList.contains('auto-number');
-
-function addTocNumber(elem, deep) {
-  if (!elem) {
-    return;
-  }
-  let prop = elem.__proto__;
-
-  if (prop === HTMLUListElement.prototype) {
-    for (let i = 0; i < elem.children.length; i++) {
-      addTocNumber(elem.children[i], deep + (i + 1) + '.');
-    }
-  } else if (prop === HTMLLIElement.prototype) {
-    // 保存li元素
-    lList.push(elem);
-    for (let i = 0; i < elem.children.length; i++) {
-      let cur = elem.children[i];
-      if (cur.__proto__ === HTMLAnchorElement.prototype) {
-        if (autoNumber) {
-          cur.text =  deep + ' ' + cur.text;
-        }
-      } else if (cur.__proto__ === HTMLUListElement.prototype) {
-        addTocNumber(cur, deep);
-      }
-    }
-  }
-}
-
-
-document.addEventListener('scroll', function(e) {
-  if (lList.length <= 0) {
-    return;
-  }
-  let scrollTop = document.scrollingElement.scrollTop;
-  let dir;
-
-  if (lastTop - scrollTop > 0) {
-    dir = 'up';
-  } else {
-    dir = 'down';
-  }
-
-  lastTop = scrollTop;
-  if (scrollTop <= 0) {
-    if (lastIndex >= 0 && lastIndex < hList.length) {
-      lList[lastIndex].classList.remove(activeClass);
-    }
-    return;
-  }
-
-  let current = 0, hasFind = false;
-  for (let i = 0; i < hList.length; i++) {
-    if (hList[i].offsetTop > scrollTop) {
-      current = i;
-      hasFind = true;
-      break;
-    }
-  }
-  if (!hasFind && scrollTop > lList[lList.length - 1].offsetTop) {
-    current = hList.length - 1;
-  } else {
-    current--;
-  }
-  if (dir === 'down') {
-    if (current > lastIndex) {
-      addActiveClass(current);
-      removeActiveClass(lastIndex) 
-      lastIndex = current;
-      removeParentActiveClass();
-      lList[current] && addActiveLiElemment(lList[current].parentElement,tocContent);
-    }
-  } else {
-    if (current < lastIndex) {
-      addActiveClass(current);
-      removeActiveClass(lastIndex);
-      lastIndex = current;
-      removeParentActiveClass();
-      lList[current] && addActiveLiElemment(lList[current].parentElement,tocContent);
-    }
-  }
-});
-
-function removeParentActiveClass() {
-  let parents = tocContent.querySelectorAll('.'+active)
-  parents.forEach(function(elem) {
-    elem.classList.remove(active);
-  });
-}
-
-function addActiveClass(index) {
-  if (index >= 0 && index < hList.length) {
-    lList[index].classList.add(activeClass);
-  }
-}
-
-function removeActiveClass(index) {
-  if (index >= 0 && index < hList.length) {
-    lList[index].classList.remove(activeClass);
-  }
-}
-
-function addActiveLiElemment(elem, parent) {
-  if (!elem || elem === parent) {
-    return;
-  } else {
-    if (elem.__proto__ === HTMLLIElement.prototype) {
-      elem.classList.add(active);
-    }
-    addActiveLiElemment(elem.parentElement, parent);
-  }
-}
-
-function showToc() {
-  if (tocWrapper) {
-    postBody = document.querySelector('#post_body');
-    for (let i = 0; i < postBody.children.length; i++) {
-      if (postBody.children[i].__proto__ === HTMLHeadingElement.prototype) {
-        hList.push(postBody.children[i]);
-      }
-    }
-    if (tocWrapper.classList.contains('compress')) {
-        tocContent.classList.add('closed');
-    } else if (tocWrapper.classList.contains('no_compress')){
-      tocContent.classList.add('expanded');
-    } else {
-      if (hList.length > 10) {
-        active = 'active-hidden'
-        tocContent.classList.add('closed');
-      } else {
-        tocContent.classList.add('expanded');
-      }
-    }
-  }
-}
-addTocNumber(tocContent, '');
-
-window.addEventListener('load', function() {
-  showToc();
-  document.querySelector('#sidebar').style='display: block;';
-  tocWrapper.classList.add('toc-active');
-  setTimeout(function() {
-    if ("createEvent" in document) {
-      let evt = document.createEvent("HTMLEvents");
-      evt.initEvent("scroll", false, true);
-      document.dispatchEvent(evt);
-    }
-    else {
-      document.fireEvent("scroll");
-    }
-  }, 500)
-})
-
-</script>
-            </div>
           
         
       </div>
@@ -430,8 +254,8 @@ window.addEventListener('load', function() {
             <div class="section bg-color post post-page">
               <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://miuyou.github.io/post/hatutositemu-gajue-meruno/">
-      はっとして目が覚めるの
+    <a class="post-title-link" href="https://miuyou.github.io/post/tie-ma-luo-di-dong-tai-gui-hua-xian-duan-shu-you-hua-dp/">
+      [铁马落地][动态规划][线段树优化DP]
     </a>
   </h1>
   <div class="post-meta">
@@ -439,21 +263,46 @@ window.addEventListener('load', function() {
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span>发布于</span>
-      <span>2020-08-27</span>
+      <span>2020-12-23</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
+      <span class="meta-item">
+        <i class="fa fa-folder-o"></i>
+        <span class="pc-show">分类于</span>
+        
+          
+            <a href="https://miuyou.github.io/tag/5HqiWQ-GMt/">
+              <span>数据结构优化DP</span>
+            </a>、
+          
+        
+          
+            <a href="https://miuyou.github.io/tag/H8_sOUGQ-/">
+              <span>动态规划</span>
+            </a>、
+          
+        
+          
+            <a href="https://miuyou.github.io/tag/YwKQwG2g8/">
+              <span>解题报告</span>
+            </a>
+          
+        
+      </span>
+      <span class="post-meta-divider">|</span>
+    
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>1分钟</span>
+      <span>4分钟</span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>15<span class="pc-show">字数</span></span>
+      <span>550<span class="pc-show">字数</span></span>
     </span>
     
-      <span id="/post/hatutositemu-gajue-meruno/" class="meta-item pc-show leancloud_visitors">
+      <span id="/post/tie-ma-luo-di-dong-tai-gui-hua-xian-duan-shu-you-hua-dp/" class="meta-item pc-show leancloud_visitors">
         <span class="post-meta-divider">|</span>
         <i class="fa fa-eye"></i>
         <span>浏览量：<span class="leancloud-visitors-count" ></span></span>
@@ -462,18 +311,95 @@ window.addEventListener('load', function() {
   </div>
 </header>
               <div class="post-body next-md-body" id="post_body">
-                <p>2020.8.27  21:44 开启了这一篇</p>
-<!-- more -->
-<p><ul class="markdownIt-TOC">
-<li><a href="#qwq">qwq</a>
-<ul>
-<li><a href="#qwqwq">qwqwq</a></li>
+                <ul>
+<li><a href="https://www.luogu.com.cn/problem/P1442">P1442 铁球落地</a></li>
 </ul>
-</li>
-</ul>
-</p>
-<h1 id="qwq">qwq</h1>
-<h2 id="qwqwq">qwqwq</h2>
+<p>先弄一个假假的想法,发现影响复杂的是快速找到下一层,那么从下往上线段树区间覆盖就好了....</p>
+<pre><code class="language-cpp">
+struct SpringWait{
+	int h,l,r;
+}a[N];
+inline bool operator &lt;(SpringWait a,SpringWait b){
+	return a.h&lt;b.h;
+}
+int t[N],num;
+int f[N],g[N],ls[N],rs[N],flag[N&lt;&lt;2];
+inline void pushdown(int k){
+	if(flag[k]){
+		flag[k&lt;&lt;1]=flag[k];
+		flag[k&lt;&lt;1|1]=flag[k];
+		flag[k]=0;
+	}
+}
+inline int query(int k,int l,int r,int x){
+	if(l==r)return flag[k];
+	pushdown(k);
+	int mid=(l+r)&gt;&gt;1;
+	if(x&lt;=mid)return query(k&lt;&lt;1,l,mid,x);
+	else return query(k&lt;&lt;1|1,mid+1,r,x);
+}
+inline void update(int k,int l,int r,int L,int R,int x){
+	if(L&lt;=l&amp;&amp;r&lt;=R){
+		flag[k]=x;
+	}else{
+		int mid=(l+r)&gt;&gt;1;
+		if(L&lt;=mid)update(k&lt;&lt;1,l,mid,L,R,x);
+		if(R&gt;mid)update(k&lt;&lt;1|1,mid+1,r,L,R,x);
+	}
+}
+int main(){
+	rd(n);rd(h);
+	int x,y;
+	rd(x);rd(y);
+	for(int i=1;i&lt;=n;++i){
+		rd(a[i].h);rd(a[i].l);rd(a[i].r);
+		t[++num]=a[i].l;
+		t[++num]=a[i].r;
+	}
+	++n;
+	a[n].l=a[n].r=x;
+	a[n].h=y;
+	t[++num]=x;
+	sort(a+1,a+1+n);
+	sort(t+1,t+1+num);
+	//num=unique(t+1,t+1+num)-t-1;
+	for(int i=1;i&lt;=n;++i){
+		a[i].l=lower_bound(t+1,t+1+num,a[i].l)-t;
+		a[i].r=lower_bound(t+1,t+1+num,a[i].r)-t;
+	}
+	for(int i=1;i&lt;=n;++i){
+		ls[i]=query(1,1,num,a[i].l);
+		rs[i]=query(1,1,num,a[i].r);
+		update(1,1,num,a[i].l,a[i].r,i);
+	}
+	memset(f,0x3f,sizeof(f));
+	memset(g,0x3f,sizeof(g));
+	f[0]=g[0]=0;
+	for(int i=1;i&lt;=n;++i){
+		if(a[i].h-a[ls[i]].h&lt;=h){
+			if(ls[i]){
+				f[i]=min(f[i],f[ls[i]]+t[a[i].l]-t[a[ls[i]].l]+a[i].h-a[ls[i]].h);
+				f[i]=min(f[i],g[ls[i]]-t[a[i].l]+t[a[ls[i]].r]+a[i].h-a[ls[i]].h);
+			}else{
+				f[i]=a[i].h;
+			}
+		}
+
+		if(a[i].h-a[rs[i]].h&lt;=h){
+			if(rs[i]){
+				g[i]=min(g[i],f[rs[i]]+t[a[i].r]-t[a[rs[i]].l]+a[i].h-a[rs[i]].h);
+				g[i]=min(g[i],g[rs[i]]-t[a[i].r]+t[a[rs[i]].r]+a[i].h-a[rs[i]].h);
+			}else{
+				g[i]=a[i].h;
+			}
+		}
+	}
+	printf(&quot;%d\n&quot;,min(f[n],g[n]));
+	system(&quot;Pause&quot;);
+	return 0;
+}
+
+</code></pre>
 
               </div>
               <div class="post-footer">
@@ -484,7 +410,7 @@ window.addEventListener('load', function() {
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://miuyou.github.io/post/hatutositemu-gajue-meruno/" title="はっとして目が覚めるの">はっとして目が覚めるの</a>
+      <a href="https://miuyou.github.io/post/tie-ma-luo-di-dong-tai-gui-hua-xian-duan-shu-you-hua-dp/" title="[铁马落地][动态规划][线段树优化DP]">[铁马落地][动态规划][线段树优化DP]</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -493,19 +419,21 @@ window.addEventListener('load', function() {
   </ul>
   <div class="tags">
     
+      <a href="https://miuyou.github.io/tag/5HqiWQ-GMt/"># 数据结构优化DP</a>
+    
+      <a href="https://miuyou.github.io/tag/H8_sOUGQ-/"># 动态规划</a>
+    
+      <a href="https://miuyou.github.io/tag/YwKQwG2g8/"># 解题报告</a>
+    
   </div>
   <div class="nav">
     <div class="nav-prev">
       
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="CSP-S2考前综合强化刷题（第一场）" href="https://miuyou.github.io/post/csp-s2-kao-qian-zong-he-qiang-hua-shua-ti-di-yi-chang/">CSP-S2考前综合强化刷题（第一场）</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="CSP-S2考前综合强化刷题（第一场）" href="https://miuyou.github.io/post/csp-s2-kao-qian-zong-he-qiang-hua-shua-ti-di-yi-chang/">上一篇</a>
-      
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" title="瞎吉尔组合" href="https://miuyou.github.io/post/xia-ji-er-zu-he/">瞎吉尔组合</a>
-        <a class="nav-mobile-next" title="瞎吉尔组合" href="https://miuyou.github.io/post/xia-ji-er-zu-he/">下一篇</a>
+        <a class="nav-pc-next" title="[HNOI2003历史年份][动态规划][线段树优化建图]" href="https://miuyou.github.io/post/hnoi2003-li-shi-nian-fen-dong-tai-gui-hua-xian-duan-shu-you-hua-jian-tu/">[HNOI2003历史年份][动态规划][线段树优化建图]</a>
+        <a class="nav-mobile-next" title="[HNOI2003历史年份][动态规划][线段树优化建图]" href="https://miuyou.github.io/post/hnoi2003-li-shi-nian-fen-dong-tai-gui-hua-xian-duan-shu-you-hua-jian-tu/">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>
