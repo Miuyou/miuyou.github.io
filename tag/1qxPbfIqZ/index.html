@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8"/>
+      <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="开端顺利 自这天起 离乡背井 等候春息  身处何地 等候春息">
 <meta name="theme-color" content="#000">
-<title>近期作业 | 春待ち</title>
+<title>春待ち</title>
 <link rel="shortcut icon" href="https://miuyou.github.io//favicon.ico?v=1608657249699">
 <link rel="stylesheet" href="https://miuyou.github.io//styles/main.css">
 
@@ -25,8 +25,6 @@
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
     onload="renderMathInElement(document.body);"></script>
 
-    <meta name="description" content="近期作业" />
-    <meta name="keywords" content="" />
   </head>
   <body>
     <div class="head-top-line"></div>
@@ -116,25 +114,10 @@
     </div>
     <div class="main-continer">
       
-      <div class="section-layout muse bg-color">
+      <div class="section-layout bg-color muse">
         <div class="section-layout-wrapper">
-          
-
-<div class="sidebar">
-  
-    <div class="sidebar-box box-shadow-wrapper  right-motion" id="sidebar">
-      
-        <div class="post-list-sidebar">
-          <div class="sidebar-title">
-            <span id="tocSideBar" class="sidebar-title-item sidebar-title-active">文章目录</span>
-            <span id="metaSideBar" class="sidebar-title-item">站点概览</span>
-          </div>
-        </div>
-      
-      <div class="sidebar-body muse" id="sidebar_body">
-        
-          
-            
+          <div class="sidebar">
+    
 <div class="sidebar-wrapper box-shadow-wrapper ">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="https://miuyou.github.io//images/avatar.png"/>
@@ -167,208 +150,182 @@
 
 
 </div>
+</div>
+            <div class="section-box tag-line">
+              <div class="box-shadow-wrapper">
+                <div class="bg-color">
+                  <section class="section posts-expand">
+                    <div class="padding-wrapper">
+  <div class="tag-timeline-box">
+    <div class="tag-timeline-wrapper">
+      <div class="tag-timeline-title">
+        <h2>
+          置换
+          <small>标签</small>
+        </h2>
+      </div>
+      
+        
+          
+            <a href="https://miuyou.github.io/post/springwaits-zhi-huan/">
+              <div class="motion-warpper">
+                <div class="tag-post-node">
+                  <h1>
+                    12-23
+                    <small>SpringWait&#39;s 置换</small>
+                  </h1>
+                </div>  
+              </div>
+            </a>
           
         
-      </div>
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
     </div>
-  
-</div>
-<script>
-  const SIDEBAR_TITLE_ACTIVE = 'sidebar-title-active';
-  const SIDEBAR_BODY_ACTIVE = 'sidebar-body-active';
-  const SLIDE_UP_IN = 'slide-up-in';
-
-  let sidebar = document.querySelector('#sidebar'),
-  tocSideBar = document.querySelector('#tocSideBar'),
-  metaSideBar = document.querySelector('#metaSideBar'),
-  postToc = document.querySelector('#post_toc'),
-  postSiteMeta = document.querySelector('#post_side_meta'),
-  sidebarTitle = document.querySelector('.sidebar-title'),
-  sidebarBody = document.querySelector('#sidebar_body');
-
-  tocSideBar && tocSideBar.addEventListener('click', (e) => {
-    toggleSidebar(e);
-  });
-
-  metaSideBar && metaSideBar.addEventListener('click', (e) => {
-    toggleSidebar(e);
-  });
-
-  function toggleSidebar(e) {
-    let currentTitle = document.querySelector("."+SIDEBAR_TITLE_ACTIVE);
-    if (currentTitle == e.srcElement) {
-      return ;
-    }
-    let current, showElement, hideElement;
-    if (e.srcElement == metaSideBar) {
-      showElement = postSiteMeta;
-      hideElement = postToc;
-    } else if (e.srcElement == tocSideBar){
-      showElement = postToc;
-      hideElement = postSiteMeta;
-    }
-    currentTitle.classList.remove(SIDEBAR_TITLE_ACTIVE);
-    e.srcElement.classList.add(SIDEBAR_TITLE_ACTIVE);
-
-    window.Velocity(hideElement, 'stop');
-    window.Velocity(hideElement, 'transition.slideUpOut', {
-      display: 'none',
-      duration: 200,
-      complete: function () {
-        window.Velocity(showElement, 'transition.slideDownIn', {
-          duration: 200
-        });
-      }
-    })
-    hideElement.classList.remove(SIDEBAR_BODY_ACTIVE);
-    showElement.classList.add(SIDEBAR_BODY_ACTIVE);
-  }
-
-  postToc && postToc.addEventListener('transitionend', function() {
-    this.classList.remove(SLIDE_UP_IN);
-  });
-
-  if (sidebarBody) {
-    if (sidebarBody.classList.contains('pisces') || sidebarBody.classList.contains('gemini')) {
-      let hasFix = false;
-      let scrollEl = document.querySelector('.main-continer');
-      let limitTop = document.querySelector('#nav_ul').children.length * 42 + 162;
-      window.addEventListener('scroll', function(e) {
-        if (document.scrollingElement.scrollTop >= limitTop) {
-          if (!hasFix) {
-            sidebar.classList.add('sidebar-fixed');
-            hasFix = true;
-          }
-        } else {
-          if (hasFix) {
-            sidebar.classList.remove('sidebar-fixed');
-            hasFix = false;
-          }
-        }
-      });
-    }
-  }
-  
-</script>
-          <div class="section-box box-shadow-wrapper">
-            <div class="section bg-color post post-page">
-              <header class="post-header">
-  <h1 class="post-title">
-    <a class="post-title-link" href="https://miuyou.github.io/post/jin-qi-zuo-ye/">
-      近期作业
-    </a>
-  </h1>
-  <div class="post-meta">
-    
-    <span class="meta-item pc-show">
-      <i class="fa fa-calendar-o"></i>
-      <span>发布于</span>
-      <span>2020-06-14</span>
-      <span class="post-meta-divider pc-show">|</span>
-    </span>
-    
-    <span class="meta-item">
-      <i class="fa fa-clock-o"></i>
-      <span>1分钟</span>
-    </span>
-    <span class="meta-item">
-      <span class="post-meta-divider">|</span>
-      <i class="fa fa-file-word-o"></i>
-      <span>126<span class="pc-show">字数</span></span>
-    </span>
-    
-      <span id="/post/jin-qi-zuo-ye/" class="meta-item pc-show leancloud_visitors">
-        <span class="post-meta-divider">|</span>
-        <i class="fa fa-eye"></i>
-        <span>浏览量：<span class="leancloud-visitors-count" ></span></span>
-      </span>
-    
   </div>
-</header>
-              <div class="post-body next-md-body" id="post_body">
-                <figure data-type="image" tabindex="1"><img src="https://miuyou.github.io//post-images/1592116460898.jpg" alt="" loading="lazy"></figure>
-<!-- more -->
-<p>数据结构:<br>
-<a href="https://www.luogu.com.cn/problem/P5298">神奇的合并</a><br>
-<a href="https://www.luogu.com.cn/problem/P4149">淀粉质</a></p>
-<p>完成列表:<br>
-<a href="https://www.luogu.com.cn/problem/P6078">入门</a><br>
-<a href="https://www.luogu.com.cn/problem/P5043">树同构</a><br>
-<a href="https://loj.ac/problem/6185">无标有根树计数</a><br>
-<a href="https://www.luogu.com.cn/problem/P4781">快速插值</a><br>
-<a href="https://www.luogu.com.cn/problem/P3978">概率论</a>打表找规律<br>
-<a href="https://www.luogu.com.cn/problem/P6156">假的简单题</a>整挺好<br>
-<a href="http://codeforces.com/problemset/problem/1139/D">CF1139D Steps to One</a><br>
-<a href="http://codeforces.com/problemset/problem/300/E">CF300E Empire Strikes Back</a><br>
-<a href="https://www.luogu.com.cn/problem/P4457">期望DP</a><br>
-<a href="https://www.luogu.com.cn/problem/P3592">考前放松</a>hxd,qqn,<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>&lt;</mo><mo>=</mo></mrow><annotation encoding="application/x-tex">&lt;=</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mrel">&lt;</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span></span></span></span>不要乱改<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>&lt;</mo></mrow><annotation encoding="application/x-tex">&lt;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mrel">&lt;</span></span></span></span><br>
-大力分解质因数,然后二分求解一个答案<br>
-大力推柿子,然后卷积<br>
-<a href="https://www.luogu.com.cn/problem/P5292">最后一刻</a><br>
-时间规划!!!!!!!!!!!!!!!!!!!!<br>
-<a href="https://www.luogu.com.cn/problem/P4719">一个动态DP</a><br>
-16数学<br>
-17数据结构<br>
-18DP<br>
-19图论</p>
-
+</div>
+                  </section>
+                </div>
               </div>
-              <div class="post-footer">
-  <ul class="post-copyright">
-    <li class="post-copyright-author">
-      <strong>本文作者：</strong>
-      春待ち
-    </li>
-    <li class="post-copyright-link">
-      <strong>本文链接：</strong>
-      <a href="https://miuyou.github.io/post/jin-qi-zuo-ye/" title="近期作业">近期作业</a>
-    </li>
-    <li class="post-copyright-license">
-      <strong>版权声明： </strong>
-      本博客所有文章除特别声明外，转载请注明出处！
-    </li>
-  </ul>
-  <div class="tags">
-    
-  </div>
-  <div class="nav">
-    <div class="nav-prev">
-      
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="APIO 系列" href="https://miuyou.github.io/post/apio-xi-lie/">APIO 系列</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="APIO 系列" href="https://miuyou.github.io/post/apio-xi-lie/">上一篇</a>
-      
-    </div>
-    <div class="nav-next">
-      
-        <a class="nav-pc-next" title="[CTS2019]氪金手游" href="https://miuyou.github.io/post/cts2019ke-jin-shou-you/">[CTS2019]氪金手游</a>
-        <a class="nav-mobile-next" title="[CTS2019]氪金手游" href="https://miuyou.github.io/post/cts2019ke-jin-shou-you/">下一篇</a>
-        <i class="fa fa-chevron-right"></i>
-      
-    </div>
-  </div>
-</div>
-              
-                
-<script src="https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js"></script>
-<div id="vcomments" style="padding: 10px 0px 0px 0px"></div>
-<script>
-new Valine({
-    el: '#vcomments' ,
-    appId: 'UVcI62G7dqmkWxTmwgxAN1xh-gzGzoHsz',
-    appKey: 's0C5SjN0pyVIsikc0RQegRmN',
-    notify: 'true' === 'false', 
-    avatar:'', 
-    placeholder: '',
-    pageSize: '',
-    lang: 'zh-cn',
-    visitor: 'true' === 'true',
-    highlight: 'true' === 'true',
-    avatarForce: 'true' === 'false',
-});
-</script>
-              
-            </div>
           </div>
         </div>
       </div>

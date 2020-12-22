@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://miuyou.github.io/</id>
     <title>春待ち</title>
-    <updated>2020-12-22T16:55:13.641Z</updated>
+    <updated>2020-12-22T17:14:18.813Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://miuyou.github.io/"/>
     <link rel="self" href="https://miuyou.github.io/atom.xml"/>
@@ -10,6 +10,73 @@
     <logo>https://miuyou.github.io/images/avatar.png</logo>
     <icon>https://miuyou.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 春待ち</rights>
+    <entry>
+        <title type="html"><![CDATA[SpringWait's 置换]]></title>
+        <id>https://miuyou.github.io/post/springwaits-zhi-huan/</id>
+        <link href="https://miuyou.github.io/post/springwaits-zhi-huan/">
+        </link>
+        <updated>2020-12-22T17:11:39.000Z</updated>
+        <content type="html"><![CDATA[<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>B</mi><mi>u</mi><mi>r</mi><mi>n</mi><mi>s</mi><mi>i</mi><mi>d</mi><mi>e</mi></mrow><annotation encoding="application/x-tex">Burnside</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mord mathdefault">u</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault">n</span><span class="mord mathdefault">s</span><span class="mord mathdefault">i</span><span class="mord mathdefault">d</span><span class="mord mathdefault">e</span></span></span></span> 引理： 对于一个置换 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi></mrow><annotation encoding="application/x-tex">f</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span></span></span></span>，若一个着色方案<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi></mrow><annotation encoding="application/x-tex">s</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">s</span></span></span></span> 经过置换后不变，则称 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi></mrow><annotation encoding="application/x-tex">s</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">s</span></span></span></span> 为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi></mrow><annotation encoding="application/x-tex">f</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span></span></span></span> 的不动点。记 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi></mrow><annotation encoding="application/x-tex">f</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span></span></span></span> 的不动点数目为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>D</mi><mo>(</mo><mi>f</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">D(f)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">D</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mclose">)</span></span></span></span>，则等价类个数为所有 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>D</mi><mo>(</mo><mi>f</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">D(f)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">D</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mclose">)</span></span></span></span> 的平均值。</p>
+<p>例题- <a href="https://www.luogu.com.cn/problem/P1446">P1446 [HNOI2008]Cards</a></p>
+<pre><code class="language-cpp">
+ll n,r,b,g,m,p,a[M],f[N][N][N];
+bool vis[M];
+ll t[M],sum,siz[M];
+inline ll work(){
+	memset(vis,0,sizeof(vis));
+	memset(f,0,sizeof(f));
+	f[0][0][0]=1;sum=0;
+	memset(siz,0,sizeof(siz));
+	for(int i=1;i&lt;=n;++i){
+		if(vis[i])continue;
+		int x=i;
+		++sum;
+		while(!vis[x]){
+			vis[x]=1;
+			x=a[x];
+			++siz[sum];
+		}
+	}
+	for(int z=1;z&lt;=sum;++z){
+		for(int i=r;~i;--i){
+			for(int j=b;~j;--j){
+				for(int k=g;~k;--k){
+					if(i&gt;=siz[z])f[i][j][k]=(f[i][j][k]+f[i-siz[z]][j][k])%p;
+					if(j&gt;=siz[z])f[i][j][k]=(f[i][j][k]+f[i][j-siz[z]][k])%p;
+					if(k&gt;=siz[z])f[i][j][k]=(f[i][j][k]+f[i][j][k-siz[z]])%p;
+				}
+			}
+		}
+	}
+	return f[r][b][g];
+}
+inline ll ksm(ll x,ll y){
+	ll ans=1;
+	while(y){
+		if(y&amp;1)ans=1ll*ans*x%p;
+		x=1ll*x*x%p;
+		y&gt;&gt;=1;
+	}return ans;
+}
+int main(){
+	rd(r);rd(b);rd(g);rd(m);rd(p);
+	n=r+b+g;
+	int ans=0;
+	for(int i=1;i&lt;=m;++i){
+		for(int j=1;j&lt;=n;++j){
+			rd(a[j]);
+		}
+		ans=(ans+work())%p;
+	}
+	for(int i=1;i&lt;=n;++i)a[i]=i;
+	ans=(ans+work())%p;
+	ans=1ll*ans*ksm(m+1,p-2)%p;
+	cout&lt;&lt;ans&lt;&lt;endl;
+}
+
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[[铁马落地][动态规划][线段树优化DP]]]></title>
         <id>https://miuyou.github.io/post/tie-ma-luo-di-dong-tai-gui-hua-xian-duan-shu-you-hua-dp/</id>
@@ -1155,51 +1222,6 @@ for(re int i=1;i&lt;=n;++i){
 <p>咕咕咕</p>
 <h2 id="五杂项">五.杂项</h2>
 <p>咕咕咕</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[魔法世界]]></title>
-        <id>https://miuyou.github.io/post/mo-fa-shi-jie/</id>
-        <link href="https://miuyou.github.io/post/mo-fa-shi-jie/">
-        </link>
-        <updated>2020-10-08T11:00:33.000Z</updated>
-        <summary type="html"><![CDATA[<p><img src="https://miuyou.github.io//post-images/1602154862437.jpg" alt="" loading="lazy"><br>
-OI世界的魔法真奇妙啊!</p>
-]]></summary>
-        <content type="html"><![CDATA[<p><img src="https://miuyou.github.io//post-images/1602154862437.jpg" alt="" loading="lazy"><br>
-OI世界的魔法真奇妙啊!</p>
-<!-- more -->
-<p><ul class="markdownIt-TOC">
-<li><a href="#%E6%8A%80%E8%83%BD%E6%A0%91">技能树</a>
-<ul>
-<li><a href="#%E4%B8%80%E6%95%B0%E5%AD%A6">一.数学</a>
-<ul>
-<li><a href="#1%E6%9D%82%E9%A1%B9">1.杂项</a></li>
-</ul>
-</li>
-<li><a href="#%E4%BA%8C%E5%AD%97%E7%AC%A6%E4%B8%B2">二.字符串</a></li>
-<li><a href="#%E4%B8%89%E6%9D%82%E9%A1%B9">三.杂项</a></li>
-<li><a href="#%E5%9B%9B%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">四.数据结构</a></li>
-<li><a href="#%E5%9B%BE%E8%AE%BA">图论</a></li>
-<li><a href="#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92">动态规划</a></li>
-<li><a href="#%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95">计算几何</a></li>
-<li><a href="#%E6%90%9C%E7%B4%A2">搜索</a></li>
-<li><a href="#%E8%86%9C%E6%B3%95">膜法</a></li>
-</ul>
-</li>
-</ul>
-</p>
-<h1 id="技能树">技能树</h1>
-<h2 id="一数学">一.数学</h2>
-<h3 id="1杂项">1.杂项</h3>
-<h2 id="二字符串">二.字符串</h2>
-<h2 id="三杂项">三.杂项</h2>
-<h2 id="四数据结构">四.数据结构</h2>
-<h2 id="图论">图论</h2>
-<h2 id="动态规划">动态规划</h2>
-<h2 id="计算几何">计算几何</h2>
-<h2 id="搜索">搜索</h2>
-<h2 id="膜法">膜法</h2>
 ]]></content>
     </entry>
 </feed>
