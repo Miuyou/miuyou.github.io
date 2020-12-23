@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-      <meta charset="UTF-8"/>
+    <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="开端顺利 自这天起 离乡背井 等候春息  身处何地 等候春息">
 <meta name="theme-color" content="#000">
-<title>春待ち</title>
+<title>[排队打饭][动态规划][不错的状态压缩] | 春待ち</title>
 <link rel="shortcut icon" href="https://miuyou.github.io//favicon.ico?v=1608740008603">
 <link rel="stylesheet" href="https://miuyou.github.io//styles/main.css">
 
@@ -25,6 +25,8 @@
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
     onload="renderMathInElement(document.body);"></script>
 
+    <meta name="description" content="[排队打饭][动态规划][不错的状态压缩]" />
+    <meta name="keywords" content="状态压缩,动态规划,背包,解题报告" />
   </head>
   <body>
     <div class="head-top-line"></div>
@@ -114,10 +116,25 @@
     </div>
     <div class="main-continer">
       
-      <div class="section-layout bg-color muse">
+      <div class="section-layout muse bg-color">
         <div class="section-layout-wrapper">
-          <div class="sidebar">
-    
+          
+
+<div class="sidebar">
+  
+    <div class="sidebar-box box-shadow-wrapper  right-motion" id="sidebar">
+      
+        <div class="post-list-sidebar">
+          <div class="sidebar-title">
+            <span id="tocSideBar" class="sidebar-title-item sidebar-title-active">文章目录</span>
+            <span id="metaSideBar" class="sidebar-title-item">站点概览</span>
+          </div>
+        </div>
+      
+      <div class="sidebar-body muse" id="sidebar_body">
+        
+          
+            
 <div class="sidebar-wrapper box-shadow-wrapper ">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="https://miuyou.github.io//images/avatar.png"/>
@@ -150,192 +167,253 @@
 
 
 </div>
-</div>
-            <div class="section-box tag-line">
-              <div class="box-shadow-wrapper">
-                <div class="bg-color">
-                  <section class="section posts-expand">
-                    <div class="padding-wrapper">
-  <div class="tag-timeline-box">
-    <div class="tag-timeline-wrapper">
-      <div class="tag-timeline-title">
-        <h2>
-          矩阵
-          <small>标签</small>
-        </h2>
+          
+        
       </div>
-      
+    </div>
+  
+</div>
+<script>
+  const SIDEBAR_TITLE_ACTIVE = 'sidebar-title-active';
+  const SIDEBAR_BODY_ACTIVE = 'sidebar-body-active';
+  const SLIDE_UP_IN = 'slide-up-in';
+
+  let sidebar = document.querySelector('#sidebar'),
+  tocSideBar = document.querySelector('#tocSideBar'),
+  metaSideBar = document.querySelector('#metaSideBar'),
+  postToc = document.querySelector('#post_toc'),
+  postSiteMeta = document.querySelector('#post_side_meta'),
+  sidebarTitle = document.querySelector('.sidebar-title'),
+  sidebarBody = document.querySelector('#sidebar_body');
+
+  tocSideBar && tocSideBar.addEventListener('click', (e) => {
+    toggleSidebar(e);
+  });
+
+  metaSideBar && metaSideBar.addEventListener('click', (e) => {
+    toggleSidebar(e);
+  });
+
+  function toggleSidebar(e) {
+    let currentTitle = document.querySelector("."+SIDEBAR_TITLE_ACTIVE);
+    if (currentTitle == e.srcElement) {
+      return ;
+    }
+    let current, showElement, hideElement;
+    if (e.srcElement == metaSideBar) {
+      showElement = postSiteMeta;
+      hideElement = postToc;
+    } else if (e.srcElement == tocSideBar){
+      showElement = postToc;
+      hideElement = postSiteMeta;
+    }
+    currentTitle.classList.remove(SIDEBAR_TITLE_ACTIVE);
+    e.srcElement.classList.add(SIDEBAR_TITLE_ACTIVE);
+
+    window.Velocity(hideElement, 'stop');
+    window.Velocity(hideElement, 'transition.slideUpOut', {
+      display: 'none',
+      duration: 200,
+      complete: function () {
+        window.Velocity(showElement, 'transition.slideDownIn', {
+          duration: 200
+        });
+      }
+    })
+    hideElement.classList.remove(SIDEBAR_BODY_ACTIVE);
+    showElement.classList.add(SIDEBAR_BODY_ACTIVE);
+  }
+
+  postToc && postToc.addEventListener('transitionend', function() {
+    this.classList.remove(SLIDE_UP_IN);
+  });
+
+  if (sidebarBody) {
+    if (sidebarBody.classList.contains('pisces') || sidebarBody.classList.contains('gemini')) {
+      let hasFix = false;
+      let scrollEl = document.querySelector('.main-continer');
+      let limitTop = document.querySelector('#nav_ul').children.length * 42 + 162;
+      window.addEventListener('scroll', function(e) {
+        if (document.scrollingElement.scrollTop >= limitTop) {
+          if (!hasFix) {
+            sidebar.classList.add('sidebar-fixed');
+            hasFix = true;
+          }
+        } else {
+          if (hasFix) {
+            sidebar.classList.remove('sidebar-fixed');
+            hasFix = false;
+          }
+        }
+      });
+    }
+  }
+  
+</script>
+          <div class="section-box box-shadow-wrapper">
+            <div class="section bg-color post post-page">
+              <header class="post-header">
+  <h1 class="post-title">
+    <a class="post-title-link" href="https://miuyou.github.io/post/pai-dui-da-fan-dong-tai-gui-hua-bu-cuo-de-zhuang-tai-ya-suo/">
+      [排队打饭][动态规划][不错的状态压缩]
+    </a>
+  </h1>
+  <div class="post-meta">
+    
+    <span class="meta-item pc-show">
+      <i class="fa fa-calendar-o"></i>
+      <span>发布于</span>
+      <span>2020-12-24</span>
+      <span class="post-meta-divider pc-show">|</span>
+    </span>
+    
+      <span class="meta-item">
+        <i class="fa fa-folder-o"></i>
+        <span class="pc-show">分类于</span>
         
+          
+            <a href="https://miuyou.github.io/tag/0pM5IFQLr/">
+              <span>状态压缩</span>
+            </a>、
           
         
           
-        
+            <a href="https://miuyou.github.io/tag/H8_sOUGQ-/">
+              <span>动态规划</span>
+            </a>、
           
         
           
-        
-      
-        
+            <a href="https://miuyou.github.io/tag/kUaDm9EwVd/">
+              <span>背包</span>
+            </a>、
           
         
           
-        
-      
-        
-          
-        
-          
-        
-          
-        
-      
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      
-        
-          
-        
-          
-        
-          
-        
-      
-        
-          
-        
-          
-            <a href="https://miuyou.github.io/post/hua-yuan-dong-tai-gui-hua-zhuang-tai-ya-suo-ju-zhen-zhuan-yi/">
-              <div class="motion-warpper">
-                <div class="tag-post-node">
-                  <h1>
-                    12-21
-                    <small>[花园][动态规划][状态压缩][矩阵转移]</small>
-                  </h1>
-                </div>  
-              </div>
+            <a href="https://miuyou.github.io/tag/YwKQwG2g8/">
+              <span>解题报告</span>
             </a>
           
         
-          
-        
-          
-        
+      </span>
+      <span class="post-meta-divider">|</span>
+    
+    <span class="meta-item">
+      <i class="fa fa-clock-o"></i>
+      <span>2分钟</span>
+    </span>
+    <span class="meta-item">
+      <span class="post-meta-divider">|</span>
+      <i class="fa fa-file-word-o"></i>
+      <span>324<span class="pc-show">字数</span></span>
+    </span>
+    
+      <span id="/post/pai-dui-da-fan-dong-tai-gui-hua-bu-cuo-de-zhuang-tai-ya-suo/" class="meta-item pc-show leancloud_visitors">
+        <span class="post-meta-divider">|</span>
+        <i class="fa fa-eye"></i>
+        <span>浏览量：<span class="leancloud-visitors-count" ></span></span>
+      </span>
+    
+  </div>
+</header>
+              <div class="post-body next-md-body" id="post_body">
+                <ul>
+<li><a href="https://www.luogu.com.cn/problem/P2157">P2157 [SDOI2009]学校食堂</a></li>
+</ul>
+<p>刚看到题目会觉得难以下手</p>
+<p>考虑最难解决的是如何维护那些人吃过饭了那些人可以吃饭,发现大家的容忍度都不高,将其状态压缩,那么就可以传递那些人吃过了,然后考虑上一个是谁吃会影响到计算结果,那么再开一维记录上一个是谁,就可以转移啦.想当于每个点都要背包一下怎么选后面谁吃,然后转移到下一个人的前提是这个人吃过了.</p>
+<pre><code class="language-cpp">
+memset(f,0x3f,sizeof(f));
+		f[1][0][7]=0;
+		for(int i=1;i&lt;=n;++i){
+			for(int j=0;j&lt;MAXN;++j){
+				for(int k=-8;k&lt;=7;++k){
+					if(f[i][j][k+8]!=f[0][0][0]){
+						if(j&amp;1){
+							f[i+1][j&gt;&gt;1][k+7]=min(f[i+1][j&gt;&gt;1][k+7],f[i][j][k+8]);
+						}else{
+							int r=f[0][0][0];
+							for(int z=0;z&lt;=7;++z){
+								if(j&amp;(1&lt;&lt;z))continue;
+								if(i+z&gt;r)break;
+								r=min(r,i+z+b[i+z]);
+								f[i][j|(1&lt;&lt;z)][z+8]=min(f[i][j|(1&lt;&lt;z)][z+8],f[i][j][k+8]+((i+k)?(a[i+k]^a[i+z]):0));
+
+							}
+						}
+					}
+				}
+			}
+		}
+		int ans=f[0][0][0];
+		for(int i=0;i&lt;=8;++i){
+			ans=min(ans,f[n+1][0][i]);
+		//	cout&lt;&lt;f[n+1][0][i]&lt;&lt;endl;
+		}
+
+</code></pre>
+
+              </div>
+              <div class="post-footer">
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      春待ち
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://miuyou.github.io/post/pai-dui-da-fan-dong-tai-gui-hua-bu-cuo-de-zhuang-tai-ya-suo/" title="[排队打饭][动态规划][不错的状态压缩]">[排队打饭][动态规划][不错的状态压缩]</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，转载请注明出处！
+    </li>
+  </ul>
+  <div class="tags">
+    
+      <a href="https://miuyou.github.io/tag/0pM5IFQLr/"># 状态压缩</a>
+    
+      <a href="https://miuyou.github.io/tag/H8_sOUGQ-/"># 动态规划</a>
+    
+      <a href="https://miuyou.github.io/tag/kUaDm9EwVd/"># 背包</a>
+    
+      <a href="https://miuyou.github.io/tag/YwKQwG2g8/"># 解题报告</a>
+    
+  </div>
+  <div class="nav">
+    <div class="nav-prev">
       
-        
-          
-        
+    </div>
+    <div class="nav-next">
       
-        
-          
-        
-          
-        
-          
-        
-      
-        
-      
-        
-          
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-          
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-      
-        
-      
-        
-          
-        
-      
-        
-      
-        
-          
-        
-      
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
+        <a class="nav-pc-next" title="SpringWait&#39;s 置换" href="https://miuyou.github.io/post/springwaits-zhi-huan/">SpringWait&#39;s 置换</a>
+        <a class="nav-mobile-next" title="SpringWait&#39;s 置换" href="https://miuyou.github.io/post/springwaits-zhi-huan/">下一篇</a>
+        <i class="fa fa-chevron-right"></i>
       
     </div>
   </div>
 </div>
-                  </section>
-                </div>
-              </div>
+              
+                
+<script src="https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js"></script>
+<div id="vcomments" style="padding: 10px 0px 0px 0px"></div>
+<script>
+new Valine({
+    el: '#vcomments' ,
+    appId: 'UVcI62G7dqmkWxTmwgxAN1xh-gzGzoHsz',
+    appKey: 's0C5SjN0pyVIsikc0RQegRmN',
+    notify: 'true' === 'false', 
+    avatar:'', 
+    placeholder: '',
+    pageSize: '',
+    lang: 'zh-cn',
+    visitor: 'true' === 'true',
+    highlight: 'true' === 'true',
+    avatarForce: 'true' === 'false',
+});
+</script>
+              
+            </div>
           </div>
         </div>
       </div>
