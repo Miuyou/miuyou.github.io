@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://miuyou.github.io/</id>
     <title>春待ち</title>
-    <updated>2020-12-25T14:08:48.781Z</updated>
+    <updated>2020-12-26T15:20:45.669Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://miuyou.github.io/"/>
     <link rel="self" href="https://miuyou.github.io/atom.xml"/>
@@ -10,6 +10,164 @@
     <logo>https://miuyou.github.io/images/avatar.png</logo>
     <icon>https://miuyou.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 春待ち</rights>
+    <entry>
+        <title type="html"><![CDATA[[HNOI2006字符串拼接][字符串][BFS][AC自动机]]]></title>
+        <id>https://miuyou.github.io/post/hnoi2006-zi-fu-chuan-pin-jie-zi-fu-chuan-bfsac-zi-dong-ji/</id>
+        <link href="https://miuyou.github.io/post/hnoi2006-zi-fu-chuan-pin-jie-zi-fu-chuan-bfsac-zi-dong-ji/">
+        </link>
+        <updated>2020-12-26T15:15:31.000Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li><a href="https://www.luogu.com.cn/problem/P2322">P2322 [HNOI2006]最短母串问题</a></li>
+</ul>
+<p>首先建个自动机出来,同时处理一下每个叶子结点有哪些节点<br>
+然后就是直接<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>B</mi><mi>F</mi><mi>S</mi></mrow><annotation encoding="application/x-tex">BFS</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span></span></span></span>,性质自然</p>
+<pre><code class="language-cpp">short n,cnt,ch[N][26];
+char s[N];
+int date[N];
+inline void ins(int zi){
+	int len=strlen(s),now=1;
+	for(int i=0;i&lt;len;++i){
+		int x=s[i]-'A';
+		if(!ch[now][x]){
+			ch[now][x]=++cnt;
+		}now=ch[now][x];
+	}
+	date[now]|=(1&lt;&lt;zi);
+	//cout&lt;&lt;now&lt;&lt;endl;
+}
+short q[N],l,r,fail[N];
+void FA(){
+	r=-1;
+	for(int i=0;i&lt;=25;++i)ch[0][i]=1;
+	q[++r]=1;
+	while(l&lt;=r){
+		int x=q[l];++l;
+		for(int i=0;i&lt;=25;++i){
+			if(ch[x][i]){
+				fail[ch[x][i]]=ch[fail[x]][i];
+				date[ch[x][i]]|=date[ch[fail[x]][i]];
+				q[++r]=ch[x][i];
+			}else{
+				ch[x][i]=ch[fail[x]][i];
+			}
+		}
+	}
+}
+
+queue&lt;int&gt;now,son;
+bool vis[N][M];
+char ans[N*M];
+int nex[N*M];
+int main(){
+	cin&gt;&gt;n;cnt=1;
+	for(int i=0;i&lt;n;++i){
+		scanf(&quot;%s&quot;,s);
+		ins(i);
+	}
+	FA();
+	now.push(1);
+	son.push(0);
+	int num=0,sum=0;
+	vis[0][0]=1;
+	while(now.size()){
+		int xnow=now.front();
+		int xson=son.front();
+		now.pop();
+		son.pop();
+		if(xson==((1&lt;&lt;n)-1)){
+			int le=0;
+			while(num){
+				s[++le]=ans[num];
+				num=nex[num];
+			}
+			while(le)putchar(s[le--]);
+			break;
+		}
+		for(int i=0;i&lt;=25;++i){
+			if(!vis[ch[xnow][i]][xson|date[ch[xnow][i]]]){
+				vis[ch[xnow][i]][xson|date[ch[xnow][i]]]=1;
+				now.push(ch[xnow][i]);
+				son.push(xson|date[ch[xnow][i]]);
+				nex[++sum]=num;
+				ans[sum]='A'+i;
+			}
+		}
+		++num;
+	}
+	system(&quot;Pause&quot;);
+    return 0;
+}
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[[HNOI2005星际贸易][动态规划][单调队列优化][背包路径]]]></title>
+        <id>https://miuyou.github.io/post/hnoi2005-xing-ji-mao-yi-dong-tai-gui-hua-dan-diao-dui-lie-you-hua-bei-bao-lu-jing/</id>
+        <link href="https://miuyou.github.io/post/hnoi2005-xing-ji-mao-yi-dong-tai-gui-hua-dan-diao-dui-lie-you-hua-bei-bao-lu-jing/">
+        </link>
+        <updated>2020-12-26T15:09:00.000Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li><a href="https://www.luogu.com.cn/problem/P2317">P2317 [HNOI2005]星际贸易</a></li>
+</ul>
+<p>首先背包求出第一问,并且得到所有强制要选的点</p>
+<p>那么接下来就是要最下化满足要求的路径花费</p>
+<p>发现转移就俩种,要么从某个点飞过来要么原地加油,枚举某个点以及油量,复杂度<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><msup><mi>N</mi><mn>3</mn></msup><mo>)</mo></mrow><annotation encoding="application/x-tex">O(N^3)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>,用单调队列搞搞就能优化成<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><msup><mi>N</mi><mn>2</mn></msup><mo>)</mo></mrow><annotation encoding="application/x-tex">O(N^2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></p>
+<p>然鹅这题在背包部分翻车了....不该省的不要省,多重背包做不到<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>N</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(N)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mclose">)</span></span></span></span>的空间复杂度的</p>
+<pre><code class="language-cpp">
+ rd(n);rd(m);rd(RR);rd(LL);
+    RR=min(RR,2*n);
+    for(int i=1;i&lt;=n;++i){
+        rd(a[i]);rd(b[i]);rd(l[i]);rd(p[i]);rd(f[i]);
+    }
+    for(int i=1;i&lt;=n;++i){
+        if(l[i]-l[i-1]&gt;LL){
+            puts(&quot;Poor Coke!&quot;);return 0;
+        }
+    }
+    memset(bb,-1,sizeof(bb));
+    bb[0][0]=0;
+    for(int i=1;i&lt;=n;++i){
+        for(int j=0;j&lt;=m;++j){
+            if(bb[i-1][j]&gt;=0)bb[i][j]=bb[i-1][j];
+            if(j&gt;=a[i]&amp;&amp;bb[i-1][j-a[i]]&gt;=0){
+                bb[i][j]=max(bb[i][j],bb[i-1][j-a[i]]+b[i]);
+            }
+        }
+    }
+    int an=0;int tp=0;
+    for(int i=0;i&lt;=m;++i)if(bb[n][i]&gt;bb[n][an])an=i;
+    for(int i=n,j=an;i;--i){
+        if(bb[i][j]==bb[i-1][j])continue;
+        else vis[i]=1,j-=a[i];
+    }an=bb[n][an];
+    
+    memset(dp,0x3f,sizeof(dp));
+    for(int i=0;i&lt;=RR;++i)L[i]=1;
+    dp[0][RR]=0;
+    q[RR][++R[RR]]=0;
+    vis[n]=1;
+    for(int i=1;i&lt;=n;++i){
+        for(int j=0;j&lt;=RR;++j){
+            if(p[i]&gt;0&amp;&amp;j&gt;0)dp[i][j]=min(dp[i][j],dp[i][j-1]+p[i]);
+          
+            if(L[j+2]&lt;=R[j+2])
+            dp[i][j]=min(dp[i][j],dp[q[j+2][L[j+2]]][j+2]+f[i]);
+            if(vis[i])L[j]=1,R[j]=0;
+            while(L[j]&lt;=R[j]&amp;&amp;(dp[q[j][R[j]]][j]&gt;=dp[i][j]))--R[j];
+            q[j][++R[j]]=i;
+              while (L[j]&lt;=R[j]&amp;&amp;(l[i+1]-l[q[j][L[j]]]&gt;LL))++L[j];
+        }
+    }
+    int ans=0;
+    for(int i=0;i&lt;=RR;++i){if(dp[n][i]&lt;dp[n][ans])ans=i;//cout&lt;&lt;dp[n][i]&lt;&lt;endl;
+    };
+    if(dp[n][ans]==dp[0][0])puts(&quot;Poor Coke!&quot;);
+    else printf(&quot;%d %d&quot;,an,an-dp[n][ans]);
+
+
+    ```</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[[逛庙会][动态规划][状态压缩]]]></title>
         <id>https://miuyou.github.io/post/guang-miao-hui-dong-tai-gui-hua-zhuang-tai-ya-suo/</id>
@@ -682,95 +840,6 @@ int main(){
 		ans=(ans+b.f[i][i])%mod;
 	}
 	printf(&quot;%lld\n&quot;,ans);
-	system(&quot;Pause&quot;);
-	return 0;
-}
-
-</code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[倒逆之战]]></title>
-        <id>https://miuyou.github.io/post/dao-ni-zhi-zhan/</id>
-        <link href="https://miuyou.github.io/post/dao-ni-zhi-zhan/">
-        </link>
-        <updated>2020-12-21T05:46:38.000Z</updated>
-        <content type="html"><![CDATA[<p>2020.12.21决定命运的选择</p>
-<p>---- 喝了教练泡的感冒药!好耶!</p>
-<p>---- 脑瘫模拟DP,死了死了</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[[队员分组][动态规划][二分图][01背包]]]></title>
-        <id>https://miuyou.github.io/post/dui-yuan-fen-zu-dong-tai-gui-hua-er-fen-tu-01-bei-bao/</id>
-        <link href="https://miuyou.github.io/post/dui-yuan-fen-zu-dong-tai-gui-hua-er-fen-tu-01-bei-bao/">
-        </link>
-        <updated>2020-12-20T15:41:23.000Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li><a href="https://www.luogu.com.cn/problem/P1285">P1285 队员分组</a></li>
-</ul>
-<p>仔细思考发现有向图可以转化成无向图,发现彼此冲突的点对对答案有影响,冲突点对连边,二分图性质显然,但是这个可以由多个连通图组成,彼此之间无影响,考虑分组进行01背包就做完了</p>
-<pre><code class="language-cpp">
-inline void dfs(int x,int fa,int se){
-	col[x]=se;
-	V[tsum][se].push_back(x);
-	++num[tsum][se];
-	for(int i=1;i&lt;=n;++i){
-		if(i==fa||i==x)continue;
-		if(!tu[x][i]){
-			if(!col[i]){
-				dfs(i,x,3-se);
-			}else if(col[i]==se){
-				puts(&quot;No solution&quot;);
-				exit(0);
-			}
-		}
-	}
-}
-int f[N][N],pre[N][N];
-bool vis[N];
-int main(){
-	rd(n);
-	for(int i=1,x;i&lt;=n;++i){
-		rd(x);
-		while(x){
-			tu[i][x]=1;
-			rd(x);
-		}
-	}
-	for(int i=1;i&lt;=n;++i){
-		for(int j=1;j&lt;=n;++j){
-			if(i!=j){
-				if(tu[i][j]&amp;&amp;tu[j][i])continue;
-				tu[i][j]=tu[i][j]=0;
-			}
-		}
-	}
-	for(int i=1;i&lt;=n;++i){
-		if(!col[i]){
-			++tsum;
-			dfs(i,0,1);
-		}
-	}
-	pre[0][0]=1;
-	for(int i=1;i&lt;=tsum;++i){
-		for(int j=1;j&lt;=n/2;++j){
-			int k=j-num[i][1];
-			if(k&gt;=0){if(pre[i-1][k])pre[i][j]=1;}
-			k=j-num[i][2];
-			if(k&gt;=0){if(pre[i-1][k])pre[i][j]=2;}
-		}
-	}
-	int ans=n/2;
-	for(int i=n/2;i;--i)if(pre[tsum][i]){ans=i;break;}
-	printf(&quot;%d &quot;,ans);
-	for(int i=tsum;i;--i){
-		for(int j=0;j&lt;V[i][pre[i][ans]].size();++j)vis[V[i][pre[i][ans]][j]]=1;
-		ans-=num[i][pre[i][ans]];
-	}
-	for(int i=1;i&lt;=n;++i)if(vis[i])printf(&quot;%d &quot;,i),++ans;
-	printf(&quot;\n%d &quot;,n-ans);
-	for(int i=1;i&lt;=n;++i)if(!vis[i])printf(&quot;%d &quot;,i);
 	system(&quot;Pause&quot;);
 	return 0;
 }

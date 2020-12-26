@@ -6,7 +6,7 @@
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="开端顺利 自这天起 离乡背井 等候春息  身处何地 等候春息">
 <meta name="theme-color" content="#000">
-<title>                            省选补题计划 | 春待ち</title>
+<title>[HNOI2005星际贸易][动态规划][单调队列优化][背包路径] | 春待ち</title>
 <link rel="shortcut icon" href="https://miuyou.github.io//favicon.ico?v=1608996041887">
 <link rel="stylesheet" href="https://miuyou.github.io//styles/main.css">
 
@@ -25,8 +25,8 @@
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
     onload="renderMathInElement(document.body);"></script>
 
-    <meta name="description" content="                            省选补题计划" />
-    <meta name="keywords" content="做题计划" />
+    <meta name="description" content="[HNOI2005星际贸易][动态规划][单调队列优化][背包路径]" />
+    <meta name="keywords" content="数据结构优化DP,动态规划,背包,解题报告" />
   </head>
   <body>
     <div class="head-top-line"></div>
@@ -134,8 +134,7 @@
       <div class="sidebar-body muse" id="sidebar_body">
         
           
-            <div class="post-side-meta" id="post_side_meta">
-              
+            
 <div class="sidebar-wrapper box-shadow-wrapper ">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="https://miuyou.github.io//images/avatar.png"/>
@@ -168,185 +167,6 @@
 
 
 </div>
-            </div>
-            <div class="post-toc sidebar-body-active" id="post_toc" style="opacity: 1;">
-              <div class="toc-box right-motion">
-  <div class="toc-wrapper auto-number auto" id="toc_wrapper">
-    <ul class="markdownIt-TOC">
-<li>
-<ul>
-<li><a href="#-more-"><!-- more --></a></li>
-<li><a href="#qwq">qwq</a></li>
-<li><a href="#%E5%8A%A0%E6%B2%B9">加油!</a></li>
-<li><a href="#%E5%93%AA%E6%80%95%E7%A8%8D%E5%BE%AE%E4%B8%8D%E9%82%A3%E4%B9%88%E5%BC%B1%E4%B9%9F%E5%A5%BD%E5%95%8Aqwq">哪怕稍微不那么弱也好啊qwq</a></li>
-<li><a href="#%E4%B8%8B%E9%9D%A2%E5%B0%B1%E6%98%AF%E5%86%99%E8%BF%87%E7%9A%84%E9%A2%98%E5%95%A6qwq">下面就是写过的题啦qwq</a></li>
-</ul>
-</li>
-</ul>
-
-  </div>
-</div>
-
-<script>
-
-let lastTop = 0, lList = [], hList = [], postBody, lastIndex = -1; 
-let active = 'active-show', activeClass = 'active-current';
-let tocWrapper = document.querySelector('#toc_wrapper');
-let tocContent = tocWrapper.children[0];
-let autoNumber = tocWrapper&&tocWrapper.classList.contains('auto-number');
-
-function addTocNumber(elem, deep) {
-  if (!elem) {
-    return;
-  }
-  let prop = elem.__proto__;
-
-  if (prop === HTMLUListElement.prototype) {
-    for (let i = 0; i < elem.children.length; i++) {
-      addTocNumber(elem.children[i], deep + (i + 1) + '.');
-    }
-  } else if (prop === HTMLLIElement.prototype) {
-    // 保存li元素
-    lList.push(elem);
-    for (let i = 0; i < elem.children.length; i++) {
-      let cur = elem.children[i];
-      if (cur.__proto__ === HTMLAnchorElement.prototype) {
-        if (autoNumber) {
-          cur.text =  deep + ' ' + cur.text;
-        }
-      } else if (cur.__proto__ === HTMLUListElement.prototype) {
-        addTocNumber(cur, deep);
-      }
-    }
-  }
-}
-
-
-document.addEventListener('scroll', function(e) {
-  if (lList.length <= 0) {
-    return;
-  }
-  let scrollTop = document.scrollingElement.scrollTop;
-  let dir;
-
-  if (lastTop - scrollTop > 0) {
-    dir = 'up';
-  } else {
-    dir = 'down';
-  }
-
-  lastTop = scrollTop;
-  if (scrollTop <= 0) {
-    if (lastIndex >= 0 && lastIndex < hList.length) {
-      lList[lastIndex].classList.remove(activeClass);
-    }
-    return;
-  }
-
-  let current = 0, hasFind = false;
-  for (let i = 0; i < hList.length; i++) {
-    if (hList[i].offsetTop > scrollTop) {
-      current = i;
-      hasFind = true;
-      break;
-    }
-  }
-  if (!hasFind && scrollTop > lList[lList.length - 1].offsetTop) {
-    current = hList.length - 1;
-  } else {
-    current--;
-  }
-  if (dir === 'down') {
-    if (current > lastIndex) {
-      addActiveClass(current);
-      removeActiveClass(lastIndex) 
-      lastIndex = current;
-      removeParentActiveClass();
-      lList[current] && addActiveLiElemment(lList[current].parentElement,tocContent);
-    }
-  } else {
-    if (current < lastIndex) {
-      addActiveClass(current);
-      removeActiveClass(lastIndex);
-      lastIndex = current;
-      removeParentActiveClass();
-      lList[current] && addActiveLiElemment(lList[current].parentElement,tocContent);
-    }
-  }
-});
-
-function removeParentActiveClass() {
-  let parents = tocContent.querySelectorAll('.'+active)
-  parents.forEach(function(elem) {
-    elem.classList.remove(active);
-  });
-}
-
-function addActiveClass(index) {
-  if (index >= 0 && index < hList.length) {
-    lList[index].classList.add(activeClass);
-  }
-}
-
-function removeActiveClass(index) {
-  if (index >= 0 && index < hList.length) {
-    lList[index].classList.remove(activeClass);
-  }
-}
-
-function addActiveLiElemment(elem, parent) {
-  if (!elem || elem === parent) {
-    return;
-  } else {
-    if (elem.__proto__ === HTMLLIElement.prototype) {
-      elem.classList.add(active);
-    }
-    addActiveLiElemment(elem.parentElement, parent);
-  }
-}
-
-function showToc() {
-  if (tocWrapper) {
-    postBody = document.querySelector('#post_body');
-    for (let i = 0; i < postBody.children.length; i++) {
-      if (postBody.children[i].__proto__ === HTMLHeadingElement.prototype) {
-        hList.push(postBody.children[i]);
-      }
-    }
-    if (tocWrapper.classList.contains('compress')) {
-        tocContent.classList.add('closed');
-    } else if (tocWrapper.classList.contains('no_compress')){
-      tocContent.classList.add('expanded');
-    } else {
-      if (hList.length > 10) {
-        active = 'active-hidden'
-        tocContent.classList.add('closed');
-      } else {
-        tocContent.classList.add('expanded');
-      }
-    }
-  }
-}
-addTocNumber(tocContent, '');
-
-window.addEventListener('load', function() {
-  showToc();
-  document.querySelector('#sidebar').style='display: block;';
-  tocWrapper.classList.add('toc-active');
-  setTimeout(function() {
-    if ("createEvent" in document) {
-      let evt = document.createEvent("HTMLEvents");
-      evt.initEvent("scroll", false, true);
-      document.dispatchEvent(evt);
-    }
-    else {
-      document.fireEvent("scroll");
-    }
-  }, 500)
-})
-
-</script>
-            </div>
           
         
       </div>
@@ -434,8 +254,8 @@ window.addEventListener('load', function() {
             <div class="section bg-color post post-page">
               <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://miuyou.github.io/post/sheng-xuan-bu-ti-ji-hua-qwq/">
-                                  省选补题计划
+    <a class="post-title-link" href="https://miuyou.github.io/post/hnoi2005-xing-ji-mao-yi-dong-tai-gui-hua-dan-diao-dui-lie-you-hua-bei-bao-lu-jing/">
+      [HNOI2005星际贸易][动态规划][单调队列优化][背包路径]
     </a>
   </h1>
   <div class="post-meta">
@@ -443,7 +263,7 @@ window.addEventListener('load', function() {
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span>发布于</span>
-      <span>2020-03-01</span>
+      <span>2020-12-26</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
@@ -452,8 +272,26 @@ window.addEventListener('load', function() {
         <span class="pc-show">分类于</span>
         
           
-            <a href="https://miuyou.github.io/tag/xSHNQSBwo/">
-              <span>做题计划</span>
+            <a href="https://miuyou.github.io/tag/5HqiWQ-GMt/">
+              <span>数据结构优化DP</span>
+            </a>、
+          
+        
+          
+            <a href="https://miuyou.github.io/tag/H8_sOUGQ-/">
+              <span>动态规划</span>
+            </a>、
+          
+        
+          
+            <a href="https://miuyou.github.io/tag/kUaDm9EwVd/">
+              <span>背包</span>
+            </a>、
+          
+        
+          
+            <a href="https://miuyou.github.io/tag/YwKQwG2g8/">
+              <span>解题报告</span>
             </a>
           
         
@@ -467,10 +305,10 @@ window.addEventListener('load', function() {
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>630<span class="pc-show">字数</span></span>
+      <span>526<span class="pc-show">字数</span></span>
     </span>
     
-      <span id="/post/sheng-xuan-bu-ti-ji-hua-qwq/" class="meta-item pc-show leancloud_visitors">
+      <span id="/post/hnoi2005-xing-ji-mao-yi-dong-tai-gui-hua-dan-diao-dui-lie-you-hua-bei-bao-lu-jing/" class="meta-item pc-show leancloud_visitors">
         <span class="post-meta-divider">|</span>
         <i class="fa fa-eye"></i>
         <span>浏览量：<span class="leancloud-visitors-count" ></span></span>
@@ -479,94 +317,66 @@ window.addEventListener('load', function() {
   </div>
 </header>
               <div class="post-body next-md-body" id="post_body">
-                <p>因为窝太弱了,所以决定把省选题都刷了!<br>
-<img src="https://miuyou.github.io//post-images/1583297086560.jpg" alt="" loading="lazy"></p>
-<h2 id="-more-"><!-- more --></h2>
-<h2 id="qwq">qwq</h2>
-<h2 id="加油">加油!</h2>
-<h2 id="哪怕稍微不那么弱也好啊qwq">哪怕稍微不那么弱也好啊qwq</h2>
-<h2 id="下面就是写过的题啦qwq">下面就是写过的题啦qwq</h2>
-<ul>
-<li><a href="https://www.luogu.com.cn/problem/P1110">P1110 [ZJOI2007]报表统计</a><br>
-(完成)使用mulbiset过平衡树太棒啦(๑•̀ㅂ•́)و✧</li>
-<li><a href="https://www.luogu.com.cn/problem/P1128">P1128 [HNOI2001]求正整数</a></li>
+                <ul>
+<li><a href="https://www.luogu.com.cn/problem/P2317">P2317 [HNOI2005]星际贸易</a></li>
 </ul>
-<p>因为做过反素数,所以知道一个数字的因子个数该怎么算,而这题要求这个的逆运算,因为之前是搜索然后筛选,这次要逆向的话似乎也可以搜索,但数据范围不允许这种玄学算法通过,可以考虑dp,似乎是n方的,因为数字过大所以要转化转移方程,因为涉及到a的b次方,可以取对数优化</p>
-<ul>
-<li><a href="https://www.luogu.com.cn/problem/P1129">P1129 [ZJOI2007]矩阵游戏</a></li>
-</ul>
-<p>转换一下模型,可以发现是行对列匹配,转换成最大流解决</p>
-<ul>
-<li><a href="https://www.luogu.com.cn/problem/P1131">P1131 [ZJOI2007]时态同步</a><br>
-简单的树形<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mi>p</mi></mrow><annotation encoding="application/x-tex">dp</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">p</span></span></span></span></li>
-<li><a href="https://www.luogu.com.cn/problem/P1169">P1169 [ZJOI2007]棋盘制作</a><br>
-正方形悬线模板秒了,长方形要改一下,考虑从上向下转移,左右同时维护</li>
-<li><a href="https://www.luogu.com.cn/problem/P1197">P1197 [JSOI2008]星球大战</a><br>
-正难则反</li>
-<li><a href="https://www.luogu.com.cn/problem/P1198">P1198 [JSOI2008]最大数</a><br>
-动态开点线段树</li>
-<li><a href="https://www.luogu.com.cn/problem/P1291">P1291 [SHOI2002]百事世界杯之旅</a><br>
-概率期望入门</li>
-</ul>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="https://www.luogu.com.cn/problem/P1295">P1295 [TJOI2011]书架</a><br>
-非常有趣的单调队列+双端队列优化dp,论如何动态维护最大值,O(1)</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><a href="https://www.luogu.com.cn/problem/P1337">P1337 [JSOI2004]平衡点 / 吊打XXX</a><br>
-模拟退火,自创多种随机化(单种过不了</li>
-<li><a href="https://www.luogu.com.cn/problem/P1377">P1377 [TJOI2011]树的序</a><br>
-欸,思维题</li>
-<li><a href="https://www.luogu.com.cn/problem/P1418">P1418 [TJOI2011]构造矩阵</a><br>
-网络流有趣的题目</li>
-<li><a href="https://www.luogu.com.cn/problem/P1434">P1434 [SHOI2002]滑雪</a><br>
-入门水题,注意边界</li>
-<li><a href="https://www.luogu.com.cn/problem/P1437">P1437 [HNOI2004]敲砖块</a><br>
-还不错的dp,写写写就对了,考虑合理运用边界来进行跳跃式转移</li>
-<li><a href="https://www.luogu.com.cn/problem/P1446">P1446 [HNOI2008]Cards</a></li>
-<li><a href="https://www.luogu.com.cn/problem/P1450">P1450 [HAOI2008]硬币购物</a><br>
-憨批榕树原理dp</li>
-<li><a href="https://www.luogu.com.cn/problem/P1463">P1463 [POI2002][HAOI2007]反素数</a><br>
-挺不错的搜索</li>
-<li><a href="https://www.luogu.com.cn/problem/P1627">P1627 [CQOI2009]中位数</a><br>
-弱智题,开个桶记录一下就好了</li>
-<li><a href="https://www.luogu.com.cn/problem/P1640">P1640 [SCOI2010]连续攻击游戏</a><br>
-比较有趣的并查集</li>
-<li><a href="https://www.luogu.com.cn/problem/P1641">P1641 [SCOI2010]生成字符串</a><br>
-组合计数基础</li>
-<li><a href="https://www.luogu.com.cn/problem/P1772">P1772 [ZJOI2006]物流运输</a><br>
-dp+最短路</li>
-<li><a href="https://www.luogu.com.cn/problem/P1841">P1841 [JSOI2007]重要的城市</a><br>
-dij做n遍,在最短路中若一条最短边是唯一的则起点为重要城市</li>
-<li><a href="https://www.luogu.com.cn/problem/P1896">P1896 [SCOI2005]互不侵犯</a><br>
-设dp状态为第i行放了第j种方式总共z个,谔谔</li>
-<li><a href="https://www.luogu.com.cn/problem/P1972">P1972 [SDOI2009]HH的项链</a><br>
-树状数组离线搞,主席树在线</li>
-<li><a href="https://www.luogu.com.cn/problem/P2023">P2023 [AHOI2009]维护序列</a><br>
-弱智低能题,就是一个模板(</li>
-<li><a href="https://www.luogu.com.cn/problem/P2039">P2039 [AHOI2009]跳棋</a><br>
-谔谔dp,谁知道讷</li>
-</ul>
-<ul>
-<li>
-<ul>
-<li><a href="https://www.luogu.com.cn/problem/P2051">P2051 [AHOI2009]中国象棋</a><br>
-神仙dp题</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><a href="https://www.luogu.com.cn/problem/P2053">P2053 [SCOI2007]修车</a><br>
-普通的费用流</li>
-</ul>
+<p>首先背包求出第一问,并且得到所有强制要选的点</p>
+<p>那么接下来就是要最下化满足要求的路径花费</p>
+<p>发现转移就俩种,要么从某个点飞过来要么原地加油,枚举某个点以及油量,复杂度<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><msup><mi>N</mi><mn>3</mn></msup><mo>)</mo></mrow><annotation encoding="application/x-tex">O(N^3)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>,用单调队列搞搞就能优化成<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><msup><mi>N</mi><mn>2</mn></msup><mo>)</mo></mrow><annotation encoding="application/x-tex">O(N^2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></p>
+<p>然鹅这题在背包部分翻车了....不该省的不要省,多重背包做不到<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>N</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(N)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mclose">)</span></span></span></span>的空间复杂度的</p>
+<pre><code class="language-cpp">
+ rd(n);rd(m);rd(RR);rd(LL);
+    RR=min(RR,2*n);
+    for(int i=1;i&lt;=n;++i){
+        rd(a[i]);rd(b[i]);rd(l[i]);rd(p[i]);rd(f[i]);
+    }
+    for(int i=1;i&lt;=n;++i){
+        if(l[i]-l[i-1]&gt;LL){
+            puts(&quot;Poor Coke!&quot;);return 0;
+        }
+    }
+    memset(bb,-1,sizeof(bb));
+    bb[0][0]=0;
+    for(int i=1;i&lt;=n;++i){
+        for(int j=0;j&lt;=m;++j){
+            if(bb[i-1][j]&gt;=0)bb[i][j]=bb[i-1][j];
+            if(j&gt;=a[i]&amp;&amp;bb[i-1][j-a[i]]&gt;=0){
+                bb[i][j]=max(bb[i][j],bb[i-1][j-a[i]]+b[i]);
+            }
+        }
+    }
+    int an=0;int tp=0;
+    for(int i=0;i&lt;=m;++i)if(bb[n][i]&gt;bb[n][an])an=i;
+    for(int i=n,j=an;i;--i){
+        if(bb[i][j]==bb[i-1][j])continue;
+        else vis[i]=1,j-=a[i];
+    }an=bb[n][an];
+    
+    memset(dp,0x3f,sizeof(dp));
+    for(int i=0;i&lt;=RR;++i)L[i]=1;
+    dp[0][RR]=0;
+    q[RR][++R[RR]]=0;
+    vis[n]=1;
+    for(int i=1;i&lt;=n;++i){
+        for(int j=0;j&lt;=RR;++j){
+            if(p[i]&gt;0&amp;&amp;j&gt;0)dp[i][j]=min(dp[i][j],dp[i][j-1]+p[i]);
+          
+            if(L[j+2]&lt;=R[j+2])
+            dp[i][j]=min(dp[i][j],dp[q[j+2][L[j+2]]][j+2]+f[i]);
+            if(vis[i])L[j]=1,R[j]=0;
+            while(L[j]&lt;=R[j]&amp;&amp;(dp[q[j][R[j]]][j]&gt;=dp[i][j]))--R[j];
+            q[j][++R[j]]=i;
+              while (L[j]&lt;=R[j]&amp;&amp;(l[i+1]-l[q[j][L[j]]]&gt;LL))++L[j];
+        }
+    }
+    int ans=0;
+    for(int i=0;i&lt;=RR;++i){if(dp[n][i]&lt;dp[n][ans])ans=i;//cout&lt;&lt;dp[n][i]&lt;&lt;endl;
+    };
+    if(dp[n][ans]==dp[0][0])puts(&quot;Poor Coke!&quot;);
+    else printf(&quot;%d %d&quot;,an,an-dp[n][ans]);
+
+
+    ```</code></pre>
 
               </div>
               <div class="post-footer">
@@ -577,7 +387,7 @@ dij做n遍,在最短路中若一条最短边是唯一的则起点为重要城市
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://miuyou.github.io/post/sheng-xuan-bu-ti-ji-hua-qwq/" title="                            省选补题计划">                            省选补题计划</a>
+      <a href="https://miuyou.github.io/post/hnoi2005-xing-ji-mao-yi-dong-tai-gui-hua-dan-diao-dui-lie-you-hua-bei-bao-lu-jing/" title="[HNOI2005星际贸易][动态规划][单调队列优化][背包路径]">[HNOI2005星际贸易][动态规划][单调队列优化][背包路径]</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -586,21 +396,27 @@ dij做n遍,在最短路中若一条最短边是唯一的则起点为重要城市
   </ul>
   <div class="tags">
     
-      <a href="https://miuyou.github.io/tag/xSHNQSBwo/"># 做题计划</a>
+      <a href="https://miuyou.github.io/tag/5HqiWQ-GMt/"># 数据结构优化DP</a>
+    
+      <a href="https://miuyou.github.io/tag/H8_sOUGQ-/"># 动态规划</a>
+    
+      <a href="https://miuyou.github.io/tag/kUaDm9EwVd/"># 背包</a>
+    
+      <a href="https://miuyou.github.io/tag/YwKQwG2g8/"># 解题报告</a>
     
   </div>
   <div class="nav">
     <div class="nav-prev">
       
         <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="Miu_you の 网络流" href="https://miuyou.github.io/post/miu_you-no-wang-luo-liu/">Miu_you の 网络流</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="Miu_you の 网络流" href="https://miuyou.github.io/post/miu_you-no-wang-luo-liu/">上一篇</a>
+        <a class="nav-pc-next" title="[HNOI2006字符串拼接][字符串][BFS][AC自动机]" href="https://miuyou.github.io/post/hnoi2006-zi-fu-chuan-pin-jie-zi-fu-chuan-bfsac-zi-dong-ji/">[HNOI2006字符串拼接][字符串][BFS][AC自动机]</a class="nav-pc-next">
+        <a class="nav-mobile-prev" title="[HNOI2006字符串拼接][字符串][BFS][AC自动机]" href="https://miuyou.github.io/post/hnoi2006-zi-fu-chuan-pin-jie-zi-fu-chuan-bfsac-zi-dong-ji/">上一篇</a>
       
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" title="[HEOI2016/TJOI2016]排序 题解" href="https://miuyou.github.io/post/heoi2016tjoi2016pai-xu-ti-jie/">[HEOI2016/TJOI2016]排序 题解</a>
-        <a class="nav-mobile-next" title="[HEOI2016/TJOI2016]排序 题解" href="https://miuyou.github.io/post/heoi2016tjoi2016pai-xu-ti-jie/">下一篇</a>
+        <a class="nav-pc-next" title="[逛庙会][动态规划][状态压缩]" href="https://miuyou.github.io/post/guang-miao-hui-dong-tai-gui-hua-zhuang-tai-ya-suo/">[逛庙会][动态规划][状态压缩]</a>
+        <a class="nav-mobile-next" title="[逛庙会][动态规划][状态压缩]" href="https://miuyou.github.io/post/guang-miao-hui-dong-tai-gui-hua-zhuang-tai-ya-suo/">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>
