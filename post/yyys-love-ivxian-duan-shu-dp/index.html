@@ -6,7 +6,7 @@
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="开端顺利 自这天起 离乡背井 等候春息  身处何地 等候春息">
 <meta name="theme-color" content="#000">
-<title>倒逆之战 | 春待ち</title>
+<title>[yyy&#39;s love IV][线段树DP] | 春待ち</title>
 <link rel="shortcut icon" href="https://miuyou.github.io//favicon.ico?v=1609084078171">
 <link rel="stylesheet" href="https://miuyou.github.io//styles/main.css">
 
@@ -25,8 +25,8 @@
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
     onload="renderMathInElement(document.body);"></script>
 
-    <meta name="description" content="倒逆之战" />
-    <meta name="keywords" content="回忆录" />
+    <meta name="description" content="[yyy's love IV][线段树DP]" />
+    <meta name="keywords" content="数据结构优化DP,动态规划,解题报告" />
   </head>
   <body>
     <div class="head-top-line"></div>
@@ -254,8 +254,8 @@
             <div class="section bg-color post post-page">
               <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://miuyou.github.io/post/dao-ni-zhi-zhan/">
-      倒逆之战
+    <a class="post-title-link" href="https://miuyou.github.io/post/yyys-love-ivxian-duan-shu-dp/">
+      [yyy&#39;s love IV][线段树DP]
     </a>
   </h1>
   <div class="post-meta">
@@ -263,7 +263,7 @@
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span>发布于</span>
-      <span>2020-12-21</span>
+      <span>2020-12-27</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
@@ -272,8 +272,20 @@
         <span class="pc-show">分类于</span>
         
           
-            <a href="https://miuyou.github.io/tag/IKFHjo2UM/">
-              <span>回忆录</span>
+            <a href="https://miuyou.github.io/tag/5HqiWQ-GMt/">
+              <span>数据结构优化DP</span>
+            </a>、
+          
+        
+          
+            <a href="https://miuyou.github.io/tag/H8_sOUGQ-/">
+              <span>动态规划</span>
+            </a>、
+          
+        
+          
+            <a href="https://miuyou.github.io/tag/YwKQwG2g8/">
+              <span>解题报告</span>
             </a>
           
         
@@ -282,15 +294,15 @@
     
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>1分钟</span>
+      <span>2分钟</span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>30<span class="pc-show">字数</span></span>
+      <span>280<span class="pc-show">字数</span></span>
     </span>
     
-      <span id="/post/dao-ni-zhi-zhan/" class="meta-item pc-show leancloud_visitors">
+      <span id="/post/yyys-love-ivxian-duan-shu-dp/" class="meta-item pc-show leancloud_visitors">
         <span class="post-meta-divider">|</span>
         <i class="fa fa-eye"></i>
         <span>浏览量：<span class="leancloud-visitors-count" ></span></span>
@@ -299,9 +311,47 @@
   </div>
 </header>
               <div class="post-body next-md-body" id="post_body">
-                <p>2020.12.21决定命运的选择</p>
-<p>---- 喝了教练泡的感冒药!好耶!</p>
-<p>---- 脑瘫模拟DP,死了死了</p>
+                <ul>
+<li><a href="https://www.luogu.com.cn/problem/P2418">P2418 yyy loves OI IV</a></li>
+</ul>
+<p>我光想想就硬了(指拳头)</p>
+<p>很容易想,需要处理的是快速查询可行区间最小值,使用线段树即可,至于臭味相投的人那就另外整点东西处理下就行了</p>
+<p>注意:线段树是建立在<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span>轴上的,包括负区间....</p>
+<pre><code class="language-cpp">int x[N],y[N],X[N],Y[N],g[N];
+int main(){
+	rd(n);rd(m);
+	for(int i=1;i&lt;=n;++i){
+		rd(a[i]);
+		if(a[i]==1)a[i]=-1;
+		else a[i]=1;
+		x[i]=x[i-1]+(a[i]==-1);
+		y[i]=y[i-1]+(a[i]==1);
+	}
+	memset(t,0x3f,sizeof(t));
+	memset(g,0x3f,sizeof(g));
+	memset(X,0x3f,sizeof(X));
+	memset(Y,0x3f,sizeof(Y));
+	update(1,-M,M,0,0);
+	X[0]=Y[0]=g[M]=0;
+	int opt,num;
+	opt=0;num=0;
+	f[0]=0;
+	for(int i=1;i&lt;=n;++i){
+		sum[i]=sum[i-1]+a[i];
+		f[i]=query(1,-M,M,max(sum[i]-m,-M),min(M,sum[i]+m))+1;
+		f[i]=min(f[i],f[i-1]+1);
+		f[i]=min(f[i],X[x[i]]+1);
+		f[i]=min(f[i],Y[y[i]]+1);
+		X[x[i]]=min(f[i],X[x[i]]);
+		Y[y[i]]=min(f[i],Y[y[i]]);
+		update(1,-M,M,sum[i],f[i]);
+	}
+	cout&lt;&lt;f[n]&lt;&lt;endl;
+	system(&quot;Pause&quot;);
+    return 0;
+}
+
+</code></pre>
 
               </div>
               <div class="post-footer">
@@ -312,7 +362,7 @@
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://miuyou.github.io/post/dao-ni-zhi-zhan/" title="倒逆之战">倒逆之战</a>
+      <a href="https://miuyou.github.io/post/yyys-love-ivxian-duan-shu-dp/" title="[yyy&#39;s love IV][线段树DP]">[yyy&#39;s love IV][线段树DP]</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -321,21 +371,21 @@
   </ul>
   <div class="tags">
     
-      <a href="https://miuyou.github.io/tag/IKFHjo2UM/"># 回忆录</a>
+      <a href="https://miuyou.github.io/tag/5HqiWQ-GMt/"># 数据结构优化DP</a>
+    
+      <a href="https://miuyou.github.io/tag/H8_sOUGQ-/"># 动态规划</a>
+    
+      <a href="https://miuyou.github.io/tag/YwKQwG2g8/"># 解题报告</a>
     
   </div>
   <div class="nav">
     <div class="nav-prev">
       
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="[花园][动态规划][状态压缩][矩阵转移]" href="https://miuyou.github.io/post/hua-yuan-dong-tai-gui-hua-zhuang-tai-ya-suo-ju-zhen-zhuan-yi/">[花园][动态规划][状态压缩][矩阵转移]</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="[花园][动态规划][状态压缩][矩阵转移]" href="https://miuyou.github.io/post/hua-yuan-dong-tai-gui-hua-zhuang-tai-ya-suo-ju-zhen-zhuan-yi/">上一篇</a>
-      
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" title="[队员分组][动态规划][二分图][01背包]" href="https://miuyou.github.io/post/dui-yuan-fen-zu-dong-tai-gui-hua-er-fen-tu-01-bei-bao/">[队员分组][动态规划][二分图][01背包]</a>
-        <a class="nav-mobile-next" title="[队员分组][动态规划][二分图][01背包]" href="https://miuyou.github.io/post/dui-yuan-fen-zu-dong-tai-gui-hua-er-fen-tu-01-bei-bao/">下一篇</a>
+        <a class="nav-pc-next" title="[HNOI2006字符串拼接][字符串][BFS][AC自动机]" href="https://miuyou.github.io/post/hnoi2006-zi-fu-chuan-pin-jie-zi-fu-chuan-bfsac-zi-dong-ji/">[HNOI2006字符串拼接][字符串][BFS][AC自动机]</a>
+        <a class="nav-mobile-next" title="[HNOI2006字符串拼接][字符串][BFS][AC自动机]" href="https://miuyou.github.io/post/hnoi2006-zi-fu-chuan-pin-jie-zi-fu-chuan-bfsac-zi-dong-ji/">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>

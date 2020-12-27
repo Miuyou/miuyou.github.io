@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://miuyou.github.io/</id>
     <title>春待ち</title>
-    <updated>2020-12-26T15:20:45.669Z</updated>
+    <updated>2020-12-27T15:48:03.905Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://miuyou.github.io/"/>
     <link rel="self" href="https://miuyou.github.io/atom.xml"/>
@@ -10,6 +10,55 @@
     <logo>https://miuyou.github.io/images/avatar.png</logo>
     <icon>https://miuyou.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 春待ち</rights>
+    <entry>
+        <title type="html"><![CDATA[[yyy's love IV][线段树DP]]]></title>
+        <id>https://miuyou.github.io/post/yyys-love-ivxian-duan-shu-dp/</id>
+        <link href="https://miuyou.github.io/post/yyys-love-ivxian-duan-shu-dp/">
+        </link>
+        <updated>2020-12-27T15:45:12.000Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li><a href="https://www.luogu.com.cn/problem/P2418">P2418 yyy loves OI IV</a></li>
+</ul>
+<p>我光想想就硬了(指拳头)</p>
+<p>很容易想,需要处理的是快速查询可行区间最小值,使用线段树即可,至于臭味相投的人那就另外整点东西处理下就行了</p>
+<p>注意:线段树是建立在<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span>轴上的,包括负区间....</p>
+<pre><code class="language-cpp">int x[N],y[N],X[N],Y[N],g[N];
+int main(){
+	rd(n);rd(m);
+	for(int i=1;i&lt;=n;++i){
+		rd(a[i]);
+		if(a[i]==1)a[i]=-1;
+		else a[i]=1;
+		x[i]=x[i-1]+(a[i]==-1);
+		y[i]=y[i-1]+(a[i]==1);
+	}
+	memset(t,0x3f,sizeof(t));
+	memset(g,0x3f,sizeof(g));
+	memset(X,0x3f,sizeof(X));
+	memset(Y,0x3f,sizeof(Y));
+	update(1,-M,M,0,0);
+	X[0]=Y[0]=g[M]=0;
+	int opt,num;
+	opt=0;num=0;
+	f[0]=0;
+	for(int i=1;i&lt;=n;++i){
+		sum[i]=sum[i-1]+a[i];
+		f[i]=query(1,-M,M,max(sum[i]-m,-M),min(M,sum[i]+m))+1;
+		f[i]=min(f[i],f[i-1]+1);
+		f[i]=min(f[i],X[x[i]]+1);
+		f[i]=min(f[i],Y[y[i]]+1);
+		X[x[i]]=min(f[i],X[x[i]]);
+		Y[y[i]]=min(f[i],Y[y[i]]);
+		update(1,-M,M,sum[i],f[i]);
+	}
+	cout&lt;&lt;f[n]&lt;&lt;endl;
+	system(&quot;Pause&quot;);
+    return 0;
+}
+
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[[HNOI2006字符串拼接][字符串][BFS][AC自动机]]]></title>
         <id>https://miuyou.github.io/post/hnoi2006-zi-fu-chuan-pin-jie-zi-fu-chuan-bfsac-zi-dong-ji/</id>
@@ -773,76 +822,6 @@ for(int i=1;i&lt;=n;++i){
 		if(nex&gt;=3)nex=0;
 	}
 	cout&lt;&lt;ans&lt;&lt;endl;
-
-</code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[[花园][动态规划][状态压缩][矩阵转移]]]></title>
-        <id>https://miuyou.github.io/post/hua-yuan-dong-tai-gui-hua-zhuang-tai-ya-suo-ju-zhen-zhuan-yi/</id>
-        <link href="https://miuyou.github.io/post/hua-yuan-dong-tai-gui-hua-zhuang-tai-ya-suo-ju-zhen-zhuan-yi/">
-        </link>
-        <updated>2020-12-21T06:50:53.000Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li><a href="https://www.luogu.com.cn/problem/P1357">P1357 花园</a></li>
-</ul>
-<p>数据范围一看就是要矩阵快速幂<br>
-考虑直接在序列上转移,发现行不通....<br>
-换个角度把每一段的状态给他状压一下,求出可行性矩阵,然后加速一下</p>
-<pre><code class="language-cpp">
-ll n,m,k;
-int list[N],num;
-inline int bit(int x){
-	int nm=0;
-	while(x){
-		if(x&amp;1)++nm;
-		x&gt;&gt;=1;
-	}return nm;
-}
-
-struct SpringWait{
-	ll f[N][N];
-	SpringWait(){memset(f,0,sizeof(f));}
-}a;
-inline SpringWait operator *(SpringWait x,SpringWait y){
-	SpringWait z;
-	for(int k=1;k&lt;=num;++k)
-	for(int i=1;i&lt;=num;++i){
-		for(int j=1;j&lt;=num;++j){
-			z.f[i][j]=(z.f[i][j]+1ll*x.f[i][k]*y.f[k][j]%mod)%mod;
-		}
-	}return z;
-}
-inline SpringWait ksm(SpringWait x,ll y){
-	SpringWait ans;
-	for(int i=1;i&lt;=num;++i){
-		ans.f[i][i]=1ll;
-	}
-	while(y){
-		if(y&amp;1)ans=ans*x;
-		x=x*x;
-		y&gt;&gt;=1;
-	}return ans;
-}
-int tp[N];
-int main(){
-	rd(n);rd(m);rd(k);
-	for(int i=0;i&lt;(1&lt;&lt;m);++i)if(bit(i)&lt;=k)list[++num]=i,tp[i]=num;
-	for(int i=1;i&lt;=num;++i){
-		a.f[i][tp[(list[i]&gt;&gt;1)]]=1;
-		a.f[i][tp[(list[i]&gt;&gt;1)|(1&lt;&lt;(m-1))]]=1;
-
-	}
-
-	SpringWait b=ksm(a,n);
-	ll ans=0;
-	for(int i=1;i&lt;=num;++i){
-		ans=(ans+b.f[i][i])%mod;
-	}
-	printf(&quot;%lld\n&quot;,ans);
-	system(&quot;Pause&quot;);
-	return 0;
-}
 
 </code></pre>
 ]]></content>
