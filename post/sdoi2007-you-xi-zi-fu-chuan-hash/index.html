@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-      <meta charset="UTF-8"/>
+    <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="开端顺利 自这天起 离乡背井 等候春息  身处何地 等候春息">
 <meta name="theme-color" content="#000">
-<title>春待ち</title>
+<title>[SDOI2007游戏][字符串][HASH] | 春待ち</title>
 <link rel="shortcut icon" href="https://miuyou.github.io//favicon.ico?v=1609230306982">
 <link rel="stylesheet" href="https://miuyou.github.io//styles/main.css">
 
@@ -25,6 +25,8 @@
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
     onload="renderMathInElement(document.body);"></script>
 
+    <meta name="description" content="[SDOI2007游戏][字符串][HASH]" />
+    <meta name="keywords" content="hash,字符串,动态规划,解题报告" />
   </head>
   <body>
     <div class="head-top-line"></div>
@@ -114,10 +116,25 @@
     </div>
     <div class="main-continer">
       
-      <div class="section-layout bg-color muse">
+      <div class="section-layout muse bg-color">
         <div class="section-layout-wrapper">
-          <div class="sidebar">
-    
+          
+
+<div class="sidebar">
+  
+    <div class="sidebar-box box-shadow-wrapper  right-motion" id="sidebar">
+      
+        <div class="post-list-sidebar">
+          <div class="sidebar-title">
+            <span id="tocSideBar" class="sidebar-title-item sidebar-title-active">文章目录</span>
+            <span id="metaSideBar" class="sidebar-title-item">站点概览</span>
+          </div>
+        </div>
+      
+      <div class="sidebar-body muse" id="sidebar_body">
+        
+          
+            
 <div class="sidebar-wrapper box-shadow-wrapper ">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="https://miuyou.github.io//images/avatar.png"/>
@@ -150,277 +167,273 @@
 
 
 </div>
-</div>
-            <div class="section-box tag-line">
-              <div class="box-shadow-wrapper">
-                <div class="bg-color">
-                  <section class="section posts-expand">
-                    <div class="padding-wrapper">
-  <div class="tag-timeline-box">
-    <div class="tag-timeline-wrapper">
-      <div class="tag-timeline-title">
-        <h2>
-          数据结构优化DP
-          <small>标签</small>
-        </h2>
+          
+        
       </div>
-      
+    </div>
+  
+</div>
+<script>
+  const SIDEBAR_TITLE_ACTIVE = 'sidebar-title-active';
+  const SIDEBAR_BODY_ACTIVE = 'sidebar-body-active';
+  const SLIDE_UP_IN = 'slide-up-in';
+
+  let sidebar = document.querySelector('#sidebar'),
+  tocSideBar = document.querySelector('#tocSideBar'),
+  metaSideBar = document.querySelector('#metaSideBar'),
+  postToc = document.querySelector('#post_toc'),
+  postSiteMeta = document.querySelector('#post_side_meta'),
+  sidebarTitle = document.querySelector('.sidebar-title'),
+  sidebarBody = document.querySelector('#sidebar_body');
+
+  tocSideBar && tocSideBar.addEventListener('click', (e) => {
+    toggleSidebar(e);
+  });
+
+  metaSideBar && metaSideBar.addEventListener('click', (e) => {
+    toggleSidebar(e);
+  });
+
+  function toggleSidebar(e) {
+    let currentTitle = document.querySelector("."+SIDEBAR_TITLE_ACTIVE);
+    if (currentTitle == e.srcElement) {
+      return ;
+    }
+    let current, showElement, hideElement;
+    if (e.srcElement == metaSideBar) {
+      showElement = postSiteMeta;
+      hideElement = postToc;
+    } else if (e.srcElement == tocSideBar){
+      showElement = postToc;
+      hideElement = postSiteMeta;
+    }
+    currentTitle.classList.remove(SIDEBAR_TITLE_ACTIVE);
+    e.srcElement.classList.add(SIDEBAR_TITLE_ACTIVE);
+
+    window.Velocity(hideElement, 'stop');
+    window.Velocity(hideElement, 'transition.slideUpOut', {
+      display: 'none',
+      duration: 200,
+      complete: function () {
+        window.Velocity(showElement, 'transition.slideDownIn', {
+          duration: 200
+        });
+      }
+    })
+    hideElement.classList.remove(SIDEBAR_BODY_ACTIVE);
+    showElement.classList.add(SIDEBAR_BODY_ACTIVE);
+  }
+
+  postToc && postToc.addEventListener('transitionend', function() {
+    this.classList.remove(SLIDE_UP_IN);
+  });
+
+  if (sidebarBody) {
+    if (sidebarBody.classList.contains('pisces') || sidebarBody.classList.contains('gemini')) {
+      let hasFix = false;
+      let scrollEl = document.querySelector('.main-continer');
+      let limitTop = document.querySelector('#nav_ul').children.length * 42 + 162;
+      window.addEventListener('scroll', function(e) {
+        if (document.scrollingElement.scrollTop >= limitTop) {
+          if (!hasFix) {
+            sidebar.classList.add('sidebar-fixed');
+            hasFix = true;
+          }
+        } else {
+          if (hasFix) {
+            sidebar.classList.remove('sidebar-fixed');
+            hasFix = false;
+          }
+        }
+      });
+    }
+  }
+  
+</script>
+          <div class="section-box box-shadow-wrapper">
+            <div class="section bg-color post post-page">
+              <header class="post-header">
+  <h1 class="post-title">
+    <a class="post-title-link" href="https://miuyou.github.io/post/sdoi2007-you-xi-zi-fu-chuan-hash/">
+      [SDOI2007游戏][字符串][HASH]
+    </a>
+  </h1>
+  <div class="post-meta">
+    
+    <span class="meta-item pc-show">
+      <i class="fa fa-calendar-o"></i>
+      <span>发布于</span>
+      <span>2020-12-29</span>
+      <span class="post-meta-divider pc-show">|</span>
+    </span>
+    
+      <span class="meta-item">
+        <i class="fa fa-folder-o"></i>
+        <span class="pc-show">分类于</span>
         
+          
+            <a href="https://miuyou.github.io/tag/a_mT3fyMA/">
+              <span>hash</span>
+            </a>、
           
         
           
-        
+            <a href="https://miuyou.github.io/tag/ElNK0Ysau/">
+              <span>字符串</span>
+            </a>、
           
         
           
-        
-      
+            <a href="https://miuyou.github.io/tag/H8_sOUGQ-/">
+              <span>动态规划</span>
+            </a>、
+          
         
           
-            <a href="https://miuyou.github.io/post/yyys-love-ivxian-duan-shu-dp/">
-              <div class="motion-warpper">
-                <div class="tag-post-node">
-                  <h1>
-                    12-27
-                    <small>[yyy&#39;s love IV][线段树DP]</small>
-                  </h1>
-                </div>  
-              </div>
+            <a href="https://miuyou.github.io/tag/YwKQwG2g8/">
+              <span>解题报告</span>
             </a>
           
         
-          
-        
-          
-        
-      
-        
-          
-        
-          
-        
-          
-        
-      
-        
-          
-            <a href="https://miuyou.github.io/post/hnoi2005-xing-ji-mao-yi-dong-tai-gui-hua-dan-diao-dui-lie-you-hua-bei-bao-lu-jing/">
-              <div class="motion-warpper">
-                <div class="tag-post-node">
-                  <h1>
-                    12-26
-                    <small>[HNOI2005星际贸易][动态规划][单调队列优化][背包路径]</small>
-                  </h1>
-                </div>  
+      </span>
+      <span class="post-meta-divider">|</span>
+    
+    <span class="meta-item">
+      <i class="fa fa-clock-o"></i>
+      <span>2分钟</span>
+    </span>
+    <span class="meta-item">
+      <span class="post-meta-divider">|</span>
+      <i class="fa fa-file-word-o"></i>
+      <span>252<span class="pc-show">字数</span></span>
+    </span>
+    
+      <span id="/post/sdoi2007-you-xi-zi-fu-chuan-hash/" class="meta-item pc-show leancloud_visitors">
+        <span class="post-meta-divider">|</span>
+        <i class="fa fa-eye"></i>
+        <span>浏览量：<span class="leancloud-visitors-count" ></span></span>
+      </span>
+    
+  </div>
+</header>
+              <div class="post-body next-md-body" id="post_body">
+                <ul>
+<li><a href="https://www.luogu.com.cn/problem/P2462">P2462 [SDOI2007]游戏</a></li>
+</ul>
+<p>简单题,要咋做就咋做就行了,给他hash一下分层DP</p>
+<pre><code class="language-cpp">
+n=1;
+	while(~scanf(&quot;%s&quot;,ss+1)){
+		
+		a[n].len=strlen(ss+1);
+		for(int i=1;i&lt;=a[n].len;++i)a[n].s[i]=ss[i];
+		++n;
+	}--n;
+	sort(a+1,a+1+n);
+	int len=a[1].len;
+	pw[0]=1ll;
+	for(int i=1;i&lt;=100;++i)pw[i]=pw[i-1]*base%mod;
+	int tp=1;
+	for(int i=1;i&lt;=n&amp;&amp;a[i].len==len;++i){
+		f[i]=1;
+		insert(i);++tp;
+	}
+	if(tp==n+1){
+		cout&lt;&lt;1&lt;&lt;endl;
+		cout&lt;&lt;a[1].s&lt;&lt;endl;
+	}else{
+		for(int i=tp;i&lt;=n;i=tp){
+			for(tp=i;tp&lt;=n&amp;&amp;a[tp].len==a[i].len;++tp){
+				int x=get(tp);
+				int y=x;
+				f[tp]=1;
+				for(int j=1;j&lt;=a[tp].len;++j){
+					x=((y-pw[a[tp].s[j]-'a'])%mod+mod)%mod;
+					if(g[x]){
+						if(ha[x]+1&gt;f[tp]){
+							f[tp]=ha[x]+1;
+							nex[tp]=g[x];
+						}
+					}
+				}
+			}memset(ha,0,sizeof(ha));memset(g,0,sizeof(g));
+			for(int j=i;j&lt;tp;++j){
+				insert(j);
+			} 
+		}
+		int pt=1;
+		for(int i=1;i&lt;=n;++i){
+			if(f[i]&gt;f[pt]){
+				pt=i;
+			}
+		}
+		cout&lt;&lt;f[pt]&lt;&lt;endl;
+		dfs(pt);
+	}	
+
+    ```</code></pre>
+
               </div>
-            </a>
-          
-        
-          
-        
-          
-        
-          
-        
+              <div class="post-footer">
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      春待ち
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://miuyou.github.io/post/sdoi2007-you-xi-zi-fu-chuan-hash/" title="[SDOI2007游戏][字符串][HASH]">[SDOI2007游戏][字符串][HASH]</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，转载请注明出处！
+    </li>
+  </ul>
+  <div class="tags">
+    
+      <a href="https://miuyou.github.io/tag/a_mT3fyMA/"># hash</a>
+    
+      <a href="https://miuyou.github.io/tag/ElNK0Ysau/"># 字符串</a>
+    
+      <a href="https://miuyou.github.io/tag/H8_sOUGQ-/"># 动态规划</a>
+    
+      <a href="https://miuyou.github.io/tag/YwKQwG2g8/"># 解题报告</a>
+    
+  </div>
+  <div class="nav">
+    <div class="nav-prev">
       
-        
-          
-        
-          
-        
-          
-        
+    </div>
+    <div class="nav-next">
       
-        
-          
-        
-          
-        
-          
-        
-      
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      
-        
-          
-        
-          
-        
-      
-        
-          
-            <a href="https://miuyou.github.io/post/tie-ma-luo-di-dong-tai-gui-hua-xian-duan-shu-you-hua-dp/">
-              <div class="motion-warpper">
-                <div class="tag-post-node">
-                  <h1>
-                    12-23
-                    <small>[铁马落地][动态规划][线段树优化DP]</small>
-                  </h1>
-                </div>  
-              </div>
-            </a>
-          
-        
-          
-        
-          
-        
-      
-        
-          
-        
-          
-            <a href="https://miuyou.github.io/post/hnoi2003-li-shi-nian-fen-dong-tai-gui-hua-xian-duan-shu-you-hua-jian-tu/">
-              <div class="motion-warpper">
-                <div class="tag-post-node">
-                  <h1>
-                    12-22
-                    <small>[HNOI2003历史年份][动态规划][线段树优化建图]</small>
-                  </h1>
-                </div>  
-              </div>
-            </a>
-          
-        
-          
-        
-          
-        
-      
-        
-          
-        
-          
-        
-          
-        
-      
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-          
-        
-          
-        
-      
-        
-      
-        
-          
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-          
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-      
-        
-      
-        
-          
-        
-      
-        
-      
-        
-          
-        
-      
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
+        <a class="nav-pc-next" title="[yyy&#39;s love IV][线段树DP]" href="https://miuyou.github.io/post/yyys-love-ivxian-duan-shu-dp/">[yyy&#39;s love IV][线段树DP]</a>
+        <a class="nav-mobile-next" title="[yyy&#39;s love IV][线段树DP]" href="https://miuyou.github.io/post/yyys-love-ivxian-duan-shu-dp/">下一篇</a>
+        <i class="fa fa-chevron-right"></i>
       
     </div>
   </div>
 </div>
-                  </section>
-                </div>
-              </div>
+              
+                
+<script src="https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js"></script>
+<div id="vcomments" style="padding: 10px 0px 0px 0px"></div>
+<script>
+new Valine({
+    el: '#vcomments' ,
+    appId: 'UVcI62G7dqmkWxTmwgxAN1xh-gzGzoHsz',
+    appKey: 's0C5SjN0pyVIsikc0RQegRmN',
+    notify: 'true' === 'false', 
+    avatar:'', 
+    placeholder: '',
+    pageSize: '',
+    lang: 'zh-cn',
+    visitor: 'true' === 'true',
+    highlight: 'true' === 'true',
+    avatarForce: 'true' === 'false',
+});
+</script>
+              
+            </div>
           </div>
         </div>
       </div>

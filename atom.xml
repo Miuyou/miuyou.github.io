@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://miuyou.github.io/</id>
     <title>春待ち</title>
-    <updated>2020-12-27T15:48:03.905Z</updated>
+    <updated>2020-12-29T08:25:09.546Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://miuyou.github.io/"/>
     <link rel="self" href="https://miuyou.github.io/atom.xml"/>
@@ -10,6 +10,69 @@
     <logo>https://miuyou.github.io/images/avatar.png</logo>
     <icon>https://miuyou.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 春待ち</rights>
+    <entry>
+        <title type="html"><![CDATA[[SDOI2007游戏][字符串][HASH]]]></title>
+        <id>https://miuyou.github.io/post/sdoi2007-you-xi-zi-fu-chuan-hash/</id>
+        <link href="https://miuyou.github.io/post/sdoi2007-you-xi-zi-fu-chuan-hash/">
+        </link>
+        <updated>2020-12-29T08:21:05.000Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li><a href="https://www.luogu.com.cn/problem/P2462">P2462 [SDOI2007]游戏</a></li>
+</ul>
+<p>简单题,要咋做就咋做就行了,给他hash一下分层DP</p>
+<pre><code class="language-cpp">
+n=1;
+	while(~scanf(&quot;%s&quot;,ss+1)){
+		
+		a[n].len=strlen(ss+1);
+		for(int i=1;i&lt;=a[n].len;++i)a[n].s[i]=ss[i];
+		++n;
+	}--n;
+	sort(a+1,a+1+n);
+	int len=a[1].len;
+	pw[0]=1ll;
+	for(int i=1;i&lt;=100;++i)pw[i]=pw[i-1]*base%mod;
+	int tp=1;
+	for(int i=1;i&lt;=n&amp;&amp;a[i].len==len;++i){
+		f[i]=1;
+		insert(i);++tp;
+	}
+	if(tp==n+1){
+		cout&lt;&lt;1&lt;&lt;endl;
+		cout&lt;&lt;a[1].s&lt;&lt;endl;
+	}else{
+		for(int i=tp;i&lt;=n;i=tp){
+			for(tp=i;tp&lt;=n&amp;&amp;a[tp].len==a[i].len;++tp){
+				int x=get(tp);
+				int y=x;
+				f[tp]=1;
+				for(int j=1;j&lt;=a[tp].len;++j){
+					x=((y-pw[a[tp].s[j]-'a'])%mod+mod)%mod;
+					if(g[x]){
+						if(ha[x]+1&gt;f[tp]){
+							f[tp]=ha[x]+1;
+							nex[tp]=g[x];
+						}
+					}
+				}
+			}memset(ha,0,sizeof(ha));memset(g,0,sizeof(g));
+			for(int j=i;j&lt;tp;++j){
+				insert(j);
+			} 
+		}
+		int pt=1;
+		for(int i=1;i&lt;=n;++i){
+			if(f[i]&gt;f[pt]){
+				pt=i;
+			}
+		}
+		cout&lt;&lt;f[pt]&lt;&lt;endl;
+		dfs(pt);
+	}	
+
+    ```</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[[yyy's love IV][线段树DP]]]></title>
         <id>https://miuyou.github.io/post/yyys-love-ivxian-duan-shu-dp/</id>
@@ -707,121 +770,6 @@ int main(){
 		puts(&quot;&quot;);
 	}
 
-
-</code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[[NOI2013][动态规划][大模拟]]]></title>
-        <id>https://miuyou.github.io/post/noi2013dong-tai-gui-hua-da-mo-ni/</id>
-        <link href="https://miuyou.github.io/post/noi2013dong-tai-gui-hua-da-mo-ni/">
-        </link>
-        <updated>2020-12-21T11:05:29.000Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li><a href="https://www.luogu.com.cn/problem/P1398">P1398 [NOI2013]书法家</a></li>
-</ul>
-<p>属实脑瘫,不知道为啥挂掉了,最后提交了题解代码<br>
-暴力DP,细节无数,以后闲着没事可以看看,还是有可取之处的</p>
-<pre><code class="language-cpp">
-for(int i=1;i&lt;=n;++i){
-		for(int j=1;j&lt;=m;++j){
-			rd(b[i][j]);
-			sum[i][j]=sum[i-1][j]+b[i][j];
-		}
-	}
-	for(int i=0;i&lt;=8;++i)for(int j=0;j&lt;=150;++j)for(int k=0;k&lt;=150;++k)f[0][i][j][k]=INF;
-	for(int i=0;i&lt;=150;++i)for(int j=0;j&lt;=150;++j)a[i][j]=INF;
-	int now,pre,nex;
-	now=1;
-	pre=0;
-	nex=2;
-	int ans=INF;
-	for(int k=1;k&lt;=m;++k){
-		for(int i=1;i&lt;=n;++i){
-			for(int j=i+1;j&lt;=n;++j){
-				f[now][0][i][j]=max(f[pre][0][i][j],0)+sum[j][k]-sum[i-1][k];
-			}
-		}
-		for(int i=1;i&lt;=n;++i){
-			a[1][i]=f[pre][1][1][i];
-			for(int j=2;j&lt;=i;++j){
-				a[j][i]=max(a[j-1][i],f[pre][1][j][i]);
-			}
-		}
-		
-		for(int i=1;i&lt;=n;++i){
-			f[now][1][i][i]=max(a[i][i],a[i-1][i-1])+b[i][k];
-			for(int j=i+1;j&lt;=n;++j){
-				f[now][1][i][j]=max(f[now][1][i][j-1]+sum[j][k]-sum[j-1][k],a[i][j]+sum[j][k]-sum[i-1][k]);
-			}
-		}
-
-		for(int i=1;i&lt;n;++i){
-			int mx=INF;
-			for(int j=n-1;j&gt;=i;--j){
-				mx=max(mx,f[pre][0][i][j+1]);
-				f[now][1][i][j]=max(f[now][1][i][j],mx+sum[j][k]-sum[i-1][k]);
-			}
-		}
-		for(int i=2;i&lt;=n;++i){
-			int mx=INF;
-			for(int j=i-1;j;--j){
-				mx=max(mx,f[pre][1][j+1][i]);
-				f[now][2][j][i]=max(f[pre][2][j][i],mx)+sum[i][k]-sum[j-1][k];
-			}
-		}
-
-
-		int mx=INF;
-		if(k!=1){
-			for(int i=2;i&lt;=n;++i){
-				for(int j=i-1;j;--j){
-					mx=max(mx,f[nex][2][j][i]);
-				}
-			}
-		}
-		for(int i=1;i+1&lt;n;++i){
-			for(int j=i+2;j&lt;=n;++j){
-				f[now][3][i][j]=mx+sum[j][k]-sum[i-1][k];
-				f[now][4][i][j]=max(f[pre][3][i][j],f[pre][4][i][j])+b[i][k]+b[j][k];
-				f[now][5][i][j]=f[pre][4][i][j]+sum[j][k]-sum[i-1][k];
-			}
-		}
-
-
-		mx=INF;
-		if(k!=1){
-			for(int i=1;i+1&lt;n;++i){
-				for(int j=i+2;j&lt;=n;++j){
-					mx=max(mx,f[nex][5][i][j]);
-				}
-			}
-		}
-		for(int i=1;i+1&lt;n;++i){
-			for(int j=i+2;j&lt;=n;++j){
-				f[now][6][i][j]=max(mx,f[pre][6][i][j])+b[i][k]+b[j][k];
-				f[now][7][i][j]=max(f[pre][6][i][j],f[pre][7][i][j])+sum[j][k]-sum[i-1][k];
-				f[now][8][i][j]=max(f[pre][7][i][j],f[pre][8][i][j])+b[i][k]+b[j][k];
-				
-				ans=max(ans,f[now][8][i][j]);
-			}
-		}
-		/*for(int z=0;z&lt;9;z++){
-        	for(int i=0;i&lt;=n;i++){
-         	   for(int j=0;j&lt;=n;j++){
-                cout&lt;&lt;f[now][z][i][j]&lt;&lt;&quot; &quot;;
-        	    }cout&lt;&lt;endl;
-       	 	}cout&lt;&lt;endl;
-   		 } 
-		cout&lt;&lt;&quot;  !!!!  &quot;&lt;&lt;endl;*/
-		++now;
-		++pre;
-		++nex;
-		if(now&gt;=3)now=0;
-		if(pre&gt;=3)pre=0;
-		if(nex&gt;=3)nex=0;
-	}
-	cout&lt;&lt;ans&lt;&lt;endl;
 
 </code></pre>
 ]]></content>
