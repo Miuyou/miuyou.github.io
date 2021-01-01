@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8"/>
+      <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="开端顺利 自这天起 离乡背井 等候春息  身处何地 等候春息">
 <meta name="theme-color" content="#000">
-<title>APIO 系列 | 春待ち</title>
+<title>春待ち</title>
 <link rel="shortcut icon" href="https://miuyou.github.io//favicon.ico?v=1609474887545">
 <link rel="stylesheet" href="https://miuyou.github.io//styles/main.css">
 
@@ -25,8 +25,6 @@
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
     onload="renderMathInElement(document.body);"></script>
 
-    <meta name="description" content="APIO 系列" />
-    <meta name="keywords" content="" />
   </head>
   <body>
     <div class="head-top-line"></div>
@@ -116,25 +114,10 @@
     </div>
     <div class="main-continer">
       
-      <div class="section-layout muse bg-color">
+      <div class="section-layout bg-color muse">
         <div class="section-layout-wrapper">
-          
-
-<div class="sidebar">
-  
-    <div class="sidebar-box box-shadow-wrapper  right-motion" id="sidebar">
-      
-        <div class="post-list-sidebar">
-          <div class="sidebar-title">
-            <span id="tocSideBar" class="sidebar-title-item sidebar-title-active">文章目录</span>
-            <span id="metaSideBar" class="sidebar-title-item">站点概览</span>
-          </div>
-        </div>
-      
-      <div class="sidebar-body muse" id="sidebar_body">
-        
-          
-            
+          <div class="sidebar">
+    
 <div class="sidebar-wrapper box-shadow-wrapper ">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="https://miuyou.github.io//images/avatar.png"/>
@@ -167,211 +150,254 @@
 
 
 </div>
+</div>
+            <div class="section-box tag-line">
+              <div class="box-shadow-wrapper">
+                <div class="bg-color">
+                  <section class="section posts-expand">
+                    <div class="padding-wrapper">
+  <div class="tag-timeline-box">
+    <div class="tag-timeline-wrapper">
+      <div class="tag-timeline-title">
+        <h2>
+          数据结构
+          <small>标签</small>
+        </h2>
+      </div>
+      
+        
           
         
-      </div>
-    </div>
-  
-</div>
-<script>
-  const SIDEBAR_TITLE_ACTIVE = 'sidebar-title-active';
-  const SIDEBAR_BODY_ACTIVE = 'sidebar-body-active';
-  const SLIDE_UP_IN = 'slide-up-in';
-
-  let sidebar = document.querySelector('#sidebar'),
-  tocSideBar = document.querySelector('#tocSideBar'),
-  metaSideBar = document.querySelector('#metaSideBar'),
-  postToc = document.querySelector('#post_toc'),
-  postSiteMeta = document.querySelector('#post_side_meta'),
-  sidebarTitle = document.querySelector('.sidebar-title'),
-  sidebarBody = document.querySelector('#sidebar_body');
-
-  tocSideBar && tocSideBar.addEventListener('click', (e) => {
-    toggleSidebar(e);
-  });
-
-  metaSideBar && metaSideBar.addEventListener('click', (e) => {
-    toggleSidebar(e);
-  });
-
-  function toggleSidebar(e) {
-    let currentTitle = document.querySelector("."+SIDEBAR_TITLE_ACTIVE);
-    if (currentTitle == e.srcElement) {
-      return ;
-    }
-    let current, showElement, hideElement;
-    if (e.srcElement == metaSideBar) {
-      showElement = postSiteMeta;
-      hideElement = postToc;
-    } else if (e.srcElement == tocSideBar){
-      showElement = postToc;
-      hideElement = postSiteMeta;
-    }
-    currentTitle.classList.remove(SIDEBAR_TITLE_ACTIVE);
-    e.srcElement.classList.add(SIDEBAR_TITLE_ACTIVE);
-
-    window.Velocity(hideElement, 'stop');
-    window.Velocity(hideElement, 'transition.slideUpOut', {
-      display: 'none',
-      duration: 200,
-      complete: function () {
-        window.Velocity(showElement, 'transition.slideDownIn', {
-          duration: 200
-        });
-      }
-    })
-    hideElement.classList.remove(SIDEBAR_BODY_ACTIVE);
-    showElement.classList.add(SIDEBAR_BODY_ACTIVE);
-  }
-
-  postToc && postToc.addEventListener('transitionend', function() {
-    this.classList.remove(SLIDE_UP_IN);
-  });
-
-  if (sidebarBody) {
-    if (sidebarBody.classList.contains('pisces') || sidebarBody.classList.contains('gemini')) {
-      let hasFix = false;
-      let scrollEl = document.querySelector('.main-continer');
-      let limitTop = document.querySelector('#nav_ul').children.length * 42 + 162;
-      window.addEventListener('scroll', function(e) {
-        if (document.scrollingElement.scrollTop >= limitTop) {
-          if (!hasFix) {
-            sidebar.classList.add('sidebar-fixed');
-            hasFix = true;
-          }
-        } else {
-          if (hasFix) {
-            sidebar.classList.remove('sidebar-fixed');
-            hasFix = false;
-          }
-        }
-      });
-    }
-  }
-  
-</script>
-          <div class="section-box box-shadow-wrapper">
-            <div class="section bg-color post post-page">
-              <header class="post-header">
-  <h1 class="post-title">
-    <a class="post-title-link" href="https://miuyou.github.io/post/apio-xi-lie/">
-      APIO 系列
-    </a>
-  </h1>
-  <div class="post-meta">
-    
-    <span class="meta-item pc-show">
-      <i class="fa fa-calendar-o"></i>
-      <span>发布于</span>
-      <span>2020-08-21</span>
-      <span class="post-meta-divider pc-show">|</span>
-    </span>
-    
-    <span class="meta-item">
-      <i class="fa fa-clock-o"></i>
-      <span>1分钟</span>
-    </span>
-    <span class="meta-item">
-      <span class="post-meta-divider">|</span>
-      <i class="fa fa-file-word-o"></i>
-      <span>260<span class="pc-show">字数</span></span>
-    </span>
-    
-      <span id="/post/apio-xi-lie/" class="meta-item pc-show leancloud_visitors">
-        <span class="post-meta-divider">|</span>
-        <i class="fa fa-eye"></i>
-        <span>浏览量：<span class="leancloud-visitors-count" ></span></span>
-      </span>
-    
-  </div>
-</header>
-              <div class="post-body next-md-body" id="post_body">
-                <figure data-type="image" tabindex="1"><img src="https://miuyou.github.io//post-images/1598023464067.jpg" alt="" loading="lazy"></figure>
-<!-- more -->
-<p>2020年</p>
-<ul>
-<li>
-<p><a href="https://loj.ac/problem/3145">P5443 [APIO2019]桥梁</a><br>
-首先给定的是一张图,重量带修改且在图上询问<br>
-给的数据范围一看就非常恶臭<br>
-遇事不决,大力分块<br>
-之前块的修改可以直接改在图上面<br>
-考虑到对于每一块我们能给他分配<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>N</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(N)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mclose">)</span></span></span></span>的时间,那么对于每一条询问我们都可以遍历所有可能影响到当前询问的边,在做完这种修改后要撤回</p>
-</li>
-<li>
-<p><a href="https://loj.ac/problem/3144">P5444 [APIO2019]奇怪装置</a><br>
-通过观察可以发现<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>x</mi><mo separator="true">,</mo><mi>y</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">(x,y)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mclose">)</span></span></span></span>存在循环节<br>
-进一步分析循环节长度<br>
-大力分析一波即可</p>
-</li>
-<li>
-<p><a href="https://loj.ac/problem/3146">P5445 [APIO2019]路灯</a></p>
-</li>
-<li>
-<p>首先告诉我们的是边的状态，但是这道题要解决的是点与点的关系<br>
-对于每条边的修改，维护每个点的可到达的左右端点<br>
-然后维护俩连通序列的连通信息，转化为平面问题，用树套树解决<br>
-做矩阵差分，线段树套BIT</p>
-</li>
-</ul>
-
+          
+            <a href="https://miuyou.github.io/post/sdoi2011-dao-dan-lan-jie-cdqdp/">
+              <div class="motion-warpper">
+                <div class="tag-post-node">
+                  <h1>
+                    01-01
+                    <small>[SDOI2011导弹拦截][CDQ][DP]</small>
+                  </h1>
+                </div>  
               </div>
-              <div class="post-footer">
-  <ul class="post-copyright">
-    <li class="post-copyright-author">
-      <strong>本文作者：</strong>
-      春待ち
-    </li>
-    <li class="post-copyright-link">
-      <strong>本文链接：</strong>
-      <a href="https://miuyou.github.io/post/apio-xi-lie/" title="APIO 系列">APIO 系列</a>
-    </li>
-    <li class="post-copyright-license">
-      <strong>版权声明： </strong>
-      本博客所有文章除特别声明外，转载请注明出处！
-    </li>
-  </ul>
-  <div class="tags">
-    
-  </div>
-  <div class="nav">
-    <div class="nav-prev">
+            </a>
+          
+        
+          
+        
+          
+        
       
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="瞎吉尔组合" href="https://miuyou.github.io/post/xia-ji-er-zu-he/">瞎吉尔组合</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="瞎吉尔组合" href="https://miuyou.github.io/post/xia-ji-er-zu-he/">上一篇</a>
+        
+          
+        
+          
+        
+          
+        
+          
+        
       
-    </div>
-    <div class="nav-next">
+        
+          
+        
+          
+        
+          
+        
       
-        <a class="nav-pc-next" title="近期作业" href="https://miuyou.github.io/post/jin-qi-zuo-ye/">近期作业</a>
-        <a class="nav-mobile-next" title="近期作业" href="https://miuyou.github.io/post/jin-qi-zuo-ye/">下一篇</a>
-        <i class="fa fa-chevron-right"></i>
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
       
     </div>
   </div>
 </div>
-              
-                
-<script src="https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js"></script>
-<div id="vcomments" style="padding: 10px 0px 0px 0px"></div>
-<script>
-new Valine({
-    el: '#vcomments' ,
-    appId: 'UVcI62G7dqmkWxTmwgxAN1xh-gzGzoHsz',
-    appKey: 's0C5SjN0pyVIsikc0RQegRmN',
-    notify: 'true' === 'false', 
-    avatar:'', 
-    placeholder: '',
-    pageSize: '',
-    lang: 'zh-cn',
-    visitor: 'true' === 'true',
-    highlight: 'true' === 'true',
-    avatarForce: 'true' === 'false',
-});
-</script>
-              
-            </div>
+                  </section>
+                </div>
+              </div>
           </div>
         </div>
       </div>
