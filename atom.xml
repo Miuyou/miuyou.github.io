@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://miuyou.github.io/</id>
     <title>春待ち</title>
-    <updated>2021-01-01T04:21:54.134Z</updated>
+    <updated>2021-01-09T07:46:14.872Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://miuyou.github.io/"/>
     <link rel="self" href="https://miuyou.github.io/atom.xml"/>
@@ -10,6 +10,60 @@
     <logo>https://miuyou.github.io/images/avatar.png</logo>
     <icon>https://miuyou.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, 春待ち</rights>
+    <entry>
+        <title type="html"><![CDATA[[CF600E][启发式合并]]]></title>
+        <id>https://miuyou.github.io/post/cf600eqi-fa-shi-he-bing/</id>
+        <link href="https://miuyou.github.io/post/cf600eqi-fa-shi-he-bing/">
+        </link>
+        <updated>2021-01-09T07:44:58.000Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li><a href="https://www.luogu.com.cn/problem/CF600E">CF600E Lomsat gelral</a></li>
+</ul>
+<p>我是弟弟<br>
+这都写错</p>
+<pre><code class="language-cpp">
+inline void work(int x,int fa,int z){
+   // cout&lt;&lt;x&lt;&lt;&quot;  &quot;&lt;&lt;fa&lt;&lt;endl;
+    ++sum[a[x]];
+    if(sum[a[x]]&gt;top){
+        num=0;
+        top=sum[a[x]];
+        num=a[x];
+    }else if(sum[a[x]]==top){
+        num+=a[x];
+    }
+    for(int i=firs[x];i;i=nex[i]){
+        int y=to[i];
+        if(y==fa||y==z)continue;
+        work(y,x,z);
+    }
+}
+inline void init(int x,int fa){
+    --sum[a[x]];
+    for(int i=firs[x];i;i=nex[i]){
+        int y=to[i];
+        if(y==fa)continue;
+        init(y,x);
+    }
+}
+inline void dfs(int x,int fa){
+    for(int i=firs[x];i;i=nex[i]){
+        int y=to[i];
+        if(y==fa||y==son[x])continue;
+        dfs(y,x);
+        init(y,x);
+        num=top=0;
+    }
+    if(son[x]){
+        dfs(son[x],x);
+    }
+    work(x,fa,son[x]);
+    ans[x]=num;
+}
+
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[[SDOI2011导弹拦截][CDQ][DP]]]></title>
         <id>https://miuyou.github.io/post/sdoi2011-dao-dan-lan-jie-cdqdp/</id>
@@ -683,103 +737,6 @@ int main(){
 	ans=(ans+work())%p;
 	ans=1ll*ans*ksm(m+1,p-2)%p;
 	cout&lt;&lt;ans&lt;&lt;endl;
-}
-
-</code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[[铁马落地][动态规划][线段树优化DP]]]></title>
-        <id>https://miuyou.github.io/post/tie-ma-luo-di-dong-tai-gui-hua-xian-duan-shu-you-hua-dp/</id>
-        <link href="https://miuyou.github.io/post/tie-ma-luo-di-dong-tai-gui-hua-xian-duan-shu-you-hua-dp/">
-        </link>
-        <updated>2020-12-22T16:53:31.000Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li><a href="https://www.luogu.com.cn/problem/P1442">P1442 铁球落地</a></li>
-</ul>
-<p>先弄一个假假的想法,发现影响复杂的是快速找到下一层,那么从下往上线段树区间覆盖就好了....</p>
-<pre><code class="language-cpp">
-struct SpringWait{
-	int h,l,r;
-}a[N];
-inline bool operator &lt;(SpringWait a,SpringWait b){
-	return a.h&lt;b.h;
-}
-int t[N],num;
-int f[N],g[N],ls[N],rs[N],flag[N&lt;&lt;2];
-inline void pushdown(int k){
-	if(flag[k]){
-		flag[k&lt;&lt;1]=flag[k];
-		flag[k&lt;&lt;1|1]=flag[k];
-		flag[k]=0;
-	}
-}
-inline int query(int k,int l,int r,int x){
-	if(l==r)return flag[k];
-	pushdown(k);
-	int mid=(l+r)&gt;&gt;1;
-	if(x&lt;=mid)return query(k&lt;&lt;1,l,mid,x);
-	else return query(k&lt;&lt;1|1,mid+1,r,x);
-}
-inline void update(int k,int l,int r,int L,int R,int x){
-	if(L&lt;=l&amp;&amp;r&lt;=R){
-		flag[k]=x;
-	}else{
-		int mid=(l+r)&gt;&gt;1;
-		if(L&lt;=mid)update(k&lt;&lt;1,l,mid,L,R,x);
-		if(R&gt;mid)update(k&lt;&lt;1|1,mid+1,r,L,R,x);
-	}
-}
-int main(){
-	rd(n);rd(h);
-	int x,y;
-	rd(x);rd(y);
-	for(int i=1;i&lt;=n;++i){
-		rd(a[i].h);rd(a[i].l);rd(a[i].r);
-		t[++num]=a[i].l;
-		t[++num]=a[i].r;
-	}
-	++n;
-	a[n].l=a[n].r=x;
-	a[n].h=y;
-	t[++num]=x;
-	sort(a+1,a+1+n);
-	sort(t+1,t+1+num);
-	//num=unique(t+1,t+1+num)-t-1;
-	for(int i=1;i&lt;=n;++i){
-		a[i].l=lower_bound(t+1,t+1+num,a[i].l)-t;
-		a[i].r=lower_bound(t+1,t+1+num,a[i].r)-t;
-	}
-	for(int i=1;i&lt;=n;++i){
-		ls[i]=query(1,1,num,a[i].l);
-		rs[i]=query(1,1,num,a[i].r);
-		update(1,1,num,a[i].l,a[i].r,i);
-	}
-	memset(f,0x3f,sizeof(f));
-	memset(g,0x3f,sizeof(g));
-	f[0]=g[0]=0;
-	for(int i=1;i&lt;=n;++i){
-		if(a[i].h-a[ls[i]].h&lt;=h){
-			if(ls[i]){
-				f[i]=min(f[i],f[ls[i]]+t[a[i].l]-t[a[ls[i]].l]+a[i].h-a[ls[i]].h);
-				f[i]=min(f[i],g[ls[i]]-t[a[i].l]+t[a[ls[i]].r]+a[i].h-a[ls[i]].h);
-			}else{
-				f[i]=a[i].h;
-			}
-		}
-
-		if(a[i].h-a[rs[i]].h&lt;=h){
-			if(rs[i]){
-				g[i]=min(g[i],f[rs[i]]+t[a[i].r]-t[a[rs[i]].l]+a[i].h-a[rs[i]].h);
-				g[i]=min(g[i],g[rs[i]]-t[a[i].r]+t[a[rs[i]].r]+a[i].h-a[rs[i]].h);
-			}else{
-				g[i]=a[i].h;
-			}
-		}
-	}
-	printf(&quot;%d\n&quot;,min(f[n],g[n]));
-	system(&quot;Pause&quot;);
-	return 0;
 }
 
 </code></pre>
